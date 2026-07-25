@@ -40,6 +40,13 @@ const COL_VIDEO_VALIDATED_DATE = 27; // 1-indexed column AA
 export const STATUS_MAP: Record<string, string> = {
   valide: "validé",
   a_refaire: "à refaire",
+  // Used by restore-asset.ts when un-archiving a card -- clears the
+  // status back to a neutral "not yet reviewed" state rather than
+  // leaving a stale "à refaire" in the sheet after the item's been
+  // restored. Deliberately does NOT stamp a validated-date column below
+  // (see the assetType branch) -- "restored to pending" isn't a
+  // validation event worth timestamping.
+  en_attente: "",
 };
 
 export function normalizeUrl(url: string): string {
@@ -63,10 +70,12 @@ export async function writeImagesIaStatus(productUrl: string, statusKey: string,
     if (row && row.length > COL_URL - 1 && normalizeUrl(row[COL_URL - 1] || "") === target) {
       const rowNumber = i + 1;
       await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_STATUS, sheetValue);
-      if (assetType === "image") {
-        await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_IMAGE_VALIDATED_DATE, nowIso());
-      } else if (assetType === "video") {
-        await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_VIDEO_VALIDATED_DATE, nowIso());
+      if (statusKey !== "en_attente") {
+        if (assetType === "image") {
+          await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_IMAGE_VALIDATED_DATE, nowIso());
+        } else if (assetType === "video") {
+          await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_VIDEO_VALIDATED_DATE, nowIso());
+        }
       }
       return rowNumber;
     }

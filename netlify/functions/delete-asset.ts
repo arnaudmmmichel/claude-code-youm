@@ -1,6 +1,6 @@
 /**
  * POST /api/delete-asset
- *   { media_path: string, sidecar_paths: string[], product_url?: string }
+ *   { media_path: string, source_json_path?: string, html_path?: string, product_url?: string }
  *
  * Fully-automated replacement for the AI Image/AI Vidéo tabs' old
  * "À refaire" flow, which used to show a copy-pasteable `rm` command for
@@ -21,8 +21,16 @@
  *   - media_path is ARCHIVED (moved to output/youm_paris/_archive/<path>),
  *     not hard-deleted -- Arnaud asked to keep a real backup of the actual
  *     image/video, not just a text record, in case a click was a mistake.
- *   - sidecar_paths (the .html detail page + .source.json, typically 2
- *     entries) are HARD-DELETED -- cheap to regenerate, not worth archiving.
+ *   - source_json_path is ALSO ARCHIVED (moved alongside the media file)
+ *     as of 2026-07-25 -- previously hard-deleted, but that made the "À
+ *     refaire" filter view impossible to build meaningfully (no title/
+ *     product link survived for an archived card). The sidecar is small,
+ *     cheap to keep, and is exactly the metadata restore-asset.ts and the
+ *     manifest's archived-item scan need.
+ *   - html_path (the detail page) is still HARD-DELETED -- it's a
+ *     regenerable webpage, not data; keeping it out of _archive/ avoids
+ *     ever serving a stale detail page for an archived card. Restoring an
+ *     item does NOT regenerate it (see restore-asset.ts).
  *   - Any path that doesn't exist (404 from GitHub) is skipped, not an
  *     error -- e.g. a card with no detail page still deletes cleanly.
  *   - If product_url is given, also writes "à refaire" into the "images
@@ -30,9 +38,9 @@
  *     second round-trip from the client).
  *   - Triggers the build hook once at the end, after all file operations
  *     and the sheet write succeed -- the resulting rebuild's manifest scan
- *     excludes _archive/ (see generate_manifest.py) and any card missing
- *     its .html/.source.json, so the card disappears from the dashboard
- *     with no manual step.
+ *     picks up the archived pair under _archive/ (see generate_manifest.py's
+ *     scan_archived_assets()) so the "À refaire" filter shows it, while it
+ *     disappears from the normal tab view with no manual step.
  */
 
 import type { Handler } from "@netlify/functions";
@@ -54,14 +62,14 @@ export const handler: Handler = async (event) => {
     return { statusCode: 405, body: JSON.stringify({ ok: false, error: "Method not allowed" }) };
   }
 
-  let body: { media_path?: string; sidecar_paths?: string[]; product_url?: string };
+  let body: { media_path?: string; source_json_path?: string; html_path?: string; product_url?: string };
   try {
     body = JSON.parse(event.body || "{}");
   } catch {
     return { statusCode: 400, body: JSON.stringify({ ok: false, error: "Invalid JSON body" }) };
   }
 
-  const { media_path, sidecar_paths, product_url } = body;
+  const { media_path, source_json_path, html_path, product_url } = body;
   if (!media_path) {
     return { statusCode: 400, body: JSON.stringify({ ok: false, error: "media_path is required" }) };
   }
@@ -73,12 +81,22 @@ export const handler: Handler = async (event) => {
       `Archive ${media_path} (à refaire)`
     );
 
-    const deletedSidecars: string[] = [];
-    for (const sidecarPath of sidecar_paths || []) {
-      const file = await getRepoFile(`${OUTPUT_ROOT}/${sidecarPath}`);
-      if (!file) continue; // already absent -- not an error, nothing to do
-      await deleteRepoFile(`${OUTPUT_ROOT}/${sidecarPath}`, file.sha, `Delete ${sidecarPath} (à refaire)`);
-      deletedSidecars.push(sidecarPath);
+    let sourceJsonArchived = false;
+    if (source_json_path) {
+      sourceJsonArchived = await moveRepoFile(
+        `${OUTPUT_ROOT}/${source_json_path}`,
+        `${OUTPUT_ROOT}/_archive/${source_json_path}`,
+        `Archive ${source_json_path} (à refaire)`
+      );
+    }
+
+    let htmlDeleted = false;
+    if (html_path) {
+      const file = await getRepoFile(`${OUTPUT_ROOT}/${html_path}`);
+      if (file) {
+        await deleteRepoFile(`${OUTPUT_ROOT}/${html_path}`, file.sha, `Delete ${html_path} (à refaire)`);
+        htmlDeleted = true;
+      }
     }
 
     let sheetRowNumber: number | null = null;
@@ -93,7 +111,8 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify({
         ok: true,
         archived,
-        deleted_sidecars: deletedSidecars,
+        source_json_archived: sourceJsonArchived,
+        html_deleted: htmlDeleted,
         sheet_matched: sheetRowNumber !== null,
         sheet_row_number: sheetRowNumber,
       }),

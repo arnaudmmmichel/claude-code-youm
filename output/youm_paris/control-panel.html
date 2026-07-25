@@ -399,6 +399,7 @@
       <option value="all">Toutes les images</option>
       <option value="pending">En attente</option>
       <option value="posted">Validées</option>
+      <option value="refused">À refaire</option>
     </select>
     <select class="filter-select" id="aiImageSeasonFilterSelect">
       <option value="all">Toutes les saisons</option>
@@ -420,6 +421,7 @@
       <option value="all">Toutes les vidéos</option>
       <option value="pending">En attente</option>
       <option value="posted">Validées</option>
+      <option value="refused">À refaire</option>
     </select>
     <button class="regenerate-btn" onclick="toggleRegenPopover()">⟳ Régénérer le manifeste</button>
     <button class="refresh-btn" onclick="location.reload()">↻ Recharger</button>
@@ -580,10 +582,10 @@
   // parameterized by which manifest key + filter/posted state it reads.
   const MEDIA_TABS = {
     instagram: { manifestKey: 'posts', filterSelect: 'filterSelect', emptyHint: 'Aucun post Instagram généré.<br><br>Lancer <code>cloudinary-instagram-image-youm</code> pour en créer un, puis régénérer le manifeste.' },
-    ai_image: { manifestKey: 'ai_images', filterSelect: 'aiImageFilterSelect', emptyHint: 'Aucune image AI générée.<br><br>Lancer <code>youm-ai-model-image</code> pour en créer une, puis régénérer le manifeste.' },
-    ai_video: { manifestKey: 'ai_videos', filterSelect: 'aiVideoFilterSelect', emptyHint: 'Aucune vidéo AI générée.<br><br>Lancer <code>youm-ai-model-video</code> pour en créer une, puis régénérer le manifeste.' },
+    ai_image: { manifestKey: 'ai_images', archivedKey: 'ai_images_archived', filterSelect: 'aiImageFilterSelect', emptyHint: 'Aucune image AI générée.<br><br>Lancer <code>youm-ai-model-image</code> pour en créer une, puis régénérer le manifeste.' },
+    ai_video: { manifestKey: 'ai_videos', archivedKey: 'ai_videos_archived', filterSelect: 'aiVideoFilterSelect', emptyHint: 'Aucune vidéo AI générée.<br><br>Lancer <code>youm-ai-model-video</code> pour en créer une, puis régénérer le manifeste.' },
   };
-  let manifest = { posts: [], ai_images: [], ai_videos: [] };
+  let manifest = { posts: [], ai_images: [], ai_videos: [], ai_images_archived: [], ai_videos_archived: [] };
   let seoManifest = window.__SEO_MANIFEST__ || { keywords: [], articles: [], articles_in_progress_count: 0, site_findings: [] };
   let seoKeywordsExpanded = false;
   let pins = loadPins();
@@ -911,15 +913,16 @@
     // generate_manifest.py already relies on. detail_page (the .html) is
     // already computed by that same scanner and may be null if none exists.
     const base = filename.replace(/\.[^./]+$/, '');
-    const sidecarPaths = [`${base}.source.json`];
-    if (entry && entry.detail_page) sidecarPaths.push(entry.detail_page);
+    const sourceJsonPath = `${base}.source.json`;
+    const htmlPath = entry && entry.detail_page ? entry.detail_page : null;
 
     fetch(`${YOUM_SERVER_BASE}/api/delete-asset`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         media_path: filename,
-        sidecar_paths: sidecarPaths,
+        source_json_path: sourceJsonPath,
+        html_path: htmlPath,
         product_url: entry ? entry.product_url : null,
       }),
     })
@@ -937,6 +940,35 @@
         btn.disabled = false;
         btn.textContent = 'Marquer à refaire (réessayer)';
         showStatusToast('Échec de la mise à jour — réessayez.', 'timeout');
+        hideStatusToast(4000);
+      });
+  }
+
+  // Reverses confirmRefaire()'s archive action — moves the media file +
+  // .source.json sidecar back to their original location via
+  // restore-asset.ts, clears the sheet status to "en attente". No
+  // confirmation modal (undoing an archive isn't destructive the way
+  // archiving is) but still uses the same two-stage toast, since the
+  // rebuild still takes real time before the card actually reappears in
+  // its normal tab.
+  function restoreAsset(archivedFilename, originalFilename, originalSourceJson, productUrl) {
+    showStatusToast('Restauration en cours…', 'pending');
+    fetch(`${YOUM_SERVER_BASE}/api/restore-asset`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        media_path: originalFilename,
+        source_json_path: originalSourceJson,
+        product_url: productUrl,
+      }),
+    })
+      .then(r => r.json())
+      .then(data => {
+        if (!data.ok) throw new Error(data.error || 'Unknown error');
+        waitForRebuildThenNotify('manifest.js', () => render());
+      })
+      .catch(() => {
+        showStatusToast('Échec de la restauration — réessayez.', 'timeout');
         hideStatusToast(4000);
       });
   }
@@ -970,7 +1002,16 @@
   }
 
   function visibleMediaPosts(tabKey) {
-    const list = manifest[MEDIA_TABS[tabKey].manifestKey] || [];
+    // "À refaire" sources from a completely different manifest array
+    // (server-confirmed archived state, scanned from output/youm_paris/
+    // _archive/ by generate_manifest.py's scan_archived_assets()) rather
+    // than the normal list filtered by a localStorage flag — an archived
+    // item was never tracked in state.deleted/state.posted to begin with.
+    const tabConfig = MEDIA_TABS[tabKey];
+    if (currentFilter === 'refused' && tabConfig.archivedKey) {
+      return manifest[tabConfig.archivedKey] || [];
+    }
+    const list = manifest[tabConfig.manifestKey] || [];
     return list.filter(p => {
       if (state.deleted[p.filename]) return false;
       if (currentFilter === 'pending' && state.posted[p.filename]) return false;
@@ -1091,23 +1132,35 @@
   function renderMediaTab(tabKey) {
     const tabConfig = MEDIA_TABS[tabKey];
     const isAiTab = tabKey === 'ai_image' || tabKey === 'ai_video';
+    const isArchivedView = currentFilter === 'refused' && !!tabConfig.archivedKey;
     const posts = visibleMediaPosts(tabKey);
-    const fullList = manifest[tabConfig.manifestKey] || [];
-    const total = fullList.filter(p => !state.deleted[p.filename]).length;
-    const postedCount = fullList.filter(p => !state.deleted[p.filename] && state.posted[p.filename]).length;
-    const deletedCount = Object.keys(state.deleted).filter(f => fullList.some(p => p.filename === f)).length;
     const postedLabel = isAiTab ? 'Validés' : 'Publiés';
 
-    document.getElementById('statsBar').innerHTML = `
-      <span>Total : <strong>${total}</strong></span>
-      <span class="stat-posted">${postedLabel} : <strong>${postedCount}</strong></span>
-      <span>En attente : <strong>${total - postedCount}</strong></span>
-      <span class="stat-deleted">À supprimer : <strong>${deletedCount}</strong></span>
-    `;
+    if (isArchivedView) {
+      // Archived items aren't tracked in state.deleted/state.posted (a
+      // server-confirmed fact, not a local toggle) — the normal Total/
+      // Validés/En attente/À supprimer breakdown doesn't apply here.
+      document.getElementById('statsBar').innerHTML = `
+        <span>À refaire : <strong>${posts.length}</strong></span>
+      `;
+    } else {
+      const fullList = manifest[tabConfig.manifestKey] || [];
+      const total = fullList.filter(p => !state.deleted[p.filename]).length;
+      const postedCount = fullList.filter(p => !state.deleted[p.filename] && state.posted[p.filename]).length;
+      const deletedCount = Object.keys(state.deleted).filter(f => fullList.some(p => p.filename === f)).length;
+      document.getElementById('statsBar').innerHTML = `
+        <span>Total : <strong>${total}</strong></span>
+        <span class="stat-posted">${postedLabel} : <strong>${postedCount}</strong></span>
+        <span>En attente : <strong>${total - postedCount}</strong></span>
+        <span class="stat-deleted">À supprimer : <strong>${deletedCount}</strong></span>
+      `;
+    }
 
     const emptyEl = document.getElementById('emptyState');
     emptyEl.style.display = posts.length === 0 ? 'block' : 'none';
-    emptyEl.innerHTML = `${tabConfig.emptyHint}<br><br><code>python .claude/skills/youm-social-control-panel/scripts/generate_manifest.py</code>, puis "Recharger".`;
+    emptyEl.innerHTML = isArchivedView
+      ? 'Aucun élément marqué « à refaire » pour le moment.'
+      : `${tabConfig.emptyHint}<br><br><code>python .claude/skills/youm-social-control-panel/scripts/generate_manifest.py</code>, puis "Recharger".`;
 
     const gridEl = document.getElementById('gridView');
     const listEl = document.getElementById('listView');
@@ -1117,8 +1170,25 @@
     const deleteLabel = isAiTab ? 'À refaire' : 'Supprimer';
     const deleteHandler = isAiTab ? 'openRefaireModal' : 'queueDelete';
 
-    gridEl.innerHTML = posts.map(p => {
+    // Archived cards get a single "Restaurer" action instead of the
+    // normal Validé checkbox + À refaire button — there's nothing left to
+    // validate on an item already marked à refaire, and "à refaire" is
+    // already the state being shown.
+    function cardActionsHtml(p) {
+      if (p.archived) {
+        return `<button class="delete-btn" onclick="restoreAsset('${p.filename}', '${p.original_filename}', '${p.original_source_json}', ${p.product_url ? `'${p.product_url}'` : 'null'})">Restaurer</button>`;
+      }
       const isPosted = !!state.posted[p.filename];
+      return `
+        <label class="checkbox-label">
+          <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
+          Validé
+        </label>
+        <button class="delete-btn" onclick="${deleteHandler}('${p.filename}')">${deleteLabel}</button>`;
+    }
+
+    gridEl.innerHTML = posts.map(p => {
+      const isPosted = !p.archived && !!state.posted[p.filename];
       // Image previews are wrapped in a plain <a> (whole thumbnail
       // clickable). Video previews keep their native <video controls>
       // interactive — wrapping the whole area in <a> would fight with
@@ -1140,18 +1210,14 @@
             <div class="card-title">${escapeHtml(p.title)}</div>
             <div class="card-actions">
               <a class="open-link" href="${openFullTarget(p)}">Ouvrir</a>
-              <label class="checkbox-label">
-                <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
-                Validé
-              </label>
-              <button class="delete-btn" onclick="${deleteHandler}('${p.filename}')">${deleteLabel}</button>
+              ${cardActionsHtml(p)}
             </div>
           </div>
         </div>`;
     }).join('');
 
     listEl.innerHTML = posts.map(p => {
-      const isPosted = !!state.posted[p.filename];
+      const isPosted = !p.archived && !!state.posted[p.filename];
       return `
         <div class="list-row ${isPosted ? 'posted' : ''}">
           <div class="list-thumb">${makePreviewMedia(p, 'list-thumb')}</div>
@@ -1161,11 +1227,7 @@
           </div>
           <div class="list-actions">
             <a class="open-link" href="${openFullTarget(p)}">Ouvrir</a>
-            <label class="checkbox-label">
-              <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
-              Validé
-            </label>
-            <button class="delete-btn" onclick="${deleteHandler}('${p.filename}')">${deleteLabel}</button>
+            ${cardActionsHtml(p)}
           </div>
         </div>`;
     }).join('');

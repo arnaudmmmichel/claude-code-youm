@@ -219,6 +219,60 @@ def scan_ai_model_videos() -> list:
     return entries
 
 
+def scan_archived_assets(source_folder: str, reldir: str, extension: str, source_type: str) -> list:
+    """Scans output/youm_paris/_archive/{ai-model-images,ai-model-videos}/
+    for cards marked "à refaire" via delete-asset.ts -- added 2026-07-25 so
+    the AI Image/AI Vidéo "À refaire" filter option has real data to show,
+    instead of an item just vanishing forever with no review trail.
+
+    _archive/ was already invisible to scan_ai_model_images()/
+    scan_ai_model_videos() (os.listdir() is non-recursive, so a sibling
+    _archive/ subfolder was structurally never visited) -- this is a new
+    scan pointed AT that folder, not an exclusion added to the existing
+    ones.
+
+    Archived items no longer have an .html detail page (delete-asset.ts
+    hard-deletes it) -- detail_page is always None here. The .source.json
+    sidecar DOES survive (moved alongside the media as of 2026-07-25,
+    previously hard-deleted), so title/product_url/etc. are still real."""
+    entries = []
+    archive_folder = os.path.join(source_folder, "..", "_archive", reldir)
+    archive_folder = os.path.normpath(archive_folder)
+    if not os.path.isdir(archive_folder):
+        return entries
+    for filename in os.listdir(archive_folder):
+        if not filename.lower().endswith(extension):
+            continue
+        filepath = os.path.join(archive_folder, filename)
+        if not os.path.isfile(filepath):
+            continue
+        stat = os.stat(filepath)
+        sidecar = load_source_sidecar(filepath)
+        # "filename" is the path the browser must actually load the media
+        # from (under _archive/, its real current location) -- distinct
+        # from "original_filename", the pre-archive path restore-asset.ts
+        # needs to know where to move it BACK to. Conflating these two
+        # (an earlier version of this function did) breaks every archived
+        # card's <img>/<video> src, since it pointed at a path that no
+        # longer has a file there.
+        base_slug = os.path.splitext(filename)[0]
+        entries.append({
+            "filename": f"_archive/{reldir}/{filename}",
+            "original_filename": f"{reldir}/{filename}",
+            "original_source_json": f"{reldir}/{base_slug}.source.json",
+            "detail_page": None,
+            "title": sidecar.get("title") or title_from_slug(filename),
+            "type": "video" if extension == ".mp4" else "image",
+            "source_type": source_type,
+            "product_url": sidecar.get("product_url") if sidecar else None,
+            "archived": True,
+            "size_kb": round(stat.st_size / 1024, 1),
+            "created": datetime.fromtimestamp(stat.st_ctime).isoformat(),
+            "modified": datetime.fromtimestamp(stat.st_mtime).isoformat(),
+        })
+    return entries
+
+
 def scan_pinterest_article_pins() -> list:
     """One pin = one {slug}.png + one {slug}.html + one {slug}.source.json.
 
@@ -432,6 +486,14 @@ def main():
     ai_video_entries = scan_ai_model_videos()
     ai_video_entries.sort(key=lambda e: e["created"])
 
+    # "À refaire" filter data -- archived cards, separate arrays (not
+    # merged into ai_images/ai_videos with a flag) so the normal tab's
+    # total/posted counts never need to account for a mixed state.
+    ai_image_archived_entries = scan_archived_assets(AI_MODEL_IMAGES_FOLDER, "ai-model-images", ".jpg", "ai-model")
+    ai_image_archived_entries.sort(key=lambda e: e["modified"], reverse=True)
+    ai_video_archived_entries = scan_archived_assets(AI_MODEL_VIDEOS_FOLDER, "ai-model-videos", ".mp4", "ai-model-video")
+    ai_video_archived_entries.sort(key=lambda e: e["modified"], reverse=True)
+
     # Pinterest: article-tied and standalone text pins are no longer scanned
     # (Arnaud asked to keep only the 3 collage templates going forward,
     # 2026-07-23) — only one example article pin was kept on disk manually,
@@ -452,6 +514,8 @@ def main():
         "posts": instagram_entries,
         "ai_images": ai_image_entries,
         "ai_videos": ai_video_entries,
+        "ai_images_archived": ai_image_archived_entries,
+        "ai_videos_archived": ai_video_archived_entries,
         "pinterest_pins": pin_entries,
     }
 
@@ -470,6 +534,7 @@ def main():
     print(f"Wrote {len(ai_video_entries)} AI video(s).")
     for e in ai_video_entries:
         print(f"  - [{e['type']}] {e['filename']}  ({e['created'][:10]})")
+    print(f"Wrote {len(ai_image_archived_entries)} archived AI image(s) and {len(ai_video_archived_entries)} archived AI video(s) (À refaire filter).")
     print(f"Wrote {len(pin_entries)} scanned Pinterest pin(s) (collage templates; article/text kept only as manual leftovers on disk).")
     for e in pin_entries:
         print(f"  - [{e['source_type']}] {e['id']}  ({e['created'][:10]})")
