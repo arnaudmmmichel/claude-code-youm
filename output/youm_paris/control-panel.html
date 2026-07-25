@@ -139,7 +139,7 @@
   .card:hover { border-color: var(--accent); }
   .card.posted { opacity: 0.55; }
   .card.posted .preview-wrap::after {
-    content: '✓ PUBLIÉ';
+    content: '✓ VALIDÉ';
     position: absolute; inset: 0;
     background: rgba(28,24,20,0.5);
     display: flex; align-items: center; justify-content: center;
@@ -257,10 +257,38 @@
   .pin-card-url { font-size: 10.5px; color: var(--muted-dim); word-break: break-all; }
 
   /* ── SEO TAB ── */
-  .seo-section { margin-bottom: 36px; }
+  .seo-subnav {
+    position: sticky; top: 74px; z-index: 15;
+    display: flex; gap: 6px;
+    padding: 10px 32px; background: var(--cream-deep); border-bottom: 1px solid var(--border);
+  }
+  .seo-subnav button {
+    font-size: 12px; font-weight: 600; color: var(--muted); background: var(--cream);
+    border: 1px solid var(--border); border-radius: 6px; padding: 7px 14px; cursor: pointer;
+  }
+  .seo-subnav button:hover { border-color: var(--accent); }
+  .seo-subnav button.current { color: #fff; background: var(--accent); border-color: var(--accent); }
+  .seo-section { margin-bottom: 36px; scroll-margin-top: 135px; }
   .seo-section-title { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
   .seo-section-sub { font-size: 12px; color: var(--muted-dim); margin-bottom: 16px; }
   .seo-list { display: flex; flex-direction: column; gap: 10px; }
+
+  /* Compact keyword table (4 cols: mot-clé, recherches/mois, concurrence, statut) */
+  .seo-kw-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .seo-kw-table th {
+    text-align: left; font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--muted); background: var(--cream-deep); padding: 10px 14px; border-bottom: 1px solid var(--border);
+  }
+  .seo-kw-table td { font-size: 12.5px; color: var(--dark2); padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .seo-kw-table tr:last-child td { border-bottom: none; }
+  .seo-kw-table tr.validated td { color: var(--muted-dim); }
+  .seo-kw-table td.seo-kw-name { color: var(--dark); font-weight: 600; }
+  .seo-kw-table .validate-btn { padding: 5px 11px; font-size: 11px; }
+  .seo-show-more-btn {
+    display: block; width: 100%; margin-top: 10px; font-size: 12px; font-weight: 600; color: var(--accent);
+    background: var(--cream-deep); border: 1px dashed var(--border); border-radius: 8px; padding: 10px; cursor: pointer;
+  }
+  .seo-show-more-btn:hover { border-color: var(--accent); }
   .seo-row {
     display: flex; align-items: center; gap: 16px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
@@ -470,6 +498,12 @@
 
 <div class="stats-bar" id="statsBar"></div>
 
+<div class="seo-subnav" id="seoSubnav" style="display:none;">
+  <button onclick="scrollToSeoSection('seoSectionFindings')">Recommandations</button>
+  <button onclick="scrollToSeoSection('seoSectionKeywords')">Mots-clés</button>
+  <button onclick="scrollToSeoSection('seoSectionArticles')">Articles</button>
+</div>
+
 <main>
   <div id="pinNotice" class="pin-notice" style="display:none;">
     <strong>Pinterest.</strong> Cinq pipelines de génération existent : <code>cloudinary-pinterest-image-youm</code> (pin texte lié à un article, mise en page "question accroche"), <code>pinterest-text-pin-youm</code> (pin texte autonome, citation de marque sans article), <code>cloudinary-pinterest-collage-youm</code> (grille de photos produits), <code>cloudinary-pinterest-lifestyle-collage-youm</code> (1 produit mis en avant + photos IA lifestyle) et <code>cloudinary-pinterest-pairs-collage-youm</code> (2 produits, packshot + photo IA chacun). Les pins générés apparaissent automatiquement ci-dessous après régénération du manifeste. "+ Ajouter un pin" reste disponible pour tout pin créé manuellement en dehors de ces pipelines.
@@ -549,6 +583,7 @@
   };
   let manifest = { posts: [], ai_images: [], ai_videos: [] };
   let seoManifest = window.__SEO_MANIFEST__ || { keywords: [], articles: [], articles_in_progress_count: 0, site_findings: [] };
+  let seoKeywordsExpanded = false;
   let pins = loadPins();
   let state = loadState();
   // A ?tab= query param (used by overview.html's nav links) takes priority
@@ -597,6 +632,7 @@
     document.getElementById('aiVideoControls').style.display = platform === 'ai_video' ? 'flex' : 'none';
     document.getElementById('pinterestControls').style.display = platform === 'pinterest' ? 'flex' : 'none';
     document.getElementById('seoControls').style.display = platform === 'seo' ? 'flex' : 'none';
+    document.getElementById('seoSubnav').style.display = platform === 'seo' ? 'flex' : 'none';
     document.getElementById('pinNotice').style.display = platform === 'pinterest' ? 'block' : 'none';
     render();
   }
@@ -1278,6 +1314,16 @@
     return `<button class="validate-btn" onclick="validateSeoItem('${type}', '${id}', '${safeLabel}', this)">Valider</button>`;
   }
 
+  function toggleSeoKeywordsExpanded() {
+    seoKeywordsExpanded = !seoKeywordsExpanded;
+    renderSeo();
+  }
+
+  function scrollToSeoSection(sectionId) {
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
   function renderSeo() {
     document.getElementById('gridView').style.display = 'none';
     document.getElementById('listView').style.display = 'none';
@@ -1297,19 +1343,30 @@
       <span class="stat-posted">Validés par le client : <strong>${validatedCount}</strong> / ${totalCount}</span>
     `;
 
-    const keywordRows = keywords.length ? keywords.map(k => `
-      <div class="seo-row ${k.validation_status === 'validated' ? 'validated' : ''}">
-        <div class="seo-row-main">
-          <div class="seo-row-title">${escapeHtml(k.keyword)}</div>
-          <div class="seo-row-meta">
-            <span>Recherches/mois : ${escapeHtml(String(k.avg_monthly_searches || '—'))}</span>
-            <span>Concurrence : ${escapeHtml(k.competition || '—')}</span>
-            ${k.target_url ? `<span><a class="open-link" style="flex:none;padding:2px 8px;" href="${escapeHtml(k.target_url)}" target="_blank" rel="noopener">Page ciblée ↗</a></span>` : ''}
-          </div>
-        </div>
-        ${seoValidateButton('keyword', k.id, k.keyword, k.validation_status === 'validated')}
-      </div>
-    `).join('') : `<div class="empty-state">Aucun mot-clé pour le moment.<br><br>La recherche de mots-clés sera lancée prochainement.</div>`;
+    const KEYWORD_PAGE_SIZE = 15;
+    const visibleKeywords = seoKeywordsExpanded ? keywords : keywords.slice(0, KEYWORD_PAGE_SIZE);
+    const keywordRows = keywords.length ? `
+      <table class="seo-kw-table">
+        <thead>
+          <tr><th>Mot-clé</th><th>Recherches/mois</th><th>Concurrence</th><th>Statut</th></tr>
+        </thead>
+        <tbody>
+          ${visibleKeywords.map(k => `
+            <tr class="${k.validation_status === 'validated' ? 'validated' : ''}">
+              <td class="seo-kw-name">${escapeHtml(k.keyword)}${k.target_url ? ` <a class="open-link" style="display:inline;padding:1px 6px;font-size:10px;" href="${escapeHtml(k.target_url)}" target="_blank" rel="noopener">Page ↗</a>` : ''}</td>
+              <td>${escapeHtml(String(k.avg_monthly_searches || '—'))}</td>
+              <td>${escapeHtml(k.competition || '—')}</td>
+              <td>${seoValidateButton('keyword', k.id, k.keyword, k.validation_status === 'validated')}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+      ${keywords.length > KEYWORD_PAGE_SIZE ? `
+        <button class="seo-show-more-btn" onclick="toggleSeoKeywordsExpanded()">
+          ${seoKeywordsExpanded ? 'Voir moins' : `Voir plus (${keywords.length - KEYWORD_PAGE_SIZE} de plus)`}
+        </button>
+      ` : ''}
+    ` : `<div class="empty-state">Aucun mot-clé pour le moment.<br><br>La recherche de mots-clés sera lancée prochainement.</div>`;
 
     const articleRows = articles.length ? articles.map(a => `
       <div class="seo-row ${a.validation_status === 'validated' ? 'validated' : ''}">
@@ -1346,21 +1403,21 @@
     const seoEl = document.getElementById('seoView');
     seoEl.style.display = 'block';
     seoEl.innerHTML = `
-      <div class="seo-section">
+      <div class="seo-section" id="seoSectionFindings">
+        <div class="seo-section-title">Recommandations pour le site</div>
+        <div class="seo-section-sub">Les axes d'amélioration identifiés lors du dernier audit du site.</div>
+        <div class="seo-list">${findingRows}</div>
+      </div>
+      <div class="seo-section" id="seoSectionKeywords">
         <div class="seo-section-title">Mots-clés ciblés</div>
         <div class="seo-section-sub">Les mots-clés recherchés pour attirer les bonnes visiteuses vers le site.</div>
-        <div class="seo-list">${keywordRows}</div>
+        ${keywordRows}
       </div>
-      <div class="seo-section">
+      <div class="seo-section" id="seoSectionArticles">
         <div class="seo-section-title">Articles optimisés</div>
         <div class="seo-section-sub">Les articles de blog déjà travaillés pour le référencement (titre, description, structure).</div>
         <div class="seo-list">${articleRows}</div>
         ${articleFooter}
-      </div>
-      <div class="seo-section">
-        <div class="seo-section-title">Recommandations pour le site</div>
-        <div class="seo-section-sub">Les axes d'amélioration identifiés lors du dernier audit du site.</div>
-        <div class="seo-list">${findingRows}</div>
       </div>
     `;
   }
