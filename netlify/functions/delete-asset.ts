@@ -40,6 +40,14 @@ import { moveRepoFile, getRepoFile, deleteRepoFile, triggerRebuild } from "./_li
 import { writeImagesIaStatus } from "./update-status";
 
 const OUTPUT_ROOT = "output/youm_paris";
+const VIDEO_EXTENSIONS = [".mp4"];
+
+/** Derived from the file extension rather than a separate client-sent
+ * field -- one less thing for the caller to get wrong, and the extension
+ * is already an unambiguous source of truth for image vs video. */
+function assetTypeFromPath(path: string): "image" | "video" {
+  return VIDEO_EXTENSIONS.some(ext => path.toLowerCase().endsWith(ext)) ? "video" : "image";
+}
 
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -75,7 +83,7 @@ export const handler: Handler = async (event) => {
 
     let sheetRowNumber: number | null = null;
     if (product_url) {
-      sheetRowNumber = await writeImagesIaStatus(product_url, "a_refaire");
+      sheetRowNumber = await writeImagesIaStatus(product_url, "a_refaire", assetTypeFromPath(media_path));
     }
 
     await triggerRebuild();

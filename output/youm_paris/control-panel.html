@@ -815,11 +815,15 @@
     if (!serverAvailable) return;
     const entry = findAiManifestEntry(filename);
     if (!entry || !entry.product_url) return;
+    // Determines which of the "images IA" sheet's two dedicated timestamp
+    // columns (Image validé date / Video validé date) gets stamped —
+    // same extension-based rule as delete-asset.ts's assetTypeFromPath().
+    const assetType = filename.toLowerCase().endsWith('.mp4') ? 'video' : 'image';
     showStatusToast('Mise à jour en cours…', 'pending');
     fetch(`${YOUM_SERVER_BASE}/api/update-status`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ product_url: entry.product_url, status: statusKey }),
+      body: JSON.stringify({ product_url: entry.product_url, status: statusKey, asset_type: assetType }),
     })
       .then(() => waitForRebuildThenNotify('manifest.js'))
       .catch(() => hideStatusToast(0));
