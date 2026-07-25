@@ -78,8 +78,25 @@ export async function getAllValues(sheetId: string, tabName: string): Promise<st
 
 /** Writes a single cell, 1-indexed row/col -- same convention as gspread's
  * update_cell(row, col, value) used by the Python scripts this ports. */
+/** Converts a 1-indexed column number to its spreadsheet letter(s) --
+ * A=1 ... Z=26, AA=27, AB=28, etc. Confirmed broken for col>26 2026-07-25:
+ * the previous single-letter-only formula (String.fromCharCode(64+col))
+ * produced a non-letter character for column 27 ("[") when the "Video
+ * validé date" column was added at that position, causing every write to
+ * it to fail with a range-parse error from the Sheets API. */
+function columnLetter(col: number): string {
+  let result = "";
+  let n = col;
+  while (n > 0) {
+    const remainder = (n - 1) % 26;
+    result = String.fromCharCode(65 + remainder) + result;
+    n = Math.floor((n - 1) / 26);
+  }
+  return result;
+}
+
 export async function updateCell(sheetId: string, tabName: string, row: number, col: number, value: string): Promise<void> {
-  const colLetter = String.fromCharCode(64 + col);
+  const colLetter = columnLetter(col);
   const range = encodeURIComponent(`'${tabName}'!${colLetter}${row}`);
   await authedFetch(`${SHEETS_API_BASE}/${sheetId}/values/${range}?valueInputOption=USER_ENTERED`, {
     method: "PUT",
@@ -100,7 +117,7 @@ export async function ensureTabExists(sheetId: string, tabName: string, header: 
     method: "POST",
     body: JSON.stringify({ requests: [{ addSheet: { properties: { title: tabName } } }] }),
   });
-  const lastCol = String.fromCharCode(64 + header.length);
+  const lastCol = columnLetter(header.length);
   const range = encodeURIComponent(`'${tabName}'!A1:${lastCol}1`);
   await authedFetch(`${SHEETS_API_BASE}/${sheetId}/values/${range}?valueInputOption=USER_ENTERED`, {
     method: "PUT",
