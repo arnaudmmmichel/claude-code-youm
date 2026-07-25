@@ -24,5 +24,14 @@
   status = 200
   force = true
 
+# The bare domain has no index.html (only control-panel.html/overview.html
+# exist) -- without this, / 404s (confirmed 2026-07-25). Sends visitors to
+# Overview, which is the intended entry point (it links out to every other
+# tab) rather than landing directly on one specific tab.
+[[redirects]]
+  from = "/"
+  to = "/overview.html"
+  status = 302
+
 [build.environment]
   PYTHON_VERSION = "3.12"
