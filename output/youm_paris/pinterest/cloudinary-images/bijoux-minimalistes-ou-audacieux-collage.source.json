@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/42-bijoux-minimalistes-ou-audacieux.html",
+  "pin_title": "Bijoux minimalistes ou audacieux : quel style vous ressemble ?",
+  "pin_description": "Joncs épurés en nacre, créoles en malachite, boucles en cornaline… minimaliste ou affirmé, chaque style a ses atouts. Découvrez comment choisir — ou conjuguer les deux. youm-paris.com",
+  "board": "Style & Bijoux",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-minimalistes-ou-audacieux",
+  "hook": "Sobre ou affirmé ?",
+  "label": "Trouvez le bijou qui vous ressemble vraiment.",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "alt": "Jonc Théo doré nacre",
+      "public_id": "youm/pinterest-collage-products/bijoux-minimalistes-ou-audacieux-0-8c029ca620"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-packshot-youm.jpg?v=1771517262",
+      "alt": "Boucles Niagara agate noire",
+      "public_id": "youm/pinterest-collage-products/bijoux-minimalistes-ou-audacieux-1-e189c648c0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340",
+      "alt": "Boucles asymétriques nacre et onyx",
+      "public_id": "youm/pinterest-collage-products/bijoux-minimalistes-ou-audacieux-2-4f1cb0d7c6"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucle_d_oreilles_asymetrique_nacre_youm_bijoux.jpg?v=1724081674",
+      "alt": "Boucles asymétriques nacre et onyx portées",
+      "public_id": "youm/pinterest-collage-products/bijoux-minimalistes-ou-audacieux-3-196bda3962"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "alt": "Boucles Aure cornaline et aventurine",
+      "public_id": "youm/pinterest-collage-products/bijoux-minimalistes-ou-audacieux-4-cc0e2df655"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-malachite-packshoy.jpg?v=1770393637",
+      "alt": "Créoles Lucky trèfle malachite",
+      "public_id": "youm/pinterest-collage-products/bijoux-minimalistes-ou-audacieux-5-ea2cac56f0"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-minimalistes-ou-audacieux-0-8c029ca620,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-minimalistes-ou-audacieux-1-e189c648c0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-minimalistes-ou-audacieux-2-4f1cb0d7c6,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-minimalistes-ou-audacieux-3-196bda3962,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-minimalistes-ou-audacieux-4-cc0e2df655,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-minimalistes-ou-audacieux-5-ea2cac56f0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:STYLE%20%26%20BIJOUX,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Sobre%20ou%20affirm%C3%A9%20%3F,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Trouvez%20le%20bijou%20qui%20vous%20ressemble%20vraiment.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

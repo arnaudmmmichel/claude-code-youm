@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:bijoux-dore",
+  "pin_title": "Bijoux dorés à l'or fin 24 carats — Collection Youm Paris",
+  "pin_description": "Boucles d'oreilles, bracelets et colliers en laiton doré à l'or fin 24 carats, assemblés à la main à Paris. Des pièces élégantes pour sublimer le quotidien. À découvrir sur youm-paris.com",
+  "board": "Bijoux dorés Paris",
+  "dest_url": "https://youm-paris.com/collections/bijoux-dore",
+  "hook": "L'or fin, fait à Paris",
+  "label": "Pièces dorées 24 carats, assemblées à la main.",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-jonc-bambou-dore-packshot.jpg?v=1773591575",
+      "alt": "Jonc Bambou doré",
+      "public_id": "youm/pinterest-collage-products/bijoux-dore-0-b5443c14b5"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "alt": "Collier Léon - Chaîne dorée large",
+      "public_id": "youm/pinterest-collage-products/bijoux-dore-1-18312aecc0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-malo-grand-rond-dore-packshot.jpg?v=1774706546",
+      "alt": "Boucles d'oreilles Malo - Grand cercle doré",
+      "public_id": "youm/pinterest-collage-products/bijoux-dore-2-8a603f6c32"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-eliott-grand-rectangle-dore-packshot.jpg?v=1774706957",
+      "alt": "Boucles d'oreilles Eliott - Grand rectangle doré",
+      "public_id": "youm/pinterest-collage-products/bijoux-dore-3-12368e625d"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-mail-petit-rectangle-dore-packshot.jpg?v=1774707286",
+      "alt": "Boucles d'oreilles Maïl - Petit rectangle doré",
+      "public_id": "youm/pinterest-collage-products/bijoux-dore-4-eb0c79555d"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-tiago-rond-dore-packshot.jpg?v=1774706487",
+      "alt": "Boucles d'oreilles Tiago - Petit cercle doré",
+      "public_id": "youm/pinterest-collage-products/bijoux-dore-5-6eb32d305a"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-dore-0-b5443c14b5,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dore-1-18312aecc0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dore-2-8a603f6c32,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dore-3-12368e625d,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dore-4-eb0c79555d,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dore-5-6eb32d305a,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20DOR%C3%89S%20PARIS,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:L%27or%20fin%252C%20fait%20%C3%A0%20Paris,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Pi%C3%A8ces%20dor%C3%A9es%2024%20carats%252C%20assembl%C3%A9es%20%C3%A0%20la%20main.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

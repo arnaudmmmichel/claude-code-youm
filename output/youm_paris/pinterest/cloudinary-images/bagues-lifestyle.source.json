@@ -1,0 +1,27 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:bagues",
+  "pin_title": "Bague pierre naturelle dorée à l'or fin 24 carats — Youm Paris",
+  "pin_description": "Une bague en laiton doré à l'or fin 24 carats, ornée de malachite verte intense. Assemblée à la main à Paris, en série limitée. Découvrez la collection bagues sur youm-paris.com",
+  "board": "Bagues Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/collections/bagues",
+  "hook": "La pierre qui change tout.",
+  "label": "Malachite & or fin — l'élégance au naturel.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/bague-pierre-sia-cornaline",
+      "img1": "https://youm-paris.com/cdn/shop/files/bague_doree_cornaline_face_youm_bijoux.jpg?v=1770391482",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863471/Youm-Paris/lmmhm5npexmkt5j1jrfr.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bagues-0-creative-1b93a8d383"
+    },
+    {
+      "url": "https://youm-paris.com/products/bague-sia-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/files/bague_doree_malachite_sia_packshot_youm_bijoux.jpg?v=1770391681",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863569/Youm-Paris/wlwpoh86ts63beyvng7n.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bagues-1-creative-3ee120c241"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bagues-0-creative-1b93a8d383,w_473,h_502,c_thumb,g_center/g_north,x_-240,y_967,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bagues-1-creative-3ee120c241,w_946,h_753,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_text:Arial_18_bold:BAGUES%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_82/l_text:Arial_34_bold:La%20pierre%20qui%20change%20tout.,co_rgb:1c1814,g_center,y_128,w_820,c_fit/l_text:Arial_19_bold:Malachite%20%26%20or%20fin%20%E2%80%94%20l%27%C3%A9l%C3%A9gance%20au%20naturel.,co_rgb:5a4a3a,g_center,y_178,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

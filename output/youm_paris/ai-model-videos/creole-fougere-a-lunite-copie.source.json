@@ -1,0 +1,14 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1783497023/Youm-Paris/peec9trjozh5yhxussjw.jpg",
+  "slug": "creole-fougere-a-lunite-copie",
+  "prompt": "A real smartphone video of a woman smirking and walking dynamically with natural movements, in natural light, with her 2 earings, in silence (no talking). Shot on iPhone, 4k, shaky camera movement, natural lighting, unedited look, candid and spontaneous, vertical video style, no professional lighting, realistic skin textures, realistic movement. No bikini or swimsuit.",
+  "prompt_source": "auto-detected 'earrings' from slug",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1784924149/youm/ai-model-videos/creole-fougere-a-lunite-copie.mp4",
+  "caption_instagram": "Une créole, portée à l'unité — ce détail qui change tout. Façonnée en laiton doré à l'or fin 24 carats par nos artisans parisiens, elle s'adapte à chaque style, chaque humeur, chaque jour. Découvrez la créole fougère sur youm-paris.com\n\n#youmparis #shinewithyoum #creoles #bijouparis #orfinparis",
+  "caption_tiktok": "Une seule créole. Tout le caractère. 🌿✨ La créole fougère à l'unité, dorée à l'or fin 24 carats — portez-la comme vous l'entendez.\n\n#youmparis #shinewithyoum #creole #bijoux #asymetrique",
+  "caption_youtube_title": "Créole fougère à l'unité — Youm Paris",
+  "caption_youtube_description": "La créole fougère portée à l'unité : un choix assumé, une élégance qui n'appartient qu'à vous. Façonnée en laiton doré à l'or fin 24 carats par des artisans parisiens, cette créole se porte seule pour affirmer votre style avec sobriété et caractère. Retrouvez cette pièce et toutes nos créations sur youm-paris.com."
+}

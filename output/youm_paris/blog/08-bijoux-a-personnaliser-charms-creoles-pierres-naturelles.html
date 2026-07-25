@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#personnalisation-bijoux">Pourquoi personnaliser ses bijoux ?</a></li>
+      <li><a href="#comprendre-charms">Comprendre les charms : de quoi parle-t-on ?</a></li>
+      <li><a href="#creoles-a-composer">Les créoles à composer : une signature visuelle immédiate</a></li>
+      <li><a href="#pierres-naturelles-choix">Choisir ses pierres naturelles selon sa personnalité</a></li>
+      <li><a href="#colliers-bracelets-personnalises">Colliers et bracelets à personnaliser : la formule gagnante</a></li>
+      <li><a href="#conseils-pratiques">8 conseils pour composer votre bijou personnalisé</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Il y a quelque chose de particulier dans l'idée de porter un bijou que l'on a soi-même composé — une pierre choisie pour sa couleur, un charm ajouté pour sa signification, une créole construite pièce par pièce selon ses envies du moment. Les bijoux personnalisés avec des charms et des pierres naturelles répondent à ce désir profond de singularité, sans sacrifier l'élégance ni la cohérence du style. Chez Youm, fondée à Paris en 2017 par Youmna, la personnalisation n'est pas un argument de vente parmi d'autres : c'est une philosophie qui traverse l'ensemble de la collection, des créoles à composer aux colliers et bracelets charms. Cet article vous guide pas à pas pour comprendre comment tirer le meilleur parti de ces pièces modulables, et assembler un bijou véritablement à votre image.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="personnalisation-bijoux">Pourquoi personnaliser ses bijoux ?</h2>
+
+<p>La tendance au bijou personnalisé ne relève pas du simple caprice stylistique. Elle exprime quelque chose de plus profond : la volonté de ne pas ressembler à tout le monde, de porter un objet qui raconte quelque chose de soi, que ce soit une couleur préférée, une pierre choisie pour sa résonance, ou simplement une combinaison que personne d'autre ne portera exactement de la même façon. Dans un paysage où la mode est souvent uniforme, le bijou devient l'un des derniers espaces d'expression vraiment personnelle.</p>
+
+<p>Ce mouvement vers la personnalisation a également transformé la façon d'acheter des bijoux. Là où l'on cherchait autrefois une pièce finie, parfaite telle quelle, on recherche désormais une base de qualité que l'on va habiller, enrichir, faire évoluer au fil du temps. Les charms, les pierres naturelles et les créoles à composer répondent précisément à cette attente : ils offrent un point de départ artisanal, que vous pouvez décliner à l'infini selon votre humeur ou l'occasion.</p>
+
+<p>Chez Youm, cette logique est intégrée dès la conception des pièces. Chaque modèle pensé pour être composé est conçu pour s'assembler avec cohérence — les proportions, les matières, les finitions en laiton doré à l'or fin 24 carats se répondent d'une pièce à l'autre, ce qui garantit un résultat harmonieux même lorsque la combinaison est entièrement personnelle.</p>
+
+<h2 id="comprendre-charms">Comprendre les charms : de quoi parle-t-on ?</h2>
+
+<p>Un charm est un élément décoratif indépendant — une forme géométrique, une pierre sertie, une perle, un motif graphique — que l'on vient accrocher ou glisser sur une base existante : une créole, un collier, un bracelet. La richesse du système tient à sa modularité : un même charm peut transformer radicalement l'allure d'une pièce sobre, ou au contraire apporter une note subtile à une composition déjà construite.</p>
+
+<p>Chez Youm, les charms sont travaillés en laiton doré à l'or fin 24 carats, avec une dorure réalisée chez un artisan à Paris. Certains intègrent des pierres naturelles — amazonite, malachite, agate, quartz rose, aventurine — dont les couleurs franches créent immédiatement un point focal dans la tenue. D'autres jouent sur la texture de la nacre ou le grain singulier du galuchat pour apporter du relief sans ostentation.</p>
+
+<p>Ce qu'il faut retenir : un charm bien choisi ne s'ajoute pas à un bijou, il le révèle. C'est la différence entre une créole dorée sobre et une créole dorée qui dit quelque chose. La composition reste légère, mais elle prend un caractère que la pièce seule ne possédait pas.</p>
+
+<blockquote><p>Un charm bien choisi ne s'ajoute pas à un bijou — il le révèle.</p></blockquote>
+
+<h2 id="creoles-a-composer">Les créoles à composer : une signature visuelle immédiate</h2>
+
+<p>Les créoles sont la base idéale pour expérimenter la personnalisation. Leur forme ouverte ou semi-ouverte offre un espace naturel pour y glisser des éléments supplémentaires, sans alourdir l'ensemble. Une créole dorée épurée peut ainsi devenir une pièce affirmée dès lors que l'on y accroche un charm en pierre naturelle ou une perle baroque.</p>
+
+<p>Chez Youm, <a href="https://youm-paris.com/collections/creoles-a-personnaliser">nos créoles à personnaliser</a> sont conçues spécifiquement pour cet usage. Le modèle Catherine — disponible en version petit et grand — en est l'exemple le plus polyvalent : sa ligne sobre et sa dorure à l'or fin 24 carats en font une base qui s'adapte à tous les styles, du plus délicat au plus graphique. La <a href="https://youm-paris.com/products/creoles-a-composer-catherine-mini">créole Catherine mini à composer</a> est particulièrement appréciée pour les looks superposés, où l'on joue sur les tailles et les matières en même temps.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/creoles-a-composer-catherine-mini"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-packshot.jpg?v=1773660043" alt="créole Catherine mini à composer" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/creoles-a-composer-catherine-mini">créole Catherine mini à composer</a></figcaption></figure><figure><a href="https://youm-paris.com/products/creoles-a-composer-catherine-mini"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-portees.heic?v=1773660070" alt="créole Catherine mini à composer" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/creoles-a-composer-catherine-mini">créole Catherine mini à composer</a></figcaption></figure><figure><a href="https://youm-paris.com/products/creoles-a-composer-catherine-mini"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-detail-pose.jpg?v=1773660128" alt="créole Catherine mini à composer" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/creoles-a-composer-catherine-mini">créole Catherine mini à composer</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594" alt="Boucles Doreilles Creoles Jane Perle Ronde" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">Boucles Doreilles Creoles Jane Perle Ronde</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucle-doreille-creole-aigue-marine-julia"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-julia-doree-charms-pierres-packshot-421.jpg?v=1775649259" alt="Boucle Doreille Creole Aigue Marine Julia" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucle-doreille-creole-aigue-marine-julia">Boucle Doreille Creole Aigue Marine Julia</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-malachite-packshoy.jpg?v=1770393637" alt="Boucles Doreilles Creoles Malachite Lucky" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky">Boucles Doreilles Creoles Malachite Lucky</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucle-doreille-creole-aventurine-nina"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-nina-doree-charms-packshot-411.jpg?v=1775648556" alt="Boucle Doreille Creole Aventurine Nina" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucle-doreille-creole-aventurine-nina">Boucle Doreille Creole Aventurine Nina</a></figcaption></figure></div>
+
+<p>Ce qui rend les créoles à composer particulièrement intéressantes, c'est leur capacité à évoluer avec vous. Une même base portée avec un charm en malachite le matin peut accueillir une perle blanche pour un dîner — sans changer de boucles d'oreilles. C'est une économie de style, mais aussi une façon de ne jamais paraître répétitive.</p>
+
+<h2 id="pierres-naturelles-choix">Choisir ses pierres naturelles selon sa personnalité</h2>
+
+<p>Les pierres naturelles sont au cœur de la proposition Youm. Chaque pierre possède une couleur, un grain, une façon de capter la lumière qui lui est propre. Comprendre les grandes familles de pierres permet de choisir avec intention, et non par hasard.</p>
+
+<p>L'<strong>amazonite</strong> séduit par son bleu-vert doux et profond, idéal pour apporter une touche de couleur sur une tenue neutre. La <strong>malachite</strong> est plus affirmée — ses verts intenses et ses veines naturelles en font une pierre immédiatement reconnaissable, que l'on retrouve sur des pièces comme les <a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">boucles Marine Malachite</a>. L'<strong>agate</strong> — disponible en version noire, bleue, rouge ou verte — offre une palette plus sobre, parfaite pour les compositions graphiques. Le <strong>quartz rose</strong> apporte une féminité délicate sans excès de douceur, notamment dans les <a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">boucles Marine Quartz rose</a>. L'<strong>aventurine</strong>, enfin, joue sur les reflets dorés inscrits dans la pierre elle-même — une façon d'amplifier l'éclat de la dorure sans en rajouter.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912" alt="boucles Marine Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">boucles Marine Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059" alt="boucles Marine Quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">boucles Marine Quartz rose</a></figcaption></figure></div>
+
+<p>Pour les compositions personnalisées, le principe est simple : partez de la couleur dominante de votre garde-robe. Si vous portez beaucoup de tons neutres — blanc cassé, beige, gris — les pierres colorées comme l'amazonite ou la malachite fonctionneront comme des accents lumineux. Si votre palette est déjà riche, misez sur une pierre plus sobre — agate noire, nacre, galuchat — qui affirme sans saturer.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pierre naturelle</th>
+      <th>Teinte dominante</th>
+      <th>Idéal pour</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amazonite</td>
+      <td>Bleu-vert doux</td>
+      <td>Tenues neutres, looks printaniers</td>
+    </tr>
+    <tr>
+      <td>Malachite</td>
+      <td>Vert intense veiné</td>
+      <td>Accent coloré fort, look affirmé</td>
+    </tr>
+    <tr>
+      <td>Agate noire</td>
+      <td>Noir profond</td>
+      <td>Style graphique, tenues formelles</td>
+    </tr>
+    <tr>
+      <td>Quartz rose</td>
+      <td>Rose pâle translucide</td>
+      <td>Féminité délicate, soirée</td>
+    </tr>
+    <tr>
+      <td>Aventurine</td>
+      <td>Vert doré à reflets</td>
+      <td>Compositions lumineuses, quotidien</td>
+    </tr>
+    <tr>
+      <td>Nacre</td>
+      <td>Blanc irisé</td>
+      <td>Élégance sobre, polyvalence absolue</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="colliers-bracelets-personnalises">Colliers et bracelets à personnaliser : la formule gagnante</h2>
+
+<p>Si les créoles à composer sont souvent la première entrée dans l'univers de la personnalisation, les colliers et bracelets offrent un terrain d'expression tout aussi riche — et souvent plus visible. Un collier à charms se construit comme une phrase : chaque élément s'enchaîne avec le suivant, la longueur joue un rôle dans la hiérarchie visuelle, et l'ensemble doit trouver un équilibre entre ce qui accroche le regard et ce qui laisse respirer.</p>
+
+<p>Chez Youm, <a href="https://youm-paris.com/collections/colliers-a-composer">nos colliers et bracelets charms</a> sont pensés pour être portés en superposition ou comme pièce unique, selon l'envie. Un jonc comme le <a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Jonc Théo Malachite</a> peut se suffire à lui-même pour un poignet net et coloré, ou se combiner avec un jonc nacre pour un effet de matières superposées. La cohérence visuelle est assurée par la dorure à l'or fin 24 carats commune à toutes les pièces — ce qui permet de mélanger les pierres et les textures sans risque de dissonance.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Jonc Théo Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Jonc Théo Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-dore-theo-malachite-accumulation.jpg?v=1770394735" alt="Jonc Théo Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Jonc Théo Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/jonc-theo-dore-malachite-porte-poignet.jpg?v=1770394788" alt="Jonc Théo Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Jonc Théo Malachite</a></figcaption></figure></div>
+
+<p>Pour les colliers, le principe de la longueur est décisif. Un collier court — porté à la base du cou — attire l'attention vers le décolleté et convient parfaitement aux encolures dégagées. Un sautoir comme l'<a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">Audrey en perles blanches</a> tombe plus bas sur la poitrine et s'adapte aux tenues plus fermées, apportant une verticalité élégante. Superposer les deux longueurs crée immédiatement une composition personnalisée, même sans charm supplémentaire.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774" alt="Audrey en perles blanches" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">Audrey en perles blanches</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-sac-cadeau-65.jpg?v=1776274799" alt="Audrey en perles blanches" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">Audrey en perles blanches</a></figcaption></figure></div>
+
+<blockquote><p>Un collier à charms se construit comme une phrase : chaque élément s'enchaîne, et l'ensemble doit trouver son équilibre.</p></blockquote>
+
+<h2 id="conseils-pratiques">8 conseils pour composer votre bijou personnalisé</h2>
+
+<ul>
+  <li>Partez d'une base sobre en laiton doré à l'or fin 24 carats — elle s'associera à toutes vos pierres sans conflit visuel.</li>
+  <li>Choisissez une pierre principale qui dialogue avec la couleur dominante de votre tenue ou de votre garde-robe.</li>
+  <li>Limitez le nombre de pierres différentes à deux ou trois par composition pour conserver une lisibilité élégante.</li>
+  <li>Variez les textures plutôt que les couleurs : malachite + nacre + laiton brut, par exemple, crée du relief sans saturation chromatique.</li>
+  <li>Jouez sur les longueurs pour vos colliers : un ras-du-cou et un sautoir portés ensemble suffisent à personnaliser un look sans ajouter de charm.</li>
+  <li>Adaptez la taille des charms à celle du bijou support — un charm volumieux sur une créole fine crée un déséquilibre ; misez sur la proportionnalité.</li>
+  <li>Superposez les bracelets en alternant matières lisses et texturées : un jonc nacre avec un jonc aventurine, ou une manchette dorée avec un jonc sobre.</li>
+  <li>Composez vos bijoux avant de les porter — posez les pièces à plat, assemblez-les visuellement, et ajustez avant de les mettre.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes</h2>
+
+<h3>Comment choisir ses charms pour une créole Youm ?</h3>
+<p>Les charms Youm sont conçus pour s'associer aux créoles de la collection sans outil. Il suffit de choisir le charm selon la pierre ou la texture qui vous attire, puis de le glisser ou l'accrocher sur la créole. Pour une composition harmonieuse, privilégiez un charm dont la couleur répond à un autre élément de votre tenue ou de vos bijoux — cela crée une cohérence sans effort apparent.</p>
+
+<h3>Peut-on personnaliser les bijoux Youm si l'on a les oreilles non percées ?</h3>
+<p>Oui. La majorité des modèles de boucles d'oreilles Youm — y compris les créoles à composer — sont disponibles en version clips pour oreilles non percées. Le système de clip est discret côté face et offre un confort adapté au port prolongé. Retrouvez l'ensemble de <a href="https://youm-paris.com/collections/boucles-doreilles-clip">nos boucles d'oreilles clips</a> pour choisir le modèle adapté à vos oreilles.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucle-doreille-creole-aventurine-nina"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-nina-doree-charms-packshot-411.jpg?v=1775648556" alt="Créoles Nina aventurine" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucle-doreille-creole-aventurine-nina">Créoles Nina aventurine</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucle-doreille-creole-aigue-marine-julia"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-julia-doree-charms-pierres-packshot-421.jpg?v=1775649259" alt="Créoles Julia aigue-marine" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucle-doreille-creole-aigue-marine-julia">Créoles Julia aigue-marine</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-malachite-packshoy.jpg?v=1770393637" alt="Créoles Lucky malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky">Créoles Lucky malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/creole-doree-corail-eponge-et-perle-elisa"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-elisa-doree-pierres-packshot-467.jpg?v=1775649651" alt="Créoles Elisa corail éponge et perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/creole-doree-corail-eponge-et-perle-elisa">Créoles Elisa corail éponge et perle</a></figcaption></figure></div>
+
+<h3>Quelle est la différence entre les pierres naturelles utilisées chez Youm ?</h3>
+<p>Chaque pierre naturelle utilisée chez Youm est sélectionnée pour sa couleur, son grain et sa façon de capter la lumière. L'amazonite et l'agate bleue apportent des notes fraîches et apaisantes ; la malachite et l'aventurine jouent sur les verts intenses ou dorés ; le quartz rose et la nacre offrent une douceur lumineuse. Aucune pierre n'est teintée — leurs couleurs sont entièrement naturelles.</p>
+
+<h3>Les bijoux personnalisés Youm sont-ils adaptés en cadeau ?</h3>
+<p>Absolument. Les colliers et bracelets charms, ainsi que les créoles à composer, constituent des cadeaux particulièrement appréciés car ils laissent à la destinataire la liberté de personnaliser elle-même sa pièce. Chaque bijou Youm est livré dans un pochon individuel, prêt à offrir. Consultez <a href="https://youm-paris.com/collections/guide-cadeaux">notre guide cadeaux</a> pour trouver la pièce idéale selon le budget et le style.</p>
+
+<h3>Comment entretenir un bijou en laiton doré à l'or fin 24 carats avec charms et pierres naturelles ?</h3>
+<p>Les bijoux en laiton doré à l'or fin 24 carats se conservent au mieux à l'abri de l'humidité et des produits cosmétiques. Essuyez délicatement vos pièces avec un chiffon doux après le port. Les pierres naturelles, quant à elles, n'apprécient pas le contact prolongé avec l'eau ou les parfums. Retrouvez l'ensemble de nos <a href="https://youm-paris.com/pages/entretien">conseils d'entretien</a> pour préserver l'éclat de vos bijoux dans la durée.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Composez votre bijou personnalisé avec charms et pierres naturelles</h2>
+      <p class="cta-subtext">Créoles à personnaliser, colliers et bracelets charms, pierres naturelles sélectionnées à Paris — explorez nos pièces modulables et assemblez un bijou véritablement à votre image.</p>
+      <a href="https://youm-paris.com/collections/creoles-a-personnaliser" class="cta-button">Découvrir les bijoux à personnaliser</a>
+    </div>
+
+    
+    <!-- RELATED-ARTICLES -->
+    <div style="margin-top:48px;padding:32px 0;border-top:1px solid #e8e0d8;">
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1c1814;margin-bottom:20px;">À lire aussi</p>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/bijoux-personnaliser-charms-pierres-naturelles" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Bijoux à personnaliser avec charms et pierres naturelles</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/creoles-a-personnaliser-charms-pierres-naturelles" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Créoles à personnaliser avec charms : le guide complet</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/pierres-naturelles-bijoux-uniques-artisanaux" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Pourquoi les pierres naturelles rendent chaque bijou unique</a></li>
+      </ul>
+    </div>
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:nouveautes",
+  "pin_title": "Nouvelles créations Youm Paris — bijoux dorés à l'or fin 24 carats",
+  "pin_description": "Les dernières pièces signées Youm Paris : boucles d'oreilles, colliers et bracelets en laiton doré à l'or fin 24 carats, pierres naturelles et perles. Des créations originales, assemblées à la main, pour sublimer votre style au quotidien. Découvrez les nouveautés sur youm-paris.com",
+  "board": "Bijoux Nouveautés Paris",
+  "dest_url": "https://youm-paris.com/collections/nouveautes",
+  "hook": "Nouveaux bijoux à découvrir",
+  "label": "Dorure or 24 carats · Pierres naturelles · Paris",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "Boucles d'oreilles Jacinthe",
+      "public_id": "youm/pinterest-collage-products/nouveautes-0-fdecf96094"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890",
+      "alt": "Boucles d'oreilles Diego - Cercle doré & perle",
+      "public_id": "youm/pinterest-collage-products/nouveautes-1-9d8e851991"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-zenon-pierres-rutile-jaune-nacre-packshot.jpg?v=1772392900",
+      "alt": "Boucles d'oreilles Zenon - Rutile jaune & nacre blanche",
+      "public_id": "youm/pinterest-collage-products/nouveautes-2-58ebc412d3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636",
+      "alt": "Boucles d'oreilles Nils - Rectangle doré & perle",
+      "public_id": "youm/pinterest-collage-products/nouveautes-3-d4921d58b9"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-malo-grand-rond-dore-packshot.jpg?v=1774706546",
+      "alt": "Boucles d'oreilles Malo - Grand cercle doré",
+      "public_id": "youm/pinterest-collage-products/nouveautes-4-8a603f6c32"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-thomas-cercle-dore-nacre-blanche-packshot.jpg?v=1774709083",
+      "alt": "Boucles d'oreilles Thomas - Cercle doré & nacre",
+      "public_id": "youm/pinterest-collage-products/nouveautes-5-ef15afef8c"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:nouveautes-0-fdecf96094,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:nouveautes-1-9d8e851991,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:nouveautes-2-58ebc412d3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:nouveautes-3-d4921d58b9,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:nouveautes-4-8a603f6c32,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:nouveautes-5-ef15afef8c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20NOUVEAUT%C3%89S%20PARIS,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Nouveaux%20bijoux%20%C3%A0%20d%C3%A9couvrir,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Dorure%20or%2024%20carats%20%C2%B7%20Pierres%20naturelles%20%C2%B7%20Paris,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

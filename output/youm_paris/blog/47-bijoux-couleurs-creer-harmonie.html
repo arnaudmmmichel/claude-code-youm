@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!--
+    Titre SEO : Bijoux et couleurs : comment créer une harmonie
+    Meta description : Comment associer les couleurs de vos bijoux ? Chez Youm, découvrez nos conseils pour créer une harmonie entre pierres, tenue et personnalité.
+    Slug : bijoux-couleurs-creer-harmonie
+  -->
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+    .article-hero { background: #f8f1ee; padding: 64px 32px 56px; text-align: center; }
+    .article-category { display: inline-block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2622; margin-bottom: 24px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: #1c1814; max-width: 760px; margin: 0 auto 24px; }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta { font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .meta-dot { color: #c0b0a0; }
+    .article-wrap { max-width: 820px; margin: 0 auto; padding: 56px 32px 80px; }
+    .article-toc { background: #f8f1ee; border-left: 3px solid #f54e00; padding: 24px 28px; margin-bottom: 48px; }
+    .article-toc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1814; margin-bottom: 14px; }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+    .article-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.7; color: #3a3028; margin-bottom: 48px; font-style: italic; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #1c1814; margin: 52px 0 20px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 600; color: #2a2622; margin: 36px 0 14px; }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body blockquote { border-left: 3px solid #f54e00; background: #f8f1ee; margin: 36px 0; padding: 22px 28px; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; color: #3a3028; margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th { background: #f8f1ee; color: #2a2622; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8; }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+    .product-row { display: grid; gap: 16px; margin: 32px auto 44px; }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a { display: block; position: relative; overflow: hidden; text-decoration: none; }
+    .product-row figure img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f8f1ee; transition: transform 0.42s ease; }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after { content: 'Voir le produit'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,24,20,0.65); color: #fff; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; padding: 11px 8px; text-align: center; opacity: 0; transition: opacity 0.28s ease; }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .article-cta { background: #f8f1ee; padding: 52px 44px; text-align: center; margin-top: 64px; }
+    .cta-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1c1814; line-height: 1.25; margin-bottom: 16px; }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button { display: inline-block; background: #f54e00; color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; }
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#comprendre-lharmonie-des-couleurs">Comprendre l'harmonie des couleurs en bijouterie</a></li>
+        <li><a href="#les-atouts-des-tons-neutres">Les atouts des tons neutres</a></li>
+        <li><a href="#jouer-la-couleur-avec-intention">Jouer la couleur avec intention</a></li>
+        <li><a href="#creer-son-harmonie-selon-la-tenue">Créer son harmonie selon la tenue</a></li>
+        <li><a href="#conseils-pratiques">Conseils pratiques pour composer une harmonie</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <p class="article-lead">Devant une tenue déjà choisie, la question du bijou revient souvent à un seul mot : la couleur. Faut-il l'accorder, la contraster, ou la neutraliser ? Chez Youm, nous pensons que l'harmonie des couleurs n'est pas une science exacte, mais un ensemble de repères simples qui permettent de composer avec confiance. Cet article vous aide à comprendre comment marier pierres naturelles, dorure et tenue pour un résultat toujours cohérent.</p>
+
+    <div class="article-body">
+
+      <h2 id="comprendre-lharmonie-des-couleurs">Comprendre l'harmonie des couleurs en bijouterie</h2>
+      <p>L'harmonie d'un bijou ne se joue pas uniquement sur la couleur de la pierre : elle se construit dans la relation entre la pierre, la dorure et la tenue qui l'accompagne. Le laiton doré à l'or fin 24 carats agit comme un fil conducteur naturel — il réchauffe toutes les couleurs et les unifie, qu'il s'agisse d'un vert profond, d'un rose pâle ou d'un bleu franc.</p>
+      <p>Deux logiques s'opposent généralement : l'accord, qui rapproche des tons voisins pour un effet apaisant, et le contraste, qui associe des couleurs opposées pour un effet plus affirmé. Aucune des deux n'est supérieure — le choix dépend de l'effet recherché ce jour-là.</p>
+
+      <blockquote><p>Une harmonie de couleurs réussie ne cherche pas à être invisible : elle cherche à paraître évidente.</p></blockquote>
+
+      <hr>
+
+      <h2 id="les-atouts-des-tons-neutres">Les atouts des tons neutres</h2>
+      <p>Les tons neutres — nacre, quartz rose pâle, cornaline douce — offrent la base la plus sûre pour composer une harmonie. Ils s'accordent avec la quasi-totalité des tenues sans jamais entrer en compétition avec elles. Nos <a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">boucles Lila en cornaline et quartz rose</a> illustrent cette approche : deux tons doux qui dialoguent entre eux sans jamais dominer une tenue.</p>
+      <p>Cette approche convient particulièrement aux journées où plusieurs contextes s'enchaînent, du bureau à un dîner improvisé, sans possibilité de changer de bijou entre les deux.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Lila cornaline et quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Lila — Cornaline &amp; quartz rose</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose"><img src="https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-cleo-quartz-rose-perles-packshot.jpg?v=1771687676" alt="Boucles Cléo quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose">Cléo — Quartz rose</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="jouer-la-couleur-avec-intention">Jouer la couleur avec intention</h2>
+      <p>À l'inverse, une pierre franche et affirmée — amazonite, agate noire, malachite — introduit une couleur qui s'assume. Elle demande une tenue plus sobre pour lui laisser de l'espace : un total look neutre suffit à la mettre en valeur sans qu'elle ait besoin d'un contexte élaboré.</p>
+      <p>Les <a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite">boucles Zelda en amazonite</a> apportent ainsi une touche de bleu-vert immédiate, tandis que les <a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">boucles Niagara en agate noire</a> misent sur un contraste plus graphique, entre noir profond et dorure.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-amazonite-perles-onyx-vert-packshot-youm.jpg?v=1771527140" alt="Boucles Zelda amazonite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite">Zelda — Amazonite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-packshot-youm.jpg?v=1771517262" alt="Boucles Niagara agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">Niagara — Agate noire</a></figcaption></figure></div>
+
+      <p>Une règle simple aide à doser l'audace : une seule couleur forte à la fois. Multiplier les pierres vives dans une même composition crée de la concurrence plutôt que de l'harmonie.</p>
+
+      <hr>
+
+      <h2 id="creer-son-harmonie-selon-la-tenue">Créer son harmonie selon la tenue</h2>
+      <p>La tenue reste le point de départ le plus fiable pour choisir la couleur d'un bijou. Deux approches fonctionnent presque toujours :</p>
+      <ul>
+        <li>Reprendre une couleur déjà présente dans la tenue — un accessoire, un imprimé, une doublure — pour créer un écho discret.</li>
+        <li>Choisir une couleur complémentaire à la teinte dominante de la tenue pour créer un point focal.</li>
+      </ul>
+      <p>Les <a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">boucles Marine en quartz rose</a> illustrent bien la première logique — une couleur douce qui prolonge une tenue déjà rosée ou neutre sans la dupliquer entièrement.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059" alt="Boucles Marine quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">Marine — Quartz rose</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-quartz-rose-portees.jpg?v=1770399127" alt="Boucles Marine quartz rose portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">Marine — portées</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="conseils-pratiques">Conseils pratiques pour composer une harmonie</h2>
+      <ul>
+        <li>Optez pour une seule pierre colorée forte par tenue, jamais plusieurs à la fois.</li>
+        <li>Misez sur les tons neutres pour les journées qui enchaînent plusieurs contextes.</li>
+        <li>Associez la couleur du bijou à un détail déjà présent dans la tenue plutôt que de l'improviser.</li>
+        <li>Variez les intensités : une pierre pâle en semaine, une pierre franche pour une occasion.</li>
+        <li>Jouez sur les contrastes chauds et froids — une pierre bleue sur une tenue camel, par exemple.</li>
+        <li>Adaptez la couleur à l'occasion : tons doux pour le quotidien, tons affirmés pour le soir.</li>
+        <li>Superposez deux tons neutres proches plutôt que deux couleurs vives ensemble.</li>
+        <li>Laissez la dorure faire le lien : elle unifie toutes les couleurs entre elles.</li>
+      </ul>
+
+      <h2 id="faq">FAQ</h2>
+
+      <h3>Peut-on mélanger deux pierres de couleurs différentes ?</h3>
+      <p>Oui, à condition de rester dans une intensité similaire. Deux tons doux fonctionnent bien ensemble ; deux tons vifs se concurrencent davantage.</p>
+
+      <h3>Comment choisir une couleur de bijou pour une tenue neutre ?</h3>
+      <p>Une tenue neutre est le meilleur terrain pour une pierre affirmée — elle lui laisse tout l'espace nécessaire pour s'exprimer.</p>
+
+      <h3>Existe-t-il une couleur de bijou qui s'accorde avec tout ?</h3>
+      <p>Les tons nacre et quartz rose pâle sont les plus polyvalents, car ils restent discrets sur la majorité des palettes vestimentaires.</p>
+
+      <h3>Faut-il changer de couleur de bijoux selon les saisons ?</h3>
+      <p>Non, ce n'est pas nécessaire : une même pierre peut se porter toute l'année, seule la tenue autour évolue.</p>
+
+      <h3>Comment associer bijoux dorés et couleurs vives ?</h3>
+      <p>La dorure agit comme un cadre neutre qui réchauffe n'importe quelle couleur — elle facilite justement l'association avec des pierres vives comme la malachite ou l'agate noire.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h2 class="cta-heading">Composez votre harmonie de couleurs</h2>
+      <p class="cta-subtext">Des tons neutres aux pierres les plus affirmées, chaque création Youm est pensée pour dialoguer avec votre style. Trouvez la couleur qui vous ressemble.</p>
+      <a href="https://youm-paris.com/collections/bijoux-pierre" class="cta-button">Découvrir la collection pierres naturelles</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

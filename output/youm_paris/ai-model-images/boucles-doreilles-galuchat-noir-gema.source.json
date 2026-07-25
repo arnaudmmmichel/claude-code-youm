@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-doreilles-galuchat-noir-gema",
+  "title": "boucles doreilles galuchat noir gema",
+  "slug": "boucles-doreilles-galuchat-noir-gema",
+  "season": "ete",
+  "model": "1",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899347/youm/model-sheets/model-1-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-gema-galuchat-noir-packshot.jpg?v=1773505129",
+    "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-gema-galuchat-noir-portees.jpg?v=1773505149"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784916138/youm/ai-model-images/boucles-doreilles-galuchat-noir-gema.jpg",
+  "caption_instagram": "Le galuchat noir a quelque chose de rare. Son grain subtil, sa profondeur mate — un contraste silencieux avec la dorure à l'or fin 24 carats qui vient illuminer le visage. Les boucles Gema jouent sur cet équilibre : une présence affirmée, portée avec légèreté, sous le soleil d'été. Chaque pièce est unique, livrée dans un pochon Youm. Disponibles en version percées ou clips.\n\nDécouvrez les boucles d'oreilles Gema sur youm-paris.com\n\n#shinewithyoum #youmparis #bouclesoreilles #galuchat #bijouxtete",
+  "caption_pinterest": "Boucles d'oreilles pendantes en galuchat noir et dorure 24 carats — élégance estivale pour oreilles percées ou clips, disponibles sur youm-paris.com"
+}

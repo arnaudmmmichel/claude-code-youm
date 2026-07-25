@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:boucles-doreilles-clip",
+  "pin_title": "Boucles d'oreilles clips élégantes — sans perçage, dorées à l'or fin 24 carats | Youm Paris",
+  "pin_description": "Des boucles d'oreilles clips raffinées pour oreilles non percées : pierres naturelles, laiton doré à l'or fin 24 carats, assemblées à la main à Paris. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Clips Élégants",
+  "dest_url": "https://youm-paris.com/collections/boucles-doreilles-clip",
+  "hook": "Sans perçage, sans compromis.",
+  "label": "Clips dorés à l'or fin — élégance au quotidien.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-doris-jaspe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202536/Youm-Paris/nvvpygstranwndy2fir9.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/boucles-doreilles-clip-0-creative-6864dfa836"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-perle-pernille",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778764015/Youm-Paris/uhafv3cg0ljstfodcobm.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/boucles-doreilles-clip-1-creative-ae6b673ac1"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778763967/Youm-Paris/afs5csc8v9k2nhkfxfm9.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/boucles-doreilles-clip-2-creative-a563c531f3"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-asymetriques",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863616/Youm-Paris/bq2gknvsufeizgv5f2zs.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/boucles-doreilles-clip-3-creative-45859b622e"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-clementine",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-clementine-cornaline-agate-perles-packshot.jpg?v=1771688336",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202383/Youm-Paris/pkxxbux4gtwdmpnp1g2q.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/boucles-doreilles-clip-4-creative-ca0ccac2ce"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-doris-agate-noire",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-doris-agate-noire-packshot-youm.jpg?v=1771520540",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202480/Youm-Paris/rkqilyu6wwcztnekkjh2.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/boucles-doreilles-clip-5-creative-4af4165af7"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:boucles-doreilles-clip-0-creative-6864dfa836,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:boucles-doreilles-clip-1-creative-ae6b673ac1,w_473,h_276,c_thumb,g_center/g_north,x_239,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:boucles-doreilles-clip-2-creative-a563c531f3,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:boucles-doreilles-clip-3-creative-45859b622e,w_473,h_276,c_thumb,g_center/g_north,x_239,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:boucles-doreilles-clip-4-creative-ca0ccac2ce,w_946,h_414,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:boucles-doreilles-clip-5-creative-4af4165af7,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_1192,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20CLIPS%20%C3%89L%C3%89GANTS,co_rgb:f54e00,g_center,y_-257/l_text:Arial_34_bold:Sans%20per%C3%A7age%252C%20sans%20compromis.,co_rgb:1c1814,g_center,y_-211,w_820,c_fit/l_text:Arial_19_bold:Clips%20dor%C3%A9s%20%C3%A0%20l%27or%20fin%20%E2%80%94%20%C3%A9l%C3%A9gance%20au%20quotidien.,co_rgb:5a4a3a,g_center,y_-161,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

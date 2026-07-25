@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-doreilles-gustave-longue",
+  "title": "Boucles d'oreilles Gustave L",
+  "slug": "boucles-doreilles-gustave-longue",
+  "season": "ete",
+  "model": "1",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899347/youm/model-sheets/model-1-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/products/boucles-oreilles-gustave-art-deco-agate-onyx-packshot-youm.jpg?v=1771866967",
+    "https://youm-paris.com/cdn/shop/files/boucles-oreilles-gustave-art-deco-agate-onyx-portees-youm.jpg?v=1771867011"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784916303/youm/ai-model-images/boucles-doreilles-gustave-longue.jpg",
+  "caption_instagram": "Les lignes s'étirent, les contrastes s'affirment. Les Boucles d'oreilles Gustave puisent dans l'esthétique Art Déco pour offrir une silhouette allongée et géométrique qui habille le visage avec une élégance naturelle. L'agate noire et l'onyx se répondent dans une profondeur sobre et sophistiquée, sublimés par la chaleur du laiton doré à l'or fin 24 carats. Disponibles en version percées ou clips, elles s'adaptent à chaque femme. Chaque pierre naturelle est unique — comme vous. Découvrez les Boucles d'oreilles Gustave sur youm-paris.com\n\n#youmparis #shinewithyoum #artdeco #bouclesdreillesgeometriques #agatenoire",
+  "caption_pinterest": "Boucles d'oreilles Art Déco en agate noire et onyx, laiton doré à l'or fin 24 carats — élégance graphique pour sublimer une tenue d'été. youm-paris.com"
+}

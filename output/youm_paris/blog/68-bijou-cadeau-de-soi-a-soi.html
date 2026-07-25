@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!--
+    Titre SEO : Le bijou comme cadeau de soi à soi
+    Meta description : S'offrir un bijou n'a rien d'un caprice. Chez Youm, découvrez pourquoi ce geste simple mérite d'être fait, pour soi, sans occasion.
+    Slug : bijou-cadeau-de-soi-a-soi
+  -->
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+    .article-hero { background: #f8f1ee; padding: 64px 32px 56px; text-align: center; }
+    .article-category { display: inline-block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2622; margin-bottom: 24px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: #1c1814; max-width: 760px; margin: 0 auto 24px; }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta { font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .meta-dot { color: #c0b0a0; }
+    .article-wrap { max-width: 820px; margin: 0 auto; padding: 56px 32px 80px; }
+    .article-toc { background: #f8f1ee; border-left: 3px solid #f54e00; padding: 24px 28px; margin-bottom: 48px; }
+    .article-toc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1814; margin-bottom: 14px; }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+    .article-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.7; color: #3a3028; margin-bottom: 48px; font-style: italic; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #1c1814; margin: 52px 0 20px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 600; color: #2a2622; margin: 36px 0 14px; }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body blockquote { border-left: 3px solid #f54e00; background: #f8f1ee; margin: 36px 0; padding: 22px 28px; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; color: #3a3028; margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th { background: #f8f1ee; color: #2a2622; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8; }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+    .product-row { display: grid; gap: 16px; margin: 32px auto 44px; }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a { display: block; position: relative; overflow: hidden; text-decoration: none; }
+    .product-row figure img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f8f1ee; transition: transform 0.42s ease; }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after { content: 'Voir le produit'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,24,20,0.65); color: #fff; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; padding: 11px 8px; text-align: center; opacity: 0; transition: opacity 0.28s ease; }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .article-cta { background: #f8f1ee; padding: 52px 44px; text-align: center; margin-top: 64px; }
+    .cta-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1c1814; line-height: 1.25; margin-bottom: 16px; }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button { display: inline-block; background: #f54e00; color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; }
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#pourquoi-soffrir-un-bijou-sans-occasion">Pourquoi s'offrir un bijou sans occasion</a></li>
+        <li><a href="#un-geste-qui-se-porte">Un geste qui se porte</a></li>
+        <li><a href="#comment-choisir-son-propre-cadeau">Comment choisir son propre cadeau</a></li>
+        <li><a href="#se-lautoriser-sans-culpabilite">Se l'autoriser sans culpabilité</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <p class="article-lead">On pense souvent au bijou comme à un cadeau que l'on reçoit — plus rarement comme à un cadeau que l'on s'offre. Chez Youm, nous pensons que s'offrir un bijou n'a rien d'un caprice : c'est un geste simple, qui marque une intention envers soi-même sans attendre une occasion extérieure. Cet article explore pourquoi ce geste mérite d'être fait, et comment choisir la pièce qui vous correspond vraiment.</p>
+
+    <div class="article-body">
+
+      <h2 id="pourquoi-soffrir-un-bijou-sans-occasion">Pourquoi s'offrir un bijou sans occasion</h2>
+      <p>La plupart des bijoux que l'on porte ont été reçus — un anniversaire, une fête, une occasion précise. S'offrir un bijou soi-même change la nature du geste : il n'est plus dicté par un calendrier, mais par une envie personnelle. C'est une manière de se rappeler que l'on n'a pas besoin d'attendre un événement extérieur pour se faire plaisir.</p>
+      <p>Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en cornaline et aventurine</a> illustrent bien ce type de choix spontané — une pièce que l'on choisit pour soi, simplement parce qu'elle nous plaît.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="Boucles Aure cornaline et aventurine" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure — Cornaline &amp; aventurine</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948" alt="Boucles Aure portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure — portées</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="un-geste-qui-se-porte">Un geste qui se porte</h2>
+      <p>Contrairement à d'autres formes de plaisir personnel, plus éphémères, le bijou reste. Chaque fois qu'on le porte, il rappelle discrètement le moment où l'on a décidé de se l'offrir. C'est cette continuité qui rend le geste particulièrement fort : il ne s'épuise pas, il s'inscrit dans le quotidien.</p>
+      <p>La <a href="https://youm-paris.com/products/bague-sia-malachite">bague Sia en malachite</a> illustre bien cette idée de petit plaisir durable — une pièce que l'on regarde et que l'on retrouve chaque jour au poignet ou au doigt.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/bague-sia-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/bague_doree_malachite_sia_packshot_youm_bijoux.jpg?v=1770391681" alt="Bague Sia malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bague-sia-malachite">Sia — Bague malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucle-doreille-creole-aigue-marine-julia"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-julia-doree-charms-pierres-packshot-421.jpg?v=1775649259" alt="Créole Julia aigue-marine" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucle-doreille-creole-aigue-marine-julia">Julia — Créole aigue-marine</a></figcaption></figure></div>
+
+      <blockquote><p>S'offrir un bijou, c'est se rappeler qu'on n'a pas besoin d'une raison extérieure pour se faire plaisir.</p></blockquote>
+
+      <hr>
+
+      <h2 id="comment-choisir-son-propre-cadeau">Comment choisir son propre cadeau</h2>
+      <p>Choisir un bijou pour soi diffère du choix fait pour offrir : il ne s'agit plus de deviner le goût de quelqu'un d'autre, mais d'écouter sa propre envie du moment. Quelques repères aident à faire ce choix sans hésitation :</p>
+      <ul>
+        <li>Repérez la pièce que vous regardez depuis plusieurs semaines sans jamais l'acheter.</li>
+        <li>Privilégiez une pièce qui correspond à votre quotidien plutôt qu'à une occasion rare.</li>
+        <li>Écoutez une envie de couleur ou de matière précise, même si elle sort de vos habitudes.</li>
+        <li>Autorisez-vous une pièce légèrement plus affirmée que ce que vous choisiriez habituellement pour un cadeau reçu.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="se-lautoriser-sans-culpabilite">Se l'autoriser sans culpabilité</h2>
+      <p>S'offrir un bijou n'a pas besoin d'être justifié par un exploit ou un moment particulier. Ce n'est pas un excès, c'est une attention — la même que l'on accorderait naturellement à quelqu'un d'autre. Se l'autoriser à soi-même, sans occasion ni justification, fait partie d'une relation plus douce avec soi-même.</p>
+
+      <h2 id="faq">FAQ</h2>
+
+      <h3>Faut-il une occasion particulière pour s'offrir un bijou ?</h3>
+      <p>Non, c'est justement l'un des attraits de ce geste : il peut être fait sans raison précise, simplement par envie.</p>
+
+      <h3>Comment choisir un bijou pour soi sans hésiter pendant des mois ?</h3>
+      <p>Observez la pièce vers laquelle vous revenez naturellement plusieurs fois — c'est souvent le signe le plus fiable.</p>
+
+      <h3>Un bijou offert à soi-même a-t-il moins de valeur qu'un bijou reçu ?</h3>
+      <p>Non, sa valeur tient à l'intention et à la régularité avec laquelle on le porte, pas à la personne qui l'a offert.</p>
+
+      <h3>Quel type de pièce privilégier pour se faire plaisir ?</h3>
+      <p>Une pièce qui vous plaît vraiment, même si elle sort légèrement de vos habitudes — c'est justement l'occasion de se l'autoriser.</p>
+
+      <h3>Est-ce raisonnable de s'offrir plusieurs bijoux dans l'année ?</h3>
+      <p>Oui, à condition que chaque pièce corresponde à une envie réelle plutôt qu'à un achat impulsif sans attachement.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h2 class="cta-heading">Offrez-vous ce bijou que vous regardez depuis longtemps</h2>
+      <p class="cta-subtext">Des pièces sobres aux formats plus affirmés, autorisez-vous la pièce qui vous plaît vraiment.</p>
+      <a href="https://youm-paris.com/collections/all" class="cta-button">Voir toute la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

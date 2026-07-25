@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:boucles-doreilles",
+  "pin_title": "Boucles d'oreilles dorées à l'or fin — percées & clips | Youm Paris",
+  "pin_description": "Créoles, puces, pendantes — en laiton doré à l'or fin 24 carats, pierres naturelles et perles. Des pièces assemblées à la main, pour oreilles percées ou non percées. À découvrir sur youm-paris.com",
+  "board": "Boucles d'oreilles dorées",
+  "dest_url": "https://youm-paris.com/collections/boucles-doreilles",
+  "hook": "Percées ou clips, à vous de choisir",
+  "label": "Boucles d'oreilles dorées à l'or fin — Youm Paris",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles d'oreilles Grace agate bleue - Galuchat",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles d’oreilles dépareillées Isabelle aventurine",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-1-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles d'oreilles Doris jaspe",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-2-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779",
+      "alt": "Boucles d'oreilles papillon Chiara",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-3-defcc1caf1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "Boucles d'oreilles Jacinthe",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-4-fdecf96094"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "alt": "Boucles d’oreilles Pernille - Perle blanche",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-5-590e868d8b"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:boucles-doreilles-0-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-1-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-2-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-3-defcc1caf1,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-4-fdecf96094,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-5-590e868d8b,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BOUCLES%20D%27OREILLES%20DOR%C3%89ES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Perc%C3%A9es%20ou%20clips%252C%20%C3%A0%20vous%20de%20choisir,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Boucles%20d%27oreilles%20dor%C3%A9es%20%C3%A0%20l%27or%20fin%20%E2%80%94%20Youm%20Paris,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,14 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1783493096/Youm-Paris/nxmqnzkodupuwrdsq0qr.jpg",
+  "slug": "creole-charms-marceau-lunit",
+  "prompt": "A real smartphone video of a woman smirking and walking dynamically with natural movements, in natural light, with her 2 earings, in silence (no talking). Shot on iPhone, 4k, shaky camera movement, natural lighting, unedited look, candid and spontaneous, vertical video style, no professional lighting, realistic skin textures, realistic movement. No bikini or swimsuit.",
+  "prompt_source": "auto-detected 'earrings' from slug",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1784923562/youm/ai-model-videos/creole-charms-marceau-lunit.mp4",
+  "caption_instagram": "Les Créoles Charms Marceau — une créole dorée à l'or fin 24 carats, à composer selon votre humeur. Chaque charm transforme le look, du bureau à la soirée, sans effort. Découvrez la collection Marceau sur youm-paris.com\n\n#shinewithyoum #youmparis #creolescharms #bijouxtailleparis #bijoupersonnalisable",
+  "caption_tiktok": "Une créole, mille façons de la porter. Les Charms Marceau, c'est votre bijou, à votre image. ✨\n\n#shinewithyoum #youmparis #creolescharms #bijouparis",
+  "caption_youtube_title": "Créoles Charms Marceau – Youm Paris | Or fin 24 carats",
+  "caption_youtube_description": "Les Créoles Charms Marceau de Youm Paris sont des créoles en laiton doré à l'or fin 24 carats, conçues pour se personnaliser au fil de vos envies. Chaque charm s'assemble à la main pour composer un bijou singulier, élégant et modulable au quotidien. Retrouvez la collection complète et toutes nos créations sur youm-paris.com."
+}

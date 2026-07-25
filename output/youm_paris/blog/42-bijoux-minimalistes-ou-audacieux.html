@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!--
+    Titre SEO : Bijoux minimalistes ou audacieux : lequel est fait pour vous ?
+    Meta description : Bijoux minimalistes ou audacieux ? Chez Youm, découvrez comment choisir selon votre style et composer un look à votre image, sans effort.
+    Slug : bijoux-minimalistes-ou-audacieux
+  -->
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+    .article-hero { background: #f8f1ee; padding: 64px 32px 56px; text-align: center; }
+    .article-category { display: inline-block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2622; margin-bottom: 24px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: #1c1814; max-width: 760px; margin: 0 auto 24px; }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta { font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .meta-dot { color: #c0b0a0; }
+    .article-wrap { max-width: 820px; margin: 0 auto; padding: 56px 32px 80px; }
+    .article-toc { background: #f8f1ee; border-left: 3px solid #f54e00; padding: 24px 28px; margin-bottom: 48px; }
+    .article-toc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1814; margin-bottom: 14px; }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+    .article-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.7; color: #3a3028; margin-bottom: 48px; font-style: italic; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #1c1814; margin: 52px 0 20px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 600; color: #2a2622; margin: 36px 0 14px; }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body blockquote { border-left: 3px solid #f54e00; background: #f8f1ee; margin: 36px 0; padding: 22px 28px; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; color: #3a3028; margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th { background: #f8f1ee; color: #2a2622; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8; }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+    .product-row { display: grid; gap: 16px; margin: 32px auto 44px; }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a { display: block; position: relative; overflow: hidden; text-decoration: none; }
+    .product-row figure img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f8f1ee; transition: transform 0.42s ease; }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after { content: 'Voir le produit'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,24,20,0.65); color: #fff; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; padding: 11px 8px; text-align: center; opacity: 0; transition: opacity 0.28s ease; }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .article-cta { background: #f8f1ee; padding: 52px 44px; text-align: center; margin-top: 64px; }
+    .cta-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1c1814; line-height: 1.25; margin-bottom: 16px; }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button { display: inline-block; background: #f54e00; color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; }
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#comprendre-les-deux-styles">Comprendre les deux styles</a></li>
+        <li><a href="#les-atouts-du-minimalisme">Les atouts du minimalisme</a></li>
+        <li><a href="#les-atouts-de-laudace">Les atouts de l'audace</a></li>
+        <li><a href="#comment-choisir-votre-style">Comment choisir votre style</a></li>
+        <li><a href="#et-si-vous-conjuguiez-les-deux">Et si vous conjuguiez les deux ?</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <p class="article-lead">Devant un plateau de bijoux, la question revient toujours : miser sur la sobriété d'une pièce discrète ou affirmer son style avec un bijou plus graphique ? Chez Youm, nous pensons que les bijoux minimalistes et les bijoux audacieux ne s'opposent pas — ils répondent à deux façons différentes de se sentir soi-même. Cet article vous aide à comprendre ce qui distingue ces deux approches et à identifier celle qui correspond le mieux à votre personnalité et à votre quotidien.</p>
+
+    <div class="article-body">
+
+      <h2 id="comprendre-les-deux-styles">Comprendre les deux styles</h2>
+      <p>Un bijou minimaliste se reconnaît à sa ligne épurée : une forme simple, une matière qui parle d'elle-même, une présence discrète mais jamais anodine. C'est le bijou que l'on porte tous les jours, celui qui accompagne sans jamais dominer une tenue. Nos <a href="https://youm-paris.com/products/jonc-nacre-theo">joncs Théo dorés à la nacre</a> illustrent bien cette idée : une ligne pure, une pierre discrète, une élégance qui ne cherche pas à se faire remarquer.</p>
+      <p>Un bijou audacieux, à l'inverse, assume sa présence. Volume plus marqué, pierre colorée, forme graphique — il attire le regard et raconte quelque chose de la personnalité de celle qui le porte. Les <a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">boucles Niagara en agate noire</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky">créoles Lucky en malachite</a> appartiennent à cette famille : des pièces qui affirment un style plutôt qu'elles ne l'accompagnent.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Théo doré nacre" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Théo — Nacre, minimaliste</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-packshot-youm.jpg?v=1771517262" alt="Boucles Niagara agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">Niagara — Agate noire, audacieux</a></figcaption></figure></div>
+
+      <p>Aucun des deux styles n'est supérieur à l'autre. Il s'agit surtout de savoir ce que vous cherchez à exprimer selon les jours, les occasions et l'humeur du moment.</p>
+
+      <hr>
+
+      <h2 id="les-atouts-du-minimalisme">Les atouts du minimalisme</h2>
+      <p>Le bijou minimaliste séduit d'abord par sa polyvalence. Une pièce sobre s'associe à toutes les tenues, du bureau à un dîner improvisé, sans jamais paraître déplacée. C'est un bijou que l'on oublie de retirer le soir, tant il s'intègre naturellement au quotidien.</p>
+      <p>Il séduit aussi par sa discrétion élégante : il met en valeur le visage ou le poignet sans capter toute l'attention, laissant la tenue et l'allure générale s'exprimer. Nos <a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">boucles asymétriques en nacre et onyx</a> incarnent cette sobriété raffinée — une pièce singulière dans sa forme, mais discrète dans son rendu.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles asymétriques nacre et onyx" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Isabelle — Nacre &amp; onyx</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucle_d_oreilles_asymetrique_nacre_youm_bijoux.jpg?v=1724081674" alt="Boucles asymétriques nacre et onyx portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Isabelle — portées</a></figcaption></figure></div>
+
+      <p>Enfin, le minimalisme est souvent le point d'entrée idéal pour composer une accumulation : plusieurs pièces fines superposées créent un effet construit, sans jamais tomber dans l'excès.</p>
+
+      <hr>
+
+      <h2 id="les-atouts-de-laudace">Les atouts de l'audace</h2>
+      <p>Le bijou audacieux, lui, joue un tout autre rôle : il transforme une tenue simple en un look affirmé, en un seul geste. Une pièce graphique ou colorée suffit à changer la lecture d'un total look neutre — c'est précisément le principe du bijou qui change tout.</p>
+      <p>Il permet aussi d'exprimer une personnalité plus affirmée, sans passer par le vêtement lui-même. Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en cornaline et aventurine</a> apportent ainsi une touche de couleur immédiate à une tenue sobre, sans qu'il soit nécessaire de composer toute une tenue autour.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="Boucles Aure cornaline et aventurine" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure — Cornaline &amp; aventurine</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-malachite-packshoy.jpg?v=1770393637" alt="Créoles Lucky trèfle malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky">Lucky — Trèfle malachite</a></figcaption></figure></div>
+
+      <p>L'audace convient particulièrement aux occasions où l'on souhaite se démarquer — un dîner, un événement, une envie de se sentir singulière un jour ordinaire. C'est un bijou qui s'assume, et qui invite à s'assumer soi-même.</p>
+
+      <hr>
+
+      <h2 id="comment-choisir-votre-style">Comment choisir votre style</h2>
+      <p>Le choix entre minimalisme et audace dépend moins d'une règle stricte que de votre rapport quotidien au bijou. Voici quelques repères pour vous orienter :</p>
+      <ul>
+        <li>Observez votre garde-robe : une penderie déjà riche en couleurs et en motifs s'accorde souvent mieux avec des bijoux sobres.</li>
+        <li>Identifiez vos rythmes de journée : optez pour des pièces discrètes si vous enchaînez les contextes professionnels et informels.</li>
+        <li>Misez sur l'audace lors d'occasions précises plutôt qu'au quotidien, pour préserver son effet.</li>
+        <li>Associez une pièce graphique à une tenue neutre plutôt qu'à un total look déjà chargé.</li>
+        <li>Variez les formats selon la zone du visage ou du poignet que vous souhaitez mettre en valeur.</li>
+        <li>Adaptez la taille de vos boucles d'oreilles à la longueur de votre coiffure.</li>
+        <li>Testez une pièce audacieuse via des <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a>, pour l'essayer sans engagement de perçage.</li>
+        <li>Superposez plusieurs bijoux sobres si l'audace vous intimide encore — l'accumulation crée déjà du caractère.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="et-si-vous-conjuguiez-les-deux">Et si vous conjuguiez les deux ?</h2>
+      <p>Chez Youm, nous ne pensons pas qu'il faille choisir définitivement un camp. La plupart des femmes qui nous suivent conjuguent les deux styles selon les jours : un bijou sobre pour un lundi de bureau, une pièce plus affirmée pour un vendredi soir. C'est cette liberté de varier qui permet de rester fidèle à soi-même tout en changeant de registre.</p>
+      <p>Les <a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">boucles Jacinthe</a> illustrent bien cet entre-deux : une forme pendante élégante, ni totalement discrète ni ouvertement démonstrative, qui s'adapte du bureau à la soirée. C'est souvent dans cette zone intermédiaire que l'on trouve les pièces les plus portées, celles qui accompagnent le plus large éventail d'occasions.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Jacinthe pendantes" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Jacinthe — pendantes</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-portees.jpg?v=1770662416" alt="Boucles Jacinthe pendantes portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Jacinthe — portées</a></figcaption></figure></div>
+
+      <blockquote><p>Le bijou qui change tout n'est pas toujours le plus audacieux — c'est souvent celui qui vous ressemble le plus, un jour donné.</p></blockquote>
+
+      <p>Vous pouvez aussi explorer notre <a href="https://youm-paris.com/collections/bijoux-pierre">collection pierres naturelles</a> pour trouver l'équilibre entre sobriété de la forme et caractère de la matière — une manière simple de conjuguer les deux univers dans une même pièce.</p>
+
+      <h2 id="faq">FAQ</h2>
+
+      <h3>Peut-on porter des bijoux minimalistes et audacieux le même jour ?</h3>
+      <p>Oui, à condition de garder un point d'équilibre : associez une pièce affirmée à des bijoux sobres plutôt qu'à plusieurs pièces graphiques simultanément.</p>
+
+      <h3>Quel style de bijou convient pour un usage professionnel quotidien ?</h3>
+      <p>Les pièces minimalistes s'intègrent plus naturellement à un contexte professionnel, car elles accompagnent la tenue sans jamais la concurrencer.</p>
+
+      <h3>Comment introduire l'audace sans bouleverser son style habituel ?</h3>
+      <p>Commencez par une seule pièce graphique — une boucle d'oreille ou un bracelet manchette — associée au reste de votre look habituel, plutôt qu'un changement complet.</p>
+
+      <h3>Les boucles d'oreilles clips permettent-elles d'essayer un style plus audacieux ?</h3>
+      <p>Oui : nos <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a> donnent accès à des formats plus affirmés, comme Niagara ou Jacinthe, sans nécessiter le perçage.</p>
+
+      <h3>Faut-il changer de style de bijoux selon les saisons ?</h3>
+      <p>Non, ce n'est pas une obligation : votre style de bijou peut rester constant toute l'année, seule la tenue autour évolue.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h2 class="cta-heading">Trouvez le bijou qui vous ressemble</h2>
+      <p class="cta-subtext">Des pièces sobres aux formats plus affirmés, chaque création Youm est pensée pour s'adapter à votre personnalité. Composez votre style, un bijou à la fois.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Découvrir la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

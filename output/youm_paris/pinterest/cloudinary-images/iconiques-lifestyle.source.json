@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:iconiques",
+  "pin_title": "Boucles d'oreilles créoles perle — les iconiques Youm Paris",
+  "pin_description": "Des créoles ornées de perles naturelles, dorées à l'or fin 24 carats par un artisan parisien. Des pièces intemporelles qui subliment chaque tenue, du bureau à la soirée. Découvrez la collection Iconiques sur youm-paris.com",
+  "board": "Bijoux Iconiques Parisiens",
+  "dest_url": "https://youm-paris.com/collections/iconiques",
+  "hook": "La créole qui change tout.",
+  "label": "Perle naturelle, dorure or fin 24 carats — pièce signature.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-perle-pernille",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778764015/Youm-Paris/uhafv3cg0ljstfodcobm.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/iconiques-0-creative-ae6b673ac1"
+    },
+    {
+      "url": "https://youm-paris.com/products/jonc-nacre-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1783492757/Youm-Paris/vqnr3jo9fspbm2i8lgaj.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/iconiques-1-creative-8bb2699900"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778763967/Youm-Paris/afs5csc8v9k2nhkfxfm9.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/iconiques-2-creative-a563c531f3"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-asymetriques",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863616/Youm-Paris/bq2gknvsufeizgv5f2zs.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/iconiques-3-creative-45859b622e"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202430/Youm-Paris/j5cgzn9pcvvuyi4erbyl.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/iconiques-4-creative-2e32a5da26"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1",
+      "img1": "https://youm-paris.com/cdn/shop/files/pboucles-oreilles-ninon-depareillees-pierres-packshot-youm.jpg?v=1771515928",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774349848/Youm-Paris/d35olduobdtlfqfbpjkp.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/iconiques-5-creative-815378c778"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:iconiques-0-creative-ae6b673ac1,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:iconiques-1-creative-8bb2699900,w_473,h_276,c_thumb,g_center/g_north,x_239,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:iconiques-2-creative-a563c531f3,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:iconiques-3-creative-45859b622e,w_473,h_276,c_thumb,g_center/g_north,x_239,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:iconiques-4-creative-2e32a5da26,w_946,h_414,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:iconiques-5-creative-815378c778,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_1192,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20ICONIQUES%20PARISIENS,co_rgb:f54e00,g_center,y_-257/l_text:Arial_34_bold:La%20cr%C3%A9ole%20qui%20change%20tout.,co_rgb:1c1814,g_center,y_-211,w_820,c_fit/l_text:Arial_19_bold:Perle%20naturelle%252C%20dorure%20or%20fin%2024%20carats%20%E2%80%94%20pi%C3%A8ce%20signature.,co_rgb:5a4a3a,g_center,y_-161,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

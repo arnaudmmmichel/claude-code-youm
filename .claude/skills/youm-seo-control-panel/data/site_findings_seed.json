@@ -1,0 +1,62 @@
+{
+  "_comment": "Client-facing rewrite of logs/website-audit-youm-paris-com-2026-07-08.md. No internal checklist citations, no jargon. Update 'status' by hand as work is done, and refresh this file's content whenever a new website-audit report is run.",
+  "source_report": "logs/website-audit-youm-paris-com-2026-07-08.md",
+  "findings": [
+    {
+      "id": "site-homepage-schema",
+      "title": "Donner à la page d'accueil une identité de marque reconnue par Google et les IA",
+      "description": "La page d'accueil ne porte aujourd'hui aucune donnée structurée décrivant la marque (nom, logo, réseaux sociaux). C'est le meilleur point d'ancrage pour qu'un moteur IA (ChatGPT, Perplexity, Google) sache qui est Youm Paris et la cite correctement.",
+      "impact": "Élevé",
+      "status": "planned"
+    },
+    {
+      "id": "site-collections-schema",
+      "title": "Enrichir les pages collections pour les résultats enrichis Google",
+      "description": "Les 19 pages collections n'ont qu'un balisage partiel ; 3 d'entre elles n'en ont aucun. Ce sont les pages où les visiteurs arrivent avec la plus forte intention d'achat.",
+      "impact": "Élevé",
+      "status": "planned"
+    },
+    {
+      "id": "site-homepage-h1",
+      "title": "Clarifier le titre principal de la page d'accueil",
+      "description": "Le titre visible en haut de la page d'accueil se répète et ne décrit pas l'offre. Un titre descriptif aide autant les visiteurs que les moteurs de recherche à comprendre l'accueil en un coup d'œil.",
+      "impact": "Moyen",
+      "status": "planned"
+    },
+    {
+      "id": "site-alt-text",
+      "title": "Compléter les descriptions d'images manquantes",
+      "description": "Environ 1 image sur 4 n'a pas de description texte associée. Sur un site bijoux très visuel, ces descriptions aident les moteurs de recherche d'images et les assistants IA à comprendre le contenu visuel.",
+      "impact": "Moyen",
+      "status": "in_progress"
+    },
+    {
+      "id": "site-homepage-title",
+      "title": "Étoffer le titre de la page d'accueil",
+      "description": "Le titre actuel de la page d'accueil est court et gagnerait à mieux refléter l'offre de la marque pour les résultats de recherche.",
+      "impact": "Moyen",
+      "status": "planned"
+    },
+    {
+      "id": "site-duplicate-titles",
+      "title": "Corriger deux fiches produits avec un titre identique",
+      "description": "Deux variantes de produit partagent exactement le même titre, ce qui peut prêter à confusion pour les moteurs de recherche.",
+      "impact": "Faible",
+      "status": "planned"
+    },
+    {
+      "id": "site-aeo-structure",
+      "title": "Structurer les pages collections et produits pour les réponses IA",
+      "description": "Ajouter de courtes intros qui répondent directement aux questions fréquentes, pour que les assistants IA puissent citer Youm Paris comme réponse.",
+      "impact": "Moyen",
+      "status": "planned"
+    },
+    {
+      "id": "site-contact-h1",
+      "title": "Ajouter un titre clair à la page contact",
+      "description": "La page contact n'a pas de titre visible dédié — un ajustement simple pour la clarté et la confiance.",
+      "impact": "Faible",
+      "status": "planned"
+    }
+  ]
+}

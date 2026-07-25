@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/23-bijoux-dores-au-quotidien-comment-les-porter.html",
+  "pin_title": "Bijoux dorés au quotidien : comment les choisir et les associer — Guide Youm Paris",
+  "pin_description": "Créoles, joncs, pierres naturelles : comment porter ses bijoux dorés à l'or fin 24 carats selon sa morphologie et son style. Malachite, quartz rose, galuchat — les associations qui fonctionnent. Découvrez le guide sur youm-paris.com",
+  "board": "Bijoux Dorés Style",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-dores-au-quotidien-comment-les-porter",
+  "hook": "Le guide bijoux dorés",
+  "label": "Choisir, associer, porter — du bureau à la soirée",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "alt": "créoles Catherine grand modèle",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-au-quotidien-comment-les-porter-0-ff176653de"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-portees.jpg?v=1773659652",
+      "alt": "créoles Catherine grand modèle",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-au-quotidien-comment-les-porter-1-e1a09b2040"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-detail-pose.jpg?v=1773659676",
+      "alt": "créoles Catherine grand modèle",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-au-quotidien-comment-les-porter-2-86b8885d62"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles Doreilles Galuchat Grace",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-au-quotidien-comment-les-porter-3-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-au-quotidien-comment-les-porter-4-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doreilles Doris Jaspe",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-au-quotidien-comment-les-porter-5-fdf9e81e5b"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-dores-au-quotidien-comment-les-porter-0-ff176653de,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-au-quotidien-comment-les-porter-1-e1a09b2040,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-au-quotidien-comment-les-porter-2-86b8885d62,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-au-quotidien-comment-les-porter-3-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-au-quotidien-comment-les-porter-4-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-au-quotidien-comment-les-porter-5-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20DOR%C3%89S%20STYLE,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Le%20guide%20bijoux%20dor%C3%A9s,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Choisir%252C%20associer%252C%20porter%20%E2%80%94%20du%20bureau%20%C3%A0%20la%20soir%C3%A9e,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

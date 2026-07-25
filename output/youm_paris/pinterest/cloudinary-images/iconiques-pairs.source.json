@@ -1,0 +1,29 @@
+{
+  "pipeline": "cloudinary-pinterest-pairs-collage-youm",
+  "source": "collection:iconiques",
+  "pin_title": "Perle ou malachite ? Deux icônes Youm Paris à s'approprier",
+  "pin_description": "De la douceur nacrée de la perle à l'intensité végétale de la malachite, deux pièces emblématiques de la collection Iconiques, dorées à l'or fin 24 carats à Paris. Découvrez sur youm-paris.com",
+  "board": "Bijoux parisiens iconiques",
+  "dest_url": "https://youm-paris.com/collections/iconiques",
+  "hook": "Perle ou malachite, choisissez votre icône",
+  "label": "Deux caractères, un même savoir-faire parisien.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-perle-pernille",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778764015/Youm-Paris/uhafv3cg0ljstfodcobm.jpg",
+      "status": "à valider (rentrée)",
+      "creative1_public_id": "youm/pinterest-pairs-collage/iconiques-0-creative-ae6b673ac1",
+      "img1_public_id": "youm/pinterest-pairs-collage/iconiques-0-packshot-ae6b673ac1"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-malachite-niagara",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-niagara-malachite-dorees-packshot-youm.jpg?v=1771864187",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774349395/Youm-Paris/lermbbqjiu3h0pzci96w.jpg",
+      "status": "validé/rentree",
+      "creative1_public_id": "youm/pinterest-pairs-collage/iconiques-1-creative-0145a9c0f7",
+      "img1_public_id": "youm/pinterest-pairs-collage/iconiques-1-packshot-0145a9c0f7"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-pairs-collage:iconiques-0-creative-ae6b673ac1,w_473,h_807,c_thumb,g_center/g_north,x_-240,y_174,fl_layer_apply/l_youm:pinterest-pairs-collage:iconiques-0-packshot-ae6b673ac1,w_473,h_429,c_thumb,g_center/g_north,x_-240,y_987,fl_layer_apply/l_youm:pinterest-pairs-collage:iconiques-1-creative-0145a9c0f7,w_473,h_807,c_thumb,g_center/g_north,x_239,y_609,fl_layer_apply/l_youm:pinterest-pairs-collage:iconiques-1-packshot-0145a9c0f7,w_473,h_429,c_thumb,g_center/g_north,x_239,y_174,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PARISIENS%20ICONIQUES,co_rgb:f54e00,g_north,y_34/l_text:Arial_42_bold:Perle%20ou%20malachite%252C%20choisissez%20votre%20ic%C3%B4ne,co_rgb:1c1814,g_north,y_65,w_860,c_fit/l_text:Arial_19_bold:Deux%20caract%C3%A8res%252C%20un%20m%C3%AAme%20savoir-faire%20parisien.,co_rgb:5a4a3a,g_north,y_117,w_820,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south,y_30/youm/instagram-bg.png"
+}

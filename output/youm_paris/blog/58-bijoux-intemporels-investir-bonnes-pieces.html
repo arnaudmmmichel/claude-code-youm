@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!--
+    Titre SEO : Bijoux intemporels : investir dans les bonnes pièces
+    Meta description : Bijoux intemporels : chez Youm, découvrez comment reconnaître et choisir les pièces qui traversent les saisons sans jamais se démoder.
+    Slug : bijoux-intemporels-investir-bonnes-pieces
+  -->
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+    .article-hero { background: #f8f1ee; padding: 64px 32px 56px; text-align: center; }
+    .article-category { display: inline-block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2622; margin-bottom: 24px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: #1c1814; max-width: 760px; margin: 0 auto 24px; }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta { font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .meta-dot { color: #c0b0a0; }
+    .article-wrap { max-width: 820px; margin: 0 auto; padding: 56px 32px 80px; }
+    .article-toc { background: #f8f1ee; border-left: 3px solid #f54e00; padding: 24px 28px; margin-bottom: 48px; }
+    .article-toc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1814; margin-bottom: 14px; }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+    .article-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.7; color: #3a3028; margin-bottom: 48px; font-style: italic; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #1c1814; margin: 52px 0 20px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 600; color: #2a2622; margin: 36px 0 14px; }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body blockquote { border-left: 3px solid #f54e00; background: #f8f1ee; margin: 36px 0; padding: 22px 28px; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; color: #3a3028; margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th { background: #f8f1ee; color: #2a2622; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8; }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+    .product-row { display: grid; gap: 16px; margin: 32px auto 44px; }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a { display: block; position: relative; overflow: hidden; text-decoration: none; }
+    .product-row figure img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f8f1ee; transition: transform 0.42s ease; }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after { content: 'Voir le produit'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,24,20,0.65); color: #fff; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; padding: 11px 8px; text-align: center; opacity: 0; transition: opacity 0.28s ease; }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .article-cta { background: #f8f1ee; padding: 52px 44px; text-align: center; margin-top: 64px; }
+    .cta-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1c1814; line-height: 1.25; margin-bottom: 16px; }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button { display: inline-block; background: #f54e00; color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; }
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#quest-ce-quun-bijou-intemporel">Qu'est-ce qu'un bijou intemporel ?</a></li>
+        <li><a href="#les-formats-qui-traversent-le-temps">Les formats qui traversent le temps</a></li>
+        <li><a href="#investir-plutot-quaccumuler">Investir plutôt qu'accumuler</a></li>
+        <li><a href="#comment-reconnaitre-une-bonne-piece">Comment reconnaître une bonne pièce</a></li>
+        <li><a href="#conseils-pratiques">Conseils pratiques</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <p class="article-lead">Face à la multiplication des tendances, une question revient souvent : vaut-il mieux suivre chaque nouveauté ou investir dans quelques pièces durables ? Chez Youm, nous pensons que les bijoux les plus précieux ne sont pas toujours les plus visibles, mais ceux qui traversent les années sans jamais paraître datés. Cet article vous aide à reconnaître ces pièces intemporelles et à composer une collection qui dure.</p>
+
+    <div class="article-body">
+
+      <h2 id="quest-ce-quun-bijou-intemporel">Qu'est-ce qu'un bijou intemporel ?</h2>
+      <p>Un bijou intemporel se reconnaît à sa capacité à traverser les modes sans jamais paraître daté. Ce n'est ni une question de prix, ni une question de rareté, mais une question de ligne : une forme sobre, une matière noble, une proportion équilibrée. Les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele">créoles Catherine grand modèle</a> illustrent bien ce principe — un format classique qui se porte aujourd'hui exactement comme il se portera dans dix ans.</p>
+      <p>À l'inverse, un bijou fortement marqué par une tendance du moment — une forme très spécifique, une couleur éphémère — perd rapidement de sa pertinence une fois la tendance passée.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632" alt="Créoles Catherine grand modèle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele">Catherine — Créoles GM</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-portees.jpg?v=1773659652" alt="Créoles Catherine grand modèle portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele">Catherine — portées</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="les-formats-qui-traversent-le-temps">Les formats qui traversent le temps</h2>
+      <p>Certains formats reviennent systématiquement dans les collections intemporelles : les créoles, dans toutes leurs tailles, le jonc fin, le collier chaîne sobre. Ce sont des pièces qui n'imposent pas un style particulier — elles s'adaptent à celui qui les porte, plutôt que l'inverse. Le <a href="https://youm-paris.com/products/collier-leo">collier Léo</a> et le <a href="https://youm-paris.com/products/jonc-nacre-theo">jonc Théo en nacre</a> incarnent cette sobriété qui ne se démode jamais.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/collier-leo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793" alt="Collier Léo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-leo">Léo — Collier chaîne</a></figcaption></figure><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Théo nacre" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Théo — Nacre</a></figcaption></figure></div>
+
+      <blockquote><p>Un bijou intemporel ne cherche pas à être remarqué immédiatement — il cherche à rester juste, année après année.</p></blockquote>
+
+      <hr>
+
+      <h2 id="investir-plutot-quaccumuler">Investir plutôt qu'accumuler</h2>
+      <p>Investir dans un bijou intemporel, c'est souvent choisir de porter moins de pièces, mais de les porter plus longtemps et plus souvent. C'est une approche opposée à l'accumulation d'achats ponctuels : quelques pièces bien choisies remplacent avantageusement une multitude de bijoux achetés au fil des tendances.</p>
+      <p>Les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane en perle ronde</a> illustrent cette logique — une pièce que l'on porte pendant des années, du quotidien aux occasions plus habillées, sans jamais avoir besoin de la remplacer.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594" alt="Créoles Jane perle ronde" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">Jane — Créoles perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-jane-dore-perle-blanche-portees.jpg?v=1773508617" alt="Créoles Jane perle ronde portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">Jane — portées</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="comment-reconnaitre-une-bonne-piece">Comment reconnaître une bonne pièce</h2>
+      <p>Quelques repères aident à distinguer une pièce réellement intemporelle d'un bijou de tendance passager :</p>
+      <ul>
+        <li>Une ligne sobre, qui ne dépend pas d'un détail visuel très spécifique à une saison.</li>
+        <li>Une matière noble — le laiton doré à l'or fin 24 carats, une pierre naturelle sobre — plutôt qu'un effet de mode.</li>
+        <li>Une polyvalence d'usage : la pièce doit convenir aussi bien au quotidien qu'à une occasion plus habillée.</li>
+        <li>Une forme qui reste identifiable même après plusieurs années de collections successives.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="conseils-pratiques">Conseils pratiques</h2>
+      <ul>
+        <li>Optez pour des formats classiques — créoles, jonc, collier chaîne — comme base de votre collection.</li>
+        <li>Misez sur une seule matière dominante pour garder une cohérence entre vos pièces.</li>
+        <li>Associez vos bijoux intemporels à des pièces plus ponctuelles pour varier sans multiplier les achats.</li>
+        <li>Privilégiez la qualité de la dorure à la quantité de pièces possédées.</li>
+        <li>Adaptez votre collection à votre quotidien réel plutôt qu'à des occasions rares.</li>
+      </ul>
+
+      <h2 id="faq">FAQ</h2>
+
+      <h3>Un bijou intemporel doit-il forcément être sobre ?</h3>
+      <p>Pas nécessairement, mais la sobriété facilite la longévité stylistique — une pièce plus affirmée peut aussi devenir intemporelle si sa forme reste équilibrée.</p>
+
+      <h3>Combien de pièces intemporelles faut-il posséder ?</h3>
+      <p>Il n'y a pas de nombre fixe — l'essentiel est de choisir des pièces que vous portez réellement et régulièrement, plutôt que d'accumuler.</p>
+
+      <h3>Les créoles sont-elles un bon premier investissement ?</h3>
+      <p>Oui, les créoles font partie des formats les plus polyvalents et les plus durables dans le temps.</p>
+
+      <h3>Un bijou doré reste-t-il intemporel plus longtemps qu'un bijou coloré ?</h3>
+      <p>Le doré offre effectivement une base plus stable, car il s'accorde avec toutes les tenues sans dépendre d'une tendance de couleur.</p>
+
+      <h3>Faut-il éviter les bijoux tendance pour autant ?</h3>
+      <p>Non, mais mieux vaut les considérer comme un complément ponctuel plutôt que comme la base de votre collection.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h2 class="cta-heading">Composez votre collection intemporelle</h2>
+      <p class="cta-subtext">Des pièces sobres et durables, pensées pour traverser les saisons sans jamais se démoder. Investissez dans ce qui dure.</p>
+      <a href="https://youm-paris.com/collections/iconiques" class="cta-button">Découvrir les pièces iconiques</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

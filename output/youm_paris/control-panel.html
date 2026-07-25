@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Youm — Content Control Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #17130f;
+    --cream-deep: #1f1a15;
+    --surface: #221d17;
+    --border: #392f26;
+    --dark: #f5ece3;
+    --dark2: #e6dacb;
+    --accent: #f5722e;
+    --muted: #b3a290;
+    --muted-dim: #7a6c5c;
+    --green: #4caf7d;
+    --red: #e0645a;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', Arial, sans-serif;
+  }
+  body {
+    background: var(--cream);
+    color: var(--dark2);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .title-block { display: flex; align-items: center; gap: 14px; }
+  .header-logo { height: 22px; width: auto; flex-shrink: 0; filter: brightness(0) invert(1); }
+  h1 { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--dark); letter-spacing: -0.01em; }
+  .subtitle { font-size: 11px; color: var(--muted-dim); margin-top: 2px; }
+
+  .platform-tabs {
+    display: flex;
+    gap: 6px;
+  }
+  .platform-tabs button {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    cursor: pointer;
+  }
+  .platform-tabs button, .platform-tabs a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+  .platform-tabs button:hover, .platform-tabs a:hover { border-color: var(--accent); }
+  .platform-tabs button.current, .platform-tabs a.current {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+  .view-toggle { display: flex; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .view-toggle button { background: none; border: none; color: var(--muted); font-size: 12px; padding: 8px 14px; cursor: pointer; }
+  .view-toggle button.active { background: var(--accent); color: #fff; }
+
+  .filter-select, .refresh-btn, .add-pin-btn {
+    font-size: 12px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--dark2);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .add-pin-btn { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+  .refresh-btn:hover, .filter-select:hover { border-color: var(--accent); }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    display: flex;
+    gap: 24px;
+    padding: 14px 32px;
+    background: var(--cream-deep);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .stats-bar strong { color: var(--dark); }
+  .stats-bar .stat-posted strong { color: var(--green); }
+  .stats-bar .stat-deleted strong { color: var(--red); }
+
+  main { padding: 28px 32px 80px; }
+
+  .empty-state { text-align: center; padding: 80px 20px; color: var(--muted-dim); font-size: 13px; }
+  .empty-state code { background: var(--cream-deep); padding: 3px 8px; border-radius: 4px; color: var(--accent); }
+
+  /* ── GRID VIEW ── */
+  .grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card.posted { opacity: 0.55; }
+  .card.posted .preview-wrap::after {
+    content: '✓ PUBLIÉ';
+    position: absolute; inset: 0;
+    background: rgba(28,24,20,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+    color: #fff; z-index: 5;
+  }
+
+  .preview-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1080 / 1350;
+    overflow: hidden;
+    background: var(--cream-deep);
+    border-bottom: 1px solid var(--border);
+  }
+  a.preview-wrap { cursor: pointer; }
+  .preview-wrap img, .preview-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .type-badge {
+    position: absolute; top: 8px; left: 8px; z-index: 6;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px;
+    background: rgba(23,19,15,0.85); color: var(--accent);
+    border: 1px solid rgba(245,114,46,0.35);
+  }
+
+  .season-badge {
+    position: absolute; top: 8px; right: 8px; z-index: 6;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px;
+    background: rgba(23,19,15,0.85); color: var(--dark2, #ece3dc);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .card-title { font-size: 13px; font-weight: 600; color: var(--dark); line-height: 1.4; }
+
+  .card-actions { display: flex; gap: 8px; align-items: center; margin-top: 4px; flex-wrap: wrap; }
+
+  .open-link {
+    font-size: 11px; color: var(--accent); text-decoration: none;
+    border: 1px solid rgba(245,78,0,0.25); background: rgba(245,78,0,0.06);
+    padding: 6px 10px; border-radius: 5px; flex: 1; text-align: center;
+  }
+  .open-link:hover { background: rgba(245,78,0,0.14); }
+
+  .checkbox-label { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); cursor: pointer; user-select: none; }
+  .checkbox-label input { accent-color: var(--green); width: 15px; height: 15px; cursor: pointer; }
+
+  .delete-btn {
+    background: rgba(193,68,58,0.08); border: 1px solid rgba(193,68,58,0.25); color: var(--red);
+    font-size: 11px; padding: 6px 10px; border-radius: 5px; cursor: pointer;
+  }
+  .delete-btn:hover { background: rgba(193,68,58,0.18); }
+
+  /* ── LIST VIEW ── */
+  .list-view { display: flex; flex-direction: column; gap: 10px; }
+  .list-row { display: flex; align-items: center; gap: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+  .list-row.posted { opacity: 0.55; }
+  .list-thumb { position: relative; width: 76px; height: 95px; flex-shrink: 0; overflow: hidden; border-radius: 4px; background: var(--cream-deep); border: 1px solid var(--border); }
+  .list-thumb img, .list-thumb video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .list-info { flex: 1; min-width: 0; }
+  .list-title { font-size: 13px; font-weight: 600; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .list-meta { font-size: 11px; color: var(--muted-dim); margin-top: 3px; }
+  .list-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+  /* ── DELETE QUEUE PANEL ── */
+  .delete-queue { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark); border-top: 1px solid var(--red); padding: 16px 32px; z-index: 30; display: none; }
+  .delete-queue.visible { display: block; }
+  .delete-queue-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .delete-queue-header h3 { font-size: 12px; color: #ff8a7a; letter-spacing: 0.05em; text-transform: uppercase; }
+  .delete-queue-cmd { background: #14100d; border: 1px solid #332a22; border-radius: 6px; padding: 12px 16px; font-family: monospace; font-size: 12px; color: #ffb199; white-space: pre-wrap; word-break: break-all; max-height: 100px; overflow-y: auto; }
+  .copy-cmd-btn { font-size: 11px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: 5px; padding: 7px 14px; cursor: pointer; }
+  .copy-cmd-btn.copied { background: var(--green); }
+  .clear-queue-btn { font-size: 11px; color: #cbb; background: none; border: 1px solid #332a22; border-radius: 5px; padding: 7px 14px; cursor: pointer; }
+
+  .regenerate-btn { font-size: 12px; background: var(--cream); border: 1px solid var(--border); color: var(--dark2); padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+  .regenerate-btn:hover { border-color: var(--accent); }
+
+  .regen-popover {
+    position: fixed; top: 68px; right: 32px; z-index: 40;
+    background: var(--surface); border: 1px solid var(--accent); border-radius: 8px;
+    padding: 14px 16px; width: 440px; max-width: calc(100vw - 64px);
+    display: none; box-shadow: 0 8px 24px rgba(28,24,20,0.18);
+  }
+  .regen-popover.visible { display: block; }
+  .regen-popover-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .regen-popover-header h3 { font-size: 11px; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; }
+  .regen-popover-close { background: none; border: none; color: var(--muted-dim); cursor: pointer; font-size: 14px; }
+  .regen-popover-cmd { background: var(--cream-deep); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-family: monospace; font-size: 11px; color: var(--dark2); white-space: pre-wrap; word-break: break-all; }
+  .regen-popover-hint { font-size: 10.5px; color: var(--muted-dim); margin-top: 8px; line-height: 1.5; }
+
+  .caption-block { background: var(--cream-deep); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 11.5px; line-height: 1.5; color: var(--dark2); max-height: 90px; overflow-y: auto; white-space: pre-wrap; }
+  .caption-block.empty { color: var(--muted-dim); font-style: italic; font-size: 11px; }
+  .caption-copy-btn { font-size: 10.5px; color: var(--accent); background: rgba(245,78,0,0.06); border: 1px solid rgba(245,78,0,0.25); border-radius: 5px; padding: 4px 9px; cursor: pointer; margin-top: 6px; }
+  .caption-copy-btn:hover { background: rgba(245,78,0,0.14); }
+  .caption-copy-btn.copied { color: var(--green); border-color: rgba(46,139,87,0.4); }
+
+  .broken-badge {
+    position: absolute; inset: 0; z-index: 7; display: none; align-items: center; justify-content: center;
+    flex-direction: column; gap: 6px; background: rgba(28,24,20,0.85); color: #ff8a7a;
+    font-size: 12px; font-weight: 700; text-align: center; padding: 12px;
+  }
+  .broken-badge.visible { display: flex; }
+
+  /* ── PINTEREST TAB ── */
+  .pin-notice {
+    background: var(--surface); border: 1px dashed var(--border); border-radius: 8px;
+    padding: 14px 18px; font-size: 12px; color: var(--muted); margin-bottom: 20px; line-height: 1.6;
+  }
+  .pin-notice strong { color: var(--dark); }
+
+  .pin-card-board { font-size: 10.5px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.04em; }
+  .pin-card-url { font-size: 10.5px; color: var(--muted-dim); word-break: break-all; }
+
+  /* ── SEO TAB ── */
+  .seo-section { margin-bottom: 36px; }
+  .seo-section-title { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .seo-section-sub { font-size: 12px; color: var(--muted-dim); margin-bottom: 16px; }
+  .seo-list { display: flex; flex-direction: column; gap: 10px; }
+  .seo-row {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 18px;
+  }
+  .seo-row.validated { border-color: rgba(76,175,125,0.35); }
+  .seo-row-main { flex: 1; min-width: 0; }
+  .seo-row-title { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .seo-row-desc { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+  .seo-row-meta { font-size: 11px; color: var(--muted-dim); margin-top: 6px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .seo-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 4px; flex-shrink: 0;
+  }
+  .seo-badge.impact-eleve { background: rgba(224,101,90,0.14); color: var(--red); }
+  .seo-badge.impact-moyen { background: rgba(245,114,46,0.14); color: var(--accent); }
+  .seo-badge.impact-faible { background: rgba(179,162,144,0.14); color: var(--muted); }
+  .seo-badge.status-in_progress { background: rgba(245,114,46,0.14); color: var(--accent); }
+  .seo-badge.status-planned { background: rgba(179,162,144,0.14); color: var(--muted); }
+  .validate-btn {
+    font-size: 12px; font-weight: 600; color: #fff; background: var(--accent);
+    border: none; border-radius: 6px; padding: 9px 16px; cursor: pointer; flex-shrink: 0; white-space: nowrap;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .validate-btn:hover { opacity: 0.9; }
+  .validate-btn.validated { background: var(--green); cursor: default; }
+  .validate-btn.validated:hover { opacity: 1; }
+  .seo-stats-note { font-size: 12px; color: var(--muted-dim); margin-top: 14px; font-style: italic; }
+
+  /* ── ASYNC ACTION LOADING STATES ──
+     Two stages after a click that writes to the Sheet + triggers a Netlify
+     rebuild: "pending" while waiting for the write itself to confirm, then
+     "publishing" while waiting for the triggered rebuild to actually go
+     live (a real deploy, not instant — the client needs to see progress,
+     not think the click did nothing). */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner {
+    display: inline-block; width: 12px; height: 12px; flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff;
+    border-radius: 50%; animation: spin 0.7s linear infinite;
+  }
+  .validate-btn.pending, .validate-btn.publishing { background: var(--muted-dim); cursor: wait; opacity: 0.85; }
+  .status-toast {
+    position: fixed; bottom: 24px; right: 24px; z-index: 60;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; font-size: 12px; color: var(--dark2); display: none;
+    align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(28,24,20,0.25); max-width: 340px;
+  }
+  .status-toast.visible { display: flex; }
+  .status-toast.done { border-color: rgba(76,175,125,0.4); color: var(--green); }
+  .status-toast.timeout { border-color: rgba(224,101,90,0.4); color: var(--red); }
+
+  /* ── MODAL ── */
+  .modal-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(28,24,20,0.45); display: none; align-items: center; justify-content: center; }
+  .modal-backdrop.visible { display: flex; }
+  .modal-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; width: 480px; max-width: calc(100vw - 48px); }
+  .modal-box h3 { font-family: var(--serif); font-size: 16px; color: var(--dark); margin-bottom: 4px; }
+  .modal-box .modal-subtitle { font-size: 11px; color: var(--muted-dim); margin-bottom: 14px; }
+  .modal-field { margin-bottom: 12px; }
+  .modal-field label { display: block; font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 5px; }
+  .modal-box input[type="text"], .modal-box input[type="url"], .modal-box textarea {
+    width: 100%; background: var(--cream); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--dark2); font-family: var(--sans); font-size: 13px; padding: 9px 11px;
+  }
+  .modal-box textarea { min-height: 70px; resize: vertical; }
+  .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+  .modal-cancel-btn { font-size: 12px; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 16px; cursor: pointer; }
+  .modal-confirm-btn { font-size: 12px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; }
+  .modal-confirm-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-block">
+    <a href="overview.html"><img class="header-logo" src="youm-logo.png" alt="Youm"></a>
+    <div>
+      <h1>Content Control Panel</h1>
+    </div>
+  </div>
+
+  <div class="platform-tabs">
+    <a href="overview.html">Overview</a>
+    <button class="current" id="tabInstagram" onclick="setPlatform('instagram')">Instagram</button>
+    <button id="tabAiImage" onclick="setPlatform('ai_image')">AI Image</button>
+    <button id="tabAiVideo" onclick="setPlatform('ai_video')">AI Vidéo</button>
+    <button id="tabPinterest" onclick="setPlatform('pinterest')">Pinterest</button>
+    <button id="tabSeo" onclick="setPlatform('seo')">SEO</button>
+  </div>
+
+  <div class="controls" id="instagramControls">
+    <select class="filter-select" id="filterSelect">
+      <option value="all">Tous les posts</option>
+      <option value="pending">En attente</option>
+      <option value="posted">Publiés</option>
+    </select>
+    <button class="regenerate-btn" onclick="toggleRegenPopover()">⟳ Régénérer le manifeste</button>
+    <button class="refresh-btn" onclick="location.reload()">↻ Recharger</button>
+    <div class="view-toggle">
+      <button id="gridBtn" class="active" onclick="setView('grid')">▦ Grille</button>
+      <button id="listBtn" onclick="setView('list')">☰ Liste</button>
+    </div>
+  </div>
+
+  <div class="controls" id="aiImageControls" style="display:none;">
+    <select class="filter-select" id="aiImageFilterSelect">
+      <option value="all">Toutes les images</option>
+      <option value="pending">En attente</option>
+      <option value="posted">Publiées</option>
+    </select>
+    <select class="filter-select" id="aiImageSeasonFilterSelect">
+      <option value="all">Toutes les saisons</option>
+      <option value="ete">Été</option>
+      <option value="automne">Automne</option>
+      <option value="hiver">Hiver</option>
+      <option value="printemps">Printemps</option>
+    </select>
+    <button class="regenerate-btn" onclick="toggleRegenPopover()">⟳ Régénérer le manifeste</button>
+    <button class="refresh-btn" onclick="location.reload()">↻ Recharger</button>
+    <div class="view-toggle">
+      <button id="gridBtn_ai_image" class="active" onclick="setView('grid')">▦ Grille</button>
+      <button id="listBtn_ai_image" onclick="setView('list')">☰ Liste</button>
+    </div>
+  </div>
+
+  <div class="controls" id="aiVideoControls" style="display:none;">
+    <select class="filter-select" id="aiVideoFilterSelect">
+      <option value="all">Toutes les vidéos</option>
+      <option value="pending">En attente</option>
+      <option value="posted">Publiées</option>
+    </select>
+    <button class="regenerate-btn" onclick="toggleRegenPopover()">⟳ Régénérer le manifeste</button>
+    <button class="refresh-btn" onclick="location.reload()">↻ Recharger</button>
+    <div class="view-toggle">
+      <button id="gridBtn_ai_video" class="active" onclick="setView('grid')">▦ Grille</button>
+      <button id="listBtn_ai_video" onclick="setView('list')">☰ Liste</button>
+    </div>
+  </div>
+
+  <div class="controls" id="pinterestControls" style="display:none;">
+    <select class="filter-select" id="pinFilterSelect">
+      <option value="all">Tous les pins</option>
+      <option value="pending">En attente</option>
+      <option value="posted">Publiés</option>
+    </select>
+    <button class="add-pin-btn" onclick="openAddPinModal()">+ Ajouter un pin</button>
+  </div>
+
+  <div class="controls" id="seoControls" style="display:none;">
+    <button class="refresh-btn" onclick="location.reload()">↻ Recharger</button>
+  </div>
+</header>
+
+<div class="regen-popover" id="regenPopover">
+  <div class="regen-popover-header">
+    <h3>Lancer ceci, puis cliquer "Recharger"</h3>
+    <button class="regen-popover-close" onclick="toggleRegenPopover(false)">✕</button>
+  </div>
+  <div class="regen-popover-cmd">python .claude/skills/youm-social-control-panel/scripts/generate_manifest.py</div>
+  <div class="regen-popover-hint">Une page ouverte en fichier local ne peut pas exécuter de script — copier cette commande dans le terminal après avoir généré un nouveau visuel.</div>
+  <div style="margin-top:10px; display:flex; justify-content:flex-end;">
+    <button class="copy-cmd-btn" id="regenCopyBtn" onclick="copyRegenCmd()">Copier la commande</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="addPinModal">
+  <div class="modal-box">
+    <h3>Ajouter un pin Pinterest</h3>
+    <div class="modal-subtitle">Pour un pin créé en dehors des pipelines de génération (le pin doit déjà exister/être créé sur Pinterest) — pour un pin généré via <code>cloudinary-pinterest-image-youm</code> ou <code>pinterest-text-pin-youm</code>, régénérer le manifeste à la place.</div>
+    <div class="modal-field">
+      <label>Titre</label>
+      <input type="text" id="pinTitle" placeholder="Ex : Le bijou qui change tout">
+    </div>
+    <div class="modal-field">
+      <label>URL de l'image</label>
+      <input type="url" id="pinImageUrl" placeholder="URL de l'image utilisée pour le pin">
+    </div>
+    <div class="modal-field">
+      <label>URL de destination (lien du pin)</label>
+      <input type="url" id="pinDestUrl" placeholder="https://youm-paris.com/...">
+    </div>
+    <div class="modal-field">
+      <label>Tableau (board)</label>
+      <input type="text" id="pinBoard" placeholder="Ex : Bijoux dorés">
+    </div>
+    <div class="modal-field">
+      <label>Description</label>
+      <textarea id="pinDescription" placeholder="Description du pin (optionnel)"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-cancel-btn" onclick="closeAddPinModal()">Annuler</button>
+      <button class="modal-confirm-btn" onclick="submitAddPin()">Ajouter</button>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar" id="statsBar"></div>
+
+<main>
+  <div id="pinNotice" class="pin-notice" style="display:none;">
+    <strong>Pinterest.</strong> Cinq pipelines de génération existent : <code>cloudinary-pinterest-image-youm</code> (pin texte lié à un article, mise en page "question accroche"), <code>pinterest-text-pin-youm</code> (pin texte autonome, citation de marque sans article), <code>cloudinary-pinterest-collage-youm</code> (grille de photos produits), <code>cloudinary-pinterest-lifestyle-collage-youm</code> (1 produit mis en avant + photos IA lifestyle) et <code>cloudinary-pinterest-pairs-collage-youm</code> (2 produits, packshot + photo IA chacun). Les pins générés apparaissent automatiquement ci-dessous après régénération du manifeste. "+ Ajouter un pin" reste disponible pour tout pin créé manuellement en dehors de ces pipelines.
+  </div>
+  <div id="emptyState" class="empty-state" style="display:none;"></div>
+  <div id="gridView" class="grid-view"></div>
+  <div id="listView" class="list-view" style="display:none;"></div>
+  <div id="seoView" style="display:none;"></div>
+</main>
+
+<div class="status-toast" id="statusToast">
+  <span class="spinner" id="statusToastSpinner"></span>
+  <span id="statusToastText"></span>
+</div>
+
+<div class="delete-queue" id="deleteQueue">
+  <div class="delete-queue-header">
+    <h3>Fichiers marqués pour suppression — exécuter une fois pour les supprimer du disque</h3>
+    <button class="clear-queue-btn" onclick="clearDeleteQueue()">Vider la file</button>
+  </div>
+  <div class="delete-queue-cmd" id="deleteQueueCmd"></div>
+  <div style="margin-top:10px; display:flex; justify-content:flex-end;">
+    <button class="copy-cmd-btn" id="copyCmdBtn" onclick="copyDeleteCmd()">Copier la commande</button>
+  </div>
+</div>
+
+<!-- Sets window.__MANIFEST__ — regenerated by generate_manifest.py. Covers Instagram
+     (manifest.posts) and scanned Pinterest pins (manifest.pinterest_pins, added
+     2026-07-22). Manually-tracked Pinterest pins added via "+ Ajouter un pin"
+     still live entirely in localStorage (see PIN_KEY below), merged in at render time. -->
+<script src="manifest.js"></script>
+<!-- Sets window.__SEO_MANIFEST__ — regenerated by
+     youm-seo-control-panel/scripts/generate_seo_manifest.py. Kept as a
+     separate file/global from manifest.js so regenerating one never risks
+     the other. -->
+<script src="seo-manifest.js"></script>
+<script>
+  const STATE_KEY = 'youm_social_control_state_v1';
+  const PIN_KEY = 'youm_pinterest_pins_v1';
+  // youm-control-panel-server, added 2026-07-23 — when running, "Validé"/
+  // "À refaire" clicks on AI Image/AI Vidéo cards also write to the
+  // "images IA" Google Sheet (matched by the card's product_url), not just
+  // localStorage. Probed once on load; if unreachable, those buttons keep
+  // their original localStorage-only behavior silently (no error shown —
+  // the server is optional, not a hard requirement to use the dashboard).
+  // Relative '/api/...' paths resolve against whatever actually serves this
+  // page: youm-control-panel-server locally (port 8430), or on Netlify
+  // netlify.toml's redirect from /api/* to the Functions (validate.ts,
+  // update-status.ts) — same code either way. Falls back to an explicit
+  // localhost origin ONLY when opened as a plain file:// page, where
+  // relative fetch() has no server to resolve against at all.
+  const YOUM_SERVER_BASE = location.protocol === 'file:' ? 'http://127.0.0.1:8430' : '';
+  let serverAvailable = false;
+  fetch(`${YOUM_SERVER_BASE}/api/ping`).then(r => r.ok && (serverAvailable = true)).catch(() => {
+    // On Netlify there's no /api/ping (validate.ts/update-status.ts don't
+    // implement it — only the local dev servers do) — treat that 404/error
+    // as "server IS available" rather than falling back to localStorage-only,
+    // since on a real deploy the write-back Functions are always there.
+    if (location.protocol !== 'file:') serverAvailable = true;
+  });
+  // SEO tab's validate endpoint — same relative-path-first / file://-fallback
+  // pattern (port 8431 locally, distinct from the social panel's 8430 so
+  // both local dev servers can run at once; the same origin on Netlify).
+  const SEO_SERVER_BASE = location.protocol === 'file:' ? 'http://127.0.0.1:8431' : '';
+  let seoServerAvailable = false;
+  fetch(`${SEO_SERVER_BASE}/api/ping`).then(r => r.ok && (seoServerAvailable = true)).catch(() => {
+    if (location.protocol !== 'file:') seoServerAvailable = true;
+  });
+  // Instagram / AI Image / AI Video are now three independent tabs (split
+  // 2026-07-23, was one "Instagram" tab mixing all three via a badge) —
+  // each manifest array is rendered by the same generic renderMediaTab(),
+  // parameterized by which manifest key + filter/posted state it reads.
+  const MEDIA_TABS = {
+    instagram: { manifestKey: 'posts', filterSelect: 'filterSelect', emptyHint: 'Aucun post Instagram généré.<br><br>Lancer <code>cloudinary-instagram-image-youm</code> pour en créer un, puis régénérer le manifeste.' },
+    ai_image: { manifestKey: 'ai_images', filterSelect: 'aiImageFilterSelect', emptyHint: 'Aucune image AI générée.<br><br>Lancer <code>youm-ai-model-image</code> pour en créer une, puis régénérer le manifeste.' },
+    ai_video: { manifestKey: 'ai_videos', filterSelect: 'aiVideoFilterSelect', emptyHint: 'Aucune vidéo AI générée.<br><br>Lancer <code>youm-ai-model-video</code> pour en créer une, puis régénérer le manifeste.' },
+  };
+  let manifest = { posts: [], ai_images: [], ai_videos: [] };
+  let seoManifest = window.__SEO_MANIFEST__ || { keywords: [], articles: [], articles_in_progress_count: 0, site_findings: [] };
+  let pins = loadPins();
+  let state = loadState();
+  // A ?tab= query param (used by overview.html's nav links) takes priority
+  // over the last-used platform in localStorage, so linking here from
+  // another page actually lands on the requested tab.
+  const tabParam = new URLSearchParams(location.search).get('tab');
+  let currentPlatform = tabParam || localStorage.getItem('youm_social_platform') || 'instagram';
+  if (!MEDIA_TABS[currentPlatform] && currentPlatform !== 'pinterest' && currentPlatform !== 'seo') currentPlatform = 'instagram';
+  let currentView = localStorage.getItem('youm_social_view') || 'grid';
+  let currentFilter = 'all';
+  let currentSeasonFilter = 'all';
+  let pinFilter = 'all';
+
+  function loadState() {
+    try {
+      const s = JSON.parse(localStorage.getItem(STATE_KEY)) || {};
+      return {
+        posted: s.posted || {}, deleted: s.deleted || {}, scheduled: s.scheduled || {},
+        pinPosted: s.pinPosted || {}, pinScheduled: s.pinScheduled || {}, pinDeleted: s.pinDeleted || {},
+      };
+    } catch (e) {
+      return { posted: {}, deleted: {}, scheduled: {}, pinPosted: {}, pinScheduled: {}, pinDeleted: {} };
+    }
+  }
+  function saveState() { localStorage.setItem(STATE_KEY, JSON.stringify(state)); }
+
+  function loadPins() {
+    try {
+      return JSON.parse(localStorage.getItem(PIN_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+  function savePins() { localStorage.setItem(PIN_KEY, JSON.stringify(pins)); }
+
+  function setPlatform(platform) {
+    currentPlatform = platform;
+    localStorage.setItem('youm_social_platform', platform);
+    document.getElementById('tabInstagram').classList.toggle('current', platform === 'instagram');
+    document.getElementById('tabAiImage').classList.toggle('current', platform === 'ai_image');
+    document.getElementById('tabAiVideo').classList.toggle('current', platform === 'ai_video');
+    document.getElementById('tabPinterest').classList.toggle('current', platform === 'pinterest');
+    document.getElementById('tabSeo').classList.toggle('current', platform === 'seo');
+    document.getElementById('instagramControls').style.display = platform === 'instagram' ? 'flex' : 'none';
+    document.getElementById('aiImageControls').style.display = platform === 'ai_image' ? 'flex' : 'none';
+    document.getElementById('aiVideoControls').style.display = platform === 'ai_video' ? 'flex' : 'none';
+    document.getElementById('pinterestControls').style.display = platform === 'pinterest' ? 'flex' : 'none';
+    document.getElementById('seoControls').style.display = platform === 'seo' ? 'flex' : 'none';
+    document.getElementById('pinNotice').style.display = platform === 'pinterest' ? 'block' : 'none';
+    render();
+  }
+
+  function toggleRegenPopover(force) {
+    const el = document.getElementById('regenPopover');
+    const show = force !== undefined ? force : !el.classList.contains('visible');
+    el.classList.toggle('visible', show);
+  }
+  function copyRegenCmd() {
+    const cmd = document.querySelector('#regenPopover .regen-popover-cmd').textContent;
+    navigator.clipboard.writeText(cmd).then(() => {
+      const btn = document.getElementById('regenCopyBtn');
+      const orig = btn.textContent;
+      btn.textContent = 'Copié';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+    });
+  }
+
+  function openAddPinModal() {
+    document.getElementById('pinTitle').value = '';
+    document.getElementById('pinImageUrl').value = '';
+    document.getElementById('pinDestUrl').value = '';
+    document.getElementById('pinBoard').value = '';
+    document.getElementById('pinDescription').value = '';
+    document.getElementById('addPinModal').classList.add('visible');
+  }
+  function closeAddPinModal() {
+    document.getElementById('addPinModal').classList.remove('visible');
+  }
+  function submitAddPin() {
+    const title = document.getElementById('pinTitle').value.trim();
+    if (!title) { alert('Le titre est requis.'); return; }
+    const id = 'pin-' + Date.now();
+    pins.push({
+      id,
+      title,
+      image_url: document.getElementById('pinImageUrl').value.trim(),
+      dest_url: document.getElementById('pinDestUrl').value.trim(),
+      board: document.getElementById('pinBoard').value.trim(),
+      description: document.getElementById('pinDescription').value.trim(),
+      created: new Date().toISOString(),
+    });
+    savePins();
+    closeAddPinModal();
+    render();
+  }
+  function isScannedPinId(id) {
+    return typeof id === 'string' && (
+      id.startsWith('pinterest-article-') ||
+      id.startsWith('pinterest-text-') ||
+      id.startsWith('pinterest-collage-') ||
+      id.startsWith('pinterest-lifestyle-') ||
+      id.startsWith('pinterest-pairs-')
+    );
+  }
+
+  function deletePin(id) {
+    if (isScannedPinId(id)) {
+      if (!confirm('Marquer ce pin "à refaire" ? (Le fichier reste sur le disque — ceci masque seulement la carte dans ce panneau.)')) return;
+      state.pinDeleted[id] = true;
+      saveState();
+      render();
+      return;
+    }
+    if (!confirm('Supprimer ce pin du suivi ? (Ceci ne supprime rien sur Pinterest, seulement de ce tableau de suivi.)')) return;
+    pins = pins.filter(p => p.id !== id);
+    savePins();
+    render();
+  }
+  function togglePinPosted(id, checked) {
+    if (isScannedPinId(id)) {
+      if (checked) state.pinPosted[id] = new Date().toISOString();
+      else delete state.pinPosted[id];
+      saveState();
+      render();
+      return;
+    }
+    const pin = pins.find(p => p.id === id);
+    if (!pin) return;
+    pin.posted = checked ? new Date().toISOString() : null;
+    savePins();
+    render();
+  }
+  function copyCaption(filename, btn) {
+    const post = manifest.posts.find(p => p.filename === filename);
+    if (!post || !post.caption) return;
+    navigator.clipboard.writeText(post.caption).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copié';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+    });
+  }
+
+  function copyCaptionText(btn) {
+    const text = btn.getAttribute('data-full');
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copié';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+    });
+  }
+
+  function loadManifest() {
+    manifest = window.__MANIFEST__ || { posts: [], ai_images: [], ai_videos: [], pinterest_pins: [] };
+    manifest.ai_images = manifest.ai_images || [];
+    manifest.ai_videos = manifest.ai_videos || [];
+    render();
+  }
+
+  function setView(view) {
+    currentView = view;
+    localStorage.setItem('youm_social_view', view);
+    document.getElementById('gridBtn').classList.toggle('active', view === 'grid');
+    document.getElementById('listBtn').classList.toggle('active', view === 'list');
+    ['ai_image', 'ai_video'].forEach(tab => {
+      const g = document.getElementById(`gridBtn_${tab}`);
+      const l = document.getElementById(`listBtn_${tab}`);
+      if (g) g.classList.toggle('active', view === 'grid');
+      if (l) l.classList.toggle('active', view === 'list');
+    });
+  }
+
+  // Finds the manifest entry for a filename across the two AI tabs only —
+  // used to resolve product_url for the sheet-status write-back. Returns
+  // null if not found (e.g. an Instagram card, which never attempts a
+  // sheet write anyway).
+  function findAiManifestEntry(filename) {
+    return (manifest.ai_images || []).find(p => p.filename === filename)
+        || (manifest.ai_videos || []).find(p => p.filename === filename)
+        || null;
+  }
+
+  // ── ASYNC WRITE-BACK: TOAST + REBUILD POLLING ──
+  // On Netlify, a Sheet write also triggers a full site rebuild (so
+  // articles[]/site_findings[] — data scanned from repo files, not just
+  // the Sheet — stay in sync too), which takes real time (~30s-2min), not
+  // instant. This toast tells the client that clearly instead of leaving
+  // them guessing whether their click did anything, and the manifest-
+  // timestamp poll confirms the change is actually live before declaring
+  // success (rather than just trusting the write response optimistically).
+  const REBUILD_POLL_INTERVAL_MS = 4000;
+  const REBUILD_POLL_MAX_ATTEMPTS = 30; // ~2 minutes at 4s intervals
+
+  function showStatusToast(text, kind) {
+    const toast = document.getElementById('statusToast');
+    const spinner = document.getElementById('statusToastSpinner');
+    document.getElementById('statusToastText').textContent = text;
+    toast.className = `status-toast visible${kind ? ' ' + kind : ''}`;
+    spinner.style.display = kind === 'done' || kind === 'timeout' ? 'none' : 'inline-block';
+  }
+  function hideStatusToast(delayMs) {
+    setTimeout(() => { document.getElementById('statusToast').classList.remove('visible'); }, delayMs || 0);
+  }
+
+  // Polls the given manifest URL (cache-busted) until its `generated`
+  // timestamp is newer than `sinceIso`, or attempts run out. Used after a
+  // write to confirm the *triggered rebuild* actually went live, not just
+  // that the Sheet write itself succeeded.
+  function pollForFreshManifest(manifestUrl, sinceIso, onDone) {
+    let attempts = 0;
+    const since = new Date(sinceIso).getTime();
+    const tick = () => {
+      attempts++;
+      fetch(`${manifestUrl}?_=${Date.now()}`, { cache: 'no-store' })
+        .then(r => r.text())
+        .then(text => {
+          const match = text.match(/"generated":\s*"([^"]+)"/);
+          const generated = match ? new Date(match[1]).getTime() : 0;
+          if (generated > since) return onDone(true);
+          if (attempts >= REBUILD_POLL_MAX_ATTEMPTS) return onDone(false);
+          setTimeout(tick, REBUILD_POLL_INTERVAL_MS);
+        })
+        .catch(() => {
+          if (attempts >= REBUILD_POLL_MAX_ATTEMPTS) return onDone(false);
+          setTimeout(tick, REBUILD_POLL_INTERVAL_MS);
+        });
+    };
+    tick();
+  }
+
+  // On file:// (no server, or the local dev servers which don't trigger a
+  // rebuild at all) there's nothing to poll for — the write is either
+  // localStorage-only or immediate. Only Netlify's real deploy needs the
+  // "publishing" wait; detected simply by not being file://.
+  function waitForRebuildThenNotify(manifestUrl, onLocalFallback) {
+    if (location.protocol === 'file:') {
+      showStatusToast('Enregistré. Régénérez le manifeste pour voir la mise à jour.', 'done');
+      hideStatusToast(3500);
+      if (onLocalFallback) onLocalFallback();
+      return;
+    }
+    const sinceIso = new Date().toISOString();
+    showStatusToast('Publication en cours…', 'publishing');
+    pollForFreshManifest(manifestUrl, sinceIso, (success) => {
+      if (success) {
+        showStatusToast('Mise à jour publiée.', 'done');
+        location.reload();
+      } else {
+        showStatusToast('Toujours en cours — rechargez dans un instant.', 'timeout');
+        hideStatusToast(6000);
+      }
+    });
+  }
+
+  // POST to youm-control-panel-server (or the Netlify Function at the same
+  // relative path) — never surfaces an error if the server's unreachable
+  // or the product_url has no matching sheet row; that's the documented
+  // fallback behavior, not a failure to report. Shows the loading toast
+  // while waiting, since this now also triggers a rebuild on Netlify.
+  function syncStatusToSheet(filename, statusKey) {
+    if (!serverAvailable) return;
+    const entry = findAiManifestEntry(filename);
+    if (!entry || !entry.product_url) return;
+    showStatusToast('Mise à jour en cours…', 'pending');
+    fetch(`${YOUM_SERVER_BASE}/api/update-status`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product_url: entry.product_url, status: statusKey }),
+    })
+      .then(() => waitForRebuildThenNotify('manifest.js'))
+      .catch(() => hideStatusToast(0));
+  }
+
+  function togglePosted(filename, checked) {
+    if (checked) state.posted[filename] = new Date().toISOString();
+    else delete state.posted[filename];
+    saveState();
+    render();
+    if (checked) syncStatusToSheet(filename, 'valide');
+  }
+
+  function queueDelete(filename) {
+    const isAiTab = currentPlatform === 'ai_image' || currentPlatform === 'ai_video';
+    const confirmMsg = isAiTab
+      ? `Marquer "${filename}" à refaire et le supprimer du disque ?`
+      : `Masquer "${filename}" du tableau et le marquer pour suppression du disque ?`;
+    if (!confirm(confirmMsg)) return;
+    state.deleted[filename] = true;
+    saveState();
+    render();
+    if (isAiTab) syncStatusToSheet(filename, 'a_refaire');
+  }
+  function clearDeleteQueue() {
+    if (!confirm('Vider la file de suppression ? (Les fichiers déjà masqués le restent — ceci efface seulement la commande.)')) return;
+    state.deleted = {};
+    saveState();
+    render();
+  }
+  function copyDeleteCmd() {
+    const cmd = document.getElementById('deleteQueueCmd').textContent;
+    navigator.clipboard.writeText(cmd).then(() => {
+      const btn = document.getElementById('copyCmdBtn');
+      const orig = btn.textContent;
+      btn.textContent = 'Copié';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+    });
+  }
+
+  function formatDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  function visibleMediaPosts(tabKey) {
+    const list = manifest[MEDIA_TABS[tabKey].manifestKey] || [];
+    return list.filter(p => {
+      if (state.deleted[p.filename]) return false;
+      if (currentFilter === 'pending' && state.posted[p.filename]) return false;
+      if (currentFilter === 'posted' && !state.posted[p.filename]) return false;
+      // Season filter only applies to ai_image cards (the only tab with a
+      // season dimension) — other tabs' cards have no p.season and the
+      // select stays hidden for them, but this guard keeps the check
+      // harmless if ever reused.
+      if (tabKey === 'ai_image' && currentSeasonFilter !== 'all' && p.season !== currentSeasonFilter) return false;
+      return true;
+    });
+  }
+  function scannedPinsAsCards() {
+    // Normalize manifest-scanned pins (article-tied 3-variant pins +
+    // standalone text pins) into the same shape as manually-tracked pins,
+    // so renderPinterest() can merge both without two code paths. Scanned
+    // pins use a stable id ("pinterest-article-{slug}" / "pinterest-text-{slug}")
+    // so posted/scheduled state persists in localStorage across manifest
+    // regeneration, same as Instagram's filename-keyed state.
+    return (manifest.pinterest_pins || []).map(p => ({
+      id: p.id,
+      title: p.pin_title || p.title,
+      image_url: p.filename,
+      dest_url: p.dest_url || '',
+      board: p.board || '',
+      description: p.pin_description || '',
+      created: p.created,
+      scanned: true,
+      source_type: p.source_type,
+      variants: p.variants || [],
+      detail_page: p.detail_page,
+    }));
+  }
+
+  function visiblePins() {
+    const scanned = scannedPinsAsCards()
+      .filter(p => !state.pinDeleted[p.id])
+      .map(p => ({
+        ...p,
+        posted: state.pinPosted[p.id] || null,
+        scheduled: state.pinScheduled[p.id] || null,
+      }));
+    const manual = pins;
+    const all = [...scanned, ...manual];
+    return all.filter(p => {
+      if (pinFilter === 'pending') return !p.posted;
+      if (pinFilter === 'posted') return !!p.posted;
+      return true;
+    });
+  }
+
+  function captionPreview(text) {
+    return text.length > 220 ? text.slice(0, 220) + '…' : text;
+  }
+
+  // Instagram cloudinary-cards and AI images carry one "caption" (+ AI
+  // images also carry "caption_pinterest"). AI videos carry per-platform
+  // captions (Instagram/TikTok/YouTube title+description) since each
+  // platform's convention differs enough to need separate copy — added
+  // 2026-07-23 so Arnaud can copy the right text per destination without
+  // rewriting it by hand each time.
+  function makeCaptionBlock(p) {
+    const blocks = [];
+    if (p.caption) {
+      blocks.push({ label: 'Instagram', text: p.caption, key: 'ig' });
+    }
+    if (p.caption_pinterest) {
+      blocks.push({ label: 'Pinterest', text: p.caption_pinterest, key: 'pin' });
+    }
+    if (p.caption_tiktok) {
+      blocks.push({ label: 'TikTok', text: p.caption_tiktok, key: 'tt' });
+    }
+    if (p.caption_youtube_title || p.caption_youtube_description) {
+      const yt = [p.caption_youtube_title, p.caption_youtube_description].filter(Boolean).join('\n\n');
+      blocks.push({ label: 'YouTube', text: yt, key: 'yt' });
+    }
+    if (!blocks.length) {
+      return `<div class="caption-block empty">Aucune légende trouvée.</div>`;
+    }
+    return blocks.map(b => `
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted-dim); margin-top:6px;">${b.label}</div>
+      <div class="caption-block" id="caption-${b.key}-${escapeHtml(p.filename)}">${escapeHtml(captionPreview(b.text))}</div>
+      <button class="caption-copy-btn" onclick="copyCaptionText(this)" data-full="${escapeHtml(b.text)}">Copier (${b.label})</button>
+    `).join('');
+  }
+
+  function openFullTarget(p) { return p.detail_page || p.filename; }
+
+  function sourceTypeBadge(p) {
+    if (p.source_type === 'ai-model-video') return 'AI vidéo';
+    if (p.source_type === 'ai-model') return 'AI model';
+    return 'carte';
+  }
+
+  // Season label for the AI-image season badge/filter, added 2026-07-24 so
+  // the same product can appear multiple times in the panel — once per
+  // season generated — without looking like a duplicate. `p.season` comes
+  // from the sidecar's --season value (ete/automne/hiver/printemps),
+  // written by youm-ai-model-image and surfaced in the manifest by
+  // scan_ai_model_images(). Cards with no season (older generations, or
+  // non-AI-model cards) render no badge at all.
+  const SEASON_LABELS = { ete: 'Été', automne: 'Automne', hiver: 'Hiver', printemps: 'Printemps' };
+  function seasonBadge(p) {
+    if (!p.season) return '';
+    const label = SEASON_LABELS[p.season] || p.season;
+    return `<span class="season-badge">${escapeHtml(label)}</span>`;
+  }
+
+  function makePreviewMedia(p, wrapClass) {
+    const brokenHtml = `<div class="broken-badge">✕ FICHIER INTROUVABLE<br><span style="font-weight:400; font-size:10px;">${escapeHtml(p.filename)}</span></div>`;
+    const containStyle = (p.source_type === 'ai-model' || p.source_type === 'ai-model-video') ? 'object-fit: contain; background: var(--cream-deep);' : '';
+    if (p.type === 'video') {
+      return `<video src="${p.filename}" controls muted preload="metadata" style="${containStyle}" onerror="this.closest('.${wrapClass}').querySelector('.broken-badge').classList.add('visible')"></video>${brokenHtml}`;
+    }
+    return `<img src="${p.filename}" alt="${escapeHtml(p.title)}" loading="lazy" style="${containStyle}" onerror="this.closest('.${wrapClass}').querySelector('.broken-badge').classList.add('visible')">${brokenHtml}`;
+  }
+
+  function renderMediaTab(tabKey) {
+    const tabConfig = MEDIA_TABS[tabKey];
+    const posts = visibleMediaPosts(tabKey);
+    const fullList = manifest[tabConfig.manifestKey] || [];
+    const total = fullList.filter(p => !state.deleted[p.filename]).length;
+    const postedCount = fullList.filter(p => !state.deleted[p.filename] && state.posted[p.filename]).length;
+    const deletedCount = Object.keys(state.deleted).filter(f => fullList.some(p => p.filename === f)).length;
+
+    document.getElementById('statsBar').innerHTML = `
+      <span>Total : <strong>${total}</strong></span>
+      <span class="stat-posted">Publiés : <strong>${postedCount}</strong></span>
+      <span>En attente : <strong>${total - postedCount}</strong></span>
+      <span class="stat-deleted">À supprimer : <strong>${deletedCount}</strong></span>
+    `;
+
+    const emptyEl = document.getElementById('emptyState');
+    emptyEl.style.display = posts.length === 0 ? 'block' : 'none';
+    emptyEl.innerHTML = `${tabConfig.emptyHint}<br><br><code>python .claude/skills/youm-social-control-panel/scripts/generate_manifest.py</code>, puis "Recharger".`;
+
+    const gridEl = document.getElementById('gridView');
+    const listEl = document.getElementById('listView');
+    gridEl.style.display = currentView === 'grid' ? 'grid' : 'none';
+    listEl.style.display = currentView === 'list' ? 'flex' : 'none';
+
+    const deleteLabel = (tabKey === 'ai_image' || tabKey === 'ai_video') ? 'À refaire' : 'Supprimer';
+
+    gridEl.innerHTML = posts.map(p => {
+      const isPosted = !!state.posted[p.filename];
+      // Image previews are wrapped in a plain <a> (whole thumbnail
+      // clickable). Video previews keep their native <video controls>
+      // interactive — wrapping the whole area in <a> would fight with
+      // the play/scrub controls — so instead the wrapper is a <div> with
+      // a click handler that navigates only when the click didn't land
+      // on the <video> element itself (the type-badge corner and any
+      // letterboxed background around the video still navigate).
+      const previewTag = p.type === 'video' ? 'div' : 'a';
+      const previewHref = p.type === 'video' ? '' : `href="${openFullTarget(p)}"`;
+      const previewOnclick = p.type === 'video' ? `onclick="if(event.target.tagName!=='VIDEO') window.location.href='${openFullTarget(p)}'" style="cursor:pointer;"` : '';
+      return `
+        <div class="card ${isPosted ? 'posted' : ''}">
+          <${previewTag} class="preview-wrap" ${previewHref} ${previewOnclick}>
+            <span class="type-badge">${sourceTypeBadge(p)}</span>
+            ${seasonBadge(p)}
+            ${makePreviewMedia(p, 'preview-wrap')}
+          </${previewTag}>
+          <div class="card-body">
+            <div class="card-title">${escapeHtml(p.title)}</div>
+            <div class="card-actions">
+              <a class="open-link" href="${openFullTarget(p)}">Ouvrir</a>
+              <label class="checkbox-label">
+                <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
+                Validé
+              </label>
+              <button class="delete-btn" onclick="queueDelete('${p.filename}')">${deleteLabel}</button>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
+    listEl.innerHTML = posts.map(p => {
+      const isPosted = !!state.posted[p.filename];
+      return `
+        <div class="list-row ${isPosted ? 'posted' : ''}">
+          <div class="list-thumb">${makePreviewMedia(p, 'list-thumb')}</div>
+          <div class="list-info">
+            <div class="list-title">${escapeHtml(p.title)}</div>
+            <div class="list-meta">${p.filename} · ${formatDate(p.created)}${p.size_kb != null ? ' · ' + p.size_kb + ' KB' : ''}${p.season ? ' · ' + escapeHtml(SEASON_LABELS[p.season] || p.season) : ''}</div>
+          </div>
+          <div class="list-actions">
+            <a class="open-link" href="${openFullTarget(p)}">Ouvrir</a>
+            <label class="checkbox-label">
+              <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
+              Validé
+            </label>
+            <button class="delete-btn" onclick="queueDelete('${p.filename}')">${deleteLabel}</button>
+          </div>
+        </div>`;
+    }).join('');
+
+    const queuedFiles = Object.keys(state.deleted);
+    const queueEl = document.getElementById('deleteQueue');
+    if (queuedFiles.length > 0) {
+      queueEl.classList.add('visible');
+      document.getElementById('deleteQueueCmd').textContent = queuedFiles.map(f => `rm "${f}"`).join('\n');
+    } else {
+      queueEl.classList.remove('visible');
+    }
+  }
+
+  function renderPinterest() {
+    document.getElementById('deleteQueue').classList.remove('visible');
+    const visible = visiblePins();
+    const allPins = [
+      ...scannedPinsAsCards().filter(p => !state.pinDeleted[p.id]).map(p => ({ posted: state.pinPosted[p.id] || null })),
+      ...pins,
+    ];
+    const totalCount = allPins.length;
+    const postedCount = allPins.filter(p => p.posted).length;
+
+    document.getElementById('statsBar').innerHTML = `
+      <span>Total : <strong>${totalCount}</strong></span>
+      <span class="stat-posted">Publiés : <strong>${postedCount}</strong></span>
+      <span>En attente : <strong>${totalCount - postedCount}</strong></span>
+    `;
+
+    const emptyEl = document.getElementById('emptyState');
+    emptyEl.style.display = visible.length === 0 ? 'block' : 'none';
+    emptyEl.innerHTML = `Aucun pin pour l'instant.<br><br>Lancer <code>cloudinary-pinterest-image-youm</code>, <code>pinterest-text-pin-youm</code>, ou l'un des 3 templates de collage pour en générer un, ou cliquer "+ Ajouter un pin" pour un suivi manuel.`;
+
+    const gridEl = document.getElementById('gridView');
+    const listEl = document.getElementById('listView');
+    gridEl.style.display = currentView === 'grid' ? 'grid' : 'none';
+    listEl.style.display = currentView === 'list' ? 'flex' : 'none';
+
+    gridEl.innerHTML = visible.map(p => {
+      const isPosted = !!p.posted;
+      const variantCount = (p.variants && p.variants.length) || 1;
+      const badgeText = p.source_type === 'pinterest-article'
+        ? (variantCount > 1 ? `article · ${variantCount} variantes` : 'article')
+        : p.source_type === 'pinterest-text' ? 'texte'
+        : p.source_type === 'pinterest-collage' ? 'collage produits'
+        : p.source_type === 'pinterest-collage-compact' ? 'collage compact'
+        : p.source_type === 'pinterest-lifestyle' ? 'collage lifestyle'
+        : p.source_type === 'pinterest-pairs' ? 'collage pairs'
+        : 'pin manuel';
+
+      let previewHtml;
+      const firstVariant = p.scanned && p.variants && p.variants.length ? p.variants[0] : null;
+      if (firstVariant) {
+        previewHtml = `<img src="${escapeHtml(firstVariant.filename)}" alt="${escapeHtml(firstVariant.headline || p.title)}" loading="lazy" onerror="this.style.display='none'">`;
+      } else if (p.image_url) {
+        previewHtml = `<img src="${escapeHtml(p.image_url)}" alt="${escapeHtml(p.title)}" loading="lazy" onerror="this.style.display='none'">`;
+      } else {
+        previewHtml = `<div style="display:flex; align-items:center; justify-content:center; height:100%; color:var(--muted-dim); font-size:11px;">Pas d'image</div>`;
+      }
+
+      const pinOpenHref = p.detail_page || p.dest_url || '';
+      const pinPreviewTag = pinOpenHref ? 'a' : 'div';
+      const pinPreviewHref = pinOpenHref ? `href="${escapeHtml(pinOpenHref)}"` : '';
+      const pinOpenLabel = variantCount > 1 ? 'Ouvrir les variantes' : 'Ouvrir';
+
+      return `
+        <div class="card ${isPosted ? 'posted' : ''}">
+          <${pinPreviewTag} class="preview-wrap" ${pinPreviewHref}>
+            <span class="type-badge">${badgeText}</span>
+            ${previewHtml}
+          </${pinPreviewTag}>
+          <div class="card-body">
+            <div class="card-title">${escapeHtml(p.title)}</div>
+            ${p.board ? `<div class="pin-card-board">${escapeHtml(p.board)}</div>` : ''}
+            ${p.dest_url ? `<div class="pin-card-url">${escapeHtml(p.dest_url)}</div>` : ''}
+            <div class="card-actions">
+              ${p.detail_page ? `<a class="open-link" href="${escapeHtml(p.detail_page)}">${pinOpenLabel}</a>` : (p.dest_url ? `<a class="open-link" href="${escapeHtml(p.dest_url)}">Ouvrir le lien</a>` : '')}
+              <label class="checkbox-label">
+                <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePinPosted('${p.id}', this.checked)">
+                Validé
+              </label>
+              <button class="delete-btn" onclick="deletePin('${p.id}')">${p.scanned ? 'À refaire' : 'Supprimer'}</button>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
+    listEl.innerHTML = visible.map(p => {
+      const isPosted = !!p.posted;
+      const thumbSrc = p.scanned ? (p.variants && p.variants[0] ? p.variants[0].filename : p.image_url) : p.image_url;
+      const openHref = p.detail_page || p.dest_url;
+      const listVariantCount = (p.variants && p.variants.length) || 1;
+      const openLabel = p.detail_page ? (listVariantCount > 1 ? 'Ouvrir les variantes' : 'Ouvrir') : 'Ouvrir';
+      return `
+        <div class="list-row ${isPosted ? 'posted' : ''}">
+          <div class="list-thumb">${thumbSrc ? `<img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(p.title)}">` : ''}</div>
+          <div class="list-info">
+            <div class="list-title">${escapeHtml(p.title)}</div>
+            <div class="list-meta">${p.board ? escapeHtml(p.board) + ' · ' : ''}${formatDate(p.created)}</div>
+          </div>
+          <div class="list-actions">
+            ${openHref ? `<a class="open-link" href="${escapeHtml(openHref)}">${openLabel}</a>` : ''}
+            <label class="checkbox-label">
+              <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePinPosted('${p.id}', this.checked)">
+              Validé
+            </label>
+            <button class="delete-btn" onclick="deletePin('${p.id}')">${p.scanned ? 'À refaire' : 'Supprimer'}</button>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function render() {
+    if (MEDIA_TABS[currentPlatform]) {
+      renderMediaTab(currentPlatform);
+    } else if (currentPlatform === 'seo') {
+      renderSeo();
+    } else {
+      renderPinterest();
+    }
+  }
+
+  // ── SEO TAB ──
+  // Reads window.__SEO_MANIFEST__ (a separate global from the social
+  // manifest, regenerated by youm-seo-control-panel/scripts/
+  // generate_seo_manifest.py) instead of `manifest`. Client-facing: plain
+  // language only, no file paths, no internal jargon — this tab is what
+  // gets shown to Youm Paris to review and validate SEO work.
+  function impactBadgeClass(impact) {
+    const key = (impact || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    return `impact-${key}`;
+  }
+  function statusLabel(status) {
+    return { done: 'Terminé', in_progress: 'En cours', planned: 'Prévu' }[status] || status;
+  }
+
+  function seoValidateButton(type, id, label, validated) {
+    if (validated) {
+      return `<button class="validate-btn validated" disabled>✓ Validé</button>`;
+    }
+    const safeLabel = escapeHtml(label).replace(/'/g, "&#39;");
+    return `<button class="validate-btn" onclick="validateSeoItem('${type}', '${id}', '${safeLabel}', this)">Valider</button>`;
+  }
+
+  function renderSeo() {
+    document.getElementById('gridView').style.display = 'none';
+    document.getElementById('listView').style.display = 'none';
+    document.getElementById('emptyState').style.display = 'none';
+
+    const keywords = seoManifest.keywords || [];
+    const articles = seoManifest.articles || [];
+    const findings = seoManifest.site_findings || [];
+    const inProgressCount = seoManifest.articles_in_progress_count || 0;
+
+    const validatedCount = [...keywords, ...articles, ...findings].filter(i => i.validation_status === 'validated').length;
+    const totalCount = keywords.length + articles.length + findings.length;
+
+    document.getElementById('statsBar').innerHTML = `
+      <span>Mots-clés suivis : <strong>${keywords.length}</strong></span>
+      <span>Articles optimisés : <strong>${articles.length}</strong></span>
+      <span class="stat-posted">Validés par le client : <strong>${validatedCount}</strong> / ${totalCount}</span>
+    `;
+
+    const keywordRows = keywords.length ? keywords.map(k => `
+      <div class="seo-row ${k.validation_status === 'validated' ? 'validated' : ''}">
+        <div class="seo-row-main">
+          <div class="seo-row-title">${escapeHtml(k.keyword)}</div>
+          <div class="seo-row-meta">
+            <span>Recherches/mois : ${escapeHtml(String(k.avg_monthly_searches || '—'))}</span>
+            <span>Concurrence : ${escapeHtml(k.competition || '—')}</span>
+            ${k.target_url ? `<span><a class="open-link" style="flex:none;padding:2px 8px;" href="${escapeHtml(k.target_url)}" target="_blank" rel="noopener">Page ciblée ↗</a></span>` : ''}
+          </div>
+        </div>
+        ${seoValidateButton('keyword', k.id, k.keyword, k.validation_status === 'validated')}
+      </div>
+    `).join('') : `<div class="empty-state">Aucun mot-clé pour le moment.<br><br>La recherche de mots-clés sera lancée prochainement.</div>`;
+
+    const articleRows = articles.length ? articles.map(a => `
+      <div class="seo-row ${a.validation_status === 'validated' ? 'validated' : ''}">
+        <div class="seo-row-main">
+          <div class="seo-row-title">${escapeHtml(a.title)}</div>
+          <div class="seo-row-desc">${escapeHtml(a.meta_description || '')}</div>
+          <div class="seo-row-meta">
+            ${a.keyword ? `<span>Mot-clé ciblé : ${escapeHtml(a.keyword)}</span>` : ''}
+            ${a.faq_count ? `<span>${a.faq_count} question(s) FAQ</span>` : ''}
+            ${a.published ? `<span>Publié le ${escapeHtml(a.published)}</span>` : ''}
+          </div>
+        </div>
+        ${seoValidateButton('article', a.id, a.title, a.validation_status === 'validated')}
+      </div>
+    `).join('') : `<div class="empty-state">Aucun article optimisé pour le moment.</div>`;
+    const articleFooter = inProgressCount > 0
+      ? `<div class="seo-stats-note">+ ${inProgressCount} article(s) supplémentaire(s) en cours d'optimisation.</div>`
+      : '';
+
+    const findingRows = findings.length ? findings.map(f => `
+      <div class="seo-row ${f.validation_status === 'validated' ? 'validated' : ''}">
+        <div class="seo-row-main">
+          <div class="seo-row-title">${escapeHtml(f.title)}</div>
+          <div class="seo-row-desc">${escapeHtml(f.description || '')}</div>
+          <div class="seo-row-meta">
+            <span class="seo-badge ${impactBadgeClass(f.impact)}">${escapeHtml(f.impact || '')}</span>
+            <span class="seo-badge status-${f.status}">${statusLabel(f.status)}</span>
+          </div>
+        </div>
+        ${seoValidateButton('site_finding', f.id, f.title, f.validation_status === 'validated')}
+      </div>
+    `).join('') : `<div class="empty-state">Aucune recommandation pour le moment.</div>`;
+
+    const seoEl = document.getElementById('seoView');
+    seoEl.style.display = 'block';
+    seoEl.innerHTML = `
+      <div class="seo-section">
+        <div class="seo-section-title">Mots-clés ciblés</div>
+        <div class="seo-section-sub">Les mots-clés recherchés pour attirer les bonnes visiteuses vers le site.</div>
+        <div class="seo-list">${keywordRows}</div>
+      </div>
+      <div class="seo-section">
+        <div class="seo-section-title">Articles optimisés</div>
+        <div class="seo-section-sub">Les articles de blog déjà travaillés pour le référencement (titre, description, structure).</div>
+        <div class="seo-list">${articleRows}</div>
+        ${articleFooter}
+      </div>
+      <div class="seo-section">
+        <div class="seo-section-title">Recommandations pour le site</div>
+        <div class="seo-section-sub">Les axes d'amélioration identifiés lors du dernier audit du site.</div>
+        <div class="seo-list">${findingRows}</div>
+      </div>
+    `;
+  }
+
+  function validateSeoItem(type, id, label, btnEl) {
+    btnEl.disabled = true;
+    btnEl.classList.add('pending');
+    btnEl.innerHTML = `<span class="spinner"></span> Envoi…`;
+    showStatusToast('Mise à jour en cours…', 'pending');
+    fetch(`${SEO_SERVER_BASE}/api/validate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type, id, label }),
+    })
+      .then(r => r.json())
+      .then(data => {
+        if (!data.ok) throw new Error(data.error || 'Unknown error');
+        waitForRebuildThenNotify('seo-manifest.js', () => {
+          const list = type === 'keyword' ? seoManifest.keywords
+            : type === 'article' ? seoManifest.articles
+            : seoManifest.site_findings;
+          const item = (list || []).find(i => i.id === id);
+          if (item) {
+            item.validation_status = 'validated';
+            item.validated_at = new Date().toISOString();
+          }
+          renderSeo();
+        });
+      })
+      .catch(() => {
+        btnEl.disabled = false;
+        btnEl.classList.remove('pending');
+        btnEl.textContent = 'Valider (réessayer)';
+        showStatusToast('Échec de la mise à jour — réessayez.', 'timeout');
+        hideStatusToast(4000);
+      });
+  }
+
+  function escapeHtml(s) {
+    const div = document.createElement('div');
+    div.textContent = s || '';
+    return div.innerHTML;
+  }
+
+  document.getElementById('filterSelect').addEventListener('change', (e) => { currentFilter = e.target.value; render(); });
+  document.getElementById('aiImageFilterSelect').addEventListener('change', (e) => { currentFilter = e.target.value; render(); });
+  document.getElementById('aiImageSeasonFilterSelect').addEventListener('change', (e) => { currentSeasonFilter = e.target.value; render(); });
+  document.getElementById('aiVideoFilterSelect').addEventListener('change', (e) => { currentFilter = e.target.value; render(); });
+  document.getElementById('pinFilterSelect').addEventListener('change', (e) => { pinFilter = e.target.value; render(); });
+
+  setPlatform(currentPlatform);
+  setView(currentView);
+  loadManifest();
+</script>
+
+</body>
+</html>

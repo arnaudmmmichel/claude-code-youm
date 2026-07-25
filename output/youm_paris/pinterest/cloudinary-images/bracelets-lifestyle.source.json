@@ -1,0 +1,48 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:bracelets",
+  "pin_title": "Bracelet jonc doré pierre naturelle – Élégance au quotidien | Youm Paris",
+  "pin_description": "Un jonc en laiton doré à l'or fin 24 carats, une pierre naturelle, et le look change. Bracelets assemblés à la main, en série limitée. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux dorés naturels",
+  "dest_url": "https://youm-paris.com/collections/bracelets",
+  "hook": "Le détail qui change tout.",
+  "label": "Jonc doré, pierre naturelle, série limitée.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo",
+      "img1": "https://youm-paris.com/cdn/shop/files/joncs-dores-theo-accumulation-pierres.jpg?v=1770394229",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1781190910/Youm-Paris/zys46sbavietbycdb5sz.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bracelets-0-creative-494f920931"
+    },
+    {
+      "url": "https://youm-paris.com/products/jonc-nacre-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1783492757/Youm-Paris/vqnr3jo9fspbm2i8lgaj.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bracelets-1-creative-8bb2699900"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780584886/Youm-Paris/kpmbypfzh2l01g8jk0tc.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bracelets-2-creative-13e3599b83"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780585814/Youm-Paris/v2mtfdeg3wtuaranb83g.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bracelets-3-creative-911a449420"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-bambou",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-jonc-bambou-dore-packshot.jpg?v=1773591575",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202581/Youm-Paris/mcuieafftupcy2thdslt.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bracelets-4-creative-459c5aabd5"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bracelets-0-creative-494f920931,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bracelets-1-creative-8bb2699900,w_473,h_357,c_thumb,g_center/g_north,x_239,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bracelets-2-creative-13e3599b83,w_946,h_535,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bracelets-3-creative-911a449420,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_1112,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bracelets-4-creative-459c5aabd5,w_473,h_357,c_thumb,g_center/g_north,x_239,y_1112,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20DOR%C3%89S%20NATURELS,co_rgb:f54e00,g_center,y_-136/l_text:Arial_34_bold:Le%20d%C3%A9tail%20qui%20change%20tout.,co_rgb:1c1814,g_center,y_-90,w_820,c_fit/l_text:Arial_19_bold:Jonc%20dor%C3%A9%252C%20pierre%20naturelle%252C%20s%C3%A9rie%20limit%C3%A9e.,co_rgb:5a4a3a,g_center,y_-40,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

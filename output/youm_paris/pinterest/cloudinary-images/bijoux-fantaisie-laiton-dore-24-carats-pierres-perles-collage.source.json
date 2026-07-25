@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/16-bijoux-fantaisie-laiton-dore-24-carats-pierres-perles.html",
+  "pin_title": "Bijoux fantaisie de qualité : laiton doré à l'or fin 24 carats, pierres naturelles",
+  "pin_description": "Pas tous les bijoux fantaisie ne se ressemblent. Laiton doré à l'or fin 24 carats, pierres naturelles, assemblage à la main à Paris : voici ce qui fait vraiment la différence. Découvrez le guide complet sur youm-paris.com",
+  "board": "Bijoux & Savoir-Faire",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-fantaisie-laiton-dore-24-carats-pierres-perles",
+  "hook": "Tout est une question de matière",
+  "label": "Le guide pour choisir un bijou fantaisie de qualité",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles Doreilles Galuchat Grace",
+      "public_id": "youm/pinterest-collage-products/bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-1-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doreilles Doris Jaspe",
+      "public_id": "youm/pinterest-collage-products/bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-2-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779",
+      "alt": "Boucles Doreilles Papillon Chiara",
+      "public_id": "youm/pinterest-collage-products/bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-3-defcc1caf1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "alt": "Bracelet Jonc Dore Malachite Theo",
+      "public_id": "youm/pinterest-collage-products/bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-4-a27ee7eaa8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "Boucles Doreilles Pierres Lila",
+      "public_id": "youm/pinterest-collage-products/bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-5-348486b13c"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-0-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-1-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-2-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-3-defcc1caf1,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-4-a27ee7eaa8,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-fantaisie-laiton-dore-24-carats-pierres-perles-5-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%26%20SAVOIR-FAIRE,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Tout%20est%20une%20question%20de%20mati%C3%A8re,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Le%20guide%20pour%20choisir%20un%20bijou%20fantaisie%20de%20qualit%C3%A9,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,29 @@
+{
+  "pipeline": "cloudinary-pinterest-pairs-collage-youm",
+  "source": "collection:bagues",
+  "pin_title": "Bague pierre naturelle : cornaline ou malachite, deux caractères en or 24 carats",
+  "pin_description": "Cornaline solaire ou malachite profonde, deux pierres naturelles, un même soin artisanal. Bagues dorées à l'or fin 24 carats, assemblées à Paris. Découvrez la collection sur youm-paris.com",
+  "board": "Bagues Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/collections/bagues",
+  "hook": "Deux pierres, un seul caractère.",
+  "label": "Cornaline ou malachite, laquelle vous ressemble ?",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/bague-pierre-sia-cornaline",
+      "img1": "https://youm-paris.com/cdn/shop/files/bague_doree_cornaline_face_youm_bijoux.jpg?v=1770391482",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863471/Youm-Paris/lmmhm5npexmkt5j1jrfr.jpg",
+      "status": "priorité/rentree",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bagues-0-creative-1b93a8d383",
+      "img1_public_id": "youm/pinterest-pairs-collage/bagues-0-packshot-1b93a8d383"
+    },
+    {
+      "url": "https://youm-paris.com/products/bague-sia-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/files/bague_doree_malachite_sia_packshot_youm_bijoux.jpg?v=1770391681",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863569/Youm-Paris/wlwpoh86ts63beyvng7n.jpg",
+      "status": "priorité/rentree",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bagues-1-creative-3ee120c241",
+      "img1_public_id": "youm/pinterest-pairs-collage/bagues-1-packshot-3ee120c241"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-pairs-collage:bagues-0-creative-1b93a8d383,w_473,h_807,c_thumb,g_center/g_north,x_-240,y_174,fl_layer_apply/l_youm:pinterest-pairs-collage:bagues-0-packshot-1b93a8d383,w_473,h_429,c_thumb,g_center/g_north,x_-240,y_987,fl_layer_apply/l_youm:pinterest-pairs-collage:bagues-1-creative-3ee120c241,w_473,h_807,c_thumb,g_center/g_north,x_239,y_609,fl_layer_apply/l_youm:pinterest-pairs-collage:bagues-1-packshot-3ee120c241,w_473,h_429,c_thumb,g_center/g_north,x_239,y_174,fl_layer_apply/l_text:Arial_18_bold:BAGUES%20PIERRES%20NATURELLES,co_rgb:f54e00,g_north,y_34/l_text:Arial_42_bold:Deux%20pierres%252C%20un%20seul%20caract%C3%A8re.,co_rgb:1c1814,g_north,y_65,w_860,c_fit/l_text:Arial_19_bold:Cornaline%20ou%20malachite%252C%20laquelle%20vous%20ressemble%20%3F,co_rgb:5a4a3a,g_north,y_117,w_820,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south,y_30/youm/instagram-bg.png"
+}

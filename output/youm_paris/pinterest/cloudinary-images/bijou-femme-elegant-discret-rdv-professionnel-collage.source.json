@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/21-bijou-femme-elegant-discret-rdv-professionnel.html",
+  "pin_title": "Bijoux femme au bureau : les pièces élégantes et discrètes pour chaque réunion",
+  "pin_description": "Boucles d'oreilles graphiques, colliers ras-du-cou, joncs dorés : comment choisir un bijou en laiton doré 24 carats adapté au contexte professionnel. Guide complet sur youm-paris.com",
+  "board": "Bijoux Bureau Style",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijou-femme-elegant-discret-rdv-professionnel",
+  "hook": "Le bijou juste au bureau",
+  "label": "Nos pièces dorées pour chaque rendez-vous professionnel",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles Doreilles Galuchat Grace",
+      "public_id": "youm/pinterest-collage-products/bijou-femme-elegant-discret-rdv-professionnel-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/bijou-femme-elegant-discret-rdv-professionnel-1-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doreilles Doris Jaspe",
+      "public_id": "youm/pinterest-collage-products/bijou-femme-elegant-discret-rdv-professionnel-2-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779",
+      "alt": "Boucles Doreilles Papillon Chiara",
+      "public_id": "youm/pinterest-collage-products/bijou-femme-elegant-discret-rdv-professionnel-3-defcc1caf1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "alt": "boucles Aure en pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/bijou-femme-elegant-discret-rdv-professionnel-4-cc0e2df655"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948",
+      "alt": "boucles Aure en pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/bijou-femme-elegant-discret-rdv-professionnel-5-ea2859b741"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijou-femme-elegant-discret-rdv-professionnel-0-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijou-femme-elegant-discret-rdv-professionnel-1-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijou-femme-elegant-discret-rdv-professionnel-2-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijou-femme-elegant-discret-rdv-professionnel-3-defcc1caf1,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijou-femme-elegant-discret-rdv-professionnel-4-cc0e2df655,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijou-femme-elegant-discret-rdv-professionnel-5-ea2859b741,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20BUREAU%20STYLE,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Le%20bijou%20juste%20au%20bureau,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Nos%20pi%C3%A8ces%20dor%C3%A9es%20pour%20chaque%20rendez-vous%20professionnel,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

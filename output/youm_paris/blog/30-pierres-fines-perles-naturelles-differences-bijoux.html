@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#origines-et-formation">Origines et formation : deux univers distincts</a></li>
+      <li><a href="#caracteres-visuels">Caractères visuels : ce que l'œil perçoit</a></li>
+      <li><a href="#pierres-fines-bijoux">Les pierres fines en bijoux : force, couleur, caractère</a></li>
+      <li><a href="#perles-naturelles-bijoux">Les perles naturelles en bijoux : lumière et douceur</a></li>
+      <li><a href="#comment-choisir">Comment choisir entre pierres fines et perles naturelles ?</a></li>
+      <li><a href="#conseils-pratiques">Conseils pratiques pour prendre soin de vos bijoux</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Lorsque vous choisissez un bijou orné de matières naturelles, deux familles s'offrent à vous avec des personnalités très différentes : les pierres fines et les perles naturelles. L'une naît au cœur de la roche, façonnée par des millions d'années de pression et de minéraux ; l'autre émerge d'un être vivant, couche après couche, dans la nacre silencieuse d'un mollusque. Chez Youm, nous travaillons ces deux familles de matières avec la même attention, convaincues que comprendre leur origine, c'est mieux apprécier ce que vous portez. Ce guide vous propose de décrypter leurs différences — formation, apparence, caractère, entretien — pour que votre prochain choix soit aussi éclairé qu'instinctif.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="origines-et-formation">Origines et formation : deux univers distincts</h2>
+
+<p>La pierre fine est un minéral extrait de la terre, formé par des processus géologiques qui s'étendent sur des millions d'années. La chaleur, la pression et la présence de certains éléments chimiques donnent naissance à des cristaux aux structures uniques : ainsi l'amazonite doit sa couleur bleu-vert aux traces de plomb dans ses feldspaths, quand la malachite tire ses verts profonds du cuivre qu'elle concentre. Chaque pierre porte en elle une histoire géologique irréductible, ce qui explique qu'aucune ne soit véritablement identique à une autre.</p>
+
+<p>La perle naturelle, elle, est d'origine organique. Elle se forme à l'intérieur d'un mollusque — huître perlière, moule d'eau douce ou autre bivalve — en réponse à un corps étranger qui s'est introduit dans sa chair. L'animal le recouvre progressivement de couches concentriques de nacre, mélange de carbonate de calcium et de protéines. Ce processus peut prendre de deux à sept ans selon les espèces, ce qui explique la rareté et la valeur des perles naturelles de qualité. La perle cultivée suit le même mécanisme biologique, mais l'irritant initial y est introduit par l'homme.</p>
+
+<p>Cette différence d'origine n'est pas anecdotique : elle conditionne la structure même de la matière, sa façon de réagir à la lumière, à l'humidité et au temps. Comprendre d'où vient chaque matière, c'est déjà commencer à la lire autrement.</p>
+
+<h2 id="caracteres-visuels">Caractères visuels : ce que l'œil perçoit</h2>
+
+<p>À l'œil, pierres fines et perles naturelles ne parlent pas le même langage. Les pierres fines offrent une palette chromatique intense et souvent affirmée : le vert saturé de la malachite, le bleu translucide de l'agate bleue, le rouge profond de la cornaline, le rose poudré du quartz rose. Taillées ou polies en cabochon, elles reflètent la lumière de manière directe, parfois presque opaque, parfois avec une transparence laiteuse selon les variétés. Leur surface peut être lisse, striée, veinée — chaque inclusion, chaque veine de couleur est une signature minérale.</p>
+
+<p>Les perles naturelles jouent un registre différent : leur éclat est dit « orient », un phénomène optique propre à la nacre qui crée des reflets irisés changeants selon l'angle de vision. Cet orient — cette profondeur lumineuse — est précisément ce que l'œil perçoit comme une forme de vie intérieure. La surface d'une perle n'est jamais tout à fait uniforme : de légères irrégularités, des variations de rondeur ou de teinte sont les marques de son origine naturelle. Les perles baroques, aux formes libres et asymétriques, poussent ce caractère encore plus loin.</p>
+
+<blockquote><p>Une pierre fine affirme sa couleur ; une perle naturelle révèle sa lumière. Ces deux façons d'exister dans un bijou répondent à des désirs différents — et peuvent tout à fait coexister sur le même poignet.</p></blockquote>
+
+<h2 id="pierres-fines-bijoux">Les pierres fines en bijoux : force, couleur, caractère</h2>
+
+<p>Les pierres fines apportent au bijou une présence chromatique immédiate. Dans <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a>, nous sélectionnons des matières dont la couleur dialogue avec la dorure à l'or fin 24 carats : la malachite verte intensifie le chaud du laiton doré, quand l'agate noire crée un contraste graphique et sobre. Ce travail de sélection est essentiel — une pierre trop pâle peut se perdre sous l'éclat de l'or ; une pierre trop sombre peut alourdir une pièce légère.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure></div>
+
+<p>Chaque pierre possède aussi un caractère tactile particulier. L'amazonite est douce et légèrement soyeuse sous le doigt ; l'agate est dense, presque froide au toucher initial. La cornaline, d'un rouge orangé profond, présente souvent de légères variations de transparence qui la rendent vivante en pleine lumière. Ces nuances ne sont pas des défauts : elles sont la preuve de l'origine naturelle de la matière, et c'est précisément ce que nous cherchons chez Youm.</p>
+
+<p>Les <a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine Agate bleue</a> illustrent bien la façon dont une pierre fine peut structurer tout un bijou : la pierre est le cœur visuel de la pièce, autour de laquelle le laiton doré crée un écrin épuré. De même, les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">boucles Lila Cornaline & quartz rose</a> jouent sur la complémentarité de deux pierres naturelles aux caractères distincts — la chaleur terracotta de la cornaline contre la douceur rosée du quartz — pour créer un effet de couleur subtil et personnel.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-pierre-naturelle-bleue-percee-clip-face.jpg?v=1770400373" alt="boucles Marine Agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine Agate bleue</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-dorees-marine-agate-bleue-clips-percees-portees.jpg?v=1770400452" alt="boucles Marine Agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine Agate bleue</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/emballage-cadeau-youm-bijoux-pierres-naturelles.jpg?v=1770400502" alt="boucles Marine Agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine Agate bleue</a></figcaption></figure></div>
+
+<h2 id="perles-naturelles-bijoux">Les perles naturelles en bijoux : lumière et douceur</h2>
+
+<p>La perle naturelle a cette particularité rare d'être à la fois intemporelle et immédiatement reconnaissable. Sa lumière douce, son absence de couleur tranchée, sa rondeur — qu'elle soit parfaite ou légèrement baroque — lui confèrent une présence qui n'a pas besoin de s'imposer. Dans <a href="https://youm-paris.com/collections/bijoux-perles">notre collection perles</a>, nous travaillons aussi bien les perles rondes classiques que les perles baroques, plus libres, moins symétriques, souvent plus expressives.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255" alt="Boucles D Oreilles Perle Pernille" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Boucles D Oreilles Perle Pernille</a></figcaption></figure><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Nacre Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Jonc Nacre Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890" alt="Boucles Doreilles Diego Cercle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle">Boucles Doreilles Diego Cercle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636" alt="Boucles Doreilles Nils Rectangle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle">Boucles Doreilles Nils Rectangle Dore Perle</a></figcaption></figure></div>
+
+<p>La perle s'associe naturellement à la dorure à l'or fin 24 carats : le chaud du laiton doré rehausse les reflets crémeux ou rosés de la nacre, quand une perle très blanche crée un contraste élégant sur une monture graphique. Les <a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">boucles Pernille perle blanche</a> illustrent cette alliance : la perle ronde, d'une blancheur lumineuse, repose sur une monture dorée épurée qui laisse toute la place à l'éclat naturel de la nacre. Les <a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">collier sautoir perles blanches Audrey</a>, quant à lui, démontre comment les perles naturelles peuvent composer un bijou de caractère sans jamais forcer le trait.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774" alt="collier sautoir perles blanches Audrey" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">collier sautoir perles blanches Audrey</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-sac-cadeau-65.jpg?v=1776274799" alt="collier sautoir perles blanches Audrey" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">collier sautoir perles blanches Audrey</a></figcaption></figure></div>
+
+<p>Les perles baroques méritent une mention particulière : leur irrégularité est leur force. Deux perles baroques ne se ressemblent jamais exactement, ce qui fait de chaque bijou qui les incorpore une pièce de fait unique. Cette singularité rejoint notre philosophie de production en séries limitées — chaque assemblage est une réponse au hasard créatif de la nature.</p>
+
+<h2 id="comment-choisir">Comment choisir entre pierres fines et perles naturelles ?</h2>
+
+<p>La question n'est pas de choisir la «&nbsp;meilleure&nbsp;» matière — les deux familles ont leurs qualités propres et répondent à des intentions stylistiques différentes. Il s'agit plutôt de comprendre ce que vous cherchez à exprimer, et dans quel contexte vous allez porter votre bijou.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Critère</th>
+      <th>Pierres fines</th>
+      <th>Perles naturelles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Effet visuel</td>
+      <td>Couleur affirmée, présence chromatique</td>
+      <td>Lumière douce, éclat nacré</td>
+    </tr>
+    <tr>
+      <td>Caractère</td>
+      <td>Graphique, structuré, affirmé</td>
+      <td>Élégant, délicat, intemporel</td>
+    </tr>
+    <tr>
+      <td>Polyvalence</td>
+      <td>Idéal pour une touche de couleur sur une tenue sobre</td>
+      <td>S'adapte du quotidien à la soirée</td>
+    </tr>
+    <tr>
+      <td>Entretien</td>
+      <td>Éviter l'humidité prolongée, stocker à l'abri</td>
+      <td>Sensible aux acides, parfums, cosmétiques</td>
+    </tr>
+    <tr>
+      <td>Singularité</td>
+      <td>Chaque pierre porte ses propres veines et inclusions</td>
+      <td>Chaque perle a sa propre teinte et son propre orient</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si vous êtes attirée par les couleurs franches et souhaitez structurer une tenue autour d'un bijou expressif, les pierres fines seront votre alliées naturelles. Si vous cherchez un bijou dont l'éclat se révèle progressivement, qui accompagne sans dominer, et qui traverse les années sans se démooder, les perles naturelles répondront à cette attente. Et rien n'interdit, bien sûr, de mélanger les deux : une boucle orné d'une pierre aux côtés d'une perle baroque, c'est précisément le type d'assemblage que nous affectionnons chez Youm.</p>
+
+<h2 id="conseils-pratiques">Conseils pratiques pour prendre soin de vos bijoux</h2>
+
+<p>Pierres fines et perles naturelles partagent un point commun : ce sont des matières vivantes qui méritent une attention particulière. Voici les gestes essentiels pour préserver l'éclat de vos bijoux au quotidien.</p>
+
+<ul>
+  <li>Enlevez vos bijoux avant d'appliquer parfum, crème ou huile — les matières organiques comme les perles sont particulièrement sensibles aux substances acides et alcoolisées.</li>
+  <li>Rangez chaque bijou dans son pochon individuel pour éviter les frottements entre pièces — une pierre peut en rayer une autre.</li>
+  <li>Évitez tout contact prolongé avec l'eau, la mer ou la piscine, quelle que soit la matière portée.</li>
+  <li>Nettoyez délicatement avec un chiffon doux et sec — jamais de produits abrasifs ni de vapeur sur les pierres ou les perles.</li>
+  <li>Posez vos bijoux en dernier, une fois votre tenue et votre maquillage terminés — c'est le geste le plus simple pour préserver la dorure et les matières naturelles.</li>
+  <li>Conservez vos bijoux à l'abri de la lumière directe et des variations de température — la chaleur prolongée peut ternir l'éclat des perles.</li>
+  <li>Consultez notre page <a href="https://youm-paris.com/pages/entretien">conseils d'entretien</a> pour retrouver toutes les recommandations spécifiques à chaque matière.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes</h2>
+
+<h3>Quelle est la différence entre une perle naturelle et une perle de culture ?</h3>
+<p>Les deux sont produites par un mollusque selon le même processus biologique — dépôt de couches successives de nacre autour d'un corps étranger. La différence tient à l'origine de cet irritant : naturel dans le cas d'une perle naturelle (rare et précieuse), introduit par l'homme dans le cas d'une perle de culture. Chez Youm, nous travaillons des perles naturelles et des perles de culture sélectionnées pour la qualité de leur orient et l'uniformité de leur nacre.</p>
+
+<h3>Les pierres fines utilisées dans les bijoux Youm sont-elles traitées ?</h3>
+<p>Les pierres que nous sélectionnons — amazonite, malachite, agate, cornaline, quartz rose, aventurine, lapis-lazuli et autres — sont des pierres naturelles. Certaines variétés courantes dans la bijouterie font l'objet de traitements standards de stabilisation ou de teinture dans l'industrie ; chez Youm, nous privilégions des matières dont la couleur est naturelle, ce qui explique les légères variations d'une pièce à l'autre.</p>
+
+<h3>Peut-on superposer des bijoux en pierres fines et en perles naturelles ?</h3>
+<p>Absolument — et c'est souvent ce qui crée les associations les plus personnelles. L'important est de veiller à une cohérence de ton : une perle blanche s'associe aussi bien à une agate noire (contraste graphique) qu'à un quartz rose (harmonie douce). Pour les boucles d'oreilles, un modèle en pierre fine porté avec un collier de perles fonctionne particulièrement bien — les deux matières se complètent sans se concurrencer.</p>
+
+<h3>Les bijoux en pierres fines ou en perles peuvent-ils être portés au quotidien ?</h3>
+<p>Oui, à condition d'adopter quelques précautions simples — éviter les contacts avec les cosmétiques, l'eau et la chaleur, et retirer ses bijoux pour les activités sportives ou ménagères. Les pièces Youm sont assemblées à la main à Bruxelles et dorées à l'or fin 24 carats par des artisans à Paris, avec une attention particulière portée à la qualité de chaque assemblage pour qu'il accompagne votre quotidien dans la durée.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez nos bijoux en pierres naturelles et en perles</h2>
+      <p class="cta-subtext">Chaque pièce Youm est assemblée à la main et dorée à l'or fin 24 carats à Paris — explorez nos collections pour trouver la matière qui vous ressemble.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Explorer la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

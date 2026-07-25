@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/36-comment-porter-bijoux-colores-sans-en-faire-trop.html",
+  "pin_title": "Bijoux colorés : comment les porter sans en faire trop — Guide Youm Paris",
+  "pin_description": "Malachite, amazonite, cornaline… Une règle d'or : une couleur forte à la fois. Découvrez comment accorder bijoux en pierres naturelles et tenue avec élégance au quotidien. Guides et conseils sur youm-paris.com",
+  "board": "Bijoux & Style Coloré",
+  "dest_url": "https://youm-paris.com/blogs/articles/comment-porter-bijoux-colores-sans-en-faire-trop",
+  "hook": "Une couleur forte suffit",
+  "label": "Le guide pour porter les pierres naturelles avec élégance.",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-amazonite-perles-onyx-vert-packshot-youm.jpg?v=1771527140",
+      "alt": "Boucles Zelda Amazonite",
+      "public_id": "youm/pinterest-collage-products/comment-porter-bijoux-colores-sans-en-faire-trop-0-537e958a0d"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725",
+      "alt": "Boucles Félix Malachite",
+      "public_id": "youm/pinterest-collage-products/comment-porter-bijoux-colores-sans-en-faire-trop-1-6e56c5203a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "Boucles Lila Cornaline et Quartz rose",
+      "public_id": "youm/pinterest-collage-products/comment-porter-bijoux-colores-sans-en-faire-trop-2-348486b13c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-packshot.-youm.jpg?v=1771518595",
+      "alt": "Boucles Scarlett Malachite",
+      "public_id": "youm/pinterest-collage-products/comment-porter-bijoux-colores-sans-en-faire-trop-3-7bd6ad6e70"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059",
+      "alt": "Boucles Marine Quartz rose",
+      "public_id": "youm/pinterest-collage-products/comment-porter-bijoux-colores-sans-en-faire-trop-4-ddc49cbe40"
+    },
+    {
+      "url": "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-cleo-quartz-rose-perles-packshot.jpg?v=1771687676",
+      "alt": "Boucles Cléo Quartz rose",
+      "public_id": "youm/pinterest-collage-products/comment-porter-bijoux-colores-sans-en-faire-trop-5-1e76ba17ea"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:comment-porter-bijoux-colores-sans-en-faire-trop-0-537e958a0d,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-bijoux-colores-sans-en-faire-trop-1-6e56c5203a,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-bijoux-colores-sans-en-faire-trop-2-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-bijoux-colores-sans-en-faire-trop-3-7bd6ad6e70,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-bijoux-colores-sans-en-faire-trop-4-ddc49cbe40,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-bijoux-colores-sans-en-faire-trop-5-1e76ba17ea,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%26%20STYLE%20COLOR%C3%89,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Une%20couleur%20forte%20suffit,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Le%20guide%20pour%20porter%20les%20pierres%20naturelles%20avec%20%C3%A9l%C3%A9gance.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

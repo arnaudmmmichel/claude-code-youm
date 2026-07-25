@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:bijoux-perles",
+  "pin_title": "Boucles d'oreilles perles dorées à l'or fin 24 carats — Youm Paris",
+  "pin_description": "La perle, revisitée avec caractère. Boucles d'oreilles en laiton doré à l'or fin 24 carats, assemblées à la main à Paris. Pour sublimer une tenue simple, sans effort. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Perles Élégants",
+  "dest_url": "https://youm-paris.com/collections/bijoux-perles",
+  "hook": "La perle qui change tout.",
+  "label": "Dorée à l'or fin 24 carats, faite à Paris.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-perle-pernille",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778764015/Youm-Paris/uhafv3cg0ljstfodcobm.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-perles-0-creative-ae6b673ac1"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202430/Youm-Paris/j5cgzn9pcvvuyi4erbyl.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-perles-1-creative-2e32a5da26"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-cleo-quartz-rose-perles-packshot.jpg?v=1771687676",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774041475/Youm-Paris/ypaf40vwwmidvfrvh7za.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-perles-2-creative-b8f3565066"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-colette",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-colette-malachite-perle-blanche-percees-clips.jpg?v=1770401954",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774041644/Youm-Paris/brzl8epmryrri0slbcuw.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-perles-3-creative-30dee28c56"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-cleo",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-cleo-pierre-jaspe-perle-packshot-youm.jpg?v=1772536082",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774041364/Youm-Paris/vzwblsffmkzgs13zihtr.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-perles-4-creative-636d75a294"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-cleo-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-cleo-pierres-malachite-perles-packshot-youm.jpg?v=1772532675",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774041414/Youm-Paris/nu5l8rl1ni3i3x0kqiox.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-perles-5-creative-0101013fcc"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bijoux-perles-0-creative-ae6b673ac1,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-perles-1-creative-2e32a5da26,w_946,h_414,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-perles-2-creative-b8f3565066,w_473,h_276,c_thumb,g_center/g_north,x_239,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-perles-3-creative-30dee28c56,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-perles-4-creative-636d75a294,w_473,h_276,c_thumb,g_center/g_north,x_239,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-perles-5-creative-0101013fcc,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_1192,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PERLES%20%C3%89L%C3%89GANTS,co_rgb:f54e00,g_center,y_-257/l_text:Arial_34_bold:La%20perle%20qui%20change%20tout.,co_rgb:1c1814,g_center,y_-211,w_820,c_fit/l_text:Arial_19_bold:Dor%C3%A9e%20%C3%A0%20l%27or%20fin%2024%20carats%252C%20faite%20%C3%A0%20Paris.,co_rgb:5a4a3a,g_center,y_-161,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#pourquoi-le-bijou-compte">Pourquoi le bijou compte en contexte professionnel</a></li>
+      <li><a href="#regles-dor">Les règles d'or du bijou au bureau</a></li>
+      <li><a href="#boucles-doreilles-bureau">Boucles d'oreilles : sobres, graphiques, affirmées</a></li>
+      <li><a href="#colliers-et-bracelets">Colliers et bracelets : discrétion et présence</a></li>
+      <li><a href="#occasions-pro">Adapter son bijou selon l'occasion</a></li>
+      <li><a href="#conseils-pratiques">8 conseils pour bien choisir</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Un rendez-vous professionnel se joue aussi dans les détails — et un bijou femme élégant, discret, choisi avec soin, en fait partie. Pas pour en imposer, mais pour affirmer une présence, une attention à soi qui se lit immédiatement. Chez Youm, nous pensons que le bon bijou ne distrait pas : il complète, il affirme, il dit quelque chose de juste sur celle qui le porte. Cet article vous aide à identifier les pièces adaptées à chaque contexte professionnel, du déjeuner client à la réunion de direction — sans jamais sacrifier votre personnalité à un code vestimentaire trop sage.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="pourquoi-le-bijou-compte">Pourquoi le bijou compte en contexte professionnel</h2>
+
+<p>Il existe une idée reçue tenace selon laquelle les bijoux seraient superflus dans un cadre de travail — voire contre-indiqués pour ne pas distraire l'attention. C'est précisément l'inverse qui se produit lorsque le choix est juste. Un bijou femme élégant et discret ne détourne pas le regard : il le guide vers vous, vers votre visage, vers votre assurance. Il signale, en un seul geste, que vous prenez soin de chaque détail — y compris ceux que l'on ne remarque pas consciemment.</p>
+
+<p>Dans les milieux où l'apparence est un outil de communication — direction marketing, fondatrices de marques DTC, conseil, relations clients — la tenue est un message. Les bijoux en font partie au même titre que la coupe d'un blazer ou le choix d'une couleur. La question n'est donc pas de savoir si vous devez en porter, mais lesquels, et comment les calibrer selon le contexte.</p>
+
+<p>Chez Youm, les bijoux en <a href="https://youm-paris.com/collections/bijoux-dore">laiton doré à l'or fin 24 carats</a> sont conçus précisément pour ce quotidien exigeant : des pièces qui tiennent leur place dans une journée de réunions, traversent un déjeuner d'affaires, et restent impeccables jusqu'au cocktail du soir si nécessaire.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517" alt="Boucles Doreilles Galuchat Grace" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace">Boucles Doreilles Galuchat Grace</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779" alt="Boucles Doreilles Papillon Chiara" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara">Boucles Doreilles Papillon Chiara</a></figcaption></figure></div>
+
+<h2 id="regles-dor">Les règles d'or du bijou au bureau</h2>
+
+<p>Avant de parler de pièces précises, quelques principes permettent de cadrer le choix. Le premier est celui de la cohérence : votre bijou doit s'inscrire dans l'ensemble de votre tenue, pas entrer en concurrence avec elle. Un blazer structuré appelle une pièce épurée ; une blouse en soie peut accueillir quelque chose de plus affirmé. Le registre de l'ensemble définit le registre du bijou.</p>
+
+<p>Le second principe est celui de la juste mesure. Dans un contexte professionnel, la discrétion ne signifie pas l'invisibilité — elle signifie l'harmonie. Une boucle d'oreille pendante sobre, un jonc doré posé sur le poignet, un collier ras-du-cou légèrement coloré : autant de choix qui affirment sans crier. À l'inverse, les pièces trop volumineuses, trop sonores ou trop multiples peuvent nuire à la concentration que vous souhaitez installer dans la pièce.</p>
+
+<p>Le troisième principe est celui du contexte sectoriel. Une réunion dans une agence créative ou une présentation chez un client dans la mode tolèrent — voire attendent — un bijou plus affirmé, qui témoigne d'un sens du style personnel. Une audition devant un comité de direction dans un secteur traditionnel appellera une palette plus resserrée. Connaître les codes de son interlocuteur est une forme d'intelligence sociale que le bijou peut refléter.</p>
+
+<blockquote><p>Le bijou professionnel idéal est celui que l'on remarque après la réunion, pas pendant.</p></blockquote>
+
+<h2 id="boucles-doreilles-bureau">Boucles d'oreilles : sobres, graphiques, affirmées</h2>
+
+<p>Les boucles d'oreilles sont la pièce la plus visible d'une tenue de travail — elles encadrent le visage, accompagnent la parole, attirent naturellement le regard lors d'un échange. C'est souvent là que se joue la justesse d'un look professionnel. Le bon choix dépend de la longueur : les puces et les créoles courtes sont les plus universelles, tandis que les pendantes, si elles restent graphiques et épurées, peuvent être tout aussi appropriées.</p>
+
+<p>Pour un rendez-vous formel, misez sur une pièce à la géométrie claire, sans fioriture. Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a> répondent à cet usage : leur format compact et leur dorure à l'or fin 24 carats s'adaptent aussi bien à une tenue sobre qu'à un ensemble plus structuré. Elles introduisent une note de couleur sans jamais déborder du cadre.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-detail-pose.jpg?v=1770739990" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure></div>
+
+<p>Pour celles dont les oreilles ne sont pas percées, la question du choix ne doit pas être un frein. <a href="https://youm-paris.com/collections/boucles-doreilles-clip">Nos boucles d'oreilles clips</a> reproduisent exactement les mêmes modèles que les versions percées — le mécanisme clip est discret côté face, et le confort est pensé pour une journée entière. Les modèles Jacinthe, Ninon ou Nell en clips sont ainsi parfaitement adaptés à un contexte professionnel exigeant.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Doreilles Pendantes Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Boucles Doreilles Pendantes Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure></div>
+
+<p>Pour un contexte un peu plus libre — agence, secteur créatif, présentation de marque — les <a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a> proposent un graphisme affirmé qui dialogue avec un blazer ou un tailleur sans jamais le concurrencer. Leur couleur profonde et leur ligne géométrique communiquent une assurance visuelle que les bijoux neutres n'ont pas.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-packshot-youm.jpg?v=1771526309" alt="boucles Zelda en agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-clips-portee-youm.jpg?v=1771526359" alt="boucles Zelda en agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-agate-perles-onyx-vert-detail-porte-perc_es-clips-youm.jpg?v=1771526429" alt="boucles Zelda en agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a></figcaption></figure></div>
+
+<h2 id="colliers-et-bracelets">Colliers et bracelets : discrétion et présence</h2>
+
+<p>Le collier professionnel par excellence est celui qui habille sans alourdir. Un ras-du-cou ou un collier de longueur intermédiaire — visible au-dessus d'un col ouvert ou d'une blouse — ajoute une profondeur visuelle à la tenue sans attirer l'attention pour lui-même. L'erreur fréquente est d'associer plusieurs colliers de longueurs proches : en contexte professionnel, la superposition doit être pensée avec davantage de rigueur qu'au quotidien.</p>
+
+<p>Le <a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">collier Nora en pierres naturelles et perle</a> illustre bien cet équilibre : une pièce visible, dotée d'une légère présence colorée, mais dont la ligne reste nette et la longueur appropriée à une tenue professionnelle ouverte au col. Il s'associe naturellement à une blouse légère en coton ou à une veste structurée sans boucler le look sur lui-même.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-pierres-nora-packshot-zoom.jpg?v=1776273907" alt="collier Nora en pierres naturelles et perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">collier Nora en pierres naturelles et perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-nora-pose.jpg?v=1776273934" alt="collier Nora en pierres naturelles et perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">collier Nora en pierres naturelles et perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-nora-portee.jpg?v=1776273958" alt="collier Nora en pierres naturelles et perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">collier Nora en pierres naturelles et perle</a></figcaption></figure></div>
+
+<p>Du côté des bracelets, la règle est celle de la sobriété sonore. Dans une réunion, un bracelet qui cliquète à chaque geste peut devenir une distraction involontaire. Le jonc — discret, plaqué, silencieux — est la forme la plus adaptée au bureau. Le <a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a> en est l'illustration : sa ligne épurée, son format plat et sa dorure à l'or fin 24 carats en font une pièce d'une élégance immédiate, sans aucun bruit parasite.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-jonc-ana-dore-graphique-packshot.jpg?v=1771856507" alt="bracelet jonc doré Ana" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-jonc-ana-dore-graphique-porte.jpg?v=1771856537" alt="bracelet jonc doré Ana" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-jonc-ana-dore-graphique-detail-pose.jpg?v=1771856566" alt="bracelet jonc doré Ana" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a></figcaption></figure></div>
+
+<p>Si vous souhaitez introduire une pierre naturelle au poignet — pour apporter une touche de couleur à un ensemble neutre — le <a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">jonc Théo en malachite</a> offre cette présence colorée dans un format toujours sobre. Le vert profond de la malachite s'accorde avec le camel, le beige rosé, le blanc cassé et le noir — des teintes naturellement présentes dans une garde-robe de travail.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="jonc Théo en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">jonc Théo en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-dore-theo-malachite-accumulation.jpg?v=1770394735" alt="jonc Théo en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">jonc Théo en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/jonc-theo-dore-malachite-porte-poignet.jpg?v=1770394788" alt="jonc Théo en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">jonc Théo en malachite</a></figcaption></figure></div>
+
+<h2 id="occasions-pro">Adapter son bijou selon l'occasion</h2>
+
+<p>Tous les rendez-vous professionnels ne se ressemblent pas, et la gradation du bijou doit suivre celle du contexte. Voici comment calibrer votre choix selon le type d'occasion.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contexte</th>
+      <th>Niveau d'affirmation</th>
+      <th>Recommandation Youm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Réunion interne, équipe</td>
+      <td>Détendu mais soigné</td>
+      <td>Puce ou créole courte + jonc doré</td>
+    </tr>
+    <tr>
+      <td>Déjeuner client</td>
+      <td>Élégant, affirmé avec justesse</td>
+      <td>Boucle pendante épurée + collier sobre</td>
+    </tr>
+    <tr>
+      <td>Présentation, pitch</td>
+      <td>Visible mais maîtrisé</td>
+      <td>Boucle graphique + une seule pièce complémentaire</td>
+    </tr>
+    <tr>
+      <td>Entretien, comité</td>
+      <td>Discret, intemporel</td>
+      <td>Puce dorée ou pierre naturelle sobre, pas de superposition</td>
+    </tr>
+    <tr>
+      <td>Événement professionnel, cocktail</td>
+      <td>Plus affirmé, soirée</td>
+      <td>Pendante colorée ou créole statement + manchette</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pour un événement professionnel en soirée — cocktail de lancement, dîner d'affaires — la gradation peut monter d'un cran. Les <a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a> illustrent parfaitement ce passage du bureau à la soirée : leur ligne pendante reste graphique et maîtrisée, mais leur longueur et la richesse de la malachite leur confèrent une présence plus affirmée, adaptée à un registre habillé.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-packshot.-youm.jpg?v=1771518595" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-youm.jpg?v=1771518630" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-profil-youm.jpg?v=1771518680" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure></div>
+
+<h2 id="conseils-pratiques">8 conseils pour bien choisir votre bijou professionnel</h2>
+
+<ul>
+  <li>Optez pour une seule pièce forte plutôt que plusieurs pièces cumulées — la cohérence vaut davantage que la quantité.</li>
+  <li>Misez sur le laiton doré à l'or fin 24 carats pour sa chaleur visuelle discrète, plus douce que l'argenté sous les lumières artificielles de bureau.</li>
+  <li>Adaptez le format de la boucle à la longueur de votre coiffure : cheveux courts ou attachés appellent une boucle plus visible ; cheveux lâches autorisent une puce ou une créole courte.</li>
+  <li>Associez les pierres naturelles aux neutres de votre tenue — une agate noire avec un blanc cassé, une malachite avec un camel, un quartz rose avec un beige rosé.</li>
+  <li>Évitez les bijoux sonores en réunion : privilégiez les joncs plats, les puces, les pendantes légères plutôt que les bracelets à charms ou les colliers à chaîne épaisse.</li>
+  <li>Variez l'intensité selon l'enjeu du rendez-vous — réservez vos pièces les plus affirmées aux occasions où votre style personnel est un atout de communication.</li>
+  <li>Jouez sur les contrastes sobres : un bijou coloré sur une tenue monochrome, ou une pièce dorée épurée sur un ensemble imprimé discret.</li>
+  <li>Choisissez des boucles d'oreilles clips si vous souhaitez le même confort et la même esthétique sans contrainte de perçage — le mécanisme discret ne se voit pas de face.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes</h2>
+
+<h3>Peut-on porter des boucles d'oreilles pendantes à un entretien professionnel ?</h3>
+<p>Oui, à condition que la ligne reste épurée et que la longueur ne soit pas excessive. Une pendante graphique et sobre — en pierres naturelles ou en laiton doré à l'or fin 24 carats — affirme un sens du style sans distraire. Évitez les pièces très longues, très colorées ou faisant du bruit lors de vos gestes.</p>
+
+<h3>Quelle différence entre un bijou « discret » et un bijou « invisible » ?</h3>
+<p>Un bijou discret se remarque sans s'imposer — il contribue à l'élégance d'ensemble sans devenir le sujet de la conversation. Un bijou invisible, lui, ne remplit aucune fonction stylistique. En contexte professionnel, la discrétion est une qualité positive : elle traduit un sens de la mesure et une attention aux détails, pas un effacement.</p>
+
+<h3>Les boucles d'oreilles clips sont-elles adaptées à une journée de travail longue ?</h3>
+<p>Absolument. Chez Youm, les boucles d'oreilles clips sont conçues pour un confort prolongé : le mécanisme est réglable, le poids des pièces reste léger, et la dorure à l'or fin 24 carats est réalisée par des artisans à Paris sur du laiton de qualité. Plusieurs clientes les portent sans inconfort sur une journée complète de réunions.</p>
+
+<h3>Faut-il assortir ses bijoux à sa tenue ou à ses autres accessoires ?</h3>
+<p>La cohérence de métal est un repère utile : doré avec doré, ou un mélange assumé mais pensé. En revanche, assortir exactement la couleur du bijou à celle de la tenue n'est pas nécessaire — c'est souvent le léger contraste qui crée l'intérêt. Une pierre naturelle dont la teinte dialogue avec un élément de la tenue (une broderie, la doublure d'un blazer) est toujours plus élégante qu'un accord trop littéral.</p>
+
+<h3>Quel est le budget raisonnable pour un bijou professionnel de qualité ?</h3>
+<p>Entre 45 et 99 € pour une pièce en laiton doré à l'or fin 24 carats avec pierres naturelles ou perles. C'est le budget qui permet d'accéder à un bijou artisanal, assemblé à la main, sans verser dans la joaillerie. Chez Youm, toute la gamme se situe dans cette fourchette, avec la livraison et les retours offerts en France et en Belgique.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Des bijoux élégants et discrets pour chaque rendez-vous</h2>
+      <p class="cta-subtext">Conçus pour le quotidien exigeant des femmes actives, nos bijoux en laiton doré à l'or fin 24 carats s'adaptent à tous vos contextes professionnels — du bureau à la soirée, sans effort.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Découvrir nos bijoux dorés</a>
+    </div>
+
+    
+    <!-- RELATED-ARTICLES -->
+    <div style="margin-top:48px;padding:32px 0;border-top:1px solid #e8e0d8;">
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1c1814;margin-bottom:20px;">À lire aussi</p>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Bijoux élégants au quotidien : pierres naturelles et laiton doré 24 carats</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/rehausser-tenue-avec-bijoux" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Rehausser une tenue oubliée grâce aux bijoux : le guide</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/bijoux-mariage-perles-blanches-laiton-dore" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Bijoux pour un mariage : perles blanches et or fin 24 carats</a></li>
+      </ul>
+    </div>
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

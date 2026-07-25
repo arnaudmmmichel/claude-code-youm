@@ -1,0 +1,33 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:colliers",
+  "pin_title": "Colliers dorés à l'or fin 24 carats — pierres naturelles & perles | Youm Paris",
+  "pin_description": "Des colliers en laiton doré à l'or fin 24 carats, ornés de pierres naturelles et de perles — assemblés à la main à Paris. Pour sublimer une tenue sobre au quotidien. Découvrez la collection sur youm-paris.com",
+  "board": "Colliers & Sautoirs",
+  "dest_url": "https://youm-paris.com/collections/colliers",
+  "hook": "Colliers dorés, pierres naturelles",
+  "label": "Assemblés à la main à Paris — laiton doré 24 carats",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "alt": "Collier Léon - Chaîne dorée large",
+      "public_id": "youm/pinterest-collage-products/colliers-0-18312aecc0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774",
+      "alt": "Collier Audrey - Perles blanches",
+      "public_id": "youm/pinterest-collage-products/colliers-1-15dc123b6a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-pierres-nora-packshot-zoom.jpg?v=1776273907",
+      "alt": "Collier Nora - Pierres & perles",
+      "public_id": "youm/pinterest-collage-products/colliers-2-610305ef60"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-collier-cara-pierres-naturelles-packshot.jpg?v=1776262476",
+      "alt": "Collier Cara - Pierres & nacre",
+      "public_id": "youm/pinterest-collage-products/colliers-3-9cad7ddf99"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:colliers-0-18312aecc0,w_473,h_628,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:colliers-1-15dc123b6a,w_473,h_628,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:colliers-2-610305ef60,w_473,h_628,c_thumb,g_center/g_north,x_-240,y_842,fl_layer_apply/l_youm:pinterest-collage-products:colliers-3-9cad7ddf99,w_473,h_628,c_thumb,g_center/g_north,x_239,y_842,fl_layer_apply/l_text:Arial_18_bold:COLLIERS%20%26%20SAUTOIRS,co_rgb:f54e00,g_center,y_-73/l_text:Arial_36_bold:Colliers%20dor%C3%A9s%252C%20pierres%20naturelles,co_rgb:1c1814,g_center,y_-23,w_820,c_fit/l_text:Arial_20_bold:Assembl%C3%A9s%20%C3%A0%20la%20main%20%C3%A0%20Paris%20%E2%80%94%20laiton%20dor%C3%A9%2024%20carats,co_rgb:5a4a3a,g_center,y_31,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#comprendre-dorure">Comprendre la dorure à l'or fin 24 carats</a></li>
+      <li><a href="#gestes-quotidiens">Les gestes quotidiens qui font la différence</a></li>
+      <li><a href="#comment-nettoyer">Comment nettoyer vos bijoux dorés</a></li>
+      <li><a href="#conservation">Conserver vos bijoux dans les meilleures conditions</a></li>
+      <li><a href="#erreurs-eviter">Les erreurs à éviter absolument</a></li>
+      <li><a href="#conseils-pratiques">8 conseils pratiques à retenir</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Un bijou doré qui conserve tout son éclat au fil des semaines, cela ne doit rien au hasard — cela tient à quelques habitudes simples, adoptées avec régularité. L'entretien des bijoux dorés est souvent négligé, alors qu'il représente la différence entre une pièce qui s'embrase à la lumière et une pièce qui s'étiole faute de soins. Chez Youm, nous travaillons avec des artisans à Paris pour réaliser une dorure à l'or fin 24 carats sur chacune de nos pièces en laiton — une finition précieuse qui mérite une attention adaptée. Ce guide vous donne toutes les clés pour nettoyer, conserver et prolonger l'éclat de vos bijoux dorés, au quotidien et sur le long terme.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="comprendre-dorure">Comprendre la dorure à l'or fin 24 carats</h2>
+
+<p>Avant d'aborder les gestes d'entretien, il est utile de comprendre ce qu'est précisément une dorure à l'or fin 24 carats et ce qui la distingue d'un simple revêtement doré industriel. Chez Youm, chaque pièce est réalisée en laiton — un alliage noble, léger et travaillable — puis confiée à un artisan à Paris qui applique la dorure à l'or fin 24 carats par un procédé artisanal. Le résultat est une finition dense, lumineuse et fidèle à la couleur de l'or, bien loin des teintes jaunâtres des dorures bas de gamme.</p>
+
+<p>La dorure à l'or fin 24 carats est une couche d'or pur déposée sur le métal de base. Sa beauté réside dans sa chaleur et sa profondeur de couleur — son entretien repose sur un principe simple : protéger cette couche de tout ce qui peut l'altérer chimiquement ou mécaniquement. Les ennemis de la dorure sont connus : les produits chimiques (parfums, crèmes, produits ménagers), l'humidité prolongée, les frottements répétés et le stockage inadapté.</p>
+
+<p>Comprendre ce principe, c'est déjà adopter la bonne posture. Il ne s'agit pas de multiplier les traitements, mais d'instaurer quelques réflexes protecteurs qui préservent naturellement l'éclat de vos bijoux dorés au fil des portés.</p>
+
+<h2 id="gestes-quotidiens">Les gestes quotidiens qui font la différence</h2>
+
+<p>La majorité des altérations visibles sur un bijou doré se produisent lors de la vie quotidienne — et non par négligence flagrante. Un peu de parfum vaporisé trop près du poignet, une crème de jour appliquée en portant ses boucles d'oreilles, ou encore un bijou posé en vrac dans un tiroir : ces gestes anodins s'accumulent et finissent par ternir même les plus belles pièces. Adopter quelques habitudes simples suffit à changer radicalement la donne.</p>
+
+<p>La règle d'or — au sens propre — est celle du <strong>« dernier à enfiler, premier à retirer »</strong>. Vos bijoux s'enfilent après la routine beauté (parfum, crème, laque) et se retirent avant toute activité susceptible de les exposer à l'eau, à la transpiration ou aux produits chimiques. Ce seul réflexe prolonge considérablement l'éclat d'une dorure à l'or fin 24 carats.</p>
+
+<p>Il convient également de porter attention aux gestes du quotidien : cuisiner avec les mains, jardiner, pratiquer une activité sportive, plonger les mains dans l'eau chaude savonneuse. Chacune de ces situations expose vos bijoux à des agents qui fragilisent la dorure. L'habitude de les retirer dans ces moments-là devient rapidement un automatisme, sans contraindre votre rapport au bijou.</p>
+
+<blockquote><p>« Dernier à enfiler, premier à retirer » : ce seul réflexe suffit à transformer l'éclat de vos bijoux dorés sur la durée.</p></blockquote>
+
+<h2 id="comment-nettoyer">Comment nettoyer vos bijoux dorés à l'or fin</h2>
+
+<p>Nettoyer ses bijoux dorés ne requiert ni produit spécialisé ni équipement particulier. L'objectif est simple : éliminer les dépôts de sébum, les résidus de crème ou de parfum qui s'accumulent sur la surface dorée, sans agresser la couche d'or fin. La méthode la plus sûre et la plus efficace reste la plus simple.</p>
+
+<h3>Le nettoyage doux à l'eau tiède</h3>
+
+<p>Préparez un bol d'eau tiède — jamais chaude — et ajoutez une infime quantité de savon doux neutre, sans détergent ni agent chimique agressif. Plongez votre bijou quelques secondes, puis frottez très délicatement avec un chiffon en microfibre ou un coton souple. Rincez à l'eau claire, puis séchez immédiatement et soigneusement avec un chiffon propre et doux. L'humidité résiduelle est un facteur d'altération : ne laissez jamais un bijou doré sécher à l'air dans un état humide.</p>
+
+<p>Pour les pièces comportant des <strong>pierres naturelles</strong> — amazonite, malachite, quartz rose, agate ou aventurine — soyez encore plus attentive. Certaines pierres sont poreuses et peuvent réagir à l'eau ou au savon. Préférez dans ce cas un simple essuyage à sec avec un chiffon microfibre, en évitant tout contact prolongé avec l'eau. Vous retrouverez nos recommandations détaillées sur la <a href="https://youm-paris.com/pages/entretien">page d'entretien Youm</a>.</p>
+
+<h3>Le nettoyage à sec pour un entretien régulier</h3>
+
+<p>Entre deux nettoyages à l'eau, un simple essuyage quotidien avec un chiffon en microfibre suffit à éliminer les traces de contact et à raviver l'éclat de la dorure. C'est le geste le plus fréquent, le plus rapide et le plus bénéfique : quelques secondes après chaque port suffisent. Ce réflexe est particulièrement utile pour les boucles d'oreilles et les bracelets, qui sont en contact direct avec la peau tout au long de la journée.</p>
+
+<h3>Ce qu'il ne faut jamais utiliser</h3>
+
+<p>Certains produits courants sont à proscrire absolument pour nettoyer des bijoux dorés à l'or fin 24 carats. L'alcool, le vinaigre blanc, le jus de citron, le bicarbonate de soude et les lingettes désinfectantes sont trop abrasifs ou trop acides pour une dorure artisanale. Les ultrasons, parfois recommandés pour l'or massif, ne conviennent pas non plus aux bijoux en laiton doré. Enfin, évitez les chiffons rugueux ou les éponges abrasives qui rayent mécaniquement la surface.</p>
+
+<h2 id="conservation">Conserver vos bijoux dans les meilleures conditions</h2>
+
+<p>L'entretien d'un bijou doré ne se résume pas aux moments de nettoyage — il se joue aussi, et surtout, dans la manière dont vous le rangez lorsque vous ne le portez pas. Un bijou mal stocké se ternit même sans être porté, sous l'effet de l'oxydation naturelle de l'air, de l'humidité ambiante ou des frottements contre d'autres pièces.</p>
+
+<p>La solution idéale est de conserver chaque bijou <strong>séparément</strong>, à l'abri de l'humidité et de la lumière directe. Chez Youm, chaque pièce est livrée dans un pochon individuel — ce même pochon constitue le meilleur écrin pour le rangement quotidien. Il protège la dorure des frottements et limite l'exposition à l'air. Si vous possédez une boîte à bijoux, veillez à ce que les pièces ne se touchent pas entre elles : les frottements répétés sont l'une des causes principales d'usure prématurée d'une dorure.</p>
+
+<p>Évitez également de ranger vos bijoux dans la salle de bain, où l'humidité et les variations de température sont particulièrement défavorables aux métaux dorés. Une chambre, un dressing ou un bureau sont des environnements bien plus adaptés pour conserver l'éclat de vos pièces sur le long terme.</p>
+
+<p>Pour les bijoux que vous ne portez pas régulièrement — une pièce de soirée, par exemple — glissez dans le pochon un petit sachet de gel de silice (absorbant l'humidité) pour une protection renforcée lors des longues périodes de stockage.</p>
+
+<h2 id="erreurs-eviter">Les erreurs à éviter absolument</h2>
+
+<p>Certaines habitudes, pourtant très répandues, sont particulièrement néfastes pour les bijoux dorés à l'or fin. Les connaître, c'est les éviter naturellement, sans contraindre votre façon de porter vos bijoux.</p>
+
+<p><strong>Vaporiser son parfum en portant ses bijoux</strong> est l'erreur la plus fréquente. L'alcool contenu dans les eaux de toilette et les eaux de parfum attaque directement la couche de dorure et provoque un ternissement accéléré, particulièrement visible sur les zones de contact. Appliquez toujours votre parfum sur la peau nue, laissez-le sécher quelques instants, puis enfilez vos bijoux.</p>
+
+<p><strong>Porter ses bijoux dans l'eau</strong> — qu'il s'agisse de la douche, du bain, de la piscine ou de la mer — est une autre erreur courante. L'eau chlorée des piscines et l'eau salée de la mer sont particulièrement agressives pour les dorures. Retirez systématiquement vos bijoux avant tout contact prolongé avec l'eau.</p>
+
+<p><strong>Appliquer ses crèmes, huiles ou autobronzants en portant ses bijoux</strong> crée un film résiduel qui s'incruste dans les anfractuosités du bijou et altère progressivement la dorure. Ce geste, répété quotidiennement, produit un effet de ternissement diffus difficile à corriger sans nettoyage approfondi.</p>
+
+<p>Enfin, <strong>mélanger ses bijoux dans un même écrin sans protection</strong> génère des micro-rayures inévitables. Même des bijoux en laiton doré peuvent s'abîmer mutuellement par simple contact répété. Le pochon individuel fourni avec chaque pièce Youm est la solution la plus simple et la plus efficace.</p>
+
+<h2 id="conseils-pratiques">8 conseils pratiques pour un entretien bijoux dorés réussi</h2>
+
+<ul>
+  <li>Enfilez vos bijoux en dernier, après votre routine beauté complète (parfum, crème, maquillage).</li>
+  <li>Retirez vos bijoux avant la douche, le bain, la piscine ou toute activité en contact avec l'eau.</li>
+  <li>Essuyez chaque pièce avec un chiffon en microfibre après chaque port, avant de la ranger.</li>
+  <li>Nettoyez en douceur à l'eau tiède et au savon neutre en cas de dépôt visible, puis séchez immédiatement.</li>
+  <li>Conservez chaque bijou séparément dans son pochon individuel, à l'abri de l'humidité et de la lumière directe.</li>
+  <li>Évitez la salle de bain comme lieu de rangement — préférez un espace sec et tempéré.</li>
+  <li>Glissez un sachet de gel de silice dans votre boîte à bijoux pour absorber l'humidité ambiante.</li>
+  <li>Consultez la <a href="https://youm-paris.com/pages/entretien">page entretien Youm</a> pour des recommandations spécifiques aux pierres naturelles et au galuchat.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes sur l'entretien des bijoux dorés</h2>
+
+<h3>Peut-on nettoyer des bijoux en laiton doré à l'or fin avec du bicarbonate de soude ?</h3>
+<p>Non. Le bicarbonate de soude est trop abrasif pour une dorure à l'or fin 24 carats : il risque de rayer mécaniquement la surface dorée et d'altérer l'éclat de la pièce. Préférez toujours un nettoyage à l'eau tiède avec une infime quantité de savon doux neutre, suivi d'un séchage immédiat avec un chiffon en microfibre.</p>
+
+<h3>Faut-il retirer ses bijoux dorés pour dormir ?</h3>
+<p>Oui, dans la mesure du possible. Porter ses bijoux la nuit les expose aux frottements contre l'oreiller, à la transpiration et à une pression prolongée — autant de facteurs qui accélèrent l'usure de la dorure. Retirer ses bijoux avant de se coucher et les ranger dans leur pochon individuel est le geste le plus simple pour les conserver dans les meilleures conditions.</p>
+
+<h3>Comment entretenir des bijoux en laiton doré avec des pierres naturelles ?</h3>
+<p>Les pierres naturelles — malachite, amazonite, quartz rose, agate, aventurine — sont pour la plupart poreuses et sensibles à l'eau et aux produits chimiques. Pour <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a>, nous recommandons un nettoyage à sec avec un chiffon microfibre, en évitant tout trempage. En cas de salissure plus prononcée, humidifiez légèrement le chiffon (sans savon) et séchez aussitôt.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure></div>
+
+<h3>Mes boucles d'oreilles dorées ont légèrement terni — comment les raviver ?</h3>
+<p>Un ternissement léger peut souvent être atténué par un nettoyage doux à l'eau tiède et au savon neutre, suivi d'un essuyage soigneux avec un chiffon en microfibre propre. Si le ternissement est plus prononcé et localisé, il peut indiquer un contact répété avec un produit chimique (parfum, crème) : dans ce cas, un nettoyage doux suivi d'un rangement adapté dans le pochon individuel permettra de stopper l'altération. Nous vous invitons à contacter notre équipe via le site si vous souhaitez un conseil personnalisé sur une pièce spécifique.</p>
+
+<h3>Les boucles d'oreilles clips nécessitent-elles un entretien particulier ?</h3>
+<p>Le mécanisme clip des <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a> mérite une attention légèrement différente : évitez d'humidifier la partie mécanique lors du nettoyage, car l'eau résiduelle dans les articulations peut accélérer l'oxydation du laiton. Un essuyage à sec avec un chiffon microfibre, en insistant sur la partie visible et en évitant le mécanisme, est la méthode la plus adaptée pour ces pièces.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Doreilles Pendantes Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Boucles Doreilles Pendantes Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles D Oreilles Asymetriques" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Boucles D Oreilles Asymetriques</a></figcaption></figure></div>
+
+<hr>
+
+<p>Prendre soin de ses bijoux dorés, c'est aussi prendre soin de ce qu'ils représentent — une manière de s'affirmer, de sublimer une tenue, de porter avec soi une pièce choisie avec intention. Chez Youm, chaque bijou en laiton doré à l'or fin 24 carats est assemblé à la main et dorée par des artisans à Paris : il mérite une attention à la hauteur de ce savoir-faire. Découvrez l'ensemble de notre <a href="https://youm-paris.com/collections/bijoux-dore">collection de bijoux dorés à l'or fin</a> et retrouvez les pièces qui vous ressemblent — des <a href="https://youm-paris.com/collections/boucles-doreilles">boucles d'oreilles</a> aux <a href="https://youm-paris.com/collections/bracelets">bracelets</a>, en passant par nos <a href="https://youm-paris.com/collections/colliers">colliers</a>.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517" alt="Boucles Doreilles Galuchat Grace" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace">Boucles Doreilles Galuchat Grace</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779" alt="Boucles Doreilles Papillon Chiara" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara">Boucles Doreilles Papillon Chiara</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255" alt="Boucles D Oreilles Perle Pernille" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Boucles D Oreilles Perle Pernille</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890" alt="Boucles Doreilles Diego Cercle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle">Boucles Doreilles Diego Cercle Dore Perle</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-zenon"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-zenon-pierres-rutile-jaune-nacre-packshot.jpg?v=1772392900" alt="Boucles Doreilles Zenon" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zenon">Boucles Doreilles Zenon</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636" alt="Boucles Doreilles Nils Rectangle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle">Boucles Doreilles Nils Rectangle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-malo-rond-dore"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-malo-grand-rond-dore-packshot.jpg?v=1774706546" alt="Boucles Doreilles Malo Rond Dore" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-malo-rond-dore">Boucles Doreilles Malo Rond Dore</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-thomas-cercle-dore-nacre"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-thomas-cercle-dore-nacre-blanche-packshot.jpg?v=1774709083" alt="Boucles Doreilles Thomas Cercle Dore Nacre" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-thomas-cercle-dore-nacre">Boucles Doreilles Thomas Cercle Dore Nacre</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-bambou"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-jonc-bambou-dore-packshot.jpg?v=1773591575" alt="Bracelet Jonc Dore Bambou" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-bambou">Bracelet Jonc Dore Bambou</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037" alt="Bracelet Jonc Dore Quartz Rose Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo">Bracelet Jonc Dore Quartz Rose Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Nacre Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Jonc Nacre Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/onc-theo-dore-aventurine-packshot-youm.jpg?v=1770395227" alt="Bracelet Jonc Dore Aventurine Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo">Bracelet Jonc Dore Aventurine Theo</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/collier-leo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793" alt="Collier Leo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-leo">Collier Leo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774" alt="Collier Sautoir Perles Blanches Audrey" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">Collier Sautoir Perles Blanches Audrey</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-pierres-nora-packshot-zoom.jpg?v=1776273907" alt="Collier Pierres Et Perle Nora" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">Collier Pierres Et Perle Nora</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-cara"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-collier-cara-pierres-naturelles-packshot.jpg?v=1776262476" alt="Collier Pierres Et Perle Cara" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-cara">Collier Pierres Et Perle Cara</a></figcaption></figure></div>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez nos bijoux dorés à l'or fin 24 carats</h2>
+      <p class="cta-subtext">Chaque pièce Youm est réalisée en laiton doré à l'or fin 24 carats par des artisans à Paris, assemblée à la main et livrée dans son pochon individuel — prête à être portée, et à durer.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Découvrir la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

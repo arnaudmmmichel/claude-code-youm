@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/07-creoles-a-personnaliser-charms-pierres-naturelles.html",
+  "pin_title": "Créoles à personnaliser : charms et pierres naturelles — guide composition Youm Paris",
+  "pin_description": "Amazonite, malachite, cornaline, quartz rose… Composez vos créoles en laiton doré à l'or fin 24 carats avec les charms qui vous ressemblent. Guide complet sur youm-paris.com",
+  "board": "Bijoux à personnaliser",
+  "dest_url": "https://youm-paris.com/blogs/articles/creoles-a-personnaliser-charms-pierres-naturelles",
+  "hook": "Composez vos créoles",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-packshot.jpg?v=1773660043",
+      "alt": "Créoles Catherine mini à composer",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-charms-pierres-naturelles-0-1abb5f3591"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-mm-dore-charms-packshot.jpg?v=1773658901",
+      "alt": "Créoles Catherine petit modèle",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-charms-pierres-naturelles-1-147506c98a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "alt": "Créoles Catherine grand modèle",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-charms-pierres-naturelles-2-ff176653de"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-flora-doree-packshot.jpg?v=1775671409",
+      "alt": "Créoles Flora perles dorées",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-charms-pierres-naturelles-3-e9d6dc6b01"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-portees.heic?v=1773660070",
+      "alt": "Catherine mini",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-charms-pierres-naturelles-4-65ef30e72c"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:creoles-a-personnaliser-charms-pierres-naturelles-0-1abb5f3591,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-charms-pierres-naturelles-1-147506c98a,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-charms-pierres-naturelles-2-ff176653de,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-charms-pierres-naturelles-3-e9d6dc6b01,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-charms-pierres-naturelles-4-65ef30e72c,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Composez%20vos%20cr%C3%A9oles,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,48 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:bijoux-dore",
+  "pin_title": "Bijoux dorés 24 carats – créoles, colliers et bracelets signés Youm Paris",
+  "pin_description": "Des créoles graphiques aux joncs dorés, en passant par les colliers intemporels : la collection bijoux dorés de Youm Paris, plaqués or fin 24 carats, assemblés à la main. Découvrez youm-paris.com",
+  "board": "Bijoux dorés élégants",
+  "dest_url": "https://youm-paris.com/collections/bijoux-dore",
+  "hook": "L'or, sans en faire trop.",
+  "label": "Créoles dorées 24 carats, faites à Paris.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/collier-leo",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780667825/Youm-Paris/ta5hsvlwxami30urxoum.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-dore-0-creative-6576ecb455"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-bambou",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-jonc-bambou-dore-packshot.jpg?v=1773591575",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202581/Youm-Paris/mcuieafftupcy2thdslt.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-dore-1-creative-459c5aabd5"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-coccinelle-mia",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-coccinelle-mia-clips-dorees-packshot-youm.jpg?v=1771867189",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774041539/Youm-Paris/cwhqlcp9pcvrh3sbczug.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-dore-2-creative-423d53ac97"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042762/Youm-Paris/rrsd0bmquid51wzdpgmm.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-dore-3-creative-b3da5abde4"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-petit-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-mm-dore-charms-packshot.jpg?v=1773658901",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042808/Youm-Paris/vnyhutkpwlak1zhlmvtx.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-dore-4-creative-f8d74e3d26"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bijoux-dore-0-creative-6576ecb455,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-dore-1-creative-459c5aabd5,w_473,h_357,c_thumb,g_center/g_north,x_239,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-dore-2-creative-423d53ac97,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_1112,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-dore-3-creative-b3da5abde4,w_946,h_535,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-dore-4-creative-f8d74e3d26,w_473,h_357,c_thumb,g_center/g_north,x_239,y_1112,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20DOR%C3%89S%20%C3%89L%C3%89GANTS,co_rgb:f54e00,g_center,y_-136/l_text:Arial_34_bold:L%27or%252C%20sans%20en%20faire%20trop.,co_rgb:1c1814,g_center,y_-90,w_820,c_fit/l_text:Arial_19_bold:Cr%C3%A9oles%20dor%C3%A9es%2024%20carats%252C%20faites%20%C3%A0%20Paris.,co_rgb:5a4a3a,g_center,y_-40,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

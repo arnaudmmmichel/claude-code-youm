@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#definition-bijou-fantaisie">Qu'est-ce qu'un bijou fantaisie ?</a></li>
+      <li><a href="#metaux-et-matieres">Les métaux et matières : tout est une question de qualité</a></li>
+      <li><a href="#laiton-dore-24-carats">Le laiton doré à l'or fin 24 carats : le choix de Youm</a></li>
+      <li><a href="#pierres-naturelles-perles">Pierres naturelles et perles : quand la matière fait le bijou</a></li>
+      <li><a href="#comment-choisir">Comment choisir un bijou fantaisie de qualité</a></li>
+      <li><a href="#conseils-pratiques">Conseils pratiques pour porter et entretenir vos bijoux</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">On parle de bijoux fantaisie comme d'une catégorie évidente, alors qu'elle recouvre en réalité des réalités très différentes : d'un côté, des pièces produites en masse avec des matières sans soin ; de l'autre, des bijoux en laiton doré à l'or fin 24 carats, ornés de pierres naturelles ou de perles, assemblés à la main avec une attention portée à chaque détail. Chez Youm, c'est précisément dans cet espace — entre le bijou courant et la joaillerie fine — que nous travaillons depuis 2017. Cet article vous propose de comprendre ce que recouvre vraiment la notion de bijou fantaisie, quels critères distinguent une pièce de qualité d'une pièce ordinaire, et pourquoi le choix des matières change radicalement l'expérience que vous en avez au quotidien.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="definition-bijou-fantaisie">Qu'est-ce qu'un bijou fantaisie ?</h2>
+
+<p>Le terme « bijou fantaisie » désigne, dans sa définition la plus simple, tout bijou qui n'est pas réalisé en métaux précieux massifs — or, argent ou platine — ni serti de pierres précieuses certifiées. Cette définition est utile pour comprendre ce que le bijou fantaisie <em>n'est pas</em>, mais elle dit peu de chose sur ce qu'il peut être. Car sous cette appellation se trouvent des pièces aux qualités extrêmement variables, séparées par des choix de matières, de fabrication et d'intention créative qui font toute la différence.</p>
+
+<p>À une extrémité du spectre, on trouve les bijoux produits industriellement à partir de métaux sans indication d'origine, avec des finitions uniformes appliquées mécaniquement. À l'autre extrémité, des créations en laiton doré à l'or fin 24 carats, ornées de pierres naturelles soigneusement sélectionnées, assemblées à la main en séries limitées. Ces deux types de pièces entrent techniquement dans la même catégorie, mais n'ont en commun que l'étiquette. L'expérience que vous en faites — le toucher, la lumière, la tenue dans le temps, le regard qu'elles suscitent — est fondamentalement différente.</p>
+
+<p>Ce que le bijou fantaisie offre, lorsqu'il est bien conçu, c'est une accessibilité tarifaire sans concession sur l'esthétique ni sur le soin apporté à la fabrication. Il permet à une bien plus grande variété de femmes de porter des pièces réellement belles, originales, qui affirment un style propre — sans le budget que demande la joaillerie fine. C'est précisément cette promesse que nous cherchons à honorer chez Youm, avec chaque pièce conçue et dorée à Paris.</p>
+
+<h2 id="metaux-et-matieres">Les métaux et matières : tout est une question de qualité</h2>
+
+<p>Lorsqu'on évalue un bijou fantaisie, le premier critère est la nature du métal de base utilisé. Le zinc, l'alliage bon marché ou le métal de composition indéterminée donnent des bijoux légers, souvent creux, dont la dorure — quand elle existe — s'estompe rapidement au contact de l'air et de la peau. Le laiton, en revanche, est un alliage noble de cuivre et de zinc qui présente une densité, un poids et une rigidité proches de certains métaux précieux. Il se prête remarquablement bien à la dorure fine, en offrant une surface stable et homogène sur laquelle l'or adhère avec précision.</p>
+
+<p>Le laiton est également le métal historiquement choisi par les orfèvres et les artisans bijoutiers pour réaliser des pièces de qualité à prix accessibles. Sa capacité à recevoir des finitions élaborées — dorure à l'or fin, polissage, satinage — en fait un support de choix pour des créations qui souhaitent conjuguer élégance visuelle et accessibilité tarifaire. Chez Youm, nos <a href="https://youm-paris.com/collections/bijoux-dore">bijoux dorés à l'or fin</a> sont tous réalisés sur cette base, ce qui leur confère ce poids caractéristique et ce volume qui donnent l'impression d'une pièce substantielle entre les doigts.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517" alt="Boucles Doreilles Galuchat Grace" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace">Boucles Doreilles Galuchat Grace</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779" alt="Boucles Doreilles Papillon Chiara" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara">Boucles Doreilles Papillon Chiara</a></figcaption></figure></div>
+
+<p>La qualité de la dorure elle-même est un deuxième critère déterminant. Une dorure superficielle appliquée mécaniquement sur un métal de faible qualité se comporte différemment d'une dorure à l'or fin 24 carats réalisée par un artisan. L'épaisseur du dépôt d'or, la régularité de l'application et la qualité du métal de base déterminent ensemble le rendu visuel final — cette chaleur lumineuse propre à l'or fin, qui ne ressemble à rien d'autre.</p>
+
+<h2 id="laiton-dore-24-carats">Le laiton doré à l'or fin 24 carats : le choix de Youm</h2>
+
+<p>Chez Youm, l'ensemble de notre collection est réalisée en laiton doré à l'or fin 24 carats, la dorure étant effectuée par un artisan à Paris. Ce choix n'est pas anodin : il reflète une conviction fondamentale que la qualité des matières est la première condition d'un bijou qui mérite d'être porté. L'or 24 carats est l'or le plus pur — à 99,9 % d'or — ce qui lui confère cette teinte chaude et profonde caractéristique, très différente des dorures jaunâtres ou verdâtres que l'on observe sur des bijoux de moindre qualité.</p>
+
+<p>Le processus de fabrication chez Youm suit un circuit précis et maîtrisé : les estampes en laiton brut sont d'abord travaillées dans notre atelier parisien — soudure, ponçage, mise en forme — avant de recevoir leur dorure à l'or fin 24 carats. L'assemblage final, lui, est réalisé à la main à Bruxelles, pièce par pièce. Ce circuit en séries limitées signifie que chaque bijou Youm est produit en quantité raisonnée, avec un contrôle qualité possible à chaque étape. Pour en apprendre davantage sur notre façon de travailler, vous pouvez consulter notre page <a href="https://youm-paris.com/pages/savoir-faire">savoir-faire</a>.</p>
+
+<blockquote><p>Un bijou en laiton doré à l'or fin 24 carats n'est pas un bijou « doré comme de l'or » — c'est un bijou dont la surface est réellement constituée d'or pur, déposé avec soin sur un métal de qualité. Cette distinction se voit, se sent et se porte différemment.</p></blockquote>
+
+<p>La production en séries limitées est également une façon de prendre soin de nos clientes : plutôt que de multiplier les références à l'infini, nous préférons approfondir chaque pièce, veiller à sa cohérence avec l'ensemble de la collection, et ne proposer que ce que nous considérons comme abouti. C'est ce modèle de production responsable qui nous permet de maintenir un niveau d'exigence constant, à des prix compris entre 40 et 99 €.</p>
+
+<h2 id="pierres-naturelles-perles">Pierres naturelles et perles : quand la matière fait le bijou</h2>
+
+<p>Au-delà du métal, c'est souvent la pierre ou la perle qui donne à un bijou fantaisie son caractère véritable. Les pierres synthétiques ou les résines colorées peuvent produire un effet visuel satisfaisant sur une photographie, mais elles n'ont ni le poids, ni la profondeur, ni la singularité d'une pierre naturelle. Chaque amazonite, chaque malachite, chaque agate est unique : ses veines, ses nuances, ses inclusions en font une pièce littéralement sans double. C'est cette unicité discrète qui rend un bijou en pierres naturelles plus intéressant à regarder, et plus intime à porter.</p>
+
+<p>Chez Youm, nous travaillons avec une sélection de pierres naturelles soigneusement choisies : amazonite aux reflets bleu-vert apaisants, malachite aux rayures vertes profondes, agate noire ou bleue pour leur graphisme, quartz rose pour sa douceur lumineuse, aventurine, cornaline, lapis-lazuli, jaspe, améthyste, citrine, pyrite. Chacune est sélectionnée pour sa qualité et pour sa cohérence avec le style épuré et graphique de nos créations. Vous pouvez explorer l'ensemble de notre <a href="https://youm-paris.com/collections/bijoux-pierre">collection pierres naturelles</a> pour vous faire une idée de la palette que nous proposons.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037" alt="Bracelet Jonc Dore Quartz Rose Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo">Bracelet Jonc Dore Quartz Rose Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Nacre Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Jonc Nacre Theo</a></figcaption></figure></div>
+
+<p>Les perles occupent une place tout aussi singulière dans notre univers. Qu'il s'agisse de perles blanches rondes, de perles baroques aux formes organiques ou de nacre, elles apportent une lumière douce et une élégance intemporelle que peu de matières peuvent égaler. Les <a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">boucles Pernille</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane perle ronde</a> illustrent bien comment une perle bien choisie, montée sur du laiton doré à l'or fin 24 carats, peut produire une pièce à la fois sobre et précieuse. Notre <a href="https://youm-paris.com/collections/bijoux-perles">collection perles</a> rassemble l'ensemble de ces propositions.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255" alt="boucles Pernille" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">boucles Pernille</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594" alt="créoles Jane perle ronde" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane perle ronde</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890" alt="Boucles Doreilles Diego Cercle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle">Boucles Doreilles Diego Cercle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636" alt="Boucles Doreilles Nils Rectangle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle">Boucles Doreilles Nils Rectangle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-arthur-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-arthur-cercle-dore-perle-blanche-packshot.jpg?v=1774707636" alt="Boucles Doreilles Arthur Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-arthur-dore-perle">Boucles Doreilles Arthur Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774" alt="Collier Sautoir Perles Blanches Audrey" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">Collier Sautoir Perles Blanches Audrey</a></figcaption></figure></div>
+
+<p>Le galuchat — peau de raie aux micro-reliefs caractéristiques — complète notre palette de matières avec un toucher et un aspect véritablement hors du commun. Rare dans la bijouterie fantaisie, il confère à nos pièces une texture qui n'existe nulle part ailleurs, comme en témoignent les <a href="https://youm-paris.com/products/boucles-doreilles-trefle-galuchat-noir">boucles Trèfle noir galuchat</a>, l'une de nos pièces signature.</p>
+
+<h2 id="comment-choisir">Comment choisir un bijou fantaisie de qualité</h2>
+
+<p>Face à une offre aussi large, il peut être difficile de distinguer une pièce véritablement bien faite d'un bijou fantaisie ordinaire. Quelques critères permettent cependant d'orienter le choix avec discernement. Le premier est le poids : un bijou en laiton a une densité perceptible dans la main. S'il semble creux ou très léger, il s'agit probablement d'un métal de moindre qualité. Le deuxième est la régularité de la dorure : sur une pièce de qualité, l'or est homogène, sans zones claires ou foncées, sans bulles ni irrégularités visibles à l'œil nu.</p>
+
+<p>La précision des finitions est un troisième indicateur fiable. Un bijou assemblé à la main par un artisan présente des jonctions propres, des pierres bien serties, des fermoirs qui fonctionnent avec fluidité. À l'inverse, les pièces produites industriellement laissent parfois apparaître des bavures, des sertissages irréguliers ou des soudures visibles. Enfin, la transparence sur la provenance des matières — métal, dorure, pierres — est un signe de sérieux de la part du fabricant. Chez Youm, nous indiquons systématiquement la nature du métal, le procédé de dorure et l'origine des composants, parce que nous pensons que vous méritez de savoir ce que vous portez.</p>
+
+<h2 id="conseils-pratiques">Conseils pratiques pour porter et entretenir vos bijoux</h2>
+
+<p>Un bijou en laiton doré à l'or fin 24 carats, orné de pierres naturelles ou de perles, demande quelques précautions simples pour conserver tout son éclat. Ces gestes relèvent du bon sens plutôt que d'un protocole contraignant, et s'intègrent naturellement dans une routine quotidienne.</p>
+
+<ul>
+  <li>Retirez vos bijoux avant de vous doucher, de nager ou de pratiquer une activité sportive intensive — l'eau et la transpiration prolongées peuvent affecter les pierres naturelles et la dorure.</li>
+  <li>Rangez chaque pièce dans son pochon individuel, à l'abri de la lumière directe et de l'humidité — les bijoux Youm sont livrés avec ce pochon pour cette raison.</li>
+  <li>Évitez le contact direct avec les parfums, les crèmes et les produits ménagers — appliquez vos soins avant d'enfiler vos bijoux, jamais après.</li>
+  <li>Essuyez doucement vos bijoux avec un chiffon doux et sec après chaque port prolongé, notamment par temps chaud.</li>
+  <li>Manipulez les pièces ornées de perles ou de galuchat avec une attention particulière — ces matières sont sensibles aux chocs et aux rayures.</li>
+  <li>Portez vos bijoux à tour de rôle plutôt que de toujours solliciter les mêmes pièces — une rotation simple préserve chaque bijou dans la durée.</li>
+  <li>Consultez notre page <a href="https://youm-paris.com/pages/entretien">conseils d'entretien</a> pour des recommandations détaillées adaptées à chaque type de matière.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes sur les bijoux fantaisie en laiton doré</h2>
+
+<h3>Quelle est la différence entre laiton doré et plaqué or ?</h3>
+<p>Le « plaqué or » est un terme générique qui désigne tout bijou dont la surface a reçu un dépôt d'or, quelle qu'en soit la pureté ou l'épaisseur. Le laiton doré à l'or fin 24 carats précise à la fois le métal de base (laiton, un alliage de cuivre et de zinc), la pureté de l'or utilisé (24 carats, soit 99,9 % d'or pur) et le procédé de dorure. C'est une indication beaucoup plus précise, qui permet de comprendre exactement ce que vous portez. Chez Youm, la dorure est effectuée par un artisan à Paris, ce qui garantit une application maîtrisée et une qualité de finition supérieure à celle d'une dorure industrielle.</p>
+
+<h3>Les pierres naturelles utilisées par Youm sont-elles certifiées ?</h3>
+<p>Chez Youm, nous travaillons avec des fournisseurs sélectionnés pour la qualité et la traçabilité de leurs pierres. Les pierres que nous utilisons — amazonite, malachite, agate, quartz rose, cornaline, lapis-lazuli, entre autres — sont de véritables pierres naturelles, non traitées ou teintées artificiellement pour l'essentiel de notre collection. Chaque pierre est choisie pour ses qualités propres : couleur, translucidité, regularité des veines. C'est ce soin dans la sélection qui donne à nos bijoux leur profondeur visuelle caractéristique.</p>
+
+<h3>Peut-on porter des bijoux en laiton doré tous les jours ?</h3>
+<p>Oui — c'est même l'usage pour lequel nos bijoux sont conçus. Le laiton doré à l'or fin 24 carats est un métal de base solide, qui supporte bien le port quotidien à condition de respecter quelques précautions simples : éviter l'eau prolongée, le contact avec les parfums et les produits cosmétiques, et ranger chaque pièce dans son pochon entre deux ports. Nos clientes portent leurs bijoux Youm au bureau, en déjeuner, en soirée — c'est cette polyvalence du quotidien qui est au cœur de notre proposition.</p>
+
+<h3>Quelle est la différence entre un bijou fantaisie et un bijou de joaillerie fine ?</h3>
+<p>Un bijou de joaillerie fine est réalisé en métal précieux massif — or jaune, or blanc ou platine — et serti de pierres précieuses ou semi-précieuses certifiées. Son prix reflète la valeur intrinsèque des matières utilisées, souvent à partir de plusieurs centaines d'euros. Un bijou fantaisie de qualité, comme ceux que nous proposons chez Youm, utilise un métal de base noble (laiton) recouvert d'or fin 24 carats, et des pierres naturelles sélectionnées — pour un résultat visuel comparable, accessible entre 40 et 99 €. La différence est avant tout économique et patrimoniale ; esthétiquement, un bijou fantaisie bien conçu n'a rien à envier à une pièce de joaillerie d'entrée de gamme.</p>
+
+<h3>Les boucles d'oreilles Youm sont-elles disponibles pour oreilles non percées ?</h3>
+<p>Oui. La majorité de nos modèles est proposée en version percée et en version clips, avec un mécanisme discret côté face qui assure confort et maintien pour une journée entière. Parmi les modèles disponibles en <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a>, vous trouverez notamment les Jacinthe, Ninon, Nell, Marine, Arielle et Isabelle — autant de pièces qui illustrent que le clip n'est jamais un compromis esthétique chez Youm.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Doreilles Pendantes Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Boucles Doreilles Pendantes Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles D Oreilles Asymetriques" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Boucles D Oreilles Asymetriques</a></figcaption></figure></div>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez nos bijoux en laiton doré à l'or fin 24 carats</h2>
+      <p class="cta-subtext">Pierres naturelles, perles, galuchat — chaque pièce Youm est assemblée à la main et dorée par un artisan à Paris, pour un bijou qui se porte avec plaisir au quotidien, entre 40 et 99 €.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Explorer la collection</a>
+    </div>
+
+    
+    <!-- RELATED-ARTICLES -->
+    <div style="margin-top:48px;padding:32px 0;border-top:1px solid #e8e0d8;">
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1c1814;margin-bottom:20px;">À lire aussi</p>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/bijoux-createur-france-belgique" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Bijoux créateur France et Belgique : l'art de choisir</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/pierres-naturelles-bijoux-uniques-artisanaux" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Pourquoi les pierres naturelles rendent chaque bijou unique</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Bijoux élégants au quotidien : pierres naturelles et laiton doré 24 carats</a></li>
+      </ul>
+    </div>
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

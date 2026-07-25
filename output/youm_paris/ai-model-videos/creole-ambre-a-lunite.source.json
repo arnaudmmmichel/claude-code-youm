@@ -1,0 +1,15 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784879195/youm/ai-model-images/creole-ambre-a-lunite.jpg",
+  "slug": "creole-ambre-a-lunite",
+  "source_position": "seated",
+  "prompt": "A real smartphone video of a woman seated, smirking and turning her head naturally to show off her new 2 earrings, in natural light, in silence (no talking). Shot on iPhone, 4k, shaky camera movement, natural lighting, unedited look, candid and spontaneous, vertical video style, no professional lighting, realistic skin textures, realistic movement. The model stays seated throughout — no standing up, no walking. No bikini or swimsuit.",
+  "prompt_source": "--product-type earrings (seated)",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1784926604/youm/ai-model-videos/creole-ambre-a-lunite.mp4",
+  "caption_instagram": "Une créole, portée seule. Ce n'est pas un manque — c'est un choix. La créole ambre, en laiton doré à l'or fin 24 carats, apporte cette touche chaude et singulière qui transforme un look sans effort. Découvrez la créole ambre sur youm-paris.com\n\n#youmparis #shinewithyoum #creoles #bijouparis #dorureorfin",
+  "caption_tiktok": "Une créole. Une seule. Et tout change. ✨ La créole ambre Youm Paris — laiton doré à l'or fin 24 carats, portée à l'unité pour un effet qui se remarque.\n\n#youmparis #shinewithyoum #creole #bijou #lookdujour",
+  "caption_youtube_title": "Créole ambre à l'unité — Youm Paris",
+  "caption_youtube_description": "La créole ambre de Youm Paris se porte à l'unité — une façon subtile d'affirmer son style sans en faire trop. Réalisée en laiton doré à l'or fin 24 carats par des artisans parisiens, elle apporte une chaleur naturelle et une touche d'originalité à chaque tenue. Retrouvez cette pièce et toutes nos créations sur youm-paris.com."
+}

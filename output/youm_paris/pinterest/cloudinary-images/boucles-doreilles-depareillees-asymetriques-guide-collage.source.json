@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/11-boucles-doreilles-depareillees-asymetriques-guide.html",
+  "pin_title": "Boucles dépareillées : comment associer les pierres naturelles avec style",
+  "pin_description": "Quartz rose, aventurine, nacre, agate rouge... Trois associations de pierres naturelles pour maîtriser l'asymétrie en bijoux au quotidien. Dorées à l'or fin 24 carats, fabriquées à Paris. Découvrez le guide sur youm-paris.com",
+  "board": "Bijoux asymétriques",
+  "dest_url": "https://youm-paris.com/blogs/articles/boucles-doreilles-depareillees-asymetriques-guide",
+  "hook": "L'art du dépareillé",
+  "label": "Trois associations de pierres pour oser l'asymétrie",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "boucles Isabelle aventurine & agate rouge",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-depareillees-asymetriques-guide-0-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles_d_oreilles_asymetriques_agate_youm.jpg?v=1724081675",
+      "alt": "boucles Isabelle aventurine & agate rouge",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-depareillees-asymetriques-guide-1-c4aece0dcd"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles_d_oreilles_asymetriques_agate_clip_youm.jpg?v=1724081675",
+      "alt": "boucles Isabelle aventurine & agate rouge",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-depareillees-asymetriques-guide-2-baa7f5f991"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "boucles Lila Cornaline & quartz rose",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-depareillees-asymetriques-guide-3-348486b13c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-cornaline-quartz-rose-profil.jpg?v=1770733707",
+      "alt": "boucles Lila Cornaline & quartz rose",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-depareillees-asymetriques-guide-4-300503f6b6"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-lila-quartz-rose-cornaline-percees-clips-profil.jpg?v=1770738140",
+      "alt": "boucles Lila Cornaline & quartz rose",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-depareillees-asymetriques-guide-5-6f27f8ff04"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:boucles-doreilles-depareillees-asymetriques-guide-0-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-depareillees-asymetriques-guide-1-c4aece0dcd,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-depareillees-asymetriques-guide-2-baa7f5f991,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-depareillees-asymetriques-guide-3-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-depareillees-asymetriques-guide-4-300503f6b6,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-depareillees-asymetriques-guide-5-6f27f8ff04,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20ASYM%C3%89TRIQUES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:L%27art%20du%20d%C3%A9pareill%C3%A9,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Trois%20associations%20de%20pierres%20pour%20oser%20l%27asym%C3%A9trie,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    .article-hero { background: #f8f1ee; padding: 64px 32px 56px; text-align: center; }
+    .article-category { display: inline-block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2622; margin-bottom: 24px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: #1c1814; max-width: 760px; margin: 0 auto 24px; }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta { font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .meta-dot { color: #c0b0a0; }
+
+    .article-wrap { max-width: 820px; margin: 0 auto; padding: 56px 32px 80px; }
+
+    .article-toc { background: #f8f1ee; border-left: 3px solid #f54e00; padding: 24px 28px; margin-bottom: 48px; }
+    .article-toc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1814; margin-bottom: 14px; }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    .article-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.7; color: #3a3028; margin-bottom: 48px; font-style: italic; }
+
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #1c1814; margin: 52px 0 20px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 600; color: #2a2622; margin: 36px 0 14px; }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    .article-body blockquote { border-left: 3px solid #f54e00; background: #f8f1ee; margin: 36px 0; padding: 22px 28px; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; color: #3a3028; margin-bottom: 0; }
+
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th { background: #f8f1ee; color: #2a2622; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8; }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    .product-row { display: grid; gap: 16px; margin: 32px auto 44px; }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a { display: block; position: relative; overflow: hidden; text-decoration: none; }
+    .product-row figure img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f8f1ee; transition: transform 0.42s ease; }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after { content: 'Voir le produit'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,24,20,0.65); color: #fff; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; padding: 11px 8px; text-align: center; opacity: 0; transition: opacity 0.28s ease; }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .article-cta { background: #f8f1ee; padding: 52px 44px; text-align: center; margin-top: 64px; }
+    .cta-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1c1814; line-height: 1.25; margin-bottom: 16px; }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button { display: inline-block; background: #f54e00; color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; }
+
+    .info-box { background: #fff8e1; border: 1px solid #f0c040; padding: 20px 24px; margin-bottom: 40px; font-size: 13px; line-height: 1.6; }
+    .info-box strong { display: block; margin-bottom: 6px; }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#pourquoi-la-couleur-fait-peur">Pourquoi la couleur fait peur</a></li>
+        <li><a href="#regle-une-couleur-forte">La règle d'or : une couleur forte à la fois</a></li>
+        <li><a href="#accord-avec-tenue">Comment accorder bijoux colorés et tenue</a></li>
+        <li><a href="#pierres-naturelles-atout">Les pierres naturelles : la couleur sans artifice</a></li>
+        <li><a href="#conseils-pratiques">8 conseils pour doser la couleur avec élégance</a></li>
+        <li><a href="#par-occasion">Bijoux colorés selon l'occasion</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <p class="article-lead">La couleur attire, mais elle intimide aussi. Beaucoup de femmes qui aiment les bijoux colorés hésitent à les porter au quotidien, de peur de sembler trop voyantes ou de manquer d'harmonie. Chez Youm, nous pensons que cette peur vient surtout d'un manque de repères — et non d'un problème de goût. Cet article vous donne les règles simples pour porter des bijoux colorés femme avec naturel, en sublimant votre style sans jamais en faire trop.</p>
+
+    <div class="article-body">
+
+      <h2 id="pourquoi-la-couleur-fait-peur">Pourquoi la couleur fait peur</h2>
+      <p>La peur d'en faire trop avec les bijoux colorés est quasi universelle. Elle naît d'une confusion entre <strong>couleur et excès</strong> — comme si choisir une boucle d'oreilles en malachite ou en quartz rose revenait automatiquement à attirer tous les regards dans la pièce. Or, la couleur dans un bijou ne fonctionne pas comme la couleur dans un vêtement. Elle se lit différemment, se perçoit différemment, et s'intègre différemment à un ensemble.</p>
+      <p>Un bijou coloré bien choisi ne crie pas — il complète. Il transforme une tenue sobre en un look abouti, sans que personne ne puisse exactement identifier pourquoi l'ensemble fonctionne mieux. C'est précisément ce que Youmna, fondatrice de <a href="https://youm-paris.com/pages/qui-sommes-nous">Youm Paris</a>, a construit depuis 2017 : une collection de bijoux colorés qui s'intègrent au quotidien avec élégance, pas avec ostentation.</p>
+      <p>La vraie question n'est donc pas « puis-je porter des bijoux colorés ? » mais « comment les doser pour qu'ils servent mon style plutôt qu'ils le dominent ? ».</p>
+
+      <blockquote><p>La couleur dans un bijou ne crie pas — elle complète. Le dosage est tout.</p></blockquote>
+
+      <hr>
+
+      <h2 id="regle-une-couleur-forte">La règle d'or : une couleur forte à la fois</h2>
+      <p>Le principe le plus efficace pour porter des bijoux colorés avec équilibre est aussi le plus simple : <strong>une couleur forte à la fois, le reste en retrait</strong>. Si vous portez des boucles d'oreilles en amazonite — une pierre vert-bleu intense — vos autres bijoux de la journée seront en laiton doré à l'or fin 24 carats, sans pierre. Si vous choisissez un bracelet en malachite, vos boucles d'oreilles resteront sobres.</p>
+      <p>Cette règle ne signifie pas que vous devez vous limiter. Elle signifie que vous choisissez un <strong>point focal</strong>. Votre regard — et celui des autres — se pose sur une pièce, et tout le reste l'accompagne sans rivaliser. C'est ce qui distingue un style affirmé d'un look surchargé.</p>
+      <p>Les <a href="https://youm-paris.com/collections/bijoux-pierre">bijoux à pierres naturelles Youm</a> se prêtent particulièrement bien à cette approche. La malachite, le lapis-lazuli, la cornaline ou l'aventurine ont chacun une intensité propre qui suffit à structurer un look entier. Inutile de multiplier les couleurs quand une seule pierre fait déjà tout le travail.</p>
+
+      <div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-amazonite-perles-onyx-vert-packshot-youm.jpg?v=1771527140" alt="Boucles Zelda Amazonite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite">Zelda — Amazonite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-felix-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725" alt="Boucles Félix Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-felix-malachite">Félix — Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Lila Cornaline et Quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Lila — Cornaline &amp; Quartz rose</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="accord-avec-tenue">Comment accorder bijoux colorés et tenue</h2>
+      <p>L'accord entre bijou coloré et tenue repose sur une logique simple : <strong>plus la tenue est chargée en couleurs, plus le bijou doit être sobre</strong> — et inversement. Une robe à imprimés ou une tenue rayée appelle un bijou discret, doré, sans pierre. Une tenue monochrome — blanc cassé, beige, noir, bleu marine — offre au contraire un écrin idéal pour une pièce colorée qui s'exprime pleinement.</p>
+      <p>Cette logique s'applique aussi à l'intensité : une tenue dans des tons pastel (lin naturel, blanc ivoire, rose poudré) supporte à la fois des bijoux en pierres douces comme le quartz rose ou la nacre, et des pierres plus intenses comme la malachite ou la cornaline, qui créent alors un contraste subtil. Une tenue en noir ou en marine, elle, magnifie les couleurs vives — l'amazonite, le lapis-lazuli ou l'aventurine y apparaissent dans toute leur profondeur.</p>
+      <p>L'accord le plus sûr reste toujours le contraste sobre : <strong>tenue neutre + bijou coloré</strong>. C'est la combinaison que Youm met en avant dans son positionnement depuis l'origine — « votre bijou est votre look » — parce qu'elle laisse au bijou le rôle qu'il joue naturellement : révéler la personnalité de celle qui le porte, sans écraser l'ensemble.</p>
+
+      <table>
+        <thead>
+          <tr><th>Type de tenue</th><th>Bijou coloré recommandé</th><th>Pourquoi ça fonctionne</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Tenue monochrome neutre</strong> (blanc, beige, lin)</td><td>Pierre intense — malachite, amazonite, lapis-lazuli</td><td>Le bijou devient le point focal naturel du look</td></tr>
+          <tr><td><strong>Tenue noire ou marine</strong></td><td>Couleur vive ou contrastée — cornaline, aventurine, quartz rose</td><td>Le fond sombre amplifie l'éclat de la pierre</td></tr>
+          <tr><td><strong>Tenue colorée (1 couleur dominante)</strong></td><td>Pierre dans un ton analogue ou doré uni</td><td>L'analogie crée une cohérence sans répétition</td></tr>
+          <tr><td><strong>Tenue à motifs ou imprimés</strong></td><td>Bijou doré uni, sans pierre ou pierre très sobre (nacre)</td><td>Évite la surcharge visuelle, le doré unifie</td></tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h2 id="pierres-naturelles-atout">Les pierres naturelles : la couleur sans artifice</h2>
+      <p>Ce qui rend les bijoux colorés en pierres naturelles particulièrement faciles à porter, c'est que leur couleur est toujours <strong>nuancée, jamais uniforme</strong>. La malachite n'est pas un vert plat — elle est traversée de veines plus sombres, de variations qui lui donnent une profondeur organique. L'amazonite oscille entre vert d'eau et bleu pâle selon la lumière. Le quartz rose varie du plus translucide au plus opaque selon l'angle.</p>
+      <p>Cette complexité naturelle rend ces pièces plus douces à l'œil qu'un bijou en résine colorée ou en émail. Elles vibrent plutôt qu'elles ne saturent. Et c'est précisément pour cela qu'elles s'intègrent à une tenue sans jamais la dominer — même quand la pierre est intense. La <a href="https://youm-paris.com/collections/bijoux-pierre">collection pierres naturelles Youm</a>, réalisée en laiton doré à l'or fin 24 carats avec dorure effectuée chez un artisan à Paris, exploite cette qualité optique à plein.</p>
+      <p>Les pierres naturelles permettent aussi de jouer sur des familles de couleurs cohérentes sans effort : les tons chauds (cornaline, jaspe, quartz rose, améthyste) s'accordent naturellement entre eux, tout comme les tons froids (amazonite, lapis-lazuli, agate bleue, aventurine verte). Choisir dans une même famille vous garantit un résultat harmonieux, même si vous portez plusieurs bijoux.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-packshot.-youm.jpg?v=1771518595" alt="Boucles Scarlett Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">Scarlett — Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059" alt="Boucles Marine Quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">Marine — Quartz rose</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="conseils-pratiques">8 conseils pour doser la couleur avec élégance</h2>
+      <p>Ces repères sont ceux que nous appliquons nous-mêmes chez Youm au moment de concevoir et de présenter chaque pièce. Ils s'appliquent à toutes les morphologies, tous les styles vestimentaires, toutes les occasions.</p>
+      <ul>
+        <li><strong>Choisissez un seul bijou coloré fort par tenue</strong> — boucles d'oreilles ou bracelet, mais pas les deux avec des couleurs intenses simultanément</li>
+        <li><strong>Associez vos bijoux colorés à une base neutre</strong> — blanc cassé, beige, noir, bleu marine, camel : ces fonds laissent la couleur s'exprimer librement</li>
+        <li><strong>Misez sur les pierres naturelles plutôt que les émaux ou les résines</strong> — leur nuance organique les rend naturellement plus sobres à l'œil, même dans les tons vifs</li>
+        <li><strong>Jouez sur la taille, pas sur le nombre</strong> — une seule boucle statement en malachite vaut mieux que trois bijoux colorés qui se concurrencent</li>
+        <li><strong>Optez pour la famille des tons chauds ou froids, pas les deux</strong> — cornaline et quartz rose fonctionnent ensemble ; amazonite et aventurine aussi</li>
+        <li><strong>Variez la couleur selon l'occasion</strong> — un ton doux (nacre, quartz rose) pour le bureau, une pierre plus intense (lapis-lazuli, malachite) pour une sortie</li>
+        <li><strong>Laissez l'or travailler pour vous</strong> — le laiton doré à l'or fin 24 carats unifie naturellement les associations de couleurs, même les plus inattendues</li>
+        <li><strong>Faites confiance à votre instinct sur la première association</strong> — si vous hésitez entre deux teintes, portez celle qui vous a attirée en premier</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="par-occasion">Bijoux colorés selon l'occasion</h2>
+      <p>La question du dosage se pose différemment selon le contexte. Ce qui est juste pour une réunion professionnelle ne l'est pas forcément pour un dîner ou une sortie entre amies — et inversement. Voici comment adapter vos bijoux colorés à chaque moment de la journée.</p>
+
+      <h3>Au bureau</h3>
+      <p>Privilégiez une seule pièce colorée, de format modéré. Les tons doux — quartz rose, nacre, agate bleue — passent dans la grande majorité des contextes professionnels sans jamais attirer l'attention de façon déplacée. Les <a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine agate bleue</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose">boucles Cléo quartz rose</a> illustrent parfaitement ce registre : présence sans excès, couleur sans provocation.</p>
+
+      <h3>En week-end ou en terrasse</h3>
+      <p>Le week-end autorise davantage d'audace. C'est le moment idéal pour porter une pièce plus affirmée — une boucle en malachite, une créole avec pierres colorées, un bracelet jonc avec une pierre intense. Associez-la à une tenue sobre en lin ou en coton, et laissez la pièce faire son effet. Les <a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite">boucles Zelda amazonite</a> ou les <a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo">bracelets jonc aventurine</a> sont particulièrement adaptés à ces moments.</p>
+
+      <h3>En soirée</h3>
+      <p>La soirée réclame de l'intention. Plutôt que de multiplier les couleurs, choisissez une pièce signature — une boucle pendante en malachite, une créole avec corail éponge, un collier avec pierre naturelle — et laissez-la structurer votre tenue. Les <a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett malachite</a> ou la <a href="https://youm-paris.com/products/creole-doree-corail-eponge-et-perle-elisa">créole corail éponge Elisa</a> ont exactement cette capacité : elles donnent à une tenue sobre toute la densité d'un look construit.</p>
+
+      <div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose"><img src="https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-cleo-quartz-rose-perles-packshot.jpg?v=1771687676" alt="Boucles Cléo Quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose">Cléo — Quartz rose</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/onc-theo-dore-aventurine-packshot-youm.jpg?v=1770395227" alt="Bracelet jonc doré aventurine Théo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo">Jonc Théo — Aventurine</a></figcaption></figure><figure><a href="https://youm-paris.com/products/creole-doree-corail-eponge-et-perle-elisa"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-elisa-doree-pierres-packshot-467.jpg?v=1775649651" alt="Créole corail éponge et perle Elisa" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/creole-doree-corail-eponge-et-perle-elisa">Elisa — Corail éponge &amp; perle</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="faq">Questions fréquentes sur les bijoux colorés</h2>
+
+      <h3>Peut-on porter plusieurs bijoux colorés en même temps ?</h3>
+      <p>Oui, à condition de respecter une hiérarchie. Choisissez une pièce principale avec la couleur la plus forte, et complétez avec des pièces dans des tons dorés unis ou des couleurs très proches. Évitez de combiner deux pierres de couleurs très différentes (vert intense + rouge vif, par exemple) — préférez les tons d'une même famille chromatique.</p>
+
+      <h3>Quelles pierres naturelles sont les plus polyvalentes au quotidien ?</h3>
+      <p>La nacre, le quartz rose et l'agate noire sont les plus polyvalentes : la nacre s'accorde avec tout, le quartz rose apporte de la douceur sans jamais heurter, et l'agate noire joue le rôle d'un neutre coloré. Pour celles qui souhaitent une présence plus affirmée, la malachite reste remarquablement facile à porter malgré son intensité, car son vert profond s'accorde naturellement avec le doré. Retrouvez notre sélection dans la <a href="https://youm-paris.com/collections/bijoux-pierre">collection bijoux pierres naturelles</a>.</p>
+
+      <h3>Comment savoir si un bijou coloré va avec ma carnation ?</h3>
+      <p>Les carnations claires sont généralement sublimées par les tons froids et doux (quartz rose, amazonite, nacre). Les carnations dorées ou mates répondent très bien aux tons chauds et profonds (cornaline, malachite, jaspe). Les carnations foncées s'accordent avec les deux familles et supportent particulièrement bien les contrastes forts — lapis-lazuli sur peau mate, nacre blanche sur peau foncée.</p>
+
+      <h3>Faut-il assortir la couleur de ses bijoux à ses vêtements ?</h3>
+      <p>Pas nécessairement. L'assortiment exact peut donner un résultat trop « coordonné » et manquer de naturel. Préférez le contraste complémentaire (ton froid sur tenue chaude, ou inversement) ou la neutralité (bijou coloré sur tenue neutre). Le résultat est généralement plus élégant qu'une correspondance exacte de couleurs.</p>
+
+      <h3>Les bijoux colorés conviennent-ils à tous les styles vestimentaires ?</h3>
+      <p>Oui. Qu'il soit minimaliste, classique, bohème ou audacieux, chaque style vestimentaire bénéficie d'un bijou coloré bien choisi. C'est l'intensité et la taille de la pièce qui s'adaptent au style — pas la couleur elle-même. Une pièce en pierres naturelles s'intègre aussi bien à un look épuré qu'à une tenue structurée.</p>
+
+      <p>Porter des bijoux colorés femme avec élégance n'est pas une question de règles rigides — c'est une question de regard et de proportion. Un bijou bien choisi dans la bonne couleur, face à une tenue sobre, fait exactement ce qu'un bijou doit faire : il révèle la personnalité de celle qui le porte, sans détour, sans excès. Chez Youm, chaque pièce est pensée pour s'intégrer à votre quotidien avec cette même intention — sublimer sans dominer.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrir nos bijoux en pierres naturelles</h2>
+      <p class="cta-subtext">Malachite, amazonite, quartz rose, cornaline — des couleurs naturelles en laiton doré à l'or fin 24 carats, pour sublimer chaque tenue au quotidien.</p>
+      <a href="https://youm-paris.com/collections/bijoux-pierre" class="cta-button">Explorer la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

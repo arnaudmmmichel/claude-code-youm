@@ -1,0 +1,29 @@
+{
+  "pipeline": "cloudinary-pinterest-pairs-collage-youm",
+  "source": "collection:bijoux-dore",
+  "pin_title": "Bijoux dorés Youm Paris, du collier élégant au bracelet sculptural, l'or fin au quotidien",
+  "pin_description": "Un collier délicat, un jonc bambou graphique : deux pièces dorées à l'or fin 24 carats qui illustrent toute l'élégance de la collection. Découvrez les bijoux Youm sur youm-paris.com",
+  "board": "Bijoux dorés Paris",
+  "dest_url": "https://youm-paris.com/collections/bijoux-dore",
+  "hook": "L'or fin, deux façons de le porter",
+  "label": "Collier délicat ou jonc sculpté, à vous de choisir.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/collier-leo",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780667825/Youm-Paris/ta5hsvlwxami30urxoum.jpg",
+      "status": "rentree",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bijoux-dore-0-creative-6576ecb455",
+      "img1_public_id": "youm/pinterest-pairs-collage/bijoux-dore-0-packshot-6576ecb455"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-bambou",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-jonc-bambou-dore-packshot.jpg?v=1773591575",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202581/Youm-Paris/mcuieafftupcy2thdslt.jpg",
+      "status": "validé",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bijoux-dore-1-creative-459c5aabd5",
+      "img1_public_id": "youm/pinterest-pairs-collage/bijoux-dore-1-packshot-459c5aabd5"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-pairs-collage:bijoux-dore-0-creative-6576ecb455,w_473,h_807,c_thumb,g_center/g_north,x_-240,y_174,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-dore-0-packshot-6576ecb455,w_473,h_429,c_thumb,g_center/g_north,x_-240,y_987,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-dore-1-creative-459c5aabd5,w_473,h_807,c_thumb,g_center/g_north,x_239,y_609,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-dore-1-packshot-459c5aabd5,w_473,h_429,c_thumb,g_center/g_north,x_239,y_174,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20DOR%C3%89S%20PARIS,co_rgb:f54e00,g_north,y_34/l_text:Arial_42_bold:L%27or%20fin%252C%20deux%20fa%C3%A7ons%20de%20le%20porter,co_rgb:1c1814,g_north,y_65,w_860,c_fit/l_text:Arial_19_bold:Collier%20d%C3%A9licat%20ou%20jonc%20sculpt%C3%A9%252C%20%C3%A0%20vous%20de%20choisir.,co_rgb:5a4a3a,g_north,y_117,w_820,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/18-boucles-doreilles-galuchat-colore-cuir.html",
+  "pin_title": "Boucles d'oreilles en galuchat coloré — matière rare, caractère affirmé | Youm Paris",
+  "pin_description": "Le galuchat : une peau naturelle à la texture granuleuse unique, teintée en profondeur pour une saturation chromatique incomparable. Découvrez les boucles d'oreilles galuchat noir, bordeaux, jaspe et rose — assemblées à la main, laiton doré à l'or fin 24 carats. youm-paris.com",
+  "board": "Bijoux Matières Rares",
+  "dest_url": "https://youm-paris.com/blogs/articles/boucles-doreilles-galuchat-colore-cuir",
+  "hook": "4 teintes, 1 matière rare",
+  "label": "Boucles en galuchat — artisanat parisien, caractère affirmé",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles Doreilles Galuchat Grace",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-galuchat-colore-cuir-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949",
+      "alt": "Boucles Doreilles Galuchat Grace Bordeaux",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-galuchat-colore-cuir-1-ee88c0addf"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-jaspe-bleu-packshot.jpg?v=1773084850",
+      "alt": "Boucles Doreilles Galuchat Grace Jaspe",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-galuchat-colore-cuir-2-fd4708942c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm_boucle_d_oreilles_galuchat_rose_nacre_blanche.jpg?v=1752758199",
+      "alt": "Boucles Doreilles Galuchat Grace Rose",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-galuchat-colore-cuir-3-094b4cfa6c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-gaby-galuchat-noir-agate-noire-packshot.jpg?v=1773506727",
+      "alt": "boucles Gaby en galuchat noir",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-galuchat-colore-cuir-4-b92a827739"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-gaby-galuchat-noir-agate-noire-portees.jpg?v=1773506752",
+      "alt": "boucles Gaby en galuchat noir",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-galuchat-colore-cuir-5-8fa8ff7444"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:boucles-doreilles-galuchat-colore-cuir-0-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-galuchat-colore-cuir-1-ee88c0addf,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-galuchat-colore-cuir-2-fd4708942c,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-galuchat-colore-cuir-3-094b4cfa6c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-galuchat-colore-cuir-4-b92a827739,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-galuchat-colore-cuir-5-8fa8ff7444,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20MATI%C3%88RES%20RARES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:4%20teintes%252C%201%20mati%C3%A8re%20rare,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Boucles%20en%20galuchat%20%E2%80%94%20artisanat%20parisien%252C%20caract%C3%A8re%20affirm%C3%A9,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

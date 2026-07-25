@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/47-bijoux-couleurs-creer-harmonie.html",
+  "pin_title": "Bijoux et couleurs : comment créer une harmonie parfaite avec vos tenues",
+  "pin_description": "Cornaline, quartz rose, amazonite ou agate noire — chaque pierre change tout. Guide pratique pour associer pierres naturelles dorées et tenues avec harmonie. youm-paris.com",
+  "board": "Bijoux & Couleurs",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-couleurs-creer-harmonie",
+  "hook": "Le guide couleur",
+  "label": "Quelle pierre pour quelle tenue ?",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "Boucles Lila cornaline et quartz rose",
+      "public_id": "youm/pinterest-collage-products/bijoux-couleurs-creer-harmonie-0-348486b13c"
+    },
+    {
+      "url": "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-cleo-quartz-rose-perles-packshot.jpg?v=1771687676",
+      "alt": "Boucles Cléo quartz rose",
+      "public_id": "youm/pinterest-collage-products/bijoux-couleurs-creer-harmonie-1-1e76ba17ea"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-amazonite-perles-onyx-vert-packshot-youm.jpg?v=1771527140",
+      "alt": "Boucles Zelda amazonite",
+      "public_id": "youm/pinterest-collage-products/bijoux-couleurs-creer-harmonie-2-537e958a0d"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-packshot-youm.jpg?v=1771517262",
+      "alt": "Boucles Niagara agate noire",
+      "public_id": "youm/pinterest-collage-products/bijoux-couleurs-creer-harmonie-3-e189c648c0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059",
+      "alt": "Boucles Marine quartz rose",
+      "public_id": "youm/pinterest-collage-products/bijoux-couleurs-creer-harmonie-4-ddc49cbe40"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-quartz-rose-portees.jpg?v=1770399127",
+      "alt": "Boucles Marine quartz rose portées",
+      "public_id": "youm/pinterest-collage-products/bijoux-couleurs-creer-harmonie-5-478225763f"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-couleurs-creer-harmonie-0-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-couleurs-creer-harmonie-1-1e76ba17ea,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-couleurs-creer-harmonie-2-537e958a0d,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-couleurs-creer-harmonie-3-e189c648c0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-couleurs-creer-harmonie-4-ddc49cbe40,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-couleurs-creer-harmonie-5-478225763f,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%26%20COULEURS,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Le%20guide%20couleur,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Quelle%20pierre%20pour%20quelle%20tenue%20%3F,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

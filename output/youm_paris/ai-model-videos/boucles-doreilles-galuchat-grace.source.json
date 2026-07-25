@@ -1,0 +1,13 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "output/youm_paris/ai-model-images/boucles-doreilles-galuchat-grace.jpg",
+  "slug": "boucles-doreilles-galuchat-grace",
+  "prompt": "Subtle, elegant camera movement, gentle parallax. The model subtly shifts or slightly turns her head, hair moves softly as if in a light breeze. Warm, natural light flickers gently. No other motion, no camera shake, no zoom — calm, cinematic, editorial luxury feel. The jewelry stays clearly visible and in focus throughout.",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1784708863/youm/ai-model-videos/boucles-doreilles-galuchat-grace.mp4",
+  "caption_instagram": "Le bleu qui devient signature 🩵\n\nBoucles d'oreilles Grace — galuchat bleu et agate bleue, laiton doré à l'or fin 24 carats. Disponibles en clips ou percées.\n\n#shinewithyoum #bijouxparis #galuchat #boucledoreilles",
+  "caption_tiktok": "Le détail bleu qui change tout un look neutre 🩵 Boucles Grace, galuchat bleu et agate bleue, laiton doré à l'or fin 24 carats. #shinewithyoum #bijouxparis #galuchat #bijouxfrance",
+  "caption_youtube_title": "Boucles d'oreilles Grace — galuchat bleu, Youm Paris",
+  "caption_youtube_description": "Les boucles d'oreilles Grace conjuguent galuchat bleu et agate bleue sur une base en laiton doré à l'or fin 24 carats, disponibles en version percée ou clips. Découvrez la collection sur youm-paris.com\n\n#shinewithyoum #bijouxparis #galuchat"
+}

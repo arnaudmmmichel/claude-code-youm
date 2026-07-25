@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!--
+    Titre SEO : Les boucles d'oreilles qui illuminent le visage
+    Meta description : Boucles d'oreilles pour illuminer le visage : chez Youm, découvrez comment choisir la forme et la matière qui subliment votre teint.
+    Slug : boucles-doreilles-illuminent-visage
+  -->
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+    .article-hero { background: #f8f1ee; padding: 64px 32px 56px; text-align: center; }
+    .article-category { display: inline-block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2622; margin-bottom: 24px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: #1c1814; max-width: 760px; margin: 0 auto 24px; }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta { font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .meta-dot { color: #c0b0a0; }
+    .article-wrap { max-width: 820px; margin: 0 auto; padding: 56px 32px 80px; }
+    .article-toc { background: #f8f1ee; border-left: 3px solid #f54e00; padding: 24px 28px; margin-bottom: 48px; }
+    .article-toc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1814; margin-bottom: 14px; }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+    .article-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.7; color: #3a3028; margin-bottom: 48px; font-style: italic; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #1c1814; margin: 52px 0 20px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 600; color: #2a2622; margin: 36px 0 14px; }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body blockquote { border-left: 3px solid #f54e00; background: #f8f1ee; margin: 36px 0; padding: 22px 28px; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; color: #3a3028; margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th { background: #f8f1ee; color: #2a2622; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8; }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+    .product-row { display: grid; gap: 16px; margin: 32px auto 44px; }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a { display: block; position: relative; overflow: hidden; text-decoration: none; }
+    .product-row figure img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f8f1ee; transition: transform 0.42s ease; }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after { content: 'Voir le produit'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,24,20,0.65); color: #fff; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; padding: 11px 8px; text-align: center; opacity: 0; transition: opacity 0.28s ease; }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .article-cta { background: #f8f1ee; padding: 52px 44px; text-align: center; margin-top: 64px; }
+    .cta-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1c1814; line-height: 1.25; margin-bottom: 16px; }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button { display: inline-block; background: #f54e00; color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; }
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#pourquoi-certaines-boucles-illuminent-le-visage">Pourquoi certaines boucles illuminent le visage</a></li>
+        <li><a href="#la-dorure-un-reflet-naturel">La dorure : un reflet naturel</a></li>
+        <li><a href="#les-formes-qui-encadrent-le-visage">Les formes qui encadrent le visage</a></li>
+        <li><a href="#les-pierres-qui-eclairent-le-teint">Les pierres qui éclairent le teint</a></li>
+        <li><a href="#conseils-pratiques">Conseils pratiques</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <p class="article-lead">Certaines boucles d'oreilles semblent littéralement éclairer le visage, quand d'autres passent presque inaperçues. Chez Youm, nous pensons que cet effet n'est pas un hasard : il dépend de la matière, de la forme et de la manière dont la lumière se reflète près du visage. Cet article vous aide à comprendre ce qui fait qu'une paire de boucles illumine véritablement votre teint.</p>
+
+    <div class="article-body">
+
+      <h2 id="pourquoi-certaines-boucles-illuminent-le-visage">Pourquoi certaines boucles illuminent le visage</h2>
+      <p>L'effet lumineux d'une boucle d'oreille tient à sa capacité à capter et refléter la lumière près du visage. Une matière brillante placée à proximité du teint agit presque comme un réflecteur naturel, en particulier sous une lumière douce. C'est pour cette raison que les boucles dorées ont un effet différent des boucles mates : elles renvoient davantage de lumière vers la peau.</p>
+      <p>Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">boucles Ninon en pierres naturelles</a> illustrent bien ce principe : la dorure et les pierres claires travaillent ensemble pour créer un effet lumineux près du visage.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/pboucles-oreilles-ninon-depareillees-pierres-packshot-youm.jpg?v=1771515928" alt="Boucles Ninon pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">Ninon — Pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-ninon-depareillees-pierres-portee-youm.jpg?v=1771515965" alt="Boucles Ninon portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">Ninon — portées</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="la-dorure-un-reflet-naturel">La dorure : un reflet naturel</h2>
+      <p>Le laiton doré à l'or fin 24 carats a naturellement une teinte chaude, proche des tons de peau les plus courants, ce qui explique pourquoi il flatte un grand nombre de carnations. Contrairement à l'argenté, plus froid, le doré réchauffe le teint plutôt qu'il ne le contraste.</p>
+      <p>Les <a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">boucles Pernille en perle blanche</a> jouent sur ce contraste doux entre la chaleur de la dorure et la clarté de la perle — une combinaison qui met particulièrement le teint en valeur.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255" alt="Boucles Pernille perle blanche" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Pernille — Perle blanche</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pernille-perle-blanche-portees-youm.jpg?v=1772535391" alt="Boucles Pernille portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Pernille — portées</a></figcaption></figure></div>
+
+      <blockquote><p>Une boucle d'oreille qui illumine le visage n'a pas besoin d'être grande — elle a besoin d'être bien placée et bien réfléchissante.</p></blockquote>
+
+      <hr>
+
+      <h2 id="les-formes-qui-encadrent-le-visage">Les formes qui encadrent le visage</h2>
+      <p>Au-delà de la matière, la forme joue un rôle déterminant. Une créole, par sa courbe, encadre naturellement le visage et attire le regard vers les pommettes. Une boucle pendante, elle, allonge visuellement le visage et attire la lumière vers la mâchoire et le cou.</p>
+      <p>Choisir entre les deux dépend de la zone du visage que vous souhaitez mettre en valeur — les pommettes pour une créole, l'ovale du visage pour une pendante.</p>
+
+      <hr>
+
+      <h2 id="les-pierres-qui-eclairent-le-teint">Les pierres qui éclairent le teint</h2>
+      <p>Certaines pierres, par leur teinte claire ou leur légère transparence, renforcent encore cet effet lumineux. Le quartz rose, la nacre et les perles blanches sont particulièrement efficaces, car leurs tons pâles réfléchissent la lumière sans jamais alourdir le regard. Les <a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert">boucles galuchat trèfle vert</a> offrent quant à elles un contraste plus coloré, à réserver aux teints qui supportent bien les tons vifs près du visage.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-trefle-galuchat-vert-packshot.jpg?v=1773504491" alt="Boucles galuchat trèfle vert" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert">Trèfle — Galuchat vert</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-trefle-galuchat-vert-portees.jpg?v=1773504509" alt="Boucles galuchat trèfle vert portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert">Trèfle — portées</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="conseils-pratiques">Conseils pratiques</h2>
+      <ul>
+        <li>Optez pour des pierres claires — nacre, quartz rose, perle — pour un effet lumineux immédiat.</li>
+        <li>Misez sur la dorure plutôt que l'argenté si vous cherchez à réchauffer le teint.</li>
+        <li>Choisissez une créole pour mettre en valeur les pommettes.</li>
+        <li>Préférez une pendante pour allonger visuellement le visage.</li>
+        <li>Variez la taille selon la longueur de vos cheveux : une boucle dégagée capte davantage la lumière.</li>
+        <li>Adaptez l'intensité de la pierre à votre carnation — plus claire pour un effet doux, plus vive pour un effet marqué.</li>
+      </ul>
+
+      <h2 id="faq">FAQ</h2>
+
+      <h3>Quelle matière illumine le plus le visage ?</h3>
+      <p>Le laiton doré à l'or fin 24 carats, grâce à sa teinte chaude, flatte la majorité des carnations en réchauffant le teint.</p>
+
+      <h3>Faut-il privilégier les créoles ou les pendantes pour illuminer le visage ?</h3>
+      <p>Cela dépend de la zone à mettre en valeur : les créoles encadrent les pommettes, les pendantes allongent l'ovale du visage.</p>
+
+      <h3>Les pierres foncées peuvent-elles aussi illuminer le visage ?</h3>
+      <p>Oui, à condition qu'elles soient associées à une dorure ou à une perle claire qui crée un contraste lumineux.</p>
+
+      <h3>Les cheveux attachés changent-ils l'effet des boucles d'oreilles ?</h3>
+      <p>Oui : cheveux dégagés, l'effet lumineux des boucles est plus visible, car rien n'obstrue le reflet près du visage.</p>
+
+      <h3>Peut-on porter des boucles clips pour cet effet lumineux ?</h3>
+      <p>Oui, nos <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a> offrent exactement le même effet que leurs versions percées.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h2 class="cta-heading">Trouvez les boucles qui subliment votre teint</h2>
+      <p class="cta-subtext">Dorure chaude, pierres claires, formes qui encadrent le visage — découvrez les boucles pensées pour illuminer chaque carnation.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Découvrir la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

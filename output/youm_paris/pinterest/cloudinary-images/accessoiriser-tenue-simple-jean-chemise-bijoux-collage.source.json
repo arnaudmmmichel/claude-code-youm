@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/31-accessoiriser-tenue-simple-jean-chemise-bijoux.html",
+  "pin_title": "Comment accessoiriser un jean et une chemise avec les bons bijoux",
+  "pin_description": "Collier sautoir, boucles en pierres naturelles, bracelets dorés : les bijoux qui transforment un jean et une chemise en tenue de caractère. Laiton doré à l'or fin 24 carats, assemblé à la main. Découvrez les pièces sur youm-paris.com",
+  "board": "Bijoux & Style Quotidien",
+  "dest_url": "https://youm-paris.com/blogs/articles/accessoiriser-tenue-simple-jean-chemise-bijoux",
+  "hook": "Le bijou qui change tout",
+  "label": "Colliers, boucles et bracelets pour sublimer votre jean",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "alt": "boucles d'oreilles Aure en pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/accessoiriser-tenue-simple-jean-chemise-bijoux-0-cc0e2df655"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948",
+      "alt": "boucles d'oreilles Aure en pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/accessoiriser-tenue-simple-jean-chemise-bijoux-1-ea2859b741"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-detail-pose.jpg?v=1770739990",
+      "alt": "boucles d'oreilles Aure en pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/accessoiriser-tenue-simple-jean-chemise-bijoux-2-85e04333b0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774",
+      "alt": "collier sautoir perles blanches Audrey",
+      "public_id": "youm/pinterest-collage-products/accessoiriser-tenue-simple-jean-chemise-bijoux-3-15dc123b6a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-sac-cadeau-65.jpg?v=1776274799",
+      "alt": "collier sautoir perles blanches Audrey",
+      "public_id": "youm/pinterest-collage-products/accessoiriser-tenue-simple-jean-chemise-bijoux-4-a639f03059"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "alt": "collier Léo",
+      "public_id": "youm/pinterest-collage-products/accessoiriser-tenue-simple-jean-chemise-bijoux-5-18312aecc0"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:accessoiriser-tenue-simple-jean-chemise-bijoux-0-cc0e2df655,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:accessoiriser-tenue-simple-jean-chemise-bijoux-1-ea2859b741,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:accessoiriser-tenue-simple-jean-chemise-bijoux-2-85e04333b0,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:accessoiriser-tenue-simple-jean-chemise-bijoux-3-15dc123b6a,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:accessoiriser-tenue-simple-jean-chemise-bijoux-4-a639f03059,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:accessoiriser-tenue-simple-jean-chemise-bijoux-5-18312aecc0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%26%20STYLE%20QUOTIDIEN,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Le%20bijou%20qui%20change%20tout,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Colliers%252C%20boucles%20et%20bracelets%20pour%20sublimer%20votre%20jean,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

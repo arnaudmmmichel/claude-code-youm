@@ -1,0 +1,29 @@
+{
+  "pipeline": "cloudinary-pinterest-pairs-collage-youm",
+  "source": "collection:bijoux-perles",
+  "pin_title": "Boucles d'oreilles perles : deux styles, une même élégance naturelle, Youm Paris",
+  "pin_description": "De la perle ronde polie aux créoles dorées, la collection perles Youm joue sur les formes et les contrastes. Laiton doré à l'or fin 24 carats, assemblé à la main à Paris. Découvrez les deux styles sur youm-paris.com",
+  "board": "Bijoux Perles Naturelles",
+  "dest_url": "https://youm-paris.com/collections/bijoux-perles",
+  "hook": "Perle classique ou créole dorée ?",
+  "label": "Deux façons d'porter la perle, une seule élégance.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-perle-pernille",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778764015/Youm-Paris/uhafv3cg0ljstfodcobm.jpg",
+      "status": "à valider (rentrée)",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bijoux-perles-0-creative-ae6b673ac1",
+      "img1_public_id": "youm/pinterest-pairs-collage/bijoux-perles-0-packshot-ae6b673ac1"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202430/Youm-Paris/j5cgzn9pcvvuyi4erbyl.jpg",
+      "status": "priorité/rentree",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bijoux-perles-1-creative-2e32a5da26",
+      "img1_public_id": "youm/pinterest-pairs-collage/bijoux-perles-1-packshot-2e32a5da26"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-pairs-collage:bijoux-perles-0-creative-ae6b673ac1,w_473,h_807,c_thumb,g_center/g_north,x_-240,y_174,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-perles-0-packshot-ae6b673ac1,w_473,h_429,c_thumb,g_center/g_north,x_-240,y_987,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-perles-1-creative-2e32a5da26,w_473,h_807,c_thumb,g_center/g_north,x_239,y_609,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-perles-1-packshot-2e32a5da26,w_473,h_429,c_thumb,g_center/g_north,x_239,y_174,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PERLES%20NATURELLES,co_rgb:f54e00,g_north,y_34/l_text:Arial_42_bold:Perle%20classique%20ou%20cr%C3%A9ole%20dor%C3%A9e%20%3F,co_rgb:1c1814,g_north,y_65,w_860,c_fit/l_text:Arial_19_bold:Deux%20fa%C3%A7ons%20d%27porter%20la%20perle%252C%20une%20seule%20%C3%A9l%C3%A9gance.,co_rgb:5a4a3a,g_north,y_117,w_820,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south,y_30/youm/instagram-bg.png"
+}

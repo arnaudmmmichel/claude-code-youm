@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:bijoux-galuchat",
+  "pin_title": "Bijoux en galuchat dorés à l'or fin 24 carats — Collection Youm Paris",
+  "pin_description": "Le galuchat, matière rare à la texture singulière, sublimé par une dorure à l'or fin 24 carats réalisée à Paris. Des pièces artisanales en série limitée pour un style vraiment distinctif. À découvrir sur youm-paris.com",
+  "board": "Bijoux matières rares",
+  "dest_url": "https://youm-paris.com/collections/bijoux-galuchat",
+  "hook": "Le galuchat, autrement",
+  "label": "Bijoux dorés à l'or fin 24 carats, façonnés à Paris.",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles d'oreilles Grace agate bleue - Galuchat",
+      "public_id": "youm/pinterest-collage-products/bijoux-galuchat-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949",
+      "alt": "Boucles d'oreilles Grace bordeaux - Galuchat & pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/bijoux-galuchat-1-ee88c0addf"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-jaspe-bleu-packshot.jpg?v=1773084850",
+      "alt": "Boucles d'oreilles Grace jaspe - Galuchat",
+      "public_id": "youm/pinterest-collage-products/bijoux-galuchat-2-fd4708942c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm_boucle_d_oreilles_galuchat_rose_nacre_blanche.jpg?v=1752758199",
+      "alt": "Boucles d'oreilles galuchat Grace rose",
+      "public_id": "youm/pinterest-collage-products/bijoux-galuchat-3-094b4cfa6c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-grace-galuchat-vert-nacre-blanche-packshot.jpg?v=1773048746",
+      "alt": "Boucles d'oreilles Grace verte - Galuchat & nacre blanche",
+      "public_id": "youm/pinterest-collage-products/bijoux-galuchat-4-3fd217a7ec"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-gala-galuchat-bleu-packshot.jpg?v=1773047343",
+      "alt": "Boucles d'oreilles Gala bleu - Galuchat",
+      "public_id": "youm/pinterest-collage-products/bijoux-galuchat-5-bf125f447b"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-galuchat-0-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-galuchat-1-ee88c0addf,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-galuchat-2-fd4708942c,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-galuchat-3-094b4cfa6c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-galuchat-4-3fd217a7ec,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-galuchat-5-bf125f447b,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20MATI%C3%88RES%20RARES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Le%20galuchat%252C%20autrement,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Bijoux%20dor%C3%A9s%20%C3%A0%20l%27or%20fin%2024%20carats%252C%20fa%C3%A7onn%C3%A9s%20%C3%A0%20Paris.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

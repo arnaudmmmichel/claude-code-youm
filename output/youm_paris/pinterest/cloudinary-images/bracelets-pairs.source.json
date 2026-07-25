@@ -1,0 +1,29 @@
+{
+  "pipeline": "cloudinary-pinterest-pairs-collage-youm",
+  "source": "collection:bracelets",
+  "pin_title": "Jonc doré malachite ou quartz rose, deux pierres, un même raffinement signé Youm Paris",
+  "pin_description": "Vert intense de la malachite ou douceur du quartz rose : deux joncs dorés à l'or fin 24 carats pour affirmer votre style au quotidien. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Dorés Paris",
+  "dest_url": "https://youm-paris.com/collections/bracelets",
+  "hook": "Deux pierres, un seul éclat.",
+  "label": "Malachite ou quartz rose, le jonc qui change tout.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780584886/Youm-Paris/kpmbypfzh2l01g8jk0tc.jpg",
+      "status": "rentree",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bracelets-0-creative-13e3599b83",
+      "img1_public_id": "youm/pinterest-pairs-collage/bracelets-0-packshot-13e3599b83"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780585814/Youm-Paris/v2mtfdeg3wtuaranb83g.jpg",
+      "status": "rentree",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bracelets-1-creative-911a449420",
+      "img1_public_id": "youm/pinterest-pairs-collage/bracelets-1-packshot-911a449420"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-pairs-collage:bracelets-0-creative-13e3599b83,w_473,h_807,c_thumb,g_center/g_north,x_-240,y_174,fl_layer_apply/l_youm:pinterest-pairs-collage:bracelets-0-packshot-13e3599b83,w_473,h_429,c_thumb,g_center/g_north,x_-240,y_987,fl_layer_apply/l_youm:pinterest-pairs-collage:bracelets-1-creative-911a449420,w_473,h_807,c_thumb,g_center/g_north,x_239,y_609,fl_layer_apply/l_youm:pinterest-pairs-collage:bracelets-1-packshot-911a449420,w_473,h_429,c_thumb,g_center/g_north,x_239,y_174,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20DOR%C3%89S%20PARIS,co_rgb:f54e00,g_north,y_34/l_text:Arial_42_bold:Deux%20pierres%252C%20un%20seul%20%C3%A9clat.,co_rgb:1c1814,g_north,y_65,w_860,c_fit/l_text:Arial_19_bold:Malachite%20ou%20quartz%20rose%252C%20le%20jonc%20qui%20change%20tout.,co_rgb:5a4a3a,g_north,y_117,w_820,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south,y_30/youm/instagram-bg.png"
+}

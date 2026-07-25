@@ -1,0 +1,29 @@
+{
+  "pipeline": "cloudinary-pinterest-pairs-collage-youm",
+  "source": "collection:boucles-doreilles",
+  "pin_title": "Boucles d'oreilles pierres naturelles & galuchat, Collection Youm Paris",
+  "pin_description": "Jaspe chaud ou galuchat bordeaux : deux façons d'affirmer son style avec des boucles d'oreilles artisanales, dorées à l'or fin 24 carats. Séries limitées, assemblées à Paris. À découvrir sur youm-paris.com",
+  "board": "Bijoux Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/collections/boucles-doreilles",
+  "hook": "Pierre ou galuchat, à vous de choisir.",
+  "label": "Deux matières, un même art de se distinguer.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-doris-jaspe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202536/Youm-Paris/nvvpygstranwndy2fir9.jpg",
+      "status": "à valider (rentrée)",
+      "creative1_public_id": "youm/pinterest-pairs-collage/boucles-doreilles-0-creative-6864dfa836",
+      "img1_public_id": "youm/pinterest-pairs-collage/boucles-doreilles-0-packshot-6864dfa836"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206538/Youm-Paris/bx52pwqmbjtqgwur2ard.jpg",
+      "status": "refaire",
+      "creative1_public_id": "youm/pinterest-pairs-collage/boucles-doreilles-1-creative-89d2e6831e",
+      "img1_public_id": "youm/pinterest-pairs-collage/boucles-doreilles-1-packshot-89d2e6831e"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-pairs-collage:boucles-doreilles-0-creative-6864dfa836,w_473,h_807,c_thumb,g_center/g_north,x_-240,y_174,fl_layer_apply/l_youm:pinterest-pairs-collage:boucles-doreilles-0-packshot-6864dfa836,w_473,h_429,c_thumb,g_center/g_north,x_-240,y_987,fl_layer_apply/l_youm:pinterest-pairs-collage:boucles-doreilles-1-creative-89d2e6831e,w_473,h_807,c_thumb,g_center/g_north,x_239,y_609,fl_layer_apply/l_youm:pinterest-pairs-collage:boucles-doreilles-1-packshot-89d2e6831e,w_473,h_429,c_thumb,g_center/g_north,x_239,y_174,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PIERRES%20NATURELLES,co_rgb:f54e00,g_north,y_34/l_text:Arial_42_bold:Pierre%20ou%20galuchat%252C%20%C3%A0%20vous%20de%20choisir.,co_rgb:1c1814,g_north,y_65,w_860,c_fit/l_text:Arial_19_bold:Deux%20mati%C3%A8res%252C%20un%20m%C3%AAme%20art%20de%20se%20distinguer.,co_rgb:5a4a3a,g_north,y_117,w_820,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south,y_30/youm/instagram-bg.png"
+}

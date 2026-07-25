@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/24-boucles-doreilles-clips-comment-choisir.html",
+  "pin_title": "Boucles d'oreilles clips : comment choisir la bonne paire selon votre morphologie",
+  "pin_description": "Puces, pendantes ou créoles clips en laiton doré 24 carats et pierres naturelles — trouvez le modèle adapté à votre lobe et à votre style. Guide complet sur youm-paris.com",
+  "board": "Boucles d'oreilles clips",
+  "dest_url": "https://youm-paris.com/blogs/articles/boucles-doreilles-clips-comment-choisir",
+  "hook": "Clips : le bon modèle pour vous",
+  "label": "Toutes les formes, pour chaque morphologie de lobe.",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "boucle Jacinthe",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-clips-comment-choisir-0-fdecf96094"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "alt": "boucle Pernille perle blanche",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-clips-comment-choisir-1-590e868d8b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-clips-comment-choisir-2-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "Boucles Doreilles Pierres Lila",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-clips-comment-choisir-3-348486b13c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140",
+      "alt": "Boucles Doreilles Fern Aventurine Jaspe",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-clips-comment-choisir-4-d5d7f28def"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452",
+      "alt": "Boucles Doreilles Asymetriques Pierres Nell",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-clips-comment-choisir-5-05332168c8"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:boucles-doreilles-clips-comment-choisir-0-fdecf96094,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-clips-comment-choisir-1-590e868d8b,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-clips-comment-choisir-2-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-clips-comment-choisir-3-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-clips-comment-choisir-4-d5d7f28def,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-clips-comment-choisir-5-05332168c8,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BOUCLES%20D%27OREILLES%20CLIPS,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Clips%20%3A%20le%20bon%20mod%C3%A8le%20pour%20vous,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Toutes%20les%20formes%252C%20pour%20chaque%20morphologie%20de%20lobe.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

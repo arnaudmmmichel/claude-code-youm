@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#pourquoi-graphique">Pourquoi le bijou graphique s'impose au quotidien</a></li>
+      <li><a href="#choisir-format">Choisir le bon format selon votre style</a></li>
+      <li><a href="#associations-tenues">Avec quelles tenues les associer ?</a></li>
+      <li><a href="#pierres-matieres">Pierres naturelles et matières : jouer la couleur sans excès</a></li>
+      <li><a href="#conseils-pratiques">8 conseils pour porter vos boucles graphiques avec aisance</a></li>
+      <li><a href="#clips">Boucles d'oreilles graphiques en version clips</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Il existe une certaine satisfaction à poser des boucles d'oreilles graphiques le matin et à sentir que la tenue est, d'un seul geste, véritablement composée. Les bijoux design femme occupent aujourd'hui une place centrale dans les choix de style quotidien : ni discrets au point de passer inaperçus, ni ostentatoires au point d'alourdir une silhouette, ils incarnent cet équilibre entre affirmation de soi et élégance naturelle. Chez Youm, c'est précisément cette intention qui guide chaque pièce — proposer des boucles d'oreilles graphiques en laiton doré à l'or fin 24 carats qui s'intègrent à votre vie réelle, du bureau à la soirée, sans effort apparent. Ce guide vous aide à comprendre comment les choisir, les associer et les porter avec aisance, jour après jour.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="pourquoi-graphique">Pourquoi le bijou graphique s'impose au quotidien</h2>
+
+<p>Le bijou graphique n'est pas né d'une tendance éphémère. Il répond à un besoin stylistique profond : celui de structurer une silhouette sans multiplier les accessoires. Là où un bijou discret se fond dans la tenue, une pièce à la géométrie affirmée agit comme un point focal — elle attire le regard, crée un équilibre visuel et donne à l'ensemble une lecture immédiate. C'est précisément ce que les femmes qui construisent leur style au quotidien recherchent : un bijou qui fait le travail à leur place.</p>
+
+<p>Les <a href="https://youm-paris.com/collections/boucles-doreilles">boucles d'oreilles</a> à lignes épurées, aux volumes maîtrisés ou aux formes géométriques se distinguent aussi par leur polyvalence. Une même pièce graphique peut accompagner un blazer structuré en réunion le mardi matin et rehausser une robe sobre lors d'un dîner le vendredi soir. Cette capacité d'adaptation — sans jamais sembler déplacée — est l'une des qualités les plus précieuses d'un bijou bien choisi.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517" alt="Boucles Doreilles Galuchat Grace" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace">Boucles Doreilles Galuchat Grace</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779" alt="Boucles Doreilles Papillon Chiara" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-papillon-chiara">Boucles Doreilles Papillon Chiara</a></figcaption></figure></div>
+
+<p>Chez Youm, la collection s'est construite autour de cette philosophie depuis 2017. Youmna, fondatrice et créatrice, a développé une esthétique résolument graphique et épurée, inspirée de ses voyages et de la fusion des cultures Est-Ouest. Chaque pièce est assemblée à la main, avec une dorure à l'or fin 24 carats réalisée chez un artisan à Paris — une exigence de fabrication qui se ressent dans la précision des formes et la tenue de la dorure dans le temps.</p>
+
+<h2 id="choisir-format">Choisir le bon format selon votre style</h2>
+
+<p>Toutes les boucles d'oreilles graphiques ne parlent pas le même langage stylistique. La première question à se poser n'est pas « quelle est la plus belle ? » mais « quelle est celle qui s'adapte le mieux à ma façon de m'habiller ? ». La réponse dépend autant de votre garde-robe que de votre morphologie et de l'image que vous souhaitez projeter.</p>
+
+<p>Les <strong>puces et boucles courtes géométriques</strong> conviennent particulièrement aux femmes qui portent des coiffures dégagées ou qui souhaitent un bijou présent sans être imposant. Elles s'associent naturellement à un col ouvert, un décolleté ou un chignon bas, laissant le cou visible et la ligne du visage dégagée. Les <strong>boucles pendantes à structure graphique</strong> créent quant à elles un mouvement qui allonge la silhouette du visage — elles sont particulièrement flatteuses portées avec les cheveux relevés. Les <a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda Agate noire</a>, avec leur structure épurée et leur pierre de caractère, illustrent parfaitement cette catégorie : une pièce qui s'assume sans jamais alourdir.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-packshot-youm.jpg?v=1771526309" alt="boucles Zelda Agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda Agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-clips-portee-youm.jpg?v=1771526359" alt="boucles Zelda Agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda Agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-agate-perles-onyx-vert-detail-porte-perc_es-clips-youm.jpg?v=1771526429" alt="boucles Zelda Agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda Agate noire</a></figcaption></figure></div>
+
+<p>Les <strong>boucles asymétriques</strong> constituent une troisième option, plus singulière. Elles s'adressent à celles qui souhaitent affirmer une personnalité stylistique forte tout en restant dans un registre élégant. Les <a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">boucles Isabelle aventurine et agate rouge</a> en sont un exemple révélateur : deux pièces dépareillées qui forment un ensemble cohérent, à la fois graphique et lumineux.</p>
+
+<h2 id="associations-tenues">Avec quelles tenues les associer ?</h2>
+
+<p>L'un des atouts majeurs des boucles d'oreilles graphiques réside dans leur capacité à transformer une tenue sobre en une silhouette aboutie. La règle d'or est simple : plus la tenue est épurée, plus le bijou peut affirmer sa présence. À l'inverse, une tenue déjà riche en détails appelle une pièce graphique mais retenue dans ses proportions.</p>
+
+<p>Pour le bureau ou une journée en mouvement, associez des boucles graphiques dorées à un blazer beige rosé, une blouse en soie vert sauge ou une robe en lin blanc cassé. Le contraste entre la chaleur de la dorure à l'or fin 24 carats et les tonalités douces du vêtement crée une harmonie naturelle, sans effet d'apparat. Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure pierres naturelles</a> — avec leurs pierres délicates serties dans du laiton doré — s'inscrivent parfaitement dans cette logique : une pièce polyvalente qui s'adapte à votre emploi du temps sans que vous ayez à y repenser.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="boucles Aure pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948" alt="boucles Aure pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-detail-pose.jpg?v=1770739990" alt="boucles Aure pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure pierres naturelles</a></figcaption></figure></div>
+
+<p>Pour une soirée ou un dîner, misez sur une pièce plus affirmée dans ses proportions. Une boucle pendante à structure géométrique portée avec une robe sobre à l'encolure dégagée produit un effet immédiat : le bijou devient le centre du regard, la tenue son écrin. Les <a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">boucles Niagara agate noire</a>, avec leur ligne graphique assumée, incarnent cet équilibre entre sobriété et présence.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-packshot-youm.jpg?v=1771517262" alt="boucles Niagara agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">boucles Niagara agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-portee-youm.jpg?v=1771517300" alt="boucles Niagara agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">boucles Niagara agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-detail-pose-youm.jpg?v=1771517354" alt="boucles Niagara agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-niagara-agate-noire">boucles Niagara agate noire</a></figcaption></figure></div>
+
+<blockquote><p>Le bijou graphique ne complète pas une tenue — il la finalise. C'est la différence entre une silhouette et un style.</p></blockquote>
+
+<p>Pour le weekend, les associations gagnent en liberté. Un jean à taille haute, une blouse en coton rayé et une paire de boucles graphiques aux pierres colorées suffisent à composer une tenue à la fois décontractée et pensée. L'enjeu n'est pas de sur-styler mais de choisir une seule pièce forte qui ancre l'ensemble.</p>
+
+<h2 id="pierres-matieres">Pierres naturelles et matières : jouer la couleur sans excès</h2>
+
+<p>Les boucles d'oreilles graphiques ne se limitent pas aux pièces entièrement en métal. L'introduction de pierres naturelles ou de matières spécifiques comme le galuchat ou la nacre permet de moduler l'intensité visuelle d'une pièce et d'en affiner le message stylistique. C'est l'une des signatures de <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a> : associer une géométrie précise à la singularité de chaque pierre.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037" alt="Bracelet Jonc Dore Quartz Rose Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo">Bracelet Jonc Dore Quartz Rose Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Nacre Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Jonc Nacre Theo</a></figcaption></figure></div>
+
+<p>L'<strong>amazonite</strong>, avec ses nuances de bleu-vert profond, apporte une touche de couleur affirmée sans tomber dans l'exubérance. La <strong>malachite</strong>, aux veinures vertes caractéristiques, confère à chaque pièce un caractère immédiatement reconnaissable. Le <strong>quartz rose</strong> joue sur des tonalités plus douces, idéales pour des associations avec des tenues à dominante beige rosé, blanc cassé ou terracotta clair. La <strong>cornaline</strong>, dans ses tons orangés chauds, s'impose naturellement avec des vêtements de couleurs terre. Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">boucles Lila cornaline et quartz rose</a> illustrent cette logique de complémentarité des pierres : deux matières aux caractères distincts qui se répondent avec élégance.</p>
+
+<p>Le <strong>galuchat</strong> — peau de raie travaillée par des artisans — occupe une place à part dans notre collection. Sa texture légèrement granuleuse et ses couleurs profondes (noir, turquoise, vert) créent un contraste saisissant avec la dorure à l'or fin 24 carats. Parcourir <a href="https://youm-paris.com/collections/bijoux-galuchat">notre collection galuchat</a> vous donnera une idée précise de ce que cette matière apporte à une pièce graphique : une profondeur visuelle que ni une pierre ni un métal seul ne peuvent produire.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949" alt="Boucles Doreilles Galuchat Grace Bordeaux" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux">Boucles Doreilles Galuchat Grace Bordeaux</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-jaspe-bleu-packshot.jpg?v=1773084850" alt="Boucles Doreilles Galuchat Grace Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-jaspe">Boucles Doreilles Galuchat Grace Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm_boucle_d_oreilles_galuchat_rose_nacre_blanche.jpg?v=1752758199" alt="Boucles Doreilles Galuchat Grace Rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-rose">Boucles Doreilles Galuchat Grace Rose</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-verte"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-grace-galuchat-vert-nacre-blanche-packshot.jpg?v=1773048746" alt="Boucles Doreilles Galuchat Grace Verte" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-verte">Boucles Doreilles Galuchat Grace Verte</a></figcaption></figure></div>
+
+<p>La règle en matière de couleur est celle du point focal unique. Portez une paire de boucles à pierre colorée avec une tenue à dominante neutre, ou réservez les pièces plus sobres (agate noire, nacre, galuchat noir) pour des tenues déjà structurées en couleur. Cette cohérence entre la palette du bijou et celle de la tenue est ce qui distingue un style personnel d'un assemblage fortuit.</p>
+
+<h2 id="conseils-pratiques">8 conseils pour porter vos boucles graphiques avec aisance</h2>
+
+<ul>
+  <li>Optez pour une pièce graphique sobre en format puce lorsque votre coiffure est portée détendue — les cheveux encadrent naturellement le bijou et en limitent la visibilité.</li>
+  <li>Misez sur des boucles pendantes à structure géométrique lorsque vous portez les cheveux relevés ou attachés — le cou dégagé amplifie l'effet de la pièce.</li>
+  <li>Associez une boucle à pierre colorée unique à une tenue en camaïeu de neutres (blanc cassé, beige, sable) pour laisser la couleur du bijou s'exprimer pleinement.</li>
+  <li>Variez les proportions entre la taille de la boucle et le volume de votre col : un col ouvert ou un décolleté appelle une pièce plus présente, un col montant appelle une boucle plus compacte.</li>
+  <li>Jouez sur les contrastes de matières entre votre bijou et votre vêtement — une pièce en laiton doré à l'or fin 24 carats ressort davantage sur une matière mate (lin, coton, drap) que sur une matière brillante.</li>
+  <li>Superposez discrètement une paire de puces à une boucle pendante si vous avez plusieurs perçages — veillez à ce que les deux pièces partagent la même palette (or, même famille de pierres).</li>
+  <li>Adaptez la taille de la boucle à l'occasion : des formats compacts pour une journée longue et active, des formats plus généreux pour les moments où vous souhaitez que le bijou prenne la parole.</li>
+  <li>Réservez les pièces asymétriques aux tenues épurées — une boucle dépareillée graphique n'a besoin d'aucun autre élément fort pour exister.</li>
+</ul>
+
+<h2 id="clips">Boucles d'oreilles graphiques en version clips : la même esthétique, sans contrainte</h2>
+
+<p>Le design graphique d'une boucle d'oreilles ne devrait pas être réservé aux seules oreilles percées. Chez Youm, la majorité de nos modèles sont disponibles en version <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a> — un système de fixation discret côté face, invisible de l'extérieur, conçu pour un port confortable tout au long de la journée.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Doreilles Pendantes Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Boucles Doreilles Pendantes Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles D Oreilles Asymetriques" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Boucles D Oreilles Asymetriques</a></figcaption></figure></div>
+
+<p>La question que nous recevons le plus souvent est celle du maintien : une boucle clips tient-elle réellement en place lors d'une journée chargée ? La réponse dépend en grande partie de la qualité du mécanisme. Les clips que nous utilisons sont ajustables et pensés pour offrir un maintien sûr sans compression inconfortable, même portés plusieurs heures d'affilée. Des modèles comme les <a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">boucles Jacinthe</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine agate bleue</a> sont disponibles dans les deux versions — percée et clips — sans aucun compromis sur l'esthétique finale.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-pierre-naturelle-bleue-percee-clip-face.jpg?v=1770400373" alt="boucles Marine agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine agate bleue</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-dorees-marine-agate-bleue-clips-percees-portees.jpg?v=1770400452" alt="boucles Marine agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine agate bleue</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/emballage-cadeau-youm-bijoux-pierres-naturelles.jpg?v=1770400502" alt="boucles Marine agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine agate bleue</a></figcaption></figure></div>
+
+<p>Pour les femmes aux oreilles non percées ou qui ne souhaitent plus porter de percings, la version clips permet d'accéder à l'intégralité de notre collection graphique. Il n'y a aucune raison stylistique de se priver d'une pièce à la géométrie affirmée parce que son système de fixation est différent.</p>
+
+<h2 id="faq">Questions fréquentes sur les boucles d'oreilles graphiques</h2>
+
+<h3>Les boucles d'oreilles graphiques conviennent-elles à tous les visages ?</h3>
+<p>Oui, à condition d'adapter le format. Les visages ronds sont sublimés par des pièces pendantes qui allongent la ligne du visage. Les visages allongés s'accordent mieux avec des boucles plus larges ou volumineuses. Les visages ovales, souvent considérés comme les plus polyvalents, s'adaptent à la quasi-totalité des formats graphiques.</p>
+
+<h3>Peut-on porter des boucles d'oreilles graphiques avec d'autres bijoux ?</h3>
+<p>Oui, à condition de respecter une cohérence de matière et de maintenir un seul point focal fort. Si vos boucles sont affirmées dans leur design, optez pour un collier fin ou un bracelet épuré. Si vous souhaitez superposer plusieurs pièces, choisissez des boucles plus compactes et laissez les autres bijoux prendre davantage de place. Vous pouvez explorer <a href="https://youm-paris.com/collections/colliers">nos colliers</a> pour trouver des associations cohérentes.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/collier-leo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793" alt="Collier Leo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-leo">Collier Leo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774" alt="Collier Sautoir Perles Blanches Audrey" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">Collier Sautoir Perles Blanches Audrey</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-pierres-nora-packshot-zoom.jpg?v=1776273907" alt="Collier Pierres Et Perle Nora" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">Collier Pierres Et Perle Nora</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-cara"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-collier-cara-pierres-naturelles-packshot.jpg?v=1776262476" alt="Collier Pierres Et Perle Cara" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-cara">Collier Pierres Et Perle Cara</a></figcaption></figure></div>
+
+<h3>Comment entretenir des boucles en laiton doré à l'or fin 24 carats ?</h3>
+<p>L'entretien d'une pièce en laiton doré à l'or fin 24 carats est simple : essuyez vos bijoux avec un chiffon doux après chaque port, évitez le contact prolongé avec l'eau, les parfums et les produits cosmétiques. Pour des conseils détaillés, consultez notre page <a href="https://youm-paris.com/pages/entretien">conseils d'entretien</a>.</p>
+
+<h3>Les boucles d'oreilles graphiques Youm sont-elles disponibles en version clips ?</h3>
+<p>La majorité de nos modèles sont disponibles en version clips pour oreilles non percées. Le mécanisme est discret côté face et conçu pour un port confortable. Retrouvez l'ensemble de notre sélection sur la page <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a>.</p>
+
+<h3>Quel est le prix des boucles d'oreilles graphiques Youm ?</h3>
+<p>Notre collection de boucles d'oreilles graphiques est proposée entre 45 € et 89 €. Chaque pièce est assemblée à la main et bénéficie d'une dorure à l'or fin 24 carats réalisée chez un artisan à Paris. Youm bénéficie d'une note de satisfaction de 4,8/5 sur la base de 343 avis clients.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez nos boucles d'oreilles graphiques dorées à l'or fin</h2>
+      <p class="cta-subtext">Assemblées à la main, disponibles en version percée ou clips, nos boucles en laiton doré à l'or fin 24 carats s'adaptent à votre quotidien — du bureau à la soirée, sans compromis sur l'esthétique.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Voir la collection boucles d'oreilles</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

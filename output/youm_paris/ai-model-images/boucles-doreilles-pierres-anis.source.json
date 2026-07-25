@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-doreilles-pierres-anis",
+  "title": "Boucles d'oreilles Anis - pierres naturelles",
+  "slug": "boucles-doreilles-pierres-anis",
+  "season": "ete",
+  "model": "1",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899347/youm/model-sheets/model-1-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/files/boucles-doreilles-anis-pierres-packshot-youm.jpg?v=1770741728",
+    "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pierres-naturelles-vert-rose-portees-youm.jpg?v=1770742773"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784920935/youm/ai-model-images/boucles-doreilles-pierres-anis.jpg",
+  "caption_instagram": "L'été a sa propre lumière — et les Boucles d'oreilles Anis savent la capter. Pendantes, fines, dorées à l'or fin 24 carats, elles mettent en valeur la beauté singulière du quartz rose et du cranberry quartz : deux pierres naturelles, deux nuances douces et lumineuses qui illuminent le teint sans effort. Une silhouette épurée, une couleur qui dit quelque chose. Anis, c'est le bijou que l'on glisse à l'oreille un matin d'été et qui suffit à transformer le reste. Disponibles en version percées ou clips.\n\nDécouvrez les Boucles d'oreilles Anis sur youm-paris.com\n\n#shinewithyoum #youmparis #bouclesoreillespierrenaturelle #bijouxdore #bijouxete",
+  "caption_pinterest": "Boucles d'oreilles pendantes en laiton doré à l'or fin 24 carats, quartz rose et cranberry quartz — élégance naturelle et lumineuse pour l'été. Pierces ou clips. youm-paris.com"
+}

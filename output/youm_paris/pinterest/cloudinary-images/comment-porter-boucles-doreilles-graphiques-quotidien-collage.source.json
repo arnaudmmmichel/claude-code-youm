@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/25-comment-porter-boucles-doreilles-graphiques-quotidien.html",
+  "pin_title": "Boucles d'oreilles graphiques : comment les choisir et les porter au quotidien",
+  "pin_description": "Puces géométriques, boucles pendantes, pièces asymétriques en laiton doré à l'or fin 24 carats — un guide pour associer vos boucles graphiques à chaque tenue, du bureau à la soirée. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Graphiques Femme",
+  "dest_url": "https://youm-paris.com/blogs/articles/comment-porter-boucles-doreilles-graphiques-quotidien",
+  "hook": "4 styles graphiques à adopter",
+  "label": "Choisir et porter ses boucles selon sa tenue",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles Doreilles Galuchat Grace",
+      "public_id": "youm/pinterest-collage-products/comment-porter-boucles-doreilles-graphiques-quotidien-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/comment-porter-boucles-doreilles-graphiques-quotidien-1-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doreilles Doris Jaspe",
+      "public_id": "youm/pinterest-collage-products/comment-porter-boucles-doreilles-graphiques-quotidien-2-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779",
+      "alt": "Boucles Doreilles Papillon Chiara",
+      "public_id": "youm/pinterest-collage-products/comment-porter-boucles-doreilles-graphiques-quotidien-3-defcc1caf1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-packshot-youm.jpg?v=1771526309",
+      "alt": "boucles Zelda Agate noire",
+      "public_id": "youm/pinterest-collage-products/comment-porter-boucles-doreilles-graphiques-quotidien-4-7da67d5cc2"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-clips-portee-youm.jpg?v=1771526359",
+      "alt": "boucles Zelda Agate noire",
+      "public_id": "youm/pinterest-collage-products/comment-porter-boucles-doreilles-graphiques-quotidien-5-2c197afd89"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:comment-porter-boucles-doreilles-graphiques-quotidien-0-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-boucles-doreilles-graphiques-quotidien-1-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-boucles-doreilles-graphiques-quotidien-2-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-boucles-doreilles-graphiques-quotidien-3-defcc1caf1,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-boucles-doreilles-graphiques-quotidien-4-7da67d5cc2,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:comment-porter-boucles-doreilles-graphiques-quotidien-5-2c197afd89,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20GRAPHIQUES%20FEMME,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:4%20styles%20graphiques%20%C3%A0%20adopter,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Choisir%20et%20porter%20ses%20boucles%20selon%20sa%20tenue,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

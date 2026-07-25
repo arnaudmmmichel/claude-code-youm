@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#pourquoi-pierres-naturelles">Pourquoi choisir une bague en pierre naturelle</a></li>
+      <li><a href="#choisir-sa-pierre">Comment choisir sa pierre selon sa personnalité</a></li>
+      <li><a href="#bagues-emboitables">L'art des bagues emboîtables : créer un ensemble cohérent</a></li>
+      <li><a href="#associations-couleurs">Associations de couleurs et de matières</a></li>
+      <li><a href="#conseils-pratiques">8 conseils pour porter vos bagues avec style</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Une main ornée de bagues en pierres naturelles, c'est une signature visuelle immédiate — celle d'une femme qui a choisi la couleur et le caractère plutôt que l'uniforme. Pourtant, beaucoup hésitent à franchir le pas : comment associer plusieurs bagues sans tomber dans l'excès ? Quelles pierres naturelles choisir selon son style, sa carnation, ses tenues ? Chez Youm, nous croyons que la bague en pierre naturelle est l'un des bijoux les plus puissants pour affirmer une personnalité au quotidien — à condition de savoir l'approcher avec un regard juste. Cet article vous guide pas à pas, des matières aux combinaisons, pour que vos mains deviennent votre plus bel accessoire.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="pourquoi-pierres-naturelles">Pourquoi choisir une bague en pierre naturelle</h2>
+
+<p>La bague en pierre naturelle occupe une place singulière dans le monde du bijou accessible. Elle conjugue l'authenticité d'un matériau vivant — aucune pierre n'est identique à une autre — et la chaleur d'une dorure soignée qui lui donne tout son éclat. Contrairement aux pièces entièrement métalliques, elle introduit de la profondeur et de la couleur sans nécessiter d'accumulation : une seule pièce bien choisie transforme une tenue sobre en une présence affirmée.</p>
+
+<p>Chez Youm, les bagues en pierres naturelles sont réalisées en laiton doré à l'or fin 24 carats, la dorure étant effectuée chez un artisan à Paris. Chaque pièce est assemblée à la main à Bruxelles, ce qui garantit une finition soignée et une attention portée à chaque détail. Les pierres sélectionnées — quartz rose, malachite, nacre, agate noire, aventurine — sont choisies pour leurs qualités chromatiques et leur capacité à dialoguer avec la dorure sans l'écraser.</p>
+
+<p>Porter une bague en pierre naturelle, c'est aussi accepter que le bijou raconte quelque chose de vous. La malachite avec ses tourbillons verts profonds, le quartz rose dans sa douceur laiteuse, l'agate noire dans sa sobriété graphique : chaque pierre possède un caractère que vous faites vôtre. C'est précisément ce rapport intime entre la pièce et celle qui la porte qui donne aux bijoux en pierres naturelles leur force stylistique.</p>
+
+<h2 id="choisir-sa-pierre">Comment choisir sa pierre selon sa personnalité</h2>
+
+<p>Le choix d'une pierre naturelle est rarement purement esthétique — il est souvent instinctif, presque affectif. Vous serez naturellement attirée par certaines couleurs, certaines textures, certains contrastes. Mais quelques repères peuvent vous aider à affiner ce choix et à sélectionner une pièce qui s'intégrera vraiment dans votre quotidien.</p>
+
+<p>Si vous portez beaucoup de tons neutres — blanc cassé, beige, gris, noir — et que vous cherchez à introduire une touche de couleur sans bouleverser votre garde-robe, le <strong>quartz rose</strong> est une entrée en matière idéale. Sa teinte douce et lumineuse s'accorde avec une palette sobre sans jamais paraître incongrue. La <strong>nacre</strong>, dans sa blancheur irisée, offre un raffinement similaire, avec une dimension légèrement plus graphique lorsqu'elle est enchâssée dans une monture dorée épurée.</p>
+
+<p>Pour celles qui assument pleinement la couleur et souhaitent une bague qui affirme un point de vue, la <strong>malachite</strong> s'impose avec son vert intense et ses veinures naturelles. L'<strong>aventurine</strong>, dans ses reflets dorés-verts, offre une version plus douce de cette énergie chromatique. Enfin, l'<strong>agate noire</strong> reste la pierre des perfectionnistes du monochrome : elle apporte de la densité et du caractère sans couleur explicite, dans une logique résolument graphique.</p>
+
+<blockquote><p>La bonne pierre n'est pas celle qui correspond à votre signe ou à une tendance — c'est celle que vous souhaitez porter chaque matin, sans vous poser de question.</p></blockquote>
+
+<p>Découvrez <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a> pour explorer l'ensemble des matières disponibles chez Youm, des plus lumineuses aux plus profondes.</p>
+
+<h2 id="bagues-emboitables">L'art des bagues emboîtables : créer un ensemble cohérent</h2>
+
+<p>Les bagues emboîtables — ou bagues à empiler — ont profondément transformé la façon dont nous portons nos mains. Là où l'on ne posait autrefois qu'une seule bague par doigt, il est aujourd'hui courant de superposer deux, trois, parfois quatre anneaux fins pour créer un effet de composition. Cette approche demande cependant un œil attentif : ce qui fonctionne sur un plateau de photographie peut vite sembler brouillon sur une vraie main, dans la vraie vie.</p>
+
+<p>La première règle de l'empilement réussi est celle de la <strong>cohérence de matière</strong>. Chez Youm, toutes les bagues sont réalisées en laiton doré à l'or fin 24 carats : elles partagent donc naturellement la même base tonale, ce qui facilite considérablement les associations. Vous n'avez pas à vous demander si le doré d'une pièce va se marier avec celui d'une autre — c'est déjà résolu.</p>
+
+<p>La deuxième règle est celle du <strong>contraste des volumes</strong>. Une bague à pierre (plus volumineuse, plus présente) se porte idéalement accompagnée d'un ou deux anneaux fins et sobres qui la mettent en valeur sans la concurrencer. L'inverse est tout aussi efficace : plusieurs bagues fines de même épaisseur créent un effet de répétition élégant, presque architectural, que vous pouvez ensuite ponctuer d'une seule pièce à pierre.</p>
+
+<p>La troisième règle, souvent négligée, est celle de la <strong>répartition sur la main</strong>. Empiler toutes vos bagues sur un seul doigt crée une concentration qui peut vite sembler encombrante. Répartissez les pièces entre l'index, le majeur et l'annulaire — voire l'auriculaire pour les pièces très fines — pour que l'ensemble respire et que chaque bijou puisse exister pleinement.</p>
+
+<p>Explorez <a href="https://youm-paris.com/collections/bagues">nos bagues</a> pour trouver les combinaisons qui vous correspondent, qu'il s'agisse d'une pièce statement portée seule ou d'un ensemble à composer.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/bague-pierre-sia-cornaline"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/bague_doree_cornaline_face_youm_bijoux.jpg?v=1770391482" alt="Bague Pierre Sia Cornaline" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bague-pierre-sia-cornaline">Bague Pierre Sia Cornaline</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bague-sia-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/bague_doree_malachite_sia_packshot_youm_bijoux.jpg?v=1770391681" alt="Bague Sia Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bague-sia-malachite">Bague Sia Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bague-dita-agate-noire-te-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/bague_doree_quartz_rose_nacre_face_youm_bijoux.jpg?v=1770390468" alt="Bague Dita Agate Noire Te Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bague-dita-agate-noire-te-malachite">Bague Dita Agate Noire Te Malachite</a></figcaption></figure></div>
+
+<h2 id="associations-couleurs">Associations de couleurs et de matières</h2>
+
+<p>L'une des questions les plus fréquentes autour des bagues en pierres naturelles est celle des associations de couleurs : peut-on mélanger plusieurs teintes sur une même main ? La réponse est oui — à condition de respecter quelques équilibres simples qui transforment une accumulation en composition.</p>
+
+<p>La première approche, la plus accessible, est celle de la <strong>gamme chromatique rapprochée</strong>. Elle consiste à associer des pierres dont les teintes appartiennent à une même famille colorée. Quartz rose et nacre, par exemple, s'inscrivent toutes deux dans une palette de douceur irisée qui crée une harmonie immédiate. Malachite et aventurine jouent sur le même registre dans les verts, avec des profondeurs différentes qui apportent de la richesse sans rupture.</p>
+
+<p>La deuxième approche est celle du <strong>contraste assumé</strong>. Une bague en agate noire aux côtés d'une bague en quartz rose crée un dialogue entre sobriété et féminité — un contraste que la dorure commune vient unifier. C'est souvent cette tension légère entre deux univers chromatiques qui rend une composition mémorable plutôt qu'ordinaire.</p>
+
+<p>Il est également possible d'introduire une cohérence par la <strong>matière commune</strong> plutôt que par la couleur. Une bague à pierre naturelle associée à un jonc en laiton doré à l'or fin 24 carats — une pièce sans pierre, entièrement métallique et épurée — crée un équilibre entre la richesse de la couleur et la clarté du métal. Cette association est particulièrement efficace pour les portées qui souhaitent empiler sans alourdir visuellement la main.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pierre</th>
+      <th>Registre</th>
+      <th>Association recommandée</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Quartz rose</td>
+      <td>Doux, lumineux, féminin</td>
+      <td>Nacre, anneau fin doré</td>
+    </tr>
+    <tr>
+      <td>Malachite</td>
+      <td>Profond, affirmé, végétal</td>
+      <td>Aventurine, agate noire</td>
+    </tr>
+    <tr>
+      <td>Agate noire</td>
+      <td>Graphique, sobre, moderne</td>
+      <td>Nacre, quartz rose, jonc nu</td>
+    </tr>
+    <tr>
+      <td>Aventurine</td>
+      <td>Chaleureux, naturel, délicat</td>
+      <td>Malachite, quartz rose</td>
+    </tr>
+    <tr>
+      <td>Nacre</td>
+      <td>Raffiné, irisé, intemporel</td>
+      <td>Agate noire, quartz rose</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La <a href="https://youm-paris.com/products/bague-dita-agate-noire-te-malachite">Bague Paola dorée quartz rose & nacre</a> illustre parfaitement cet art de la combinaison : deux matières distinctes réunies dans une seule pièce, avec une dorure à l'or fin 24 carats qui leur donne une cohérence immédiate.</p>
+
+<h2 id="conseils-pratiques">8 conseils pour porter vos bagues avec style</h2>
+
+<ul>
+  <li>Optez pour une bague à pierre volumineuse comme pièce centrale, puis construisez l'ensemble autour d'elle avec des anneaux plus fins.</li>
+  <li>Misez sur la cohérence de métal : toutes vos bagues en doré à l'or fin 24 carats, sans mélange avec d'autres teintes métalliques.</li>
+  <li>Associez une bague colorée à une tenue sobre — un blazer structuré, une blouse de soie, une robe épurée — pour que la pierre prenne toute sa place.</li>
+  <li>Répartissez vos bagues sur au moins deux doigts différents pour éviter l'effet d'accumulation concentrée.</li>
+  <li>Jouez sur les contrastes de volume : une pièce à pierre naturelle + un ou deux anneaux fins sur le même doigt ou des doigts adjacents.</li>
+  <li>Superposez des matières complémentaires plutôt que des couleurs identiques — la profondeur d'une composition vient souvent de cette diversité subtile.</li>
+  <li>Adaptez l'intensité de la couleur à l'occasion : quartz rose ou nacre pour le bureau, malachite ou agate noire pour une soirée ou un dîner.</li>
+  <li>Variez les doigts selon les jours plutôt que de figer une combinaison — la bague en pierre naturelle gagne à être déplacée, redécouverte, réassociée.</li>
+</ul>
+
+<p>Pour aller plus loin dans la construction d'un look cohérent, <a href="https://youm-paris.com/collections/bijoux-dore">nos bijoux dorés à l'or fin</a> offrent un point de départ solide pour créer des associations bagues-bracelets-colliers dans une palette unifiée.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/onc-theo-dore-aventurine-packshot-youm.jpg?v=1770395227" alt="Bracelet jonc doré aventurine Théo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo">Bracelet jonc doré aventurine Théo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-jonc-ana-dore-graphique-packshot.jpg?v=1771856507" alt="Bracelet jonc doré Ana" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">Bracelet jonc doré Ana</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-manchette-pierre-dore"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-manchette-iris-doree-pierres-naturelles-packshot.jpg?v=1771847065" alt="Bracelet manchette dorée pierres" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-manchette-pierre-dore">Bracelet manchette dorée pierres</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-leo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793" alt="Collier Léo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-leo">Collier Léo</a></figcaption></figure></div>
+
+<h2 id="faq">Questions fréquentes sur les bagues en pierres naturelles</h2>
+
+<h3>Les bagues Youm en pierres naturelles sont-elles disponibles en plusieurs tailles ?</h3>
+<p>Les bagues Youm sont proposées dans des tailles standards adaptées à la majorité des mains. Nous vous recommandons de consulter le guide des tailles disponible sur chaque fiche produit pour choisir la taille qui convient à votre doigt avec précision.</p>
+
+<h3>Peut-on porter une bague en pierre naturelle tous les jours ?</h3>
+<p>Oui. Les bagues Youm sont conçues pour être portées au quotidien. Nous recommandons simplement de les retirer pour les activités aquatiques prolongées et de les ranger dans leur pochon individuel lorsque vous ne les portez pas, pour préserver la qualité de la dorure à l'or fin 24 carats et l'intégrité des pierres naturelles.</p>
+
+<h3>Comment entretenir une bague en laiton doré à l'or fin ?</h3>
+<p>Un entretien simple suffit : essuyez la pièce avec un chiffon doux et sec après chaque port. Évitez le contact avec les produits cosmétiques, les parfums et les crèmes. Pour en savoir plus, consultez notre <a href="https://youm-paris.com/pages/entretien">page conseils d'entretien</a>.</p>
+
+<h3>Peut-on associer une bague en pierre naturelle avec des boucles d'oreilles Youm de la même collection ?</h3>
+<p>Absolument. L'une des forces de la collection Youm est précisément cette cohérence de matière et de dorure qui permet d'associer librement les pièces entre elles. Une bague en quartz rose peut ainsi dialoguer avec des <a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">boucles Marine Quartz rose</a> pour un ensemble pensé, sans rigidité.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059" alt="boucles Marine Quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">boucles Marine Quartz rose</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-quartz-rose-portees.jpg?v=1770399127" alt="boucles Marine Quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">boucles Marine Quartz rose</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-quartz-rose-detail.jpg?v=1770399175" alt="boucles Marine Quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-quartz-rose">boucles Marine Quartz rose</a></figcaption></figure></div>
+
+<h3>Quelle est la différence entre une bague emboîtable et une bague classique ?</h3>
+<p>Une bague emboîtable (ou stackable) est conçue avec un profil fin ou légèrement plat qui lui permet d'être portée côte à côte avec d'autres bagues sans créer de frottements ni d'espace visuel incohérent entre les pièces. Chez Youm, plusieurs bagues ont été pensées dans cette logique de superposition, notamment les pièces à anneaux fins qui viennent naturellement encadrer une bague à pierre centrale.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez nos bagues en pierres naturelles</h2>
+      <p class="cta-subtext">Chaque bague Youm est réalisée en laiton doré à l'or fin 24 carats, assemblée à la main et conçue pour être portée seule ou en composition. Des pièces à partir de 84€, livrées dans un pochon individuel.</p>
+      <a href="https://youm-paris.com/collections/bagues" class="cta-button">Voir les bagues</a>
+    </div>
+
+    
+    <!-- RELATED-ARTICLES -->
+    <div style="margin-top:48px;padding:32px 0;border-top:1px solid #e8e0d8;">
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1c1814;margin-bottom:20px;">À lire aussi</p>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/pierres-naturelles-bijoux-uniques-artisanaux" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Pourquoi les pierres naturelles rendent chaque bijou unique</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/bijoux-pierres-naturelles-couleurs-bonne-mine" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Bijoux aux pierres naturelles : l'atout couleur bonne mine</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/comment-creer-accumulation-bracelets-joncs-dores" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Comment créer une accumulation de bracelets avec des joncs dorés</a></li>
+      </ul>
+    </div>
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

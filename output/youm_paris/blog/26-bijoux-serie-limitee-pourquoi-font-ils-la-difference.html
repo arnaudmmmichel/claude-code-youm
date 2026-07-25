@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#serie-limitee-definition">Ce que signifie vraiment « série limitée »</a></li>
+      <li><a href="#serie-limitee-vs-grande-serie">Série limitée vs grande série : ce qui change concrètement</a></li>
+      <li><a href="#pourquoi-choisir-bijou-createur">Pourquoi choisir un bijou créateur en série limitée</a></li>
+      <li><a href="#approche-youm">L'approche Youm : une production pensée autrement</a></li>
+      <li><a href="#conseils-choisir">Comment choisir un bijou en série limitée</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Il existe une différence que l'on ressent avant même de la formuler : celle entre un bijou que l'on croise partout et une pièce que l'on ne reverra peut-être plus. Les bijoux en série limitée occupent précisément cet espace — celui où le soin apporté à chaque détail, la rareté du geste artisanal et la cohérence d'une vision de créateur se conjuguent pour donner naissance à quelque chose de singulier. Chez Youm, cette logique n'est pas un argument marketing : elle structure la façon dont chaque collection est pensée, assemblée et proposée. Cet article explore ce que recouvre réellement la notion de bijou créateur en série limitée, et pourquoi elle change profondément l'expérience de porter un bijou au quotidien.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="serie-limitee-definition">Ce que signifie vraiment « série limitée »</h2>
+
+<p>Le terme « série limitée » est aujourd'hui largement utilisé dans l'univers des bijoux, au point de perdre parfois de sa substance. Il désigne pourtant une réalité précise : des pièces produites en quantité délibérément restreinte, sans réassort systématique, à partir de choix de matières et de fabrication qui ne permettent pas — et ne cherchent pas — une reproduction industrielle à grande échelle. La série limitée n'est donc pas simplement un bijou produit en petit nombre par contrainte : c'est un modèle de création qui place la qualité, la cohérence et la singularité avant le volume.</p>
+
+<p>Dans le secteur des bijoux créateur, cette logique prend tout son sens lorsqu'elle découle directement du processus de fabrication. Lorsque chaque pièce est assemblée à la main, que les pierres naturelles sont sélectionnées une à une, que la dorure est confiée à un artisan plutôt qu'à une chaîne automatisée, la série limitée n'est pas une contrainte : elle est la conséquence naturelle d'une certaine façon de faire. C'est précisément cette cohérence entre le geste et le résultat qui confère à ces bijoux leur caractère particulier.</p>
+
+<p>Il faut également distinguer la série limitée de l'édition spéciale ponctuelle. Une série limitée véritable s'inscrit dans une logique de collection pensée dès la conception : matières choisies avec intention, formes qui dialoguent entre elles, univers visuel cohérent. Ce n'est pas un produit isolé lancé pour créer un effet d'urgence, mais un ensemble de pièces qui racontent quelque chose — et qui, une fois épuisées, ne reviennent pas.</p>
+
+<h2 id="serie-limitee-vs-grande-serie">Série limitée vs grande série : ce qui change concrètement</h2>
+
+<p>La différence entre un bijou produit en grande série et un bijou créateur en série limitée se mesure à plusieurs niveaux, du choix des matières jusqu'à l'expérience de le porter. Dans la production de masse, les impératifs de coût et de volume guident chaque décision : les matières sont standardisées, les formes optimisées pour la reproductibilité, les finitions automatisées. Le résultat est souvent fonctionnel, parfois esthétique, mais rarement singulier.</p>
+
+<p>À l'inverse, une pièce en série limitée commence par un geste de choix : quelle pierre, quelle teinte, quelle forme raconte quelque chose ? Chez Youm, les bijoux sont réalisés à partir d'estampes en laiton brut retravaillées dans l'atelier parisien — soudées, poncées, transformées — avant de recevoir une dorure à l'or fin 24 carats effectuée chez un artisan à Paris. L'assemblage final est réalisé à la main à Bruxelles. À chaque étape, une décision humaine intervient, et cette présence du geste se lit dans le résultat final.</p>
+
+<blockquote><p>Un bijou en série limitée ne porte pas seulement une matière — il porte la trace d'une intention et d'un savoir-faire que la production de masse ne peut pas reproduire.</p></blockquote>
+
+<p>Les pierres naturelles constituent un autre marqueur fort de cette différence. L'amazonite, la malachite, le quartz rose, la cornaline ou le lapis-lazuli que l'on retrouve dans <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a> sont des matières vivantes : chaque cabochon présente des nuances propres, des veines légèrement différentes, une luminosité qui lui appartient. Cette variabilité naturelle est incompatible avec la standardisation industrielle — et c'est précisément ce qui rend chaque pièce unique dans sa catégorie.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure></div>
+
+<h2 id="pourquoi-choisir-bijou-createur">Pourquoi choisir un bijou créateur en série limitée</h2>
+
+<p>Porter un bijou créateur en série limitée, c'est d'abord faire un choix qui dit quelque chose de soi. Dans un contexte où les mêmes pièces circulent en masse sur des milliers de plateformes, la question de la distinction devient légitime — non pas par snobisme, mais par désir d'authenticité. Choisir une pièce que l'on ne verra pas portée par dix autres personnes dans la même semaine, c'est affirmer une sensibilité personnelle, une façon d'habiter son style plutôt que de le subir.</p>
+
+<p>Il y a également une dimension de rapport à l'objet que la série limitée modifie en profondeur. Lorsque l'on sait qu'une pièce ne sera pas réassortie, qu'elle a été pensée dans un contexte précis, avec des matières choisies pour leur caractère et non pour leur prix de revient, on l'envisage différemment. On l'entretient, on la remarque, on lui accorde une place dans sa façon de s'habiller. Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a>, par exemple, ne sont pas simplement des accessoires : elles condensent un choix de matière, une géométrie épurée et un geste artisanal qui leur confèrent une présence que l'on perçoit immédiatement.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-detail-pose.jpg?v=1770739990" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure></div>
+
+<p>Enfin, choisir un bijou créateur, c'est aussi soutenir un modèle de production qui a du sens. La série limitée implique par définition l'absence de surproduction : on ne fabrique pas en anticipant une demande hypothétique, on crée ce qui a été pensé et on s'arrête là. C'est une forme de cohérence entre les valeurs affichées et les pratiques réelles — une cohérence que les femmes qui portent Youm savent reconnaître et apprécient.</p>
+
+<h2 id="approche-youm">L'approche Youm : une production pensée autrement</h2>
+
+<p>Chez Youm, la logique des séries limitées n'a pas été adoptée comme une stratégie commerciale après coup : elle est constitutive de la façon dont Youmna a fondé la marque en 2017, forte de quinze années dans la parfumerie et la cosmétique. Cette expérience lui a appris deux choses fondamentales — que la qualité d'un produit se construit dans chaque détail de sa fabrication, et que la rareté bien comprise n'est pas une contrainte mais une liberté.</p>
+
+<p>Les collections Youm s'appuient sur des estampes en laiton brut retravaillées artisanalement, ce qui permet de maîtriser l'ensemble de la chaîne de transformation sans recourir à une production externalisée à grande échelle. La dorure à l'or fin 24 carats est réalisée à Paris, chez des artisans dont le savoir-faire garantit la qualité de la finition. L'assemblage final, à Bruxelles, est entièrement manuel. Ce triptyque — transformation parisienne, dorure artisanale, assemblage à la main — définit le cadre dans lequel chaque pièce prend vie.</p>
+
+<p>Cette approche se reflète dans la variété des matières proposées : pierres naturelles aux teintes profondes, perles baroques à la forme irrégulière et délicate, galuchat au grain caractéristique. Des pièces comme les <a href="https://youm-paris.com/products/boucles-doreilles-trefle-galuchat-noir">boucles Trèfle en galuchat noir</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a> illustrent cette façon d'associer une matière noble à une forme graphique épurée — une signature visuelle qui traverse l'ensemble des collections sans jamais se répéter à l'identique. Retrouvez l'ensemble de ces créations dans <a href="https://youm-paris.com/collections/iconiques">nos pièces iconiques</a>.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-packshot.-youm.jpg?v=1771518595" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-youm.jpg?v=1771518630" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-profil-youm.jpg?v=1771518680" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure></div>
+
+<p>La note de satisfaction de 4,8/5 sur 343 avis clients témoigne de la façon dont cette approche est perçue et vécue par celles qui portent Youm. Ce n'est pas l'enthousiasme d'une nouveauté éphémère : c'est la fidélité à quelque chose de solide, construit dans le temps et ancré dans des choix assumés.</p>
+
+<h2 id="conseils-choisir">Comment choisir un bijou en série limitée</h2>
+
+<p>Face à une offre de bijoux créateur qui s'est considérablement élargie ces dernières années, quelques repères permettent d'identifier une série limitée qui mérite véritablement ce nom — et de faire un choix que l'on ne regrettera pas.</p>
+
+<ul>
+  <li>Vérifiez la cohérence entre les matières annoncées et le prix : un bijou en laiton doré à l'or fin 24 carats avec pierres naturelles à moins de 40 € mérite d'être questionné sur son origine réelle.</li>
+  <li>Renseignez-vous sur le lieu de fabrication : une dorure artisanale à Paris, un assemblage à la main — ces informations concrètes sont des garanties de sérieux.</li>
+  <li>Observez la cohérence visuelle de la collection : des pièces qui dialoguent entre elles, un univers identifiable, une signature reconnaissable sont les marqueurs d'un travail de créateur véritable.</li>
+  <li>Privilégiez les marques qui assument la rareté sans en faire un argument de pression : la série limitée se justifie par la fabrication, pas par un compte à rebours artificiel.</li>
+  <li>Associez la pièce à votre garde-robe réelle : un bijou créateur en série limitée prend tout son sens porté au quotidien, pas réservé aux grandes occasions.</li>
+  <li>Optez pour des matières naturelles lorsque vous souhaitez une pièce truly singulière — aucun cabochon d'amazonite ou de quartz rose n'est exactement identique à un autre.</li>
+  <li>Consultez les avis clients pour évaluer l'expérience d'achat globale : délais, emballage, service — la cohérence entre la promesse et la réalité est révélatrice.</li>
+  <li>Misez sur la polyvalence : une pièce en série limitée qui s'adapte du bureau à la soirée vous accompagnera bien au-delà d'une tendance éphémère.</li>
+</ul>
+
+<p>Ces repères valent aussi bien pour les boucles d'oreilles — format phare chez Youm, disponible en version percée ou en <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a> pour les oreilles non percées — que pour les colliers, bracelets ou bagues. Chaque catégorie offre des entrées différentes dans l'univers d'une marque, et il est souvent pertinent de commencer par la pièce qui vous attire le plus instinctivement.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Doreilles Pendantes Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Boucles Doreilles Pendantes Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles D Oreilles Asymetriques" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Boucles D Oreilles Asymetriques</a></figcaption></figure></div>
+
+<h2 id="faq">Questions fréquentes sur les bijoux en série limitée</h2>
+
+<h3>Quelle est la différence entre un bijou en série limitée et une édition spéciale ?</h3>
+<p>Une série limitée désigne un ensemble de pièces conçues et produites en quantité restreinte, sans réassort prévu une fois la série épuisée. Elle s'inscrit dans une logique de collection cohérente. Une édition spéciale est généralement une pièce ponctuelle, souvent liée à un événement ou une collaboration, qui peut coexister avec une ligne permanente. Chez Youm, les collections sont pensées comme des séries limitées : lorsqu'une pièce est épuisée, elle n'est pas systématiquement relancée.</p>
+
+<h3>Les bijoux Youm sont-ils vraiment fabriqués à la main ?</h3>
+<p>Oui. Les bijoux Youm sont assemblés à la main à Bruxelles, après transformation des estampes en laiton dans l'atelier parisien et dorure à l'or fin 24 carats réalisée chez un artisan à Paris. Ce processus en trois étapes garantit une qualité de finition que la production automatisée ne permet pas. Vous pouvez en savoir plus sur notre <a href="https://youm-paris.com/pages/savoir-faire">page savoir-faire</a>.</p>
+
+<h3>Un bijou créateur en série limitée vaut-il vraiment plus cher qu'un bijou de grande distribution ?</h3>
+<p>La différence de prix reflète une différence de fabrication réelle : matières naturelles sélectionnées, dorure artisanale à l'or fin 24 carats, assemblage manuel, production sans surstock. Chez Youm, les pièces sont proposées entre 40 et 99 €, un positionnement qui rend accessibles des bijoux créateur sans compromis sur la qualité des matières ni sur le soin apporté à la fabrication.</p>
+
+<h3>Peut-on porter un bijou en série limitée tous les jours ?</h3>
+<p>C'est précisément l'usage pour lequel les bijoux Youm sont conçus. L'élégance au quotidien — du bureau à la soirée, d'une tenue sobre à une mise en valeur plus affirmée — est au cœur de la philosophie de la marque. Les pièces en pierres naturelles, en galuchat ou en perles baroques sont des matières qui s'apprivoisent dans le temps et révèlent leur caractère à l'usage.</p>
+
+<h3>Comment savoir si une série est encore disponible ?</h3>
+<p>Les disponibilités sont indiquées en temps réel sur le site youm-paris.com. Certains modèles sont disponibles en quantités très restreintes : lorsqu'une série est épuisée, elle n'est généralement pas relancée. Les membres du Club Youm bénéficient d'une information en avant-première sur les nouvelles arrivées et les dernières disponibilités.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez les pièces en série limitée Youm Paris</h2>
+      <p class="cta-subtext">Des bijoux créateur assemblés à la main, en laiton doré à l'or fin 24 carats, avec des pierres naturelles sélectionnées — disponibles jusqu'à épuisement de la série.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Découvrir la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

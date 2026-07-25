@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/73-bijoux-pierres-naturelles-comment-choisir-porter.html",
+  "pin_title": "Bijoux en pierres naturelles : comment les choisir et les porter | Youm Paris",
+  "pin_description": "Amazonite, malachite, quartz rose… comment choisir sa pierre naturelle selon sa garde-robe et la porter au quotidien. Un guide concret avec des associations couleurs et des conseils de style. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-pierres-naturelles-comment-choisir-porter",
+  "hook": "Quelle pierre pour votre style ?",
+  "label": "Le guide pour choisir et associer vos pierres naturelles.",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-pierre-naturelle-bleue-percee-clip-face.jpg?v=1770400373",
+      "alt": "boucles Marine Agate bleue",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierres-naturelles-comment-choisir-porter-0-f7bc96d5cc"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059",
+      "alt": "boucles Marine Quartz rose",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierres-naturelles-comment-choisir-porter-1-ddc49cbe40"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725",
+      "alt": "boucle Félix Malachite",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierres-naturelles-comment-choisir-porter-2-6e56c5203a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037",
+      "alt": "Bracelet jonc doré quartz rose Théo",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierres-naturelles-comment-choisir-porter-3-8d9d9b0fdf"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "alt": "boucles Aure Pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierres-naturelles-comment-choisir-porter-4-cc0e2df655"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "boucles Lila Cornaline & quartz rose",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierres-naturelles-comment-choisir-porter-5-348486b13c"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-pierres-naturelles-comment-choisir-porter-0-f7bc96d5cc,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierres-naturelles-comment-choisir-porter-1-ddc49cbe40,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierres-naturelles-comment-choisir-porter-2-6e56c5203a,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierres-naturelles-comment-choisir-porter-3-8d9d9b0fdf,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierres-naturelles-comment-choisir-porter-4-cc0e2df655,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierres-naturelles-comment-choisir-porter-5-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Quelle%20pierre%20pour%20votre%20style%20%3F,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Le%20guide%20pour%20choisir%20et%20associer%20vos%20pierres%20naturelles.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

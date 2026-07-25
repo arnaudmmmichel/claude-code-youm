@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/13-boucles-doreilles-statement-couleur-originalite.html",
+  "pin_title": "Boucles d'oreilles statement : choisir la bonne couleur selon son style",
+  "pin_description": "Malachite, amazonite, quartz rose… chaque pierre transforme une tenue sobre en look affirmé. Guide complet pour choisir et porter vos boucles statement au quotidien. Découvrez les créations Youm sur youm-paris.com",
+  "board": "Bijoux Statement & Couleur",
+  "dest_url": "https://youm-paris.com/blogs/articles/boucles-doreilles-statement-couleur-originalite",
+  "hook": "Le pouvoir des pierres colorées",
+  "label": "Choisir ses boucles statement selon son style",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-amazonite-perles-onyx-vert-packshot-youm.jpg?v=1771527140",
+      "alt": "boucles Zelda en amazonite",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-statement-couleur-originalite-0-537e958a0d"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-zelda-pierres-amazonite-perles-onyx-vert-portee-youm.jpg?v=1771527198",
+      "alt": "boucles Zelda en amazonite",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-statement-couleur-originalite-1-32fb81b697"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-zelda-amazonite-perles-onyx-vert-portee-profil-youm.jpg?v=1771527260",
+      "alt": "boucles Zelda en amazonite",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-statement-couleur-originalite-2-1b6eb66195"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "alt": "bracelet jonc doré Théo en malachite",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-statement-couleur-originalite-3-a27ee7eaa8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-dore-theo-malachite-accumulation.jpg?v=1770394735",
+      "alt": "bracelet jonc doré Théo en malachite",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-statement-couleur-originalite-4-a0fafabdf8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/jonc-theo-dore-malachite-porte-poignet.jpg?v=1770394788",
+      "alt": "bracelet jonc doré Théo en malachite",
+      "public_id": "youm/pinterest-collage-products/boucles-doreilles-statement-couleur-originalite-5-457ea3d9d7"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:boucles-doreilles-statement-couleur-originalite-0-537e958a0d,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-statement-couleur-originalite-1-32fb81b697,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-statement-couleur-originalite-2-1b6eb66195,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-statement-couleur-originalite-3-a27ee7eaa8,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-statement-couleur-originalite-4-a0fafabdf8,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:boucles-doreilles-statement-couleur-originalite-5-457ea3d9d7,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20STATEMENT%20%26%20COULEUR,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Le%20pouvoir%20des%20pierres%20color%C3%A9es,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Choisir%20ses%20boucles%20statement%20selon%20son%20style,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:bracelets",
+  "pin_title": "Bracelets dorés à l'or fin 24 carats — pierres naturelles & perles | Youm Paris",
+  "pin_description": "Bracelets en laiton doré à l'or fin 24 carats, ornés de pierres naturelles et perles baroques. Assemblés à la main à Paris, en séries limitées. Élégants au quotidien, du bureau à la soirée. Découvrez la collection sur youm-paris.com",
+  "board": "Bracelets & Poignets",
+  "dest_url": "https://youm-paris.com/collections/bracelets",
+  "hook": "Bracelets dorés à la main",
+  "label": "Pierres naturelles & perles — séries limitées, dorure Paris",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-jonc-bambou-dore-packshot.jpg?v=1773591575",
+      "alt": "Jonc Bambou doré",
+      "public_id": "youm/pinterest-collage-products/bracelets-0-b5443c14b5"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "alt": "Jonc Théo doré malachite",
+      "public_id": "youm/pinterest-collage-products/bracelets-1-a27ee7eaa8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037",
+      "alt": "Jonc Théo doré quartz rose",
+      "public_id": "youm/pinterest-collage-products/bracelets-2-8d9d9b0fdf"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "alt": "Jonc Théo doré nacre",
+      "public_id": "youm/pinterest-collage-products/bracelets-3-8c029ca620"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/onc-theo-dore-aventurine-packshot-youm.jpg?v=1770395227",
+      "alt": "Jonc Théo doré aventurine",
+      "public_id": "youm/pinterest-collage-products/bracelets-4-3eeba000a9"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-manchette-ariane-doree-graphique-packshot.jpg?v=1771855909",
+      "alt": "Manchette dorée Ariane",
+      "public_id": "youm/pinterest-collage-products/bracelets-5-7ad9eeebb1"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bracelets-0-b5443c14b5,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bracelets-1-a27ee7eaa8,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bracelets-2-8d9d9b0fdf,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bracelets-3-8c029ca620,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bracelets-4-3eeba000a9,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bracelets-5-7ad9eeebb1,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BRACELETS%20%26%20POIGNETS,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Bracelets%20dor%C3%A9s%20%C3%A0%20la%20main,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Pierres%20naturelles%20%26%20perles%20%E2%80%94%20s%C3%A9ries%20limit%C3%A9es%252C%20dorure%20Paris,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

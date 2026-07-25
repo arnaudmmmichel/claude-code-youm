@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/38-bijoux-jour-soir-comment-choisir.html",
+  "pin_title": "Bijou de jour ou de soir : comment choisir la bonne pièce selon le moment ?",
+  "pin_description": "Boucles pendantes pour le soir, créoles graphiques pour le bureau — chaque moment a son bijou. Guide stylistique complet avec des pièces en laiton doré à l'or fin 24 carats et pierres naturelles. Découvrez nos conseils sur youm-paris.com",
+  "board": "Style & Bijoux Dorés",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-jour-soir-comment-choisir",
+  "hook": "Du bureau à la soirée",
+  "label": "Choisir le bon bijou selon le moment",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "alt": "Boucles Aure pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/bijoux-jour-soir-comment-choisir-0-cc0e2df655"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948",
+      "alt": "Boucles Aure portées",
+      "public_id": "youm/pinterest-collage-products/bijoux-jour-soir-comment-choisir-1-ea2859b741"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-mm-dore-charms-packshot.jpg?v=1773658901",
+      "alt": "Créoles Catherine petit modèle",
+      "public_id": "youm/pinterest-collage-products/bijoux-jour-soir-comment-choisir-2-147506c98a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "Boucles Jacinthe pendantes",
+      "public_id": "youm/pinterest-collage-products/bijoux-jour-soir-comment-choisir-3-fdecf96094"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-portees.jpg?v=1770662416",
+      "alt": "Boucles Jacinthe portées",
+      "public_id": "youm/pinterest-collage-products/bijoux-jour-soir-comment-choisir-4-648e85c838"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-packshot.-youm.jpg?v=1771518595",
+      "alt": "Boucles Scarlett Malachite",
+      "public_id": "youm/pinterest-collage-products/bijoux-jour-soir-comment-choisir-5-7bd6ad6e70"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-jour-soir-comment-choisir-0-cc0e2df655,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-jour-soir-comment-choisir-1-ea2859b741,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-jour-soir-comment-choisir-2-147506c98a,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-jour-soir-comment-choisir-3-fdecf96094,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-jour-soir-comment-choisir-4-648e85c838,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-jour-soir-comment-choisir-5-7bd6ad6e70,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:STYLE%20%26%20BIJOUX%20DOR%C3%89S,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Du%20bureau%20%C3%A0%20la%20soir%C3%A9e,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Choisir%20le%20bon%20bijou%20selon%20le%20moment,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

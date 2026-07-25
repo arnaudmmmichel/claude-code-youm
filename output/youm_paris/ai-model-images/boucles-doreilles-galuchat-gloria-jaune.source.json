@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-doreilles-galuchat-gloria-jaune",
+  "title": "boucles doreilles galuchat gloria jaune",
+  "slug": "boucles-doreilles-galuchat-gloria-jaune",
+  "season": "ete",
+  "model": "3",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899429/youm/model-sheets/model-3-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-gloria-galuchat-jaune-amazonite-packshot.jpg?v=1773048462",
+    "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-gloria-galuchat-jaune-amazonite-portees.jpg?v=1773048487"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784920863/youm/ai-model-images/boucles-doreilles-galuchat-gloria-jaune.jpg",
+  "caption_instagram": "L'été s'invite dans les détails. Les boucles d'oreilles Gloria associent le galuchat jaune — matière rare au grain subtilement texturé — et l'amazonite, pierre naturelle aux nuances bleu-vert apaisantes. Un contraste lumineux qui capture l'énergie solaire de la belle saison, avec la fraîcheur douce d'un matin en bord de mer. Chaque pièce en galuchat et en pierre est unique, dorée à l'or fin 24 carats par nos artisans parisiens. Portez-les avec une robe de lin ou un ensemble blanc : elles font le reste. Découvrez les boucles d'oreilles Gloria sur youm-paris.com\n\n#youmparis #shinewithyoum #bouclesдoreilles #galuchat #amazonite",
+  "caption_pinterest": "Boucles d'oreilles galuchat jaune et amazonite – bijou d'été élégant en laiton doré à l'or fin 24 carats, fabriqué à Paris. Pour sublimer une tenue estivale avec caractère. youm-paris.com"
+}

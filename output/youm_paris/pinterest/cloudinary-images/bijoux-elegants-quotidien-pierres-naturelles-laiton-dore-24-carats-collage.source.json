@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/09-bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats.html",
+  "pin_title": "Bijoux en pierres naturelles et laiton doré à l'or fin 24 carats — Youm Paris",
+  "pin_description": "Malachite, jaspe, aventurine, perles baroques : des bijoux élégants au quotidien, assemblés à la main à Paris. Laiton doré à l'or fin 24 carats, séries limitées. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats",
+  "hook": "Pierres & laiton doré",
+  "label": "Des bijoux faits à la main pour chaque jour",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles Doreilles Galuchat Grace",
+      "public_id": "youm/pinterest-collage-products/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-1-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doreilles Doris Jaspe",
+      "public_id": "youm/pinterest-collage-products/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-2-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779",
+      "alt": "Boucles Doreilles Papillon Chiara",
+      "public_id": "youm/pinterest-collage-products/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-3-defcc1caf1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "alt": "Boucles D Oreilles Perle Pernille",
+      "public_id": "youm/pinterest-collage-products/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-4-590e868d8b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "alt": "Jonc Nacre Theo",
+      "public_id": "youm/pinterest-collage-products/bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-5-8c029ca620"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-0-200f09fff3,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-1-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-2-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-3-defcc1caf1,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-4-590e868d8b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-elegants-quotidien-pierres-naturelles-laiton-dore-24-carats-5-8c029ca620,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Pierres%20%26%20laiton%20dor%C3%A9,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Des%20bijoux%20faits%20%C3%A0%20la%20main%20pour%20chaque%20jour,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

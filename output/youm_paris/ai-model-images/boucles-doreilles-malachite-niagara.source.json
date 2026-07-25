@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-doreilles-malachite-niagara",
+  "title": "Boucles d'oreilles Niagara malachite",
+  "slug": "boucles-doreilles-malachite-niagara",
+  "season": "ete",
+  "model": "2",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899398/youm/model-sheets/model-2-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/products/boucles-oreilles-niagara-malachite-dorees-packshot-youm.jpg?v=1771864187",
+    "https://youm-paris.com/cdn/shop/files/boucles-oreilles-niagara-malachite-dorees-portees-youm.jpg?v=1771864215"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784916340/youm/ai-model-images/boucles-doreilles-malachite-niagara.jpg",
+  "caption_instagram": "Un été qui s'assume pleinement. Les Boucles d'oreilles Niagara malachite conjuguent la chaleur de la dorure à l'or fin 24 carats et la profondeur envoûtante de la malachite verte — une pierre naturelle aux veines toujours uniques. Leur silhouette pendante de 10 cm crée une ligne fluide qui allonge le port de tête et illumine le visage, même sur la tenue la plus sobre. Une pièce forte, expressive, qui parle avant même que vous n'ayez dit un mot. Découvrez les Boucles d'oreilles Niagara malachite sur youm-paris.com\n\n#youmparis #shinewithyoum #malachite #bouclesdreillesete #bijouparis",
+  "caption_pinterest": "Boucles d'oreilles pendantes malachite dorées à l'or fin 24 carats — 10 cm de ligne fluide pour illuminer le visage cet été. Pièce artisanale, série limitée. youm-paris.com"
+}

@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-doreilles-marine-malachite",
+  "title": "Boucles d'oreilles Marine malachite",
+  "slug": "boucles-doreilles-marine-malachite",
+  "season": "ete",
+  "model": "4",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899460/youm/model-sheets/model-4-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912",
+    "https://youm-paris.com/cdn/shop/files/boucles-oreilles-marine-malachite-portees-percees-clips.jpg?v=1770399978"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784920900/youm/ai-model-images/boucles-doreilles-marine-malachite.jpg",
+  "caption_instagram": "L'été appelle la couleur — et la malachite répond avec ce vert profond et veiné qui capte la lumière comme personne. Les boucles d'oreilles Marine associent une goutte dorée martelée à cette pierre naturelle iconique pour un contraste à la fois moderne et lumineux. Chaque pierre est unique, chaque paire l'est aussi. Fabriquées à Paris et Bruxelles en laiton doré à l'or fin 24 carats, disponibles en version percées ou clips. Un bijou qui transforme une tenue estivale sans effort. Découvrez les boucles d'oreilles Marine malachite sur youm-paris.com\n\n#shinewithyoum #bouclesdoreilles #malachite #bijouxdores #bijouxparis",
+  "caption_pinterest": "Boucles d'oreilles dorées à la malachite — goutte martelée en laiton doré à l'or fin 24 carats et pierre naturelle veinée pour un look estival lumineux. Percées ou clips. youm-paris.com"
+}

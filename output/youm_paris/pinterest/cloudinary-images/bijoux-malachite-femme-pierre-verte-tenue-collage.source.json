@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/72-bijoux-malachite-femme-pierre-verte-tenue.html",
+  "pin_title": "Bijoux malachite : comment les porter au quotidien — Youm Paris",
+  "pin_description": "La malachite et ses veinages uniques : une pierre naturelle qui transforme une tenue sobre en un instant. Boucles d'oreilles, joncs, dorure à l'or fin 24 carats. Guides et pièces sur youm-paris.com",
+  "board": "Bijoux Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-malachite-femme-pierre-verte-tenue",
+  "hook": "La malachite, sans effort",
+  "label": "Comment porter cette pierre au quotidien",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912",
+      "alt": "boucles d'oreilles Marine Malachite",
+      "public_id": "youm/pinterest-collage-products/bijoux-malachite-femme-pierre-verte-tenue-0-0dd13b782b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-marine-malachite-portees-percees-clips.jpg?v=1770399978",
+      "alt": "boucles d'oreilles Marine Malachite",
+      "public_id": "youm/pinterest-collage-products/bijoux-malachite-femme-pierre-verte-tenue-1-42e7dfde1c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-pierres-naturelles-malachite-percees-clips-profil-youm.heic?v=1770400056",
+      "alt": "boucles d'oreilles Marine Malachite",
+      "public_id": "youm/pinterest-collage-products/bijoux-malachite-femme-pierre-verte-tenue-2-8c94742802"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-malachite-packshoy.jpg?v=1770393637",
+      "alt": "Créoles Lucky malachite cœur & trèfle",
+      "public_id": "youm/pinterest-collage-products/bijoux-malachite-femme-pierre-verte-tenue-3-ea2cac56f0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-coeur-malachite-portrait.jpg?v=1770393698",
+      "alt": "Créoles Lucky malachite cœur & trèfle",
+      "public_id": "youm/pinterest-collage-products/bijoux-malachite-femme-pierre-verte-tenue-4-6c9a2ea3a0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-coeur-malachite-portees.jpg?v=1770393772",
+      "alt": "Créoles Lucky malachite cœur & trèfle",
+      "public_id": "youm/pinterest-collage-products/bijoux-malachite-femme-pierre-verte-tenue-5-c1ec5ce6d3"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-malachite-femme-pierre-verte-tenue-0-0dd13b782b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-malachite-femme-pierre-verte-tenue-1-42e7dfde1c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-malachite-femme-pierre-verte-tenue-2-8c94742802,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-malachite-femme-pierre-verte-tenue-3-ea2cac56f0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-malachite-femme-pierre-verte-tenue-4-6c9a2ea3a0,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-malachite-femme-pierre-verte-tenue-5-c1ec5ce6d3,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:La%20malachite%252C%20sans%20effort,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Comment%20porter%20cette%20pierre%20au%20quotidien,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

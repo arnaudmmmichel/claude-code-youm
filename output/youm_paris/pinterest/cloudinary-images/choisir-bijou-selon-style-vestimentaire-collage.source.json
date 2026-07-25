@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/29-choisir-bijou-selon-style-vestimentaire.html",
+  "pin_title": "Quel bijou pour votre style ? Le guide complet Youm Paris",
+  "pin_description": "Minimaliste, classique ou bohème : découvrez les boucles d'oreilles et colliers en laiton doré à l'or fin 24 carats qui correspondent vraiment à votre style vestimentaire. Guides et conseils sur youm-paris.com",
+  "board": "Style & Bijoux Femme",
+  "dest_url": "https://youm-paris.com/blogs/articles/choisir-bijou-selon-style-vestimentaire",
+  "hook": "Bijou selon votre style",
+  "label": "Trouvez les pièces qui vous ressemblent vraiment",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-packshot-youm.jpg?v=1771526309",
+      "alt": "boucles Zelda en agate noire",
+      "public_id": "youm/pinterest-collage-products/choisir-bijou-selon-style-vestimentaire-0-7da67d5cc2"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-clips-portee-youm.jpg?v=1771526359",
+      "alt": "boucles Zelda en agate noire",
+      "public_id": "youm/pinterest-collage-products/choisir-bijou-selon-style-vestimentaire-1-2c197afd89"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-agate-perles-onyx-vert-detail-porte-perc_es-clips-youm.jpg?v=1771526429",
+      "alt": "boucles Zelda en agate noire",
+      "public_id": "youm/pinterest-collage-products/choisir-bijou-selon-style-vestimentaire-2-c7100e2bf5"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "alt": "créoles Jane ornées d'une perle blanche",
+      "public_id": "youm/pinterest-collage-products/choisir-bijou-selon-style-vestimentaire-3-0b2e460cad"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "alt": "créoles Catherine grand modèle",
+      "public_id": "youm/pinterest-collage-products/choisir-bijou-selon-style-vestimentaire-4-ff176653de"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "alt": "Collier Leo",
+      "public_id": "youm/pinterest-collage-products/choisir-bijou-selon-style-vestimentaire-5-18312aecc0"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:choisir-bijou-selon-style-vestimentaire-0-7da67d5cc2,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:choisir-bijou-selon-style-vestimentaire-1-2c197afd89,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:choisir-bijou-selon-style-vestimentaire-2-c7100e2bf5,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:choisir-bijou-selon-style-vestimentaire-3-0b2e460cad,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:choisir-bijou-selon-style-vestimentaire-4-ff176653de,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:choisir-bijou-selon-style-vestimentaire-5-18312aecc0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:STYLE%20%26%20BIJOUX%20FEMME,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Bijou%20selon%20votre%20style,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Trouvez%20les%20pi%C3%A8ces%20qui%20vous%20ressemblent%20vraiment,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

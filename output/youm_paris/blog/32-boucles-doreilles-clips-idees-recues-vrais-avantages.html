@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a {
+      display: block; position: relative; overflow: hidden; text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65); color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px; text-align: center;
+      opacity: 0; transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    /* ── INFO BOX (pre-paste reference) ── */
+    .info-box {
+      background: #fff8e1; border: 1px solid #f0c040;
+      padding: 20px 24px; margin-bottom: 40px;
+      font-size: 13px; line-height: 1.6;
+    }
+    .info-box strong { display: block; margin-bottom: 6px; }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#idee-recue-moche">« Les clips, c'est moins joli » — faux</a></li>
+        <li><a href="#idee-recue-inconfort">« Ça fait mal après une heure » — pas forcément</a></li>
+        <li><a href="#idee-recue-tombe">« Ça tombe facilement » — cela dépend du mécanisme</a></li>
+        <li><a href="#idee-recue-limites">« Le choix est limité » — plus maintenant</a></li>
+        <li><a href="#idee-recue-visible">« Le système clips se voit trop » — non, si bien conçu</a></li>
+        <li><a href="#idee-recue-occasion">« Les clips, c'est pour les grandes occasions seulement » — faux</a></li>
+        <li><a href="#comment-choisir">Comment bien choisir ses boucles d'oreilles clips</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Les boucles d'oreilles clips ont longtemps traîné une réputation injuste — inconfortables, peu élégantes, réservées aux femmes d'un certain âge. Chez Youm, nous entendons ces inquiétudes régulièrement, et nous avons décidé d'y répondre franchement. Cet article démonte, une par une, les idées reçues les plus répandues sur les <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a>, et vous dit ce qui compte vraiment pour choisir une paire que vous porterez avec plaisir, au quotidien.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+
+      <h2 id="idee-recue-moche">« Les clips, c'est moins joli » — faux</h2>
+      <p>Cette idée reçue tient à un souvenir précis : les clips dorés à ressort des années 80, imposants et visiblement mécaniques. Il faut admettre que ce souvenir colle. Mais le design des boucles d'oreilles clips a considérablement évolué, et les pièces actuelles n'ont rien de commun avec cette époque.</p>
+      <p>Aujourd'hui, les mécanismes de fermeture sont pensés pour être discrets côté face — ce que vous voyez, c'est le bijou, pas le système. Chez Youm, chaque modèle disponible en clips reprend exactement la même façade que sa version percée. Les <a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">boucles Marine en malachite</a>, les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-petit-modele">créoles Catherine</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">boucles Ninon pierres</a> existent en version clips sans aucun compromis sur l'esthétique. Ce que vous portez reste ce que vous avez choisi — élégant, graphique, à votre image.</p>
+
+      <blockquote><p>Un bijou clips bien conçu, c'est un bijou dont on ne voit pas le mécanisme. Seul le bijou existe.</p></blockquote>
+
+      <hr>
+
+      <h2 id="idee-recue-inconfort">« Ça fait mal après une heure » — pas forcément</h2>
+      <p>L'inconfort des clips est réel — mais il est lié à un mécanisme précis : le clip à vis, serré trop fort sur le lobe. Ce système existe toujours, mais il est loin d'être le seul. Les clips modernes utilisent généralement des systèmes à pression réglable ou à ressort conçus pour maintenir la boucle sans comprimer le tissu. La différence est notable dès les premières heures de port.</p>
+      <p>La taille et le poids de la pièce jouent aussi un rôle déterminant. Une boucle légère en laiton doré à l'or fin 24 carats, assemblée à la main à Bruxelles avec des pierres naturelles calibrées, sera infiniment plus confortable qu'un clip lourd en métal épais. C'est précisément pour cela que la <a href="https://youm-paris.com/pages/savoir-faire">méthode de fabrication Youm</a> — à partir d'estampes en laiton brut transformées à Paris — privilégie des pièces équilibrées, légères, pensées pour être portées une journée entière.</p>
+      <p>Si vous avez déjà porté des clips inconfortables, il y a de bonnes chances que le problème venait du modèle, pas du principe. Nous vous conseillons de tester avec une pièce de format moyen avant de conclure que les clips ne sont pas pour vous.</p>
+
+      <hr>
+
+      <h2 id="idee-recue-tombe">« Ça tombe facilement » — cela dépend du mécanisme</h2>
+      <p>Il est vrai que tous les systèmes clips ne se valent pas sur ce point. Un clip à ressort mal calibré peut se desserrer en cours de journée, surtout si la boucle est lourde ou si le lobe est fin. Mais un clip bien conçu — avec la bonne tension et un contrepoids équilibré — tient toute la journée sans effort.</p>
+      <p>La règle pratique est simple : plus la pièce est légère et le mécanisme précis, plus la tenue est fiable. Chez Youm, les modèles disponibles en clips ont été sélectionnés pour leur adéquation entre format et système de fermeture. Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure pierres naturelles</a>, les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">boucles Lila cornaline et quartz rose</a> ou encore les <a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine agate bleue</a> sont conçues pour rester en place, de la réunion du matin à la terrasse du soir.</p>
+      <ul>
+        <li>Optez pour des modèles de taille moyenne plutôt que des pièces très longues ou très lourdes</li>
+        <li>Vérifiez que le mécanisme est à tension réglable si votre lobe est particulièrement fin</li>
+        <li>Évitez de trop serrer — un clip correctement ajusté ne doit pas pincer</li>
+        <li>Misez sur des matières légères comme le laiton doré à l'or fin 24 carats plutôt que sur des modèles en résine épaisse</li>
+        <li>Retirez vos clips le soir et rangez-les dans leur pochon individuel pour préserver le mécanisme</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="idee-recue-limites">« Le choix est limité » — plus maintenant</h2>
+      <p>Il fut un temps où les clips se déclinaient en deux ou trois modèles classiques, souvent en plaqué doré générique. Ce temps est révolu. Aujourd'hui, une grande partie de la collection Youm est disponible en version clips, ce qui signifie que vous accédez aux mêmes pierres naturelles, aux mêmes formes graphiques, aux mêmes finitions — sans que l'absence de perçage ne soit une contrainte.</p>
+      <p>Amazonite, malachite, nacre, quartz rose, agate noire ou bleue : les pierres naturelles que nous sélectionnons chez nos fournisseurs français et européens sont intégrées aux modèles clips exactement comme aux modèles percés. La <a href="https://youm-paris.com/collections/boucles-doreilles-clip">collection boucles d'oreilles clips Youm</a> couvre les créoles, les pendantes, les puces et les pièces graphiques — de quoi habiller chaque occasion, du bureau au week-end.</p>
+      <p>Parmi nos modèles disponibles en clips et particulièrement appréciés : Jacinthe, Nell, Ninon, Naya, Marine, Arielle, Natacha, Isabelle et Colette. Des pièces pensées pour les oreilles non percées qui souhaitent porter exactement ce que tout le monde porte, sans exception.</p>
+
+      <div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912" alt="Boucles Marine Malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">Marine — Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-pierre-naturelle-bleue-percee-clip-face.jpg?v=1770400373" alt="Boucles Marine Agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">Marine — Agate bleue</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/pboucles-oreilles-ninon-depareillees-pierres-packshot-youm.jpg?v=1771515928" alt="Boucles Ninon pierres" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">Ninon — pierres naturelles</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="idee-recue-visible">« Le système clips se voit trop » — non, si bien conçu</h2>
+      <p>La peur que le mécanisme soit visible côté face est compréhensible. Elle renvoie à ces modèles où la mécanique débordait sur la façade du bijou, rendant l'ensemble peu élégant. Mais cette configuration est aujourd'hui l'exception, pas la règle, sur des pièces bien conçues.</p>
+      <p>Sur les modèles Youm disponibles en clips, le mécanisme est positionné à l'arrière du lobe — invisible de face, invisible de côté. Ce que voient les autres, c'est uniquement le bijou : la pierre, la forme, la dorure. Un bijou ne devrait jamais révéler son système de fermeture, qu'il s'agisse d'un clip, d'une tige ou d'un crochet. Chez Youm, cette discrétion fait partie du cahier des charges de chaque pièce proposée en version clips.</p>
+      <p>La seule situation où le mécanisme peut se voir légèrement, c'est avec les cheveux très courts ou les coupes qui dégagent entièrement les oreilles — et encore, uniquement de très près. Pour celles qui le souhaitent, les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose">boucles Cléo quartz rose</a> offrent des formats compacts où la façade occupe toute la surface visible.</p>
+
+      <hr>
+
+      <h2 id="idee-recue-occasion">« Les clips, c'est pour les grandes occasions seulement » — faux</h2>
+      <p>Cette idée reçue est peut-être la plus répandue, et aussi la plus éloignée de la réalité. Les boucles d'oreilles clips pour oreilles non percées ne sont pas des bijoux de cérémonie réservés aux mariages et dîners habillés. Elles se portent exactement comme n'importe quelle autre boucle d'oreilles — au bureau, en week-end, dans la rue, en terrasse.</p>
+      <p>La légèreté des modèles en laiton doré à l'or fin 24 carats les rend particulièrement adaptées au port prolongé du quotidien. Les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-petit-modele">créoles Catherine petit modèle</a> disponibles en clips illustrent parfaitement cette polyvalence : sobres, graphiques, elles passent du bureau à la soirée sans effort. De même, les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">boucles Lila</a> en cornaline et quartz rose apportent une touche de couleur à une tenue simple du quotidien, sans jamais sembler trop habillées.</p>
+      <p>Le bijou clips idéal pour le quotidien est léger, de taille raisonnable, avec un mécanisme réglable. Il s'oublie sur les oreilles — et c'est précisément ce qu'on recherche quand on veut sublimer une tenue sans effort.</p>
+
+      <hr>
+
+      <h2 id="comment-choisir">Comment bien choisir ses boucles d'oreilles clips</h2>
+      <p>Maintenant que les idées reçues sont démontées, voici ce qui compte vraiment au moment de choisir. Ces conseils s'adressent aussi bien à celles qui n'ont jamais eu les oreilles percées qu'à celles qui ne souhaitent plus les percer — ou qui cherchent simplement à alterner sans contrainte.</p>
+      <ul>
+        <li>Misez sur un mécanisme à pression réglable plutôt qu'à vis fixe, notamment si vous n'avez pas encore l'habitude du port de clips</li>
+        <li>Optez pour un format proportionnel à votre morphologie — les pendantes longues sont plus sensibles au poids que les puces ou les créoles</li>
+        <li>Associez vos clips à une tenue du quotidien dès les premières fois, pour tester la tenue et le confort sur votre durée de port habituelle</li>
+        <li>Variez les styles : une créole sobre pour le bureau, une boucle colorée en pierres naturelles pour le week-end, une pendante graphique pour le soir</li>
+        <li>Rangez vos boucles d'oreilles clips dans leur pochon individuel pour éviter que le mécanisme ne s'abîme ou ne se torde</li>
+        <li>Jouez sur les matières : laiton doré à l'or fin 24 carats, malachite, quartz rose ou nacre — chaque pierre transforme le même format en une proposition de style différente</li>
+        <li>Adaptez la taille du clip à votre lobe : les lobes fins bénéficient de mécanismes à légère pression, les lobes plus épais supportent une tension un peu plus ferme</li>
+      </ul>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="Boucles Aure pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure — pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Lila cornaline et quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Lila — cornaline &amp; quartz rose</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="faq">Questions fréquentes sur les boucles d'oreilles clips</h2>
+
+      <h3>Les boucles d'oreilles clips sont-elles adaptées à un port toute la journée ?</h3>
+      <p>Oui, à condition de choisir un modèle léger avec un mécanisme à pression réglable. Les modèles en laiton doré à l'or fin 24 carats sont particulièrement adaptés grâce à leur légèreté. Commencez par des formats moyens pour habituer votre lobe, et ajustez la tension si nécessaire.</p>
+
+      <h3>Quelle différence entre un clip à vis et un clip à ressort ?</h3>
+      <p>Le clip à vis se règle manuellement en tournant une petite molette — il offre une tenue très précise mais peut sembler rigide. Le clip à ressort s'ajuste automatiquement à la forme du lobe — généralement plus confortable pour un port prolongé. Chez Youm, nos modèles clips utilisent principalement des mécanismes à ressort ou à pression pour favoriser le confort.</p>
+
+      <h3>Puis-je trouver des boucles d'oreilles clips pour oreilles non percées dans des pierres naturelles ?</h3>
+      <p>Oui. La <a href="https://youm-paris.com/collections/boucles-doreilles-clip">collection clips Youm</a> comprend des pièces en malachite, quartz rose, agate, amazonite et nacre. Retrouvez notamment les <a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">boucles Marine malachite</a>, les <a href="https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose">boucles Cléo quartz rose</a> et les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane perle ronde</a>.</p>
+
+      <h3>Comment entretenir les boucles d'oreilles clips ?</h3>
+      <p>Retirez-les avant de vous laver les mains, de nager ou de vous exposer à des produits cosmétiques. Essuyez-les avec un chiffon doux après chaque port et rangez-les dans leur pochon individuel. Évitez de forcer sur le mécanisme : s'il semble trop serré, desserrez-le légèrement plutôt que de l'écarter de force. Pour des conseils d'entretien complets, consultez notre <a href="https://youm-paris.com/pages/entretien">page dédiée</a>.</p>
+
+      <h3>Les boucles d'oreilles clips Youm sont-elles disponibles en version percée aussi ?</h3>
+      <p>La plupart de nos modèles sont disponibles dans les deux versions — percée et clips — pour vous offrir le même bijou quelle que soit votre situation. Si vous hésitez ou souhaitez alterner, c'est une liberté que nous avons voulu rendre accessible.</p>
+
+      <p>Les boucles d'oreilles clips pour oreilles non percées ne sont pas un compromis — elles sont une alternative à part entière, qui offre les mêmes possibilités stylistiques qu'une boucle classique, avec le confort d'un port sans contrainte. Chez Youm, chaque pièce disponible en clips est conçue pour être portée avec plaisir, au quotidien comme pour les occasions qui comptent.</p>
+
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrir nos boucles d'oreilles clips</h2>
+      <p class="cta-subtext">Des pièces en laiton doré à l'or fin 24 carats, avec pierres naturelles, pensées pour les oreilles non percées — et pour être portées chaque jour.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles-clip" class="cta-button">Voir la collection clips</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

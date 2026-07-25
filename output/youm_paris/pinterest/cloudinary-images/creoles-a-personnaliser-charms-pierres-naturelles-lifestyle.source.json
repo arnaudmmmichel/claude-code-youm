@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "output/youm_paris/blog/07-creoles-a-personnaliser-charms-pierres-naturelles.html",
+  "pin_title": "Créoles personnalisables avec pierres naturelles — comment composer la vôtre",
+  "pin_description": "Malachite, amazonite, quartz rose… choisissez votre pierre, composez vos créoles à la main. Laiton doré à l'or fin 24 carats, assemblage artisanal. Découvrez le guide complet sur youm-paris.com",
+  "board": "Bijoux à personnaliser",
+  "dest_url": "https://youm-paris.com/blogs/articles/creoles-a-personnaliser-charms-pierres-naturelles",
+  "hook": "La créole qui vous ressemble",
+  "label": "",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-petit-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-mm-dore-charms-packshot.jpg?v=1773658901",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042808/Youm-Paris/vnyhutkpwlak1zhlmvtx.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-charms-pierres-naturelles-0-creative-f8d74e3d26"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042762/Youm-Paris/rrsd0bmquid51wzdpgmm.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-charms-pierres-naturelles-1-creative-b3da5abde4"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202430/Youm-Paris/j5cgzn9pcvvuyi4erbyl.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-charms-pierres-naturelles-2-creative-2e32a5da26"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-malachite-lucky",
+      "img1": "https://youm-paris.com/cdn/shop/files/creoles-lucky-trefle-malachite-packshoy.jpg?v=1770393637",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774307440/Youm-Paris/bqavqis7wpqlwcvlrtf3.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-charms-pierres-naturelles-3-creative-b3850a75e8"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucle-doreille-creole-aventurine-nina",
+      "img1": "https://youm-paris.com/cdn/shop/products/creoledoreepierreaventurineyoum.jpg?v=1622103882",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1772725899/Youm-Paris/xklpxpvwqptzneud8o48.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-charms-pierres-naturelles-4-creative-92da5146df"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202328/Youm-Paris/pwxbg0n7fqx2aadddu5i.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-charms-pierres-naturelles-5-creative-bed388c81e"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-charms-pierres-naturelles-0-creative-f8d74e3d26,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_507,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-charms-pierres-naturelles-1-creative-b3da5abde4,w_473,h_318,c_thumb,g_center/g_north,x_239,y_507,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-charms-pierres-naturelles-2-creative-2e32a5da26,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_831,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-charms-pierres-naturelles-3-creative-b3850a75e8,w_946,h_477,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-charms-pierres-naturelles-4-creative-92da5146df,w_473,h_318,c_thumb,g_center/g_north,x_239,y_831,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-charms-pierres-naturelles-5-creative-bed388c81e,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_1155,fl_layer_apply/l_text:Arial_28_bold:La%20cr%C3%A9ole%20qui%20vous%20ressemble,co_rgb:1c1814,g_north,x_239,y_1296,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

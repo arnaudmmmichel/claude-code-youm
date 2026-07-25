@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-d-oreilles-gustave",
+  "title": "Boucles d’oreilles Gustave - Agate noire",
+  "slug": "boucles-d-oreilles-gustave",
+  "season": "ete",
+  "model": "4",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899460/youm/model-sheets/model-4-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/products/boucles-oreilles-gustave-agate-noire-art-deco-packshot-youm.jpg?v=1772538380",
+    "https://youm-paris.com/cdn/shop/files/boucles-oreilles-gustave-agate-noire-art-deco-portees.jpg?v=1772538403"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784916264/youm/ai-model-images/boucles-d-oreilles-gustave.jpg",
+  "caption_instagram": "L'été appelle les contrastes forts et les pièces qui s'assument.\n\nLes boucles d'oreilles Gustave marient l'agate noire profonde à la dorure à l'or fin 24 carats, dans un esprit Art Déco aux lignes sculpturales et affirmées. Chaque pierre naturelle est unique — sa profondeur, son éclat, les vôtres.\n\nDisponibles en version percées ou clips, elles accompagnent une robe d'été simple et la transforment sans effort.\n\nDécouvrez les boucles d'oreilles Gustave sur youm-paris.com\n\n#shinewithyoum #youmparis #bouclesdoreillesdorees #artdeco #agatenoire",
+  "caption_pinterest": "Boucles d'oreilles pendantes Art Déco en agate noire et laiton doré à l'or fin 24 carats — un contraste graphique et élégant pour sublimer une tenue d'été. Disponibles percées ou clips sur youm-paris.com"
+}

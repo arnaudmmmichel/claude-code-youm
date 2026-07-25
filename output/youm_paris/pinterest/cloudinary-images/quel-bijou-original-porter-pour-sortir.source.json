@@ -1,0 +1,27 @@
+{
+  "pipeline": "cloudinary-pinterest-image-youm",
+  "source": "output/youm_paris/blog/22-quel-bijou-original-porter-pour-sortir.html",
+  "pin_title": "Quel bijou original porter pour sortir ? Le guide selon l'occasion",
+  "pin_description": "Dîner, cocktail ou soirée entre amis : choisir le bon bijou statement transforme une tenue sobre en signature. Boucles pendantes, créoles, pierres naturelles — le guide complet sur youm-paris.com.",
+  "board": "Bijoux statement et occasions",
+  "dest_url": "https://youm-paris.com/blogs/articles/quel-bijou-original-porter-pour-sortir",
+  "variants": {
+    "variant_1": {
+      "headline": "Le bijou qui fait toute la tenue",
+      "label": "Choisir son bijou original selon l'occasion — guide Youm Paris",
+      "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_text:Arial_22_bold:BIJOUX%20STATEMENT%20ET%20OCCASIONS,co_rgb:f54e00,g_center,y_-370,w_800,c_fit/l_text:Arial_150_bold:STATEMENT,co_rgb:1c1814,g_center,y_-90,w_920,c_fit/l_text:Arial_48_bold:Le%20bijou%20qui%20fait%20toute%20la%20tenue,co_rgb:f54e00,g_center,y_140,w_820,c_fit/l_text:Arial_26:Choisir%20son%20bijou%20original%20selon%20l%27occasion%20%E2%80%94%20guide%20Youm%20Paris,co_rgb:5a4a3a,g_center,y_230,w_720,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_center,x_0,y_320/youm/instagram-bg.png",
+      "keyword": "STATEMENT"
+    },
+    "variant_2": {
+      "headline": "Quel bijou porter selon l'occasion ?",
+      "label": "Dîner, cocktail, soirée — le guide bijoux statement de Youm Paris",
+      "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_text:Arial_22_bold:BIJOUX%20STATEMENT%20ET%20OCCASIONS,co_rgb:f54e00,g_center,y_-240,w_800,c_fit/l_text:Arial_60_bold:Quel%20bijou%20porter%20selon%20l%27occasion%20%3F,co_rgb:1c1814,g_center,y_-140,w_820,c_fit/l_text:Arial_26:D%C3%AEner%252C%20cocktail%252C%20soir%C3%A9e%20%E2%80%94%20le%20guide%20bijoux%20statement%20de%20Youm%20Paris,co_rgb:5a4a3a,g_center,y_50,w_760,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_center,x_0,y_140/youm/instagram-bg.png"
+    },
+    "variant_3": {
+      "headline": "Le bijou qui change tout quand on sort",
+      "label": "Guide style Youm Paris — boucles, pierres naturelles, dorure 24 carats",
+      "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_text:Arial_20_bold:BIJOUX%20STATEMENT%20ET%20OCCASIONS,co_rgb:f54e00,g_center,y_-260,w_800,c_fit/l_text:Arial_72_bold:Et%20si%20votre%20bijou%20%C3%A9tait%20le%20vrai%20point%20de%20d%C3%A9part%20%3F,co_rgb:1c1814,g_center,y_-90,w_840,c_fit/l_text:Arial_26:Guide%20style%20Youm%20Paris%20%E2%80%94%20boucles%252C%20pierres%20naturelles%252C%20dorure%2024%20carats,co_rgb:5a4a3a,g_center,y_130,w_740,c_fit/l_youm:logo-wordmark,w_180,c_scale,g_center,x_0,y_210/youm/instagram-bg.png",
+      "hook": "Et si votre bijou était le vrai point de départ ?"
+    }
+  }
+}

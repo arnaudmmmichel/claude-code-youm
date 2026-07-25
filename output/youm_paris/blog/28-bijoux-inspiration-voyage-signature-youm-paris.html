@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#inspiration-voyageuse">Une marque née d'une vie entre deux rives</a></li>
+      <li><a href="#bijoux-createur-paris">Ce que "bijoux de créateur à Paris" signifie vraiment</a></li>
+      <li><a href="#pierres-du-monde">Des pierres qui portent l'histoire du monde</a></li>
+      <li><a href="#comment-porter">Comment porter un bijou voyage au quotidien</a></li>
+      <li><a href="#conseils-pratiques">6 conseils pour choisir un bijou inspiré du voyage</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Il y a des bijoux que l'on choisit, et des bijoux que l'on reconnaît — comme si la pièce avait toujours attendu de rencontrer son porteur. Chez Youm, l'inspiration voyage est au cœur de chaque création : fondée en 2017 par Youmna, ex-professionnelle quinze ans dans la parfumerie et la cosmétique, la marque parisienne puise dans une double culture est-ouest pour concevoir des pièces en laiton doré à l'or fin 24 carats, assemblées à la main, qui racontent une géographie intime. Cet article explore comment une bijoux inspiration voyage se traduit concrètement dans une pièce artisanale — et pourquoi choisir un bijou de créateur à Paris, c'est choisir une signature plutôt qu'un accessoire.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="inspiration-voyageuse">Une marque née d'une vie entre deux rives</h2>
+
+<p>Youmna n'a pas fondé Youm Paris après avoir parcouru des salons professionnels ou étudié les tendances du marché. Elle l'a fondée après des années passées à voyager pour son métier, à observer la façon dont les femmes portent leur culture sur elles — parfois avec éclat, souvent avec une discrétion qui n'appartient qu'à elles. La parfumerie lui avait appris une chose essentielle : l'invisible laisse une trace. Et le bijou, comme le parfum, est ce que l'on choisit pour prolonger sa propre présence dans le monde.</p>
+
+<p>Cette vision fonde l'identité de Youm. Chaque collection n'est pas construite autour d'une saison ou d'une tendance, mais autour d'une sensation — celle que l'on éprouve devant une façade de zellige marocain, une pierre de malachite brillant sous le soleil d'un marché, ou la géométrie épurée d'une architecture méditerranéenne. Le bijou inspiration voyage n'est pas un souvenir. C'est une façon de porter ce que l'on a vu, ressenti, admiré — sans avoir besoin de l'expliquer.</p>
+
+<p>Bruxelles et Paris incarnent cette dualité : Youmna travaille entre les deux villes, et les pièces Youm le reflètent. La dorure à l'or fin 24 carats est réalisée par des artisans à Paris. L'assemblage à la main se fait à Bruxelles. C'est une marque qui n'existe pas dans un seul lieu — et c'est précisément ce que les bijoux portent en eux.</p>
+
+<h2 id="bijoux-createur-paris">Ce que "bijoux de créateur à Paris" signifie vraiment</h2>
+
+<p>L'expression est souvent galvaudée. Mais chez Youm, elle recouvre une réalité précise et vérifiable. Les pièces sont en <strong>laiton doré à l'or fin 24 carats</strong>, un matériau qui offre l'éclat du métal précieux sans le coût de la joaillerie traditionnelle — permettant de créer des bijoux accessibles, entre 40 et 99€, sans compromis sur la qualité visuelle ou le soin de fabrication. La dorure est effectuée chez un artisan à Paris, sur des estampes en laiton brut sélectionnées pour leurs formes, puis transformées et assemblées à la main.</p>
+
+<p>Ce modèle de production — en séries limitées, sans surproduction — est une décision délibérée. Il s'agit de créer moins, mais mieux. Chaque pièce est pensée pour durer dans une garde-robe, pas pour suivre un cycle saisonnier. C'est ce que l'on appelle une production responsable : des fournisseurs français, des volumes maîtrisés, et une logique d'atelier plutôt que d'usine. Avec 4,8/5 sur 343 avis clients, cette approche est validée par celles qui portent les pièces au quotidien.</p>
+
+<blockquote><p>Un bijou de créateur, ce n'est pas une griffe cousue sur un emballage. C'est une décision de fabrication, répétée pièce après pièce, qui rend l'objet reconnaissable même sans étiquette.</p></blockquote>
+
+<p>Découvrez <a href="https://youm-paris.com/pages/savoir-faire">notre savoir-faire</a> et la façon dont chaque étape de fabrication contribue à l'identité de la pièce finale.</p>
+
+<h2 id="pierres-du-monde">Des pierres qui portent l'histoire du monde</h2>
+
+<p>Si le voyage est au cœur de l'inspiration Youm, les pierres naturelles en sont le vocabulaire le plus immédiat. Chaque minéral porte une géographie : la <strong>malachite</strong>, avec ses stries vertes profondes, évoque les marchés africains et les bazars du Moyen-Orient. L'<strong>amazonite</strong>, bleue et apaisante, rappelle les eaux turquoise des côtes tropicales. La <strong>cornaline</strong>, orange brûlé, résonne avec les déserts et les terres ocre de l'Atlas. Le <strong>lapis-lazuli</strong>, bleu nuit veiné d'or, est l'une des pierres les plus anciennes du monde — portée par les reines d'Égypte, exportée depuis l'Afghanistan vers toutes les civilisations qui savaient reconnaître la beauté.</p>
+
+<p>Ces pierres ne sont pas choisies pour leur symbolique ésotérique, mais pour leur présence visuelle et la façon dont elles dialoguent avec la dorure à l'or fin 24 carats. Une pierre naturelle capte la lumière différemment selon l'heure du jour — c'est cette vie intérieure qui distingue un bijou pierres d'un bijou tout-métal. Chez Youm, les pierres sont montées sur des formes géométriques et épurées, sans fioritures, pour laisser toute la place au minéral lui-même.</p>
+
+<p>Les <a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite">boucles Zelda en amazonite</a>, par exemple, jouent sur la rencontre entre la transparence bleutée de la pierre et la rigueur graphique de leur forme — un bijou inspiration voyage qui n'a pas besoin d'expliquer d'où il vient pour qu'on le devine. Les <a href="https://youm-paris.com/products/boucles-doreilles-felix-malachite">boucles Félix en malachite</a> affichent quant à elles un vert intense et contrasté, suffisamment affirmé pour transformer une tenue sobre en statement personnel.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-amazonite-perles-onyx-vert-packshot-youm.jpg?v=1771527140" alt="boucles Zelda en amazonite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-amazonite">boucles Zelda en amazonite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-felix-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725" alt="boucles Félix en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-felix-malachite">boucles Félix en malachite</a></figcaption></figure></div>
+
+<p>Pour explorer l'ensemble de notre univers pierres, retrouvez <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a> — des pièces pensées pour celles qui aiment que leur bijou raconte quelque chose.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure></div>
+
+<h2 id="comment-porter">Comment porter un bijou voyage au quotidien</h2>
+
+<p>L'un des malentendus les plus courants sur les bijoux colorés ou inspirés du voyage, c'est qu'ils seraient réservés aux grandes occasions ou aux tenues habillées. C'est précisément l'inverse de la philosophie Youm. Un bijou qui n'entre dans votre vie que deux fois par an n'est pas un bijou — c'est un objet de vitrine. La vraie valeur d'une pièce, c'est sa capacité à s'adapter, à sublimer une tenue de bureau autant qu'une soirée, un blazer structuré autant qu'une blouse légère.</p>
+
+<p>Les pierres naturelles ont cet avantage précieux : elles ancrent la couleur sans l'imposition. Une paire de <a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine en agate bleue</a> s'associe naturellement avec du blanc cassé, du beige ou du marine — des couleurs de base qui composent l'essentiel d'une garde-robe féminine. Pas besoin de construire une tenue autour du bijou : c'est lui qui s'adapte, qui révèle, qui complète sans dominer.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-pierre-naturelle-bleue-percee-clip-face.jpg?v=1770400373" alt="boucles Marine en agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine en agate bleue</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-dorees-marine-agate-bleue-clips-percees-portees.jpg?v=1770400452" alt="boucles Marine en agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine en agate bleue</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/emballage-cadeau-youm-bijoux-pierres-naturelles.jpg?v=1770400502" alt="boucles Marine en agate bleue" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-agate-bleue">boucles Marine en agate bleue</a></figcaption></figure></div>
+
+<p>Le galuchat, autre matière signature de la maison, introduit une texture que les pierres ne peuvent offrir. Traité et teint à la main, il apporte un relief discret qui change la nature de la pièce selon la lumière. Les <a href="https://youm-paris.com/products/boucles-doreilles-trefle-galuchat-noir">boucles Trèfle en galuchat noir</a> incarnent ce principe : une forme simple, une matière qui parle, et rien de superflu. Pour découvrir l'ensemble de cette ligne, explorez <a href="https://youm-paris.com/collections/bijoux-galuchat">notre collection galuchat</a>.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517" alt="Boucles Doreilles Galuchat Grace" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace">Boucles Doreilles Galuchat Grace</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949" alt="Boucles Doreilles Galuchat Grace Bordeaux" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux">Boucles Doreilles Galuchat Grace Bordeaux</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-jaspe-bleu-packshot.jpg?v=1773084850" alt="Boucles Doreilles Galuchat Grace Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-jaspe">Boucles Doreilles Galuchat Grace Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm_boucle_d_oreilles_galuchat_rose_nacre_blanche.jpg?v=1752758199" alt="Boucles Doreilles Galuchat Grace Rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-rose">Boucles Doreilles Galuchat Grace Rose</a></figcaption></figure></div>
+
+<p>La superposition est également une façon naturelle d'intégrer l'esprit voyage dans une tenue quotidienne. Porter ensemble plusieurs pièces de matières différentes — une pierre et une perle, une créole dorée et une manchette sobre — crée une cohérence par contraste, fidèle à la façon dont les femmes voyageuses composent leurs looks : avec des références multiples, sans rigidité stylistique.</p>
+
+<h2 id="conseils-pratiques">6 conseils pour choisir un bijou inspiré du voyage</h2>
+
+<ul>
+  <li>Optez pour une pierre dont la couleur résonne avec votre palette vestimentaire habituelle — une teinte que vous portez déjà vous permettra de l'intégrer sans effort.</li>
+  <li>Misez sur des formes géométriques plutôt que figuratives si vous souhaitez un bijou polyvalent : elles s'adaptent à tous les contextes, du bureau à la soirée.</li>
+  <li>Associez une pièce colorée à des matières neutres — lin écru, coton blanc, soie ivoire — pour laisser le bijou affirmer sa présence sans entrer en concurrence avec la tenue.</li>
+  <li>Jouez sur les contrastes de texture : une pierre mate avec une dorure brillante, ou du galuchat avec une perle — c'est ce dialogue de matières qui donne vie à un look.</li>
+  <li>Variez les proportions selon l'occasion : une paire de boucles pendantes pour une soirée, des puces ou des créoles sobres pour le quotidien — la même pierre peut exister dans des formats très différents.</li>
+  <li>Adaptez la taille du bijou à votre morphologie et à votre coupe de cheveux : les cheveux courts mettent en valeur les boucles d'oreilles volumineuses, les cheveux longs appellent plutôt des pendantes élancées ou des créoles graphiques.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes</h2>
+
+<h3>Qu'est-ce qui distingue un bijou inspiration voyage d'un bijou ethnique ?</h3>
+<p>Un bijou inspiration voyage s'appuie sur des formes, des couleurs et des matières évocatrices — sans reproduire ni s'approprier des codes culturels spécifiques. Chez Youm, l'inspiration est une sensibilité, pas une citation. Les pièces sont géométriques et épurées, dessinées à partir d'une émotion ou d'une palette mémorisée lors d'un voyage, et non d'un motif traditionnel reproduit.</p>
+
+<h3>Les bijoux Youm sont-ils adaptés à un usage quotidien ?</h3>
+<p>Oui — c'est même l'intention première. Les pièces sont en laiton doré à l'or fin 24 carats, assemblées à la main, et conçues pour s'intégrer à une garde-robe active. Nous recommandons de les ranger dans leur pochon individuel entre chaque port, et de les éloigner des produits cosmétiques et de l'eau pour préserver leur éclat. Retrouvez nos <a href="https://youm-paris.com/pages/entretien">conseils d'entretien complets</a> sur notre site.</p>
+
+<h3>Puis-je offrir un bijou Youm comme cadeau sans connaître les goûts précis de la personne ?</h3>
+<p>Les pièces Youm sont pensées pour être facilement offrables : les formes épurées et les matières naturelles — pierres, perles, galuchat — parlent à un large spectre de personnalités. Si vous hésitez, notre <a href="https://youm-paris.com/collections/guide-cadeaux">guide cadeaux</a> vous aide à identifier la pièce juste selon le profil et le budget. Chaque bijou est livré dans un pochon individuel, prêt à offrir.</p>
+
+<h3>Youm propose-t-elle des boucles d'oreilles pour oreilles non percées ?</h3>
+<p>Oui. La plupart de nos modèles sont disponibles en version clips, avec un mécanisme discret côté face qui assure un confort toute la journée. Retrouvez l'ensemble de <a href="https://youm-paris.com/collections/boucles-doreilles-clip">nos boucles d'oreilles clips</a> — les mêmes pierres, les mêmes dorures, sans contrainte de perçage.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Doreilles Pendantes Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Boucles Doreilles Pendantes Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles D Oreilles Asymetriques" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Boucles D Oreilles Asymetriques</a></figcaption></figure></div>
+
+<h3>D'où viennent les pierres utilisées dans les bijoux Youm ?</h3>
+<p>Les pierres sont des pierres naturelles — amazonite, malachite, cornaline, agate, quartz rose, lapis-lazuli, aventurine, jaspe, entre autres — sélectionnées pour leur qualité visuelle et leur cohérence avec l'esthétique de chaque collection. Elles sont montées sur des estampes en laiton brut, transformées dans notre atelier parisien, puis dorées à l'or fin 24 carats par des artisans à Paris.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Explorez les bijoux dorés qui portent une histoire</h2>
+      <p class="cta-subtext">Pierres naturelles, galuchat, perles — chaque pièce Youm est assemblée à la main et dorée à l'or fin 24 carats à Paris, entre 40 et 99€. Trouvez celle qui vous ressemble.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Découvrir nos bijoux dorés</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

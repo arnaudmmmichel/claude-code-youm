@@ -1,0 +1,29 @@
+{
+  "pipeline": "cloudinary-pinterest-pairs-collage-youm",
+  "source": "collection:bijoux-galuchat",
+  "pin_title": "Boucles d'oreilles galuchat : deux univers, un même raffinement | Youm Paris",
+  "pin_description": "Du bordeaux profond à l'orange éclatant, le galuchat se décline en couleurs pour sublimer chaque style. Boucles d'oreilles faites main, dorées à l'or fin 24 carats. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Galuchat Paris",
+  "dest_url": "https://youm-paris.com/collections/bijoux-galuchat",
+  "hook": "Une matière, deux caractères.",
+  "label": "Du bordeaux intense à l'orange solaire, galuchat doré à l'or fin.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206538/Youm-Paris/bx52pwqmbjtqgwur2ard.jpg",
+      "status": "refaire",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bijoux-galuchat-0-creative-89d2e6831e",
+      "img1_public_id": "youm/pinterest-pairs-collage/bijoux-galuchat-0-packshot-89d2e6831e"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-orange-gala",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-gala-galuchat-orange-packshot-youm.jpg?v=1772803703",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206864/Youm-Paris/re0gzplmpvbco4fch04t.jpg",
+      "status": "refaire",
+      "creative1_public_id": "youm/pinterest-pairs-collage/bijoux-galuchat-1-creative-67dee9684e",
+      "img1_public_id": "youm/pinterest-pairs-collage/bijoux-galuchat-1-packshot-67dee9684e"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-pairs-collage:bijoux-galuchat-0-creative-89d2e6831e,w_473,h_807,c_thumb,g_center/g_north,x_-240,y_174,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-galuchat-0-packshot-89d2e6831e,w_473,h_429,c_thumb,g_center/g_north,x_-240,y_987,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-galuchat-1-creative-67dee9684e,w_473,h_807,c_thumb,g_center/g_north,x_239,y_609,fl_layer_apply/l_youm:pinterest-pairs-collage:bijoux-galuchat-1-packshot-67dee9684e,w_473,h_429,c_thumb,g_center/g_north,x_239,y_174,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20GALUCHAT%20PARIS,co_rgb:f54e00,g_north,y_34/l_text:Arial_42_bold:Une%20mati%C3%A8re%252C%20deux%20caract%C3%A8res.,co_rgb:1c1814,g_north,y_65,w_860,c_fit/l_text:Arial_19_bold:Du%20bordeaux%20intense%20%C3%A0%20l%27orange%20solaire%252C%20galuchat%20dor%C3%A9%20%C3%A0%20l%27or%20fin.,co_rgb:5a4a3a,g_north,y_117,w_820,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south,y_30/youm/instagram-bg.png"
+}

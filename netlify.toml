@@ -1,0 +1,28 @@
+[build]
+  # Publishes only output/youm_paris/ as the site root -- control-panel.html,
+  # overview.html, manifest.js, seo-manifest.js, and all image/video assets
+  # already use paths relative to that folder, so no path rewriting is
+  # needed when it becomes the site root (confirmed 2026-07-25).
+  publish = "output/youm_paris"
+  # Regenerates both manifests at build time so every deploy reflects the
+  # current state of the Google Sheets + blog HTML files -- this is what
+  # replaces "Arnaud manually runs generate_manifest.py and reloads."
+  # These stay Python (Netlify's build step supports Python via
+  # PYTHON_VERSION; only the two write-back Functions below needed a Node
+  # port, since Netlify Functions themselves don't support Python).
+  command = "pip install -r requirements.txt && python .claude/skills/youm-social-control-panel/scripts/generate_manifest.py && python .claude/skills/youm-seo-control-panel/scripts/generate_seo_manifest.py"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Exposes the two Functions at the clean paths the dashboard's client-side
+# JS already calls (built relative-path-friendly specifically for this).
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+[build.environment]
+  PYTHON_VERSION = "3.12"

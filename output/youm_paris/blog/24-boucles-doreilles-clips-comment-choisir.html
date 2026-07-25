@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#qu-est-ce-qu-une-boucle-clips">Qu'est-ce qu'une boucle d'oreille clips ?</a></li>
+      <li><a href="#comment-fonctionne-le-systeme-clips">Comment fonctionne le système clips ?</a></li>
+      <li><a href="#choisir-selon-morphologie">Choisir selon la morphologie du lobe</a></li>
+      <li><a href="#quel-style-de-clips">Quel style de boucles d'oreilles clips choisir ?</a></li>
+      <li><a href="#confort-au-quotidien">Le confort, critère essentiel</a></li>
+      <li><a href="#materiaux-et-qualite">Matière et qualité : ce qui fait la différence</a></li>
+      <li><a href="#conseils-pratiques">Conseils pratiques pour porter vos clips</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Les boucles d'oreilles clips ont longtemps souffert d'une réputation injuste : inconfortables, peu élégantes, réservées à un usage ponctuel. Pourtant, pour les femmes aux oreilles non percées — ou celles qui ne souhaitent tout simplement plus se percer — elles représentent la seule façon de porter des bijoux d'oreilles avec le même raffinement qu'une paire classique. Chez Youm, nous avons conçu nos boucles d'oreilles clips pour répondre précisément à cette exigence : un système discret, un confort journée entière, et des modèles identiques à nos versions percées. Ce guide vous accompagne pas à pas pour choisir la paire qui vous correspond, selon votre morphologie, votre style et vos habitudes du quotidien.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="qu-est-ce-qu-une-boucle-clips">Qu'est-ce qu'une boucle d'oreille clips ?</h2>
+
+<p>Une boucle d'oreille clips est un bijou conçu pour se fixer sur le lobe de l'oreille sans nécessiter de perçage. Elle repose sur un mécanisme de serrage doux — appelé mécanisme clips — qui maintient le bijou en place grâce à une légère pression réglable. Contrairement aux bijoux à tiges vissées ou aux créoles classiques, elle ne traverse pas le lobe : elle l'enserre, côté face et côté verso, de manière à rester stable tout au long de la journée.</p>
+
+<p>Ce type de bijou s'adresse à un profil très large : femmes dont les lobes ne sont pas percés, personnes souhaitant éviter les irritations liées aux tiges en métal, ou simplement celles qui recherchent une alternative confortable pour les longues journées de travail ou les occasions habillées. Les boucles d'oreilles clips ne sont pas un compromis — elles sont un choix à part entière, et chez Youm, nous les traitons comme tel.</p>
+
+<h2 id="comment-fonctionne-le-systeme-clips">Comment fonctionne le système clips ?</h2>
+
+<p>Le mécanisme clips traditionnel se compose d'une platine avant (sur laquelle est fixé le bijou visible) et d'un fermoir arrière articulé, qui vient pincer le lobe par pivotement. Ce fermoir est généralement en métal doré, discret et invisible côté face une fois le bijou en place. La tension du clips est ajustable sur la plupart des modèles : un léger écartement du fermoir suffit à adapter la pression selon l'épaisseur du lobe.</p>
+
+<p>Chez Youm, nous utilisons un système clips dont le mécanisme reste invisible côté face du bijou. Lorsque vous portez une <a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">boucle Jacinthe</a> ou une <a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">boucle Pernille perle blanche</a> en version clips, personne ne distingue la différence avec la version percée. C'est précisément cet objectif que nous poursuivons : que le clips soit une option technique, non un compromis esthétique.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="boucle Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">boucle Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255" alt="boucle Pernille perle blanche" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">boucle Pernille perle blanche</a></figcaption></figure></div>
+
+<blockquote><p>Le bon clips est celui que vous oubliez de porter — parce qu'il ne vous gêne pas, et qu'il sublime votre tenue en toute discrétion.</p></blockquote>
+
+<h2 id="choisir-selon-morphologie">Choisir selon la morphologie du lobe</h2>
+
+<p>La morphologie du lobe est le premier critère à considérer pour choisir des boucles d'oreilles clips confortables. Un lobe fin ou petit sera plus à l'aise avec un clips de taille modérée et à pression douce, tandis qu'un lobe plus épais nécessite un mécanisme dont l'écartement peut être ajusté. L'erreur fréquente consiste à choisir une paire en fonction du seul critère esthétique, sans tenir compte de ce paramètre — ce qui explique en grande partie la mauvaise réputation de confort que certains clips ont pu avoir.</p>
+
+<p>Pour les lobes fins, les boucles de petite et moyenne taille — puces, modèles discrets ou pendantes légères — offrent généralement le meilleur équilibre. Pour les lobes plus larges, les créoles clips ou les modèles à platine élargie distribuent mieux la pression et restent stables sans serrer. Dans tous les cas, nous recommandons de régler le fermoir avant la première mise en place : écartez-le légèrement si la pression vous semble trop forte, refermez-le si le bijou a tendance à glisser.</p>
+
+<h2 id="quel-style-de-clips">Quel style de boucles d'oreilles clips choisir ?</h2>
+
+<p>La question du style est souvent la plus agréable à explorer — et la plus riche en possibilités. Les boucles d'oreilles clips existent aujourd'hui dans toutes les formes et tous les formats que proposent les bijoux percés : puces, pendantes, créoles, modèles asymétriques, pierres naturelles ou perles. Chez Youm, la quasi-totalité de <a href="https://youm-paris.com/collections/boucles-doreilles-clip">nos boucles d'oreilles clips</a> reprend exactement les mêmes designs que nos versions percées, sans adaptation ni simplification.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure></div>
+
+<p>Pour une tenue sobre et élégante au quotidien, les modèles graphiques en laiton doré à l'or fin 24 carats s'imposent naturellement. Les boucles <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure pierres naturelles</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Lila cornaline et quartz rose</a> apportent une touche de couleur raffinée sans chercher à s'imposer. Pour une occasion habillée, les pendantes légères et les modèles avec perles naturelles rehaussent une tenue avec beaucoup de délicatesse.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="Aure pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948" alt="Aure pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-detail-pose.jpg?v=1770739990" alt="Aure pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">Aure pierres naturelles</a></figcaption></figure></div>
+
+<p>Si vous souhaitez porter des boucles affirmées sans renoncer au confort, les modèles dépareillés comme les <a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">boucles Isabelle aventurine et agate rouge</a> offrent une alternative graphique et singulière, disponible en version clips. L'asymétrie devient ici un choix stylistique pleinement assumé, et non une contrainte.</p>
+
+<h3>Tableau indicatif : quel style selon l'occasion</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Occasion</th>
+      <th>Style recommandé</th>
+      <th>Exemple Youm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bureau, réunions, quotidien</td>
+      <td>Puces, modèles sobres, petites pendantes</td>
+      <td>Aure pierres naturelles, Pernille perle</td>
+    </tr>
+    <tr>
+      <td>Dîner, soirée habillée</td>
+      <td>Pendantes légères, perles, galuchat</td>
+      <td>Jacinthe, Lila cornaline</td>
+    </tr>
+    <tr>
+      <td>Week-end, brunch, sortie décontractée</td>
+      <td>Créoles, modèles colorés, pierres naturelles</td>
+      <td>Isabelle aventurine, Marine agate bleue</td>
+    </tr>
+    <tr>
+      <td>Occasion spéciale, tenue habillée</td>
+      <td>Modèles statement, dépareillés, galuchat</td>
+      <td>Tréfle noir galuchat, Ninon pierres</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="confort-au-quotidien">Le confort, critère essentiel</h2>
+
+<p>La question que nous entendons le plus souvent est simple : est-ce que ça tient toute la journée ? La réponse honnête est : oui, à condition de choisir le bon modèle et de régler correctement le mécanisme. Un clips bien ajusté se porte sans y penser pendant huit heures ou plus. La gêne que beaucoup de femmes ont pu ressentir avec des clips anciens provient presque toujours d'un mécanisme trop serré ou d'une platine trop lourde pour la taille du lobe.</p>
+
+<p>Pour maximiser le confort au quotidien, quelques précautions simples font toute la différence. Préférez des modèles dont le poids reste modéré — les pendantes très longues ou très volumineuses exercent davantage de traction sur le lobe. Vérifiez que le fermoir arrière est bien centré sur le lobe avant de sortir, afin d'éviter tout déséquilibre. Et si vous portez vos clips pour la première fois, commencez par une demi-journée pour habituer votre lobe à la sensation.</p>
+
+<p>Chez Youm, nos clips sont pensés pour un usage journalier réel — pas uniquement pour quelques heures en soirée. C'est pourquoi nous avons choisi des mécanismes à pression douce et réglable, compatibles avec des ports prolongés.</p>
+
+<h2 id="materiaux-et-qualite">Matière et qualité : ce qui fait la différence</h2>
+
+<p>La matière du mécanisme clips joue un rôle essentiel dans le confort et l'esthétique du bijou. Chez Youm, l'ensemble du bijou — y compris le fermoir clips — est réalisé en laiton doré à l'or fin 24 carats, par des artisans à Paris. Cette dorure assure une homogénéité visuelle parfaite entre la partie avant du bijou et son système de fixation : aucune rupture de teinte, aucun métal apparent différent.</p>
+
+<p>Le laiton doré à l'or fin 24 carats présente par ailleurs l'avantage d'être un matériau précis et stable pour les mécanismes de clips : il conserve sa forme et sa tension sur la durée, sans fragilité excessive. Chaque pièce de <a href="https://youm-paris.com/collections/boucles-doreilles-clip">notre collection de boucles d'oreilles clips</a> est assemblée à la main à Bruxelles, avec le même soin apporté aux versions percées. Ce n'est pas une gamme dérivée — c'est la même collection, avec une option technique supplémentaire.</p>
+
+<p>Les pierres naturelles, perles baroques et éléments en galuchat utilisés dans nos modèles clips sont identiques à ceux de nos autres bijoux. Que vous choisissiez une boucle en amazonite, en malachite ou ornée de perles naturelles, la qualité des matières ne varie pas selon le système de fixation choisi. Vous pouvez retrouver l'ensemble de ces matériaux dans <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a> et <a href="https://youm-paris.com/collections/bijoux-perles">notre collection perles</a>.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037" alt="Bracelet Jonc Dore Quartz Rose Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo">Bracelet Jonc Dore Quartz Rose Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Nacre Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Jonc Nacre Theo</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890" alt="Boucles Doreilles Diego Cercle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle">Boucles Doreilles Diego Cercle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636" alt="Boucles Doreilles Nils Rectangle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle">Boucles Doreilles Nils Rectangle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-arthur-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-arthur-cercle-dore-perle-blanche-packshot.jpg?v=1774707636" alt="Boucles Doreilles Arthur Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-arthur-dore-perle">Boucles Doreilles Arthur Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594" alt="Boucles Doreilles Creoles Jane Perle Ronde" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">Boucles Doreilles Creoles Jane Perle Ronde</a></figcaption></figure></div>
+
+<h2 id="conseils-pratiques">Conseils pratiques pour porter vos boucles d'oreilles clips</h2>
+
+<ul>
+  <li>Réglez la pression du fermoir avant la première mise en place : écartez légèrement le clips si votre lobe est fin, ou laissez-le en position standard si votre lobe est plus épais.</li>
+  <li>Optez pour des modèles de taille adaptée à votre lobe — une boucle trop large ou trop lourde sera moins stable et plus fatigante à porter sur la durée.</li>
+  <li>Vérifiez le centrage du fermoir arrière sur le lobe à chaque mise en place pour garantir la stabilité et éviter les déséquilibres.</li>
+  <li>Associez vos clips à une tenue en accord avec leur échelle : une pendante fine se marie avec un col V ou un décolleté discret, tandis qu'une boucle plus affirmée appelle un col dégagé.</li>
+  <li>Retirez vos boucles d'oreilles clips avant de vous coiffer pour éviter toute accroche dans les cheveux, surtout avec les modèles pendants.</li>
+  <li>Conservez vos clips dans leur pochon individuel pour protéger la dorure et le mécanisme entre deux ports.</li>
+  <li>Consultez les <a href="https://youm-paris.com/pages/entretien">conseils d'entretien Youm</a> pour prendre soin de vos bijoux dorés à l'or fin 24 carats sur le long terme.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes sur les boucles d'oreilles clips</h2>
+
+<h3>Les boucles d'oreilles clips tiennent-elles toute la journée ?</h3>
+<p>Oui, à condition de choisir un modèle dont le poids est adapté à votre lobe et de régler correctement la tension du fermoir. Les clips Youm sont conçus pour un port journalier confortable — bureau, déjeuner, soirée. Un léger ajustement du mécanisme avant la première mise en place suffit généralement à garantir un maintien stable et sans gêne pendant plusieurs heures.</p>
+
+<h3>Quelle différence entre un clips classique et le système utilisé par Youm ?</h3>
+<p>Les clips classiques utilisent parfois des fermoirs très épais ou très visibles côté verso, qui peuvent être inconfortables ou peu esthétiques. Chez Youm, le mécanisme est discret et invisible côté face du bijou : seul le bijou est visible, et rien ne trahit la présence d'un système de clips. La platine et le fermoir sont dorés à l'or fin 24 carats, dans la même finition que le reste de la pièce.</p>
+
+<h3>Peut-on commander n'importe quel modèle Youm en version clips ?</h3>
+<p>La très grande majorité de nos modèles est disponible en version clips, directement sur la fiche produit. Si vous ne voyez pas l'option proposée pour un modèle spécifique, vous pouvez nous contacter : nous étudions les demandes au cas par cas. Retrouvez l'ensemble des modèles disponibles en clips sur <a href="https://youm-paris.com/collections/boucles-doreilles-clip">notre page dédiée aux boucles d'oreilles clips</a>.</p>
+
+<h3>Les boucles d'oreilles clips conviennent-elles aux lobes sensibles ?</h3>
+<p>Les boucles d'oreilles clips sont souvent recommandées pour les lobes sensibles, précisément parce qu'elles ne traversent pas la peau. Tous nos bijoux sont en laiton doré à l'or fin 24 carats, sans tige en contact avec le lobe. En cas de sensibilité particulière, nous vous conseillons de régler le fermoir sur une pression minimale et de tester le port progressivement.</p>
+
+<h3>Comment entretenir mes boucles d'oreilles clips Youm ?</h3>
+<p>Entreposez vos clips dans leur pochon individuel lorsque vous ne les portez pas. Évitez le contact avec l'eau, les parfums et les produits cosmétiques. Pour nettoyer le bijou, utilisez un chiffon doux et sec. Consultez notre page <a href="https://youm-paris.com/pages/entretien">conseils d'entretien</a> pour toutes les recommandations détaillées.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez nos boucles d'oreilles clips dorées à l'or fin</h2>
+      <p class="cta-subtext">Des modèles graphiques et raffinés, disponibles avec ou sans perçage — même bijou, même élégance, mécanisme discret et confort journée entière.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Voir la collection clips</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

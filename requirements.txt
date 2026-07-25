@@ -1,0 +1,7 @@
+# Only what the Netlify build command actually needs to run
+# generate_manifest.py + generate_seo_manifest.py + sheet_client.py.
+python-dotenv>=1.0.0
+gspread>=6.1.0
+google-auth>=2.36.0
+google-auth-oauthlib>=1.2.0
+Pillow>=11.0.0

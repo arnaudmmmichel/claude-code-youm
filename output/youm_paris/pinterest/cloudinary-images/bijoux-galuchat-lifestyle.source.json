@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:bijoux-galuchat",
+  "pin_title": "Boucles d'oreilles galuchat – bijoux fins dorés à l'or 24 carats | Youm Paris",
+  "pin_description": "Le galuchat, matière rare et texturée, sublimé par une dorure à l'or fin 24 carats. Des boucles d'oreilles artisanales pour un détail qui change tout. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Parisiens Raffinés",
+  "dest_url": "https://youm-paris.com/collections/bijoux-galuchat",
+  "hook": "Le galuchat, autrement.",
+  "label": "Boucles artisanales dorées à l'or fin 24 carats.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206538/Youm-Paris/bx52pwqmbjtqgwur2ard.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-galuchat-0-creative-89d2e6831e"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-grace-verte",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-grace-galuchat-vert-nacre-blanche-packshot.jpg?v=1773048746",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206703/Youm-Paris/ghi3ivasu3kqovp6mzft.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-galuchat-1-creative-ce358035cf"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-orange-gala",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-gala-galuchat-orange-packshot-youm.jpg?v=1772803703",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206864/Youm-Paris/re0gzplmpvbco4fch04t.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-galuchat-2-creative-67dee9684e"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-grace-jaspe",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-grace-galuchat-bleu-jaspe-bleu-packshot.jpg?v=1773084850",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206591/Youm-Paris/fwshnr7nfqpd4x6svj3t.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-galuchat-3-creative-a25520345a"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-grace-rose",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm_boucle_d_oreilles_galuchat_rose_nacre_blanche.jpg?v=1752758199",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206647/Youm-Paris/wsfyrprwcfvolrtbgikg.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-galuchat-4-creative-80c6ae1449"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-galuchat-mini-gala-bleu",
+      "img1": "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-gala-galuchat-bleu-packshot.jpg?v=1773047343",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774206755/Youm-Paris/gzzse1wnav1wcszxlz9b.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-galuchat-5-creative-fc94d69ef3"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bijoux-galuchat-0-creative-89d2e6831e,w_946,h_414,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-galuchat-1-creative-ce358035cf,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-galuchat-2-creative-67dee9684e,w_473,h_276,c_thumb,g_center/g_north,x_239,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-galuchat-3-creative-a25520345a,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-galuchat-4-creative-80c6ae1449,w_473,h_276,c_thumb,g_center/g_north,x_239,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-galuchat-5-creative-fc94d69ef3,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_1192,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PARISIENS%20RAFFIN%C3%89S,co_rgb:f54e00,g_center,y_-257/l_text:Arial_34_bold:Le%20galuchat%252C%20autrement.,co_rgb:1c1814,g_center,y_-211,w_820,c_fit/l_text:Arial_19_bold:Boucles%20artisanales%20dor%C3%A9es%20%C3%A0%20l%27or%20fin%2024%20carats.,co_rgb:5a4a3a,g_center,y_-161,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

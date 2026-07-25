@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#qu-est-ce-que-le-galuchat">Qu'est-ce que le galuchat ?</a></li>
+      <li><a href="#pourquoi-choisir-galuchat">Pourquoi choisir le galuchat pour ses boucles d'oreilles ?</a></li>
+      <li><a href="#galuchat-vs-cuir">Galuchat et cuir : deux matières, deux caractères</a></li>
+      <li><a href="#comment-porter-galuchat">Comment porter les boucles d'oreilles en galuchat</a></li>
+      <li><a href="#la-collection-galuchat-youm">La collection galuchat chez Youm Paris</a></li>
+      <li><a href="#conseils-pratiques">Conseils pratiques pour choisir vos boucles d'oreilles</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Parmi les matières qui donnent à un bijou son caractère immédiatement reconnaissable, le galuchat occupe une place singulière : ni métal, ni pierre, ni cuir ordinaire — une surface naturellement granuleuse, dense, d'une richesse visuelle que l'on ne retrouve nulle part ailleurs. Les boucles d'oreilles en galuchat coloré conjuguent la précision de l'artisanat avec une intensité chromatique capable de transformer la tenue la plus sobre en un véritable parti pris stylistique. Chez Youm Paris, fondée en 2017 par Youmna, cette matière rare est travaillée aux côtés du laiton doré à l'or fin 24 carats pour créer des pièces assemblées à la main, au caractère affirmé et à la présence discrètement lumineuse. Cet article vous invite à mieux comprendre le galuchat, à découvrir ce qui le distingue du cuir classique, et à trouver comment le porter avec justesse au quotidien.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="qu-est-ce-que-le-galuchat">Qu'est-ce que le galuchat ?</h2>
+
+<p>Le galuchat est une peau naturelle issue de la raie ou du requin, travaillée et polie pour révéler sa texture granuleuse caractéristique. Son nom est directement hérité de Jean-Claude Galluchat, maroquinier du roi Louis XV, qui popularisa cette matière au XVIIIe siècle dans les ateliers parisiens les plus réputés. Ce qui frappe immédiatement au contact du galuchat, c'est cette surface légèrement irrégulière, presque minérale, qui capte la lumière différemment selon l'angle de vue et l'intensité de l'éclairage.</p>
+
+<p>À la différence d'un cuir lisse, le galuchat possède une âme. Sa granulation naturelle donne à chaque pièce une empreinte unique — deux morceaux découpés dans la même peau ne seront jamais strictement identiques. C'est précisément cette impréfection maîtrisée qui en fait une matière prisée par les créateurs de bijoux et les maisons de maroquinerie de prestige depuis des décennies. Chez Youm Paris, le galuchat est sélectionné avec soin et assemblé à Bruxelles avec des estampes en laiton brut, dorées à l'or fin 24 carats par des artisans à Paris — une alliance de matières qui ancre chaque pièce dans une fabrication véritablement artisanale.</p>
+
+<p>La teinte du galuchat est obtenue par teinture en profondeur, ce qui lui confère une saturation chromatique remarquable. Le noir, le turquoise, le vert forêt ou l'ivoire : chaque couleur révèle une profondeur que les matières synthétiques ne parviennent pas à reproduire. C'est cette richesse que l'on retrouve dans <a href="https://youm-paris.com/collections/bijoux-galuchat">notre collection galuchat</a>, pensée pour les femmes qui souhaitent affirmer leur personnalité sans chercher l'excentricité.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517" alt="Boucles Doreilles Galuchat Grace" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace">Boucles Doreilles Galuchat Grace</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-grace-galuchat-bordeaux-rhodonite-packshot.jpg?v=1773058949" alt="Boucles Doreilles Galuchat Grace Bordeaux" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-bordeaux">Boucles Doreilles Galuchat Grace Bordeaux</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-jaspe-bleu-packshot.jpg?v=1773084850" alt="Boucles Doreilles Galuchat Grace Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-jaspe">Boucles Doreilles Galuchat Grace Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-rose"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm_boucle_d_oreilles_galuchat_rose_nacre_blanche.jpg?v=1752758199" alt="Boucles Doreilles Galuchat Grace Rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace-rose">Boucles Doreilles Galuchat Grace Rose</a></figcaption></figure></div>
+
+<h2 id="pourquoi-choisir-galuchat">Pourquoi choisir le galuchat pour ses boucles d'oreilles ?</h2>
+
+<p>Choisir des boucles d'oreilles en galuchat, c'est faire le choix d'une matière qui s'impose avec sobriété. Là où une pierre naturelle attire le regard par sa translucidité et un métal par son éclat immédiat, le galuchat séduit par sa profondeur mate, sa texture presque tactile que l'œil devine avant même d'avoir besoin d'y toucher. Cette présence discrète mais affirmée en fait un allié de choix pour les femmes urbaines qui recherchent un bijou capable de structurer une tenue sans en dominer l'ensemble.</p>
+
+<p>Le galuchat est également une matière légère, ce qui n'est pas sans importance lorsqu'il s'agit de boucles d'oreilles portées plusieurs heures d'affilée. Les pièces Youm intègrent cette réalité du quotidien : les <a href="https://youm-paris.com/products/boucles-doreilles-trefle-galuchat-noir">boucles Trèfle en galuchat noir</a>, par exemple, conjuguent un format graphique et une légèreté remarquable, permettant de les porter du bureau à une soirée sans inconfort. La forme géométrique sobre équilibre la richesse de la matière — le bijou n'écrase jamais la silhouette, il la précise.</p>
+
+<p>Enfin, le galuchat coloré offre une alternative de caractère aux bijoux en pierres naturelles pour celles qui souhaitent de la couleur sans la fragilité inhérente aux gemmes. Une pièce en galuchat turquoise apporte la même intensité chromatique qu'une amazonite, avec une présence mate et veloutée qui se marie différemment à la lumière naturelle. C'est une matière pour celles qui ont déjà tout essayé et cherchent quelque chose de plus singulier.</p>
+
+<blockquote><p>Le galuchat ne s'annonce pas — il se révèle. C'est la matière des femmes qui n'ont pas besoin de hausser le ton pour se faire remarquer.</p></blockquote>
+
+<h2 id="galuchat-vs-cuir">Galuchat et cuir : deux matières, deux caractères</h2>
+
+<p>On associe souvent le galuchat au cuir, et l'amalgame est compréhensible : tous deux sont des peaux naturelles travaillées, tous deux apportent une dimension organique et chaleureuse à un bijou. Pourtant, les deux matières n'ont ni le même rendu ni le même registre stylistique. Le cuir lisse, souple et uniforme, évoque la modernité décontractée, le minimalisme urbain. Le galuchat, lui, appartient à un registre plus raffiné, plus structuré — il porte avec lui une histoire et une technicité que le cuir ordinaire ne revendique pas.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Matière</th>
+      <th>Texture</th>
+      <th>Rendu visuel</th>
+      <th>Registre stylistique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cuir lisse</td>
+      <td>Souple, uniforme</td>
+      <td>Mat, homogène</td>
+      <td>Casual chic, minimaliste</td>
+    </tr>
+    <tr>
+      <td>Galuchat</td>
+      <td>Granuleuse, naturelle</td>
+      <td>Mat profond, légèrement irisé</td>
+      <td>Raffiné, affirmé, élégant</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Dans la création de bijoux, le galuchat impose une précision d'assemblage que le cuir souple ne nécessite pas au même degré. Chaque pièce de galuchat doit être découpée avec soin, encadrée ou montée sur une structure métallique qui en révèle le format sans en contraindre la présence. Chez Youm Paris, cet assemblage est réalisé à la main à Bruxelles, avec des montures en laiton doré à l'or fin 24 carats — une combinaison qui confère aux pièces une tenue et une présence que seule la fabrication artisanale permet d'atteindre. Vous pouvez explorer l'intégralité de cette approche sur notre page <a href="https://youm-paris.com/pages/savoir-faire">savoir-faire</a>.</p>
+
+<p>En termes de prix, les bijoux en galuchat se situent généralement dans une fourchette légèrement supérieure aux bijoux en cuir classique, en raison du coût de la matière et du soin requis pour l'assembler. Chez Youm Paris, les boucles d'oreilles en galuchat sont accessibles entre 45 et 75€, ce qui les positionne comme des pièces de caractère sans représenter un investissement déraisonnable.</p>
+
+<h2 id="comment-porter-galuchat">Comment porter les boucles d'oreilles en galuchat</h2>
+
+<p>La question du port est souvent celle qui détermine l'achat. Une matière aussi affirmée que le galuchat mérite d'être abordée avec intelligence stylistique — non pas avec crainte, mais avec l'envie de créer un dialogue entre la pièce et la tenue. La règle la plus simple : laisser le galuchat être le point focal. Une paire de boucles en galuchat turquoise portée avec un blazer beige et un col légèrement ouvert suffit à construire un look complet, sans avoir besoin d'ajouter d'autres bijoux.</p>
+
+<p>Les coloris sombres du galuchat — noir, vert foncé, marine — s'accordent avec une amplitude vestimentaire remarquable. Ils accompagnent aussi bien une tenue de bureau (blazer structuré, blouse en soie, jean droit) qu'une tenue de soirée plus habillée. Les <a href="https://youm-paris.com/products/boucles-doreilles-galuchat-noire-gaby">boucles Gaby en galuchat noir</a> illustrent parfaitement cette polyvalence : sobres dans leur silhouette, mais d'une présence indéniable portées en lumière naturelle ou artificielle.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-noire-gaby"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-gaby-galuchat-noir-agate-noire-packshot.jpg?v=1773506727" alt="boucles Gaby en galuchat noir" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-noire-gaby">boucles Gaby en galuchat noir</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-noire-gaby"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-gaby-galuchat-noir-agate-noire-portees.jpg?v=1773506752" alt="boucles Gaby en galuchat noir" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-noire-gaby">boucles Gaby en galuchat noir</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-noire-gaby"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/sac-emballage-bijoux-youm-packshot.jpg?v=1773506796" alt="boucles Gaby en galuchat noir" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-noire-gaby">boucles Gaby en galuchat noir</a></figcaption></figure></div>
+
+<p>Pour les coloris vifs — turquoise, vert d'eau, rouge lacqué — l'approche est différente. Il s'agit alors d'assumer pleinement la couleur et de construire la tenue autour d'elle. Un fond neutre (blanc, ivoire, gris clair, noir) laisse toute la place à la boucle d'oreille. Les <a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles Acqua en galuchat turquoise</a> portées sur une blouse blanche et un pantalon à coupe droite composent une silhouette immédiatement lisible, sans effort apparent. C'est précisément ce type de résultat que recherche la femme urbaine qui souhaite que son bijou travaille pour elle, pas l'inverse.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-packshot.jpg?v=1773507671" alt="boucles Acqua en galuchat turquoise" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles Acqua en galuchat turquoise</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-portees..jpg?v=1773507704" alt="boucles Acqua en galuchat turquoise" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles Acqua en galuchat turquoise</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-zoom.jpg?v=1773507740" alt="boucles Acqua en galuchat turquoise" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles Acqua en galuchat turquoise</a></figcaption></figure></div>
+
+<ul>
+  <li>Optez pour un fond neutre (blanc, noir, ivoire) pour faire ressortir un galuchat coloré vif.</li>
+  <li>Misez sur des boucles en galuchat sombre pour accompagner une tenue de bureau sans surcharger le look.</li>
+  <li>Associez le galuchat à d'autres matières mates (lin, coton, denim) plutôt qu'à des matières brillantes pour conserver l'harmonie.</li>
+  <li>Variez les formats selon l'occasion : une puce géométrique pour le quotidien, une pièce plus affirmée pour une soirée.</li>
+  <li>Jouez sur les contrastes de texture en associant galuchat et laiton doré — le mat et le brillant se magnifient mutuellement.</li>
+  <li>Superposez discrètement d'autres bijoux en or fin si vous portez une boucle en galuchat sobre — un collier léger ou un bracelet jonc suffisent.</li>
+  <li>Adaptez la taille de la boucle à votre morphologie : les formats carrés ou géométriques allongent visuellement le cou et dégagent le visage.</li>
+  <li>Choisissez la version clips si vous avez les oreilles non percées — la majorité des modèles Youm en galuchat sont disponibles en <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a>, avec un mécanisme discret et un confort journée entière.</li>
+</ul>
+
+<h2 id="la-collection-galuchat-youm">La collection galuchat chez Youm Paris</h2>
+
+<p>Chez Youm Paris, le galuchat n'est pas traité comme un simple substitut à la pierre ou au métal — il est considéré comme une matière à part entière, avec ses propres codes et sa propre esthétique. La collection s'articule autour de silhouettes géométriques épurées qui mettent en valeur la surface naturellement texturée du galuchat sans en couvrir l'essentiel. Chaque pièce est assemblée à la main à Bruxelles, sur des montures en laiton doré à l'or fin 24 carats, selon la signature artisanale qui caractérise l'ensemble de la production Youm.</p>
+
+<p>Les <a href="https://youm-paris.com/products/boucles-doreilles-galuchat-grace">boucles Grace</a> incarnent cette approche avec une élégance particulière : leur format pensé pour encadrer le visage sans l'alourdir, leur surface en galuchat finement travaillée, leur dorure soignée en font une pièce que l'on attrape instinctivement au moment de quitter la maison. À l'opposé du spectre, les <a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert">boucles trèfle en galuchat vert</a> apportent une touche de couleur franche et affirmée, idéale pour celles qui souhaitent un bijou capable de raconter quelque chose sans avoir besoin de s'expliquer.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-trefle-galuchat-vert-packshot.jpg?v=1773504491" alt="boucles trèfle en galuchat vert" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert">boucles trèfle en galuchat vert</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-trefle-galuchat-vert-portees.jpg?v=1773504509" alt="boucles trèfle en galuchat vert" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert">boucles trèfle en galuchat vert</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-trefle-galuchat-vert-detail-pose.jpg?v=1773504530" alt="boucles trèfle en galuchat vert" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-trefle-vert">boucles trèfle en galuchat vert</a></figcaption></figure></div>
+
+<p>La production de la collection galuchat suit la logique de séries limitées qui caractérise l'ensemble de la maison Youm : pas de surproduction, des pièces fabriquées en quantités raisonnées, une attention constante à la qualité de chaque assemblage. Cette approche responsable garantit que chaque pièce qui arrive entre vos mains a été réellement pensée et fabriquée — pas simplement reproduite à l'identique des milliers de fois dans une logique industrielle. Pour explorer l'ensemble des pièces disponibles, retrouvez <a href="https://youm-paris.com/collections/bijoux-galuchat">notre collection galuchat</a> en ligne.</p>
+
+<blockquote><p>Chaque pièce en galuchat Youm est produite en série limitée — une façon de garantir que votre bijou reste ce qu'il doit être : singulier.</p></blockquote>
+
+<h2 id="conseils-pratiques">Conseils pratiques pour choisir vos boucles d'oreilles en galuchat</h2>
+
+<p>Choisir une paire de boucles d'oreilles en galuchat revient à choisir une matière autant qu'une forme. Il est utile de partir de quelques questions simples avant de trancher : est-ce que je recherche un bijou de quotidien ou une pièce d'occasion ? Est-ce que je préfère la sobriété d'un coloris neutre ou l'intensité d'une couleur franche ? Est-ce que je porte des oreilles non percées et ai-je besoin d'un système clips ? Ces questions orientent naturellement vers la pièce la plus cohérente avec votre usage réel.</p>
+
+<p>Pour le quotidien, les formats compacts et géométriques sont les plus polyvalents. Ils s'adaptent aux coiffures variées, ne s'accrochent pas aux cols ou aux écharpes, et conservent leur présence même avec des lunettes. Pour une occasion plus habillée, un format légèrement plus ample ou une silhouette en pendante légère permet d'affirmer davantage la pièce sans tomber dans l'excès. Chez Youm Paris, les prix des boucles d'oreilles en galuchat s'échelonnent entre 45 et 75€ — une fourchette qui permet de s'offrir une pièce artisanale de qualité sans arbitrage difficile, dans la gamme globale de 40 à 99€ de la maison.</p>
+
+<p>Si vous souhaitez explorer d'autres matières avant de trancher, <a href="https://youm-paris.com/collections/bijoux-pierre">notre collection pierres naturelles</a> et <a href="https://youm-paris.com/collections/bijoux-perles">notre collection perles</a> offrent des alternatives complémentaires au galuchat — avec leurs propres codes chromatiques et leurs propres façons d'entrer en dialogue avec une tenue. Il n'est d'ailleurs pas rare que les clientes Youm composent leur collection personnelle en mixant galuchat, pierres et perles selon les occasions.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983" alt="Boucles Doreilles Doris Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-doris-jaspe">Boucles Doreilles Doris Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Bracelet Jonc Dore Malachite Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Bracelet Jonc Dore Malachite Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Doreilles Pierres Lila" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Boucles Doreilles Pierres Lila</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255" alt="Boucles D Oreilles Perle Pernille" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Boucles D Oreilles Perle Pernille</a></figcaption></figure><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="Jonc Nacre Theo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">Jonc Nacre Theo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890" alt="Boucles Doreilles Diego Cercle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle">Boucles Doreilles Diego Cercle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636" alt="Boucles Doreilles Nils Rectangle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle">Boucles Doreilles Nils Rectangle Dore Perle</a></figcaption></figure></div>
+
+<h2 id="faq">Questions fréquentes sur les boucles d'oreilles en galuchat</h2>
+
+<h3>Le galuchat est-il une matière fragile ?</h3>
+<p>Le galuchat est une matière naturelle qui mérite quelques précautions d'usage. Il convient d'éviter le contact prolongé avec l'eau ou les produits cosmétiques (parfum, crème), et de ranger vos pièces à l'abri de la lumière directe et de la chaleur excessive. Chez Youm Paris, chaque bijou est livré dans un pochon individuel qui assure sa protection au quotidien. Pour plus de conseils, consultez notre page <a href="https://youm-paris.com/pages/entretien">conseils d'entretien</a>.</p>
+
+<h3>Les boucles d'oreilles en galuchat Youm sont-elles disponibles en version clips ?</h3>
+<p>Oui — la majorité des modèles de la collection galuchat sont disponibles en boucles d'oreilles clips, avec un mécanisme discret qui se positionne côté face et assure un confort prolongé. Cette option est idéale pour les oreilles non percées ou pour celles qui souhaitent alterner entre percé et clips selon les pièces. Retrouvez l'ensemble des modèles disponibles dans <a href="https://youm-paris.com/collections/boucles-doreilles-clip">nos boucles d'oreilles clips</a>.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="Boucles Doreilles Pendantes Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">Boucles Doreilles Pendantes Jacinthe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles D Oreilles Asymetriques" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Boucles D Oreilles Asymetriques</a></figcaption></figure></div>
+
+<h3>Comment distinguer le galuchat d'un cuir classique dans un bijou ?</h3>
+<p>Le galuchat se distingue immédiatement à la texture : sa surface granuleuse naturelle, légèrement irrégulière, est caractéristique de la peau de raie ou de requin travaillée. Un cuir lisse ou grainé artificiellement présente une régularité que le galuchat n'a pas. Au toucher, le galuchat est plus dense, plus ferme, et offre une sensation proche d'une surface légèrement minérale — rien à voir avec la souplesse d'un cuir ordinaire.</p>
+
+<h3>Le galuchat coloré va-t-il déteindre ou s'altérer avec le temps ?</h3>
+<p>Le galuchat utilisé chez Youm Paris est teinté en profondeur, ce qui lui confère une tenue chromatique bien supérieure à une teinture de surface. Comme toute matière naturelle, il peut évoluer légèrement avec le temps et l'usage — c'est d'ailleurs ce qui lui donne son caractère vivant. En suivant les conseils d'entretien de base (éviter l'eau, les cosmétiques, la chaleur directe), vos pièces conserveront leur présence et leur intensité chromatique sur la durée.</p>
+
+<h3>Quelle différence entre les boucles d'oreilles en galuchat Youm et celles que l'on trouve en grande surface ?</h3>
+<p>Les boucles d'oreilles en galuchat Youm Paris sont assemblées à la main à Bruxelles, sur des montures en laiton doré à l'or fin 24 carats par des artisans à Paris — pas en laiton brut non traité, pas en métal générique. Le galuchat sélectionné est une matière naturelle véritable, et non un galuchat synthétique ou une imitation texturée. Cette différence de fabrication se ressent immédiatement dans la tenue, le rendu et la précision de chaque pièce. La note de satisfaction de 4,8/5 sur 343 avis clients en témoigne.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrez la collection galuchat Youm Paris</h2>
+      <p class="cta-subtext">Des boucles d'oreilles en galuchat coloré, assemblées à la main et dorées à l'or fin 24 carats à Paris — disponibles en version percée ou clips, de 45 à 75€. Livraison offerte en France et en Belgique.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Explorer la collection galuchat</a>
+    </div>
+
+    
+    <!-- RELATED-ARTICLES -->
+    <div style="margin-top:48px;padding:32px 0;border-top:1px solid #e8e0d8;">
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1c1814;margin-bottom:20px;">À lire aussi</p>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/boucles-doreilles-statement-couleur-originalite" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Boucles d'oreilles statement : oser la couleur et l'originalité</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/boucles-doreilles-depareillees-asymetriques-guide" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Oser les boucles d'oreilles dépareillées : le guide complet</a></li>
+    <li style="display:flex;align-items:baseline;gap:10px;"><span style="color:#f54e00;font-size:16px;line-height:1;">&#8594;</span><a href="https://youm-paris.com/blogs/actualites/bijoux-createur-france-belgique" style="color:#2a2622;font-size:15px;line-height:1.6;text-decoration:none;border-bottom:1px solid #e8e0d8;">Bijoux créateur France et Belgique : l'art de choisir</a></li>
+      </ul>
+    </div>
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:creoles-a-personnaliser",
+  "pin_title": "Créoles à personnaliser avec charms — bijoux modulables dorés à l'or fin 24 carats",
+  "pin_description": "Des créoles en laiton doré à l'or fin 24 carats, à composer selon vos envies avec des charms interchangeables. Pierres naturelles, perles, nacre — chaque combinaison est unique. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux personnalisables",
+  "dest_url": "https://youm-paris.com/collections/creoles-a-personnaliser",
+  "hook": "Composez vos créoles",
+  "label": "Charms interchangeables · dorure or fin 24 carats",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-julia-doree-charms-pierres-packshot-421.jpg?v=1775649259",
+      "alt": "Créole charms - Julia (à l'unité)",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-0-955aa46a58"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-nina-doree-charms-packshot-411.jpg?v=1775648556",
+      "alt": "Créole charms - Nina (à l'unité)",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-1-8676628d54"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-flora-doree-packshot.jpg?v=1775671409",
+      "alt": "Créole charms - Flora (à l'unité)",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-2-e9d6dc6b01"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-elisa-doree-pierres-packshot-467.jpg?v=1775649651",
+      "alt": "Créole charms - Elisa (à l'unité)",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-3-73d6424b98"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-mm-dore-charms-packshot.jpg?v=1773658901",
+      "alt": "Créoles Catherine MM - Créoles à charms personnalisables",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-4-147506c98a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "alt": "Créoles à charms Catherine GM - Créoles à charms personnalisables",
+      "public_id": "youm/pinterest-collage-products/creoles-a-personnaliser-5-ff176653de"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:creoles-a-personnaliser-0-955aa46a58,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-1-8676628d54,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-2-e9d6dc6b01,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-3-73d6424b98,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-4-147506c98a,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:creoles-a-personnaliser-5-ff176653de,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PERSONNALISABLES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Composez%20vos%20cr%C3%A9oles,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Charms%20interchangeables%20%C2%B7%20dorure%20or%20fin%2024%20carats,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

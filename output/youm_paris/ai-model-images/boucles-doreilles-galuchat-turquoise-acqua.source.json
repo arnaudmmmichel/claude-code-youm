@@ -1,0 +1,16 @@
+{
+  "pipeline": "youm-ai-model-image",
+  "product_url": "https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua",
+  "title": "Boucles d'oreilles Acqua - Galuchat & cornaline",
+  "slug": "boucles-doreilles-galuchat-turquoise-acqua",
+  "season": "ete",
+  "model": "3",
+  "model_ref_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784899429/youm/model-sheets/model-3-turnaround.jpg",
+  "image_urls": [
+    "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-packshot.jpg?v=1773507671",
+    "https://youm-paris.com/cdn/shop/files/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-portees..jpg?v=1773507704"
+  ],
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784916220/youm/ai-model-images/boucles-doreilles-galuchat-turquoise-acqua.jpg",
+  "caption_instagram": "",
+  "caption_pinterest": ""
+}

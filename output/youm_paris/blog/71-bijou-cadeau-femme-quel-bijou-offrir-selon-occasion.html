@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#pourquoi-bijou-cadeau">Pourquoi le bijou reste le cadeau idéal</a></li>
+      <li><a href="#anniversaire">Anniversaire : un bijou à son image</a></li>
+      <li><a href="#noel">Noël : l'éclat d'un cadeau bien pensé</a></li>
+      <li><a href="#fete-des-meres">Fête des mères : toucher juste, sans effort</a></li>
+      <li><a href="#mariage-cadeau">Mariage et occasions habillées : la pièce qui marque</a></li>
+      <li><a href="#budget-guide">Choisir selon le budget : de 40 à 99€</a></li>
+      <li><a href="#conseils-pratiques">8 conseils pour offrir un bijou réussi</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Trouver le bon bijou cadeau femme est l'un de ces plaisirs qui se mérite : il y a l'intention, la personne à qui l'on pense, l'occasion à honorer — et parfois, l'angoisse de ne pas savoir par où commencer. Chez Youm Paris, nous croyons qu'un bijou bien choisi dit davantage qu'un long message : il révèle une attention réelle, une connaissance de l'autre, un goût partagé. Ce guide est fait pour vous accompagner, que vous cherchiez un cadeau pour un anniversaire, pour Noël, pour la fête des mères ou pour célébrer un mariage — avec des suggestions concrètes, à des prix entre 40 et 99€, pour chaque moment et chaque personnalité.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="pourquoi-bijou-cadeau">Pourquoi le bijou reste le cadeau idéal</h2>
+
+<p>Il existe peu de cadeaux aussi personnels qu'un bijou. Contrairement à un parfum ou à un livre, un bijou s'intègre au quotidien de celle qui le reçoit — il l'accompagne, se voit, se touche, et rappelle à chaque fois la personne qui l'a offert. C'est précisément pour cette raison qu'il mérite d'être choisi avec soin plutôt qu'acheté dans l'urgence. Un bijou bien pensé n'est pas forcément le plus coûteux : c'est celui qui correspond à la personnalité de la personne, à son style, à ce que l'on sait d'elle.</p>
+
+<p>Chez Youm Paris, chaque pièce est assemblée à la main à Bruxelles, avec une dorure à l'or fin 24 carats effectuée chez un artisan à Paris. Les bijoux sont réalisés en séries limitées, à partir de matériaux soigneusement sélectionnés — pierres naturelles, perles, galuchat, laiton doré à l'or fin 24 carats. Cette approche artisanale donne à chaque pièce une singularité réelle, qui se ressent au moment du don. Offrir un bijou Youm, c'est offrir quelque chose qui a été pensé, fabriqué avec intention, et qui ne ressemble pas aux bijoux que l'on trouve partout.</p>
+
+<p>La gamme de prix — de 40 à 99€ — permet également de trouver la pièce juste sans compromis sur la qualité ou le style. Que l'on cherche un cadeau d'amie, un cadeau de couple ou un cadeau de famille, il existe chez Youm une réponse élégante à chaque budget et à chaque occasion.</p>
+
+<h2 id="anniversaire">Anniversaire : un bijou à son image</h2>
+
+<p>L'anniversaire est sans doute l'occasion la plus personnelle qui soit. Le bijou que vous offrez doit refléter non pas vos préférences, mais celles de la personne qui le recevra. Si elle porte toujours du doré, si elle affectionne les couleurs franches ou au contraire les tons sobres, si elle collectionne les boucles ou les bracelets — ces détails guident votre choix bien plus efficacement que n'importe quel critère de mode.</p>
+
+<p>Pour une femme au style affirmé qui aime les couleurs, les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">boucles Lila en cornaline et quartz rose</a> sont une suggestion lumineuse : deux pierres naturelles qui se répondent, portées en dépareillé ou en symétrie. Pour une personnalité plus épurée, les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a> offrent une lecture plus sobre, avec ce supplément d'âme que donnent les matières naturelles. Si la destinataire apprécie les boucles d'oreilles qui se remarquent sans s'imposer, les <a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">boucles Jacinthe</a>, élégantes et pendantes, sont une valeur sûre.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="boucles Lila en cornaline et quartz rose" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">boucles Lila en cornaline et quartz rose</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101" alt="boucles Jacinthe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe">boucles Jacinthe</a></figcaption></figure></div>
+
+<blockquote><p>Pour un anniversaire, le bijou le plus réussi est celui qui traduit une vraie connaissance de l'autre — une matière qu'elle aime, une couleur qu'elle porte, un format qu'elle recherchait.</p></blockquote>
+
+<p>Si vous hésitez encore, misez sur une pièce polyvalente : un bracelet jonc, une créole sobre, ou une bague en pierres naturelles sont des formats que l'on intègre facilement à une garde-robe existante. <a href="https://youm-paris.com/collections/guide-cadeaux">Notre guide cadeaux</a> vous permet également de filtrer par type de bijou et par budget pour affiner votre sélection.</p>
+
+<h2 id="noel">Noël : l'éclat d'un cadeau bien pensé</h2>
+
+<p>À Noël, le bijou prend une dimension supplémentaire : il est offert dans un contexte festif, souvent déballé devant d'autres personnes, et porté rapidement lors des célébrations qui suivent. Il doit donc être à la fois personnel et suffisamment polyvalent pour accompagner des tenues habillées — soirées en famille, dîners entre amis, réveillons.</p>
+
+<p>Les perles naturelles s'imposent naturellement pour cette période. Les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane en perle ronde blanche</a> conjuguent élégance classique et modernité : la perle est intemporelle, la créole dorée à l'or fin 24 carats lui confère un caractère contemporain. Dans le même registre, le <a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">collier sautoir Audrey en perles blanches</a> est une pièce qui sublime une tenue de soirée tout en restant porteuse d'une élégance discrète au quotidien.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594" alt="créoles Jane en perle ronde blanche" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane en perle ronde blanche</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774" alt="collier sautoir Audrey en perles blanches" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">collier sautoir Audrey en perles blanches</a></figcaption></figure></div>
+
+<p>Pour celles qui préfèrent les bijoux colorés et graphiques, le galuchat est une matière d'exception à offrir à Noël : précieuse, tactile, et rare dans les collections de bijoux accessibles. Les <a href="https://youm-paris.com/products/boucles-doreilles-trefle-galuchat-noir">boucles Trèfle en galuchat noir</a> sont une pièce signature Youm qui surprend et ravit à la fois. Chaque bijou est glissé dans un pochon individuel, ce qui soigne la présentation sans effort supplémentaire de votre part.</p>
+
+<h2 id="fete-des-meres">Fête des mères : toucher juste, sans effort</h2>
+
+<p>La fête des mères est l'une des occasions où l'intention compte autant que le cadeau lui-même. Ce que vous cherchez, ce n'est pas seulement un beau bijou — c'est une pièce qui dit : je t'ai vue, je sais ce que tu aimes, et j'ai pris le temps de choisir. Pour cela, il est utile de réfléchir à quelques détails pratiques : porte-t-elle ses oreilles percées, ou préfère-t-elle les boucles d'oreilles clips ? Porte-t-elle plutôt des bagues, des bracelets, des colliers ?</p>
+
+<p>Pour une mère aux oreilles non percées, ou qui a renoncé au perçage avec le temps, les <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a> de Youm Paris sont une découverte précieuse. Le système clip est discret côté face, confortable sur une journée entière, et disponible sur de nombreux modèles de la collection — dont les boucles <a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Pernille en perle blanche</a>, délicates et intemporelles. Cette attention au confort est un détail qui ne s'oublie pas.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255" alt="Pernille en perle blanche" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Pernille en perle blanche</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pernille-perle-blanche-portees-youm.jpg?v=1772535391" alt="Pernille en perle blanche" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Pernille en perle blanche</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pernille-perle-blanche-portees-profil-youm.jpg?v=1772535508" alt="Pernille en perle blanche" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-perle-pernille">Pernille en perle blanche</a></figcaption></figure></div>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-fern-pierres-aventurine-jaspe-packshot-youm.jpg?v=1772394140" alt="Boucles Doreilles Fern Aventurine Jaspe" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-fern-aventurine-jaspe">Boucles Doreilles Fern Aventurine Jaspe</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-depareillees-pierres-nelle-packshot.jpg?v=1770732452" alt="Boucles Doreilles Asymetriques Pierres Nell" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-asymetriques-pierres-nell">Boucles Doreilles Asymetriques Pierres Nell</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-doreilles-asymetriques-isabelle-youm.jpg?v=1770321340" alt="Boucles D Oreilles Asymetriques" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">Boucles D Oreilles Asymetriques</a></figcaption></figure></div>
+
+<p>Si vous préférez offrir un bijou de poignet, le <a href="https://youm-paris.com/products/jonc-nacre-theo">jonc Théo en nacre dorée</a> est une pièce sobre et lumineuse, facile à porter au quotidien comme lors d'un déjeuner habillé. Pour une mère qui aime les matières naturelles et colorées, le <a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">jonc Théo en malachite</a> apporte une touche de couleur élégante, sans ostentation.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/jonc-nacre-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986" alt="jonc Théo en nacre dorée" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/jonc-nacre-theo">jonc Théo en nacre dorée</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="jonc Théo en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">jonc Théo en malachite</a></figcaption></figure></div>
+
+<h2 id="mariage-cadeau">Mariage et occasions habillées : la pièce qui marque</h2>
+
+<p>Offrir un bijou pour un mariage — que ce soit à la mariée, à une demoiselle d'honneur, ou comme cadeau de remerciement — demande de trouver l'équilibre entre le raffinement de l'occasion et la singularité du cadeau. Une pièce trop sobre risque de passer inaperçue ; une pièce trop affirmée peut ne pas correspondre au style de la personne ou à l'esprit de la cérémonie.</p>
+
+<p>Chez Youm, les bijoux en perles naturelles et en nacre répondent parfaitement à ce contexte. Les perles baroques, les perles rondes et la nacre sont des matières qui s'accordent naturellement avec les robes de cérémonie, les tenues de demoiselles d'honneur et les ensembles habillés. Pour la mariée qui souhaite rester dans des tons doux, les <a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques">boucles Isabelle Nacre & onyx</a> offrent une lecture dépareillée et délicate, à l'image d'une personnalité singulière.</p>
+
+<p>Pour les invitées ou les demoiselles d'honneur, un bijou en pierres naturelles coordonné à la palette de couleurs du mariage est une idée à la fois attentionnée et pratique. Vous pouvez retrouver l'ensemble de <a href="https://youm-paris.com/collections/bijoux-perles">notre collection perles</a> pour explorer les options disponibles. Chaque pièce est réalisée en série limitée, ce qui confère au cadeau une exclusivité supplémentaire.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890" alt="Boucles Doreilles Diego Cercle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-diego-cercle-dore-perle">Boucles Doreilles Diego Cercle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636" alt="Boucles Doreilles Nils Rectangle Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-nils-rectangle-dore-perle">Boucles Doreilles Nils Rectangle Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-arthur-dore-perle"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-arthur-cercle-dore-perle-blanche-packshot.jpg?v=1774707636" alt="Boucles Doreilles Arthur Dore Perle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-arthur-dore-perle">Boucles Doreilles Arthur Dore Perle</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-pierres-nora-packshot-zoom.jpg?v=1776273907" alt="Collier Pierres Et Perle Nora" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">Collier Pierres Et Perle Nora</a></figcaption></figure></div>
+
+<h2 id="budget-guide">Choisir selon le budget : de 40 à 99€</h2>
+
+<p>L'un des atouts de la collection Youm Paris est sa lisibilité en termes de budget : tous les bijoux se situent entre 40 et 99€, ce qui permet d'offrir une pièce artisanale de qualité sans dépasser une enveloppe raisonnable. Voici comment orienter votre choix selon le montant que vous souhaitez investir.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Budget</th>
+      <th>Type de bijou</th>
+      <th>Exemples chez Youm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>40–55€</td>
+      <td>Boucles d'oreilles, bracelets joncs</td>
+      <td>Boucles Aure, jonc Théo, créoles Catherine</td>
+    </tr>
+    <tr>
+      <td>55–75€</td>
+      <td>Boucles pendantes, bracelets manchette, boucles clips</td>
+      <td>Boucles Jacinthe, boucles Marine, manchette Ariane</td>
+    </tr>
+    <tr>
+      <td>75–99€</td>
+      <td>Colliers, bagues, pièces signature galuchat</td>
+      <td>Collier Audrey, bague Paola, boucles Trèfle galuchat</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pour les cadeaux entre amies ou en famille, les bijoux dans la fourchette 40–55€ sont idéaux : accessibles, mais jamais anodins. Pour un cadeau de couple ou un anniversaire marquant, les pièces entre 75 et 99€ — colliers, bagues en pierres naturelles — offrent un caractère plus solennel. Dans tous les cas, la livraison est offerte en France et en Belgique, et chaque bijou est présenté dans un pochon individuel soigné.</p>
+
+<h2 id="conseils-pratiques">8 conseils pour offrir un bijou réussi</h2>
+
+<ul>
+  <li>Observez les bijoux qu'elle porte déjà : format, couleur, matière — ces détails guident mieux que n'importe quel guide de style.</li>
+  <li>Renseignez-vous discrètement sur ses oreilles : percées ou non ? Si vous n'êtes pas sûr(e), optez pour un modèle disponible en version <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a>.</li>
+  <li>Misez sur les pierres naturelles pour un cadeau qui a du sens : chaque pierre a une teinte, une texture, une personnalité — la destinataire s'y reconnaîtra ou non, et c'est précisément ce qui rend le choix précieux.</li>
+  <li>Optez pour une pièce polyvalente si vous doutez : un jonc doré, une créole sobre, des boucles en quartz rose s'intègrent facilement à une garde-robe variée.</li>
+  <li>Adaptez la taille du bijou à la morphologie : des boucles pendantes longues conviennent davantage à un cou dégagé, tandis que des puces ou des créoles courtes s'adaptent à toutes les silhouettes.</li>
+  <li>Jouez sur les contrastes si vous la connaissez bien : une femme au style sobre appréciera parfois une pièce légèrement plus affirmée — un bijou en galuchat coloré, une boucle graphique en agate noire.</li>
+  <li>Associez le bijou à une petite attention manuscrite : un mot glissé dans le pochon renforce l'intention et personnalise encore davantage le cadeau.</li>
+  <li>Vérifiez la politique de retour avant d'acheter : chez Youm Paris, les retours sont gratuits sous 14 jours en France et en Belgique, ce qui vous laisse une marge de tranquillité.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes</h2>
+
+<h3>Comment savoir si elle préfère les boucles d'oreilles clips ou percées ?</h3>
+<p>Si vous n'avez pas l'information avec certitude, le plus simple est d'opter pour un modèle disponible dans les deux versions. Chez Youm Paris, la majorité des modèles de boucles d'oreilles sont proposés en version percée et en version clips — le mécanisme est discret et confortable pour une journée entière. Vous pouvez consulter l'ensemble de <a href="https://youm-paris.com/collections/boucles-doreilles-clip">notre sélection de boucles d'oreilles clips</a> pour choisir en toute sérénité.</p>
+
+<h3>Quel bijou offrir à une femme qui ne porte presque jamais de bijoux ?</h3>
+<p>Pour une femme peu habituée aux bijoux, privilégiez une pièce discrète et polyvalente : un bracelet jonc fin, des boucles d'oreilles petites en pierres naturelles, ou une bague sobre. L'objectif est de lui proposer un bijou qu'elle aura envie d'adopter progressivement, sans qu'il lui semble trop contraignant ou encombrant.</p>
+
+<h3>Les bijoux Youm Paris conviennent-ils comme cadeau pour une adolescente ?</h3>
+<p>Chez Youm, la collection s'adresse principalement aux femmes adultes, mais certaines pièces — notamment les boucles en quartz rose, les créoles sobres ou les bracelets joncs fins — peuvent tout à fait convenir à une jeune femme de 18 ans et plus, en particulier pour un anniversaire marquant ou une occasion spéciale.</p>
+
+<h3>Est-il possible d'offrir une carte cadeau Youm Paris ?</h3>
+<p>Si vous hésitez réellement entre plusieurs pièces ou si vous souhaitez laisser la destinataire choisir elle-même, rapprochez-vous directement de Youm Paris via le site. Une carte cadeau ou une recommandation personnalisée peut être envisagée selon votre demande.</p>
+
+<h3>Les bijoux Youm Paris sont-ils livrés dans un emballage cadeau ?</h3>
+<p>Chaque bijou Youm Paris est glissé dans un pochon individuel soigné, prêt à offrir dès réception. La présentation fait partie de l'expérience — elle reflète l'attention portée à chaque pièce, de la fabrication à la livraison.</p>
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Trouvez le bijou cadeau qui lui ressemble</h2>
+      <p class="cta-subtext">De 40 à 99€, assemblés à la main et dorés à l'or fin 24 carats à Paris — nos bijoux sont pensés pour être offerts autant que portés. Découvrez notre sélection et laissez-vous guider par l'occasion.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Voir notre guide cadeaux</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

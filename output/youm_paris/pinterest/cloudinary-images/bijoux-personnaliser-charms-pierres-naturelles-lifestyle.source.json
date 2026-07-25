@@ -1,0 +1,34 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "output/youm_paris/blog/06-bijoux-personnaliser-charms-pierres-naturelles.html",
+  "pin_title": "Comment composer son bijou personnalisé avec des charms et des pierres naturelles",
+  "pin_description": "Créoles à personnaliser, pierres naturelles, charms dorés à l'or fin 24 carats — composez un bijou unique, assemblé à la main, entièrement à votre image. Guide complet sur youm-paris.com",
+  "board": "Bijoux à composer",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-personnaliser-charms-pierres-naturelles",
+  "hook": "Compose. Ne subis pas.",
+  "label": "",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-petit-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-mm-dore-charms-packshot.jpg?v=1773658901",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042808/Youm-Paris/vnyhutkpwlak1zhlmvtx.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-personnaliser-charms-pierres-naturelles-0-creative-f8d74e3d26"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042762/Youm-Paris/rrsd0bmquid51wzdpgmm.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-personnaliser-charms-pierres-naturelles-1-creative-b3da5abde4"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucle-doreille-creole-aventurine-nina",
+      "img1": "https://youm-paris.com/cdn/shop/products/creoledoreepierreaventurineyoum.jpg?v=1622103882",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1772725899/Youm-Paris/xklpxpvwqptzneud8o48.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-personnaliser-charms-pierres-naturelles-2-creative-92da5146df"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bijoux-personnaliser-charms-pierres-naturelles-0-creative-f8d74e3d26,w_946,h_616,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-personnaliser-charms-pierres-naturelles-1-creative-b3da5abde4,w_473,h_411,c_thumb,g_center/g_north,x_-240,y_646,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-personnaliser-charms-pierres-naturelles-2-creative-92da5146df,w_473,h_411,c_thumb,g_center/g_north,x_239,y_646,fl_layer_apply/l_text:Arial_28_bold:Compose.%20Ne%20subis%20pas.,co_rgb:1c1814,g_north,x_-240,y_1250,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

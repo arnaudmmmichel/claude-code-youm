@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:bijoux-pierre",
+  "pin_title": "Bijoux pierres naturelles dorés à l'or fin — Collection Youm Paris",
+  "pin_description": "Malachite, cornaline, aventurine… Des pierres naturelles serties sur laiton doré à l'or fin 24 carats, assemblés à la main à Paris. Des pièces en séries limitées pour affirmer votre style au quotidien. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux pierres naturelles",
+  "dest_url": "https://youm-paris.com/collections/bijoux-pierre",
+  "hook": "La pierre qui change tout.",
+  "label": "Malachite, cornaline, aventurine — dorure 24 carats, séries limitées.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo",
+      "img1": "https://youm-paris.com/cdn/shop/files/joncs-dores-theo-accumulation-pierres.jpg?v=1770394229",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1781190910/Youm-Paris/zys46sbavietbycdb5sz.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierre-0-creative-494f920931"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-doris-jaspe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202536/Youm-Paris/nvvpygstranwndy2fir9.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierre-1-creative-6864dfa836"
+    },
+    {
+      "url": "https://youm-paris.com/products/jonc-nacre-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1783492757/Youm-Paris/vqnr3jo9fspbm2i8lgaj.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierre-2-creative-8bb2699900"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778763967/Youm-Paris/afs5csc8v9k2nhkfxfm9.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierre-3-creative-a563c531f3"
+    },
+    {
+      "url": "https://youm-paris.com/products/bague-pierre-sia-cornaline",
+      "img1": "https://youm-paris.com/cdn/shop/files/bague_doree_cornaline_face_youm_bijoux.jpg?v=1770391482",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863471/Youm-Paris/lmmhm5npexmkt5j1jrfr.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierre-4-creative-1b93a8d383"
+    },
+    {
+      "url": "https://youm-paris.com/products/bague-sia-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/files/bague_doree_malachite_sia_packshot_youm_bijoux.jpg?v=1770391681",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776863569/Youm-Paris/wlwpoh86ts63beyvng7n.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierre-5-creative-3ee120c241"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bijoux-pierre-0-creative-494f920931,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierre-1-creative-6864dfa836,w_473,h_276,c_thumb,g_center/g_north,x_239,y_628,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierre-2-creative-8bb2699900,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierre-3-creative-a563c531f3,w_473,h_276,c_thumb,g_center/g_north,x_239,y_910,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierre-4-creative-1b93a8d383,w_473,h_276,c_thumb,g_center/g_north,x_-240,y_1192,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierre-5-creative-3ee120c241,w_946,h_414,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_-257/l_text:Arial_34_bold:La%20pierre%20qui%20change%20tout.,co_rgb:1c1814,g_center,y_-211,w_820,c_fit/l_text:Arial_19_bold:Malachite%252C%20cornaline%252C%20aventurine%20%E2%80%94%20dorure%2024%20carats%252C%20s%C3%A9ries%20limit%C3%A9es.,co_rgb:5a4a3a,g_center,y_-161,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

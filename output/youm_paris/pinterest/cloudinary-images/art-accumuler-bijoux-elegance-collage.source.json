@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/41-art-accumuler-bijoux-elegance.html",
+  "pin_title": "Comment accumuler bijoux et bracelets avec élégance — guide Youm Paris",
+  "pin_description": "Joncs dorés à l'or fin, boucles d'oreilles superposées, manchettes et pierres naturelles : toutes les règles pour composer une accumulation de bijoux qui ne fait pas trop. Guide complet sur youm-paris.com",
+  "board": "Style & Accumulation Bijoux",
+  "dest_url": "https://youm-paris.com/blogs/articles/art-accumuler-bijoux-elegance",
+  "hook": "L'art d'accumuler",
+  "label": "Joncs, boucles, manchettes — les règles qui changent tout.",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037",
+      "alt": "Jonc Théo quartz rose",
+      "public_id": "youm/pinterest-collage-products/art-accumuler-bijoux-elegance-0-8d9d9b0fdf"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "alt": "Jonc Théo nacre",
+      "public_id": "youm/pinterest-collage-products/art-accumuler-bijoux-elegance-1-8c029ca620"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-jonc-ana-dore-graphique-packshot.jpg?v=1771856507",
+      "alt": "Jonc Ana doré graphique",
+      "public_id": "youm/pinterest-collage-products/art-accumuler-bijoux-elegance-2-807819612e"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-niagara-agate-noire-packshot-youm.jpg?v=1771517262",
+      "alt": "Boucles Niagara Agate noire",
+      "public_id": "youm/pinterest-collage-products/art-accumuler-bijoux-elegance-3-e189c648c0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-flora-doree-packshot.jpg?v=1775671409",
+      "alt": "Créoles Flora dorées perles",
+      "public_id": "youm/pinterest-collage-products/art-accumuler-bijoux-elegance-4-e9d6dc6b01"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-manchette-iris-doree-pierres-naturelles-packshot.jpg?v=1771847065",
+      "alt": "Manchette Iris dorée pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/art-accumuler-bijoux-elegance-5-8ef598360e"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:art-accumuler-bijoux-elegance-0-8d9d9b0fdf,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:art-accumuler-bijoux-elegance-1-8c029ca620,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:art-accumuler-bijoux-elegance-2-807819612e,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:art-accumuler-bijoux-elegance-3-e189c648c0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:art-accumuler-bijoux-elegance-4-e9d6dc6b01,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:art-accumuler-bijoux-elegance-5-8ef598360e,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:STYLE%20%26%20ACCUMULATION%20BIJOUX,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:L%27art%20d%27accumuler,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Joncs%252C%20boucles%252C%20manchettes%20%E2%80%94%20les%20r%C3%A8gles%20qui%20changent%20tout.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

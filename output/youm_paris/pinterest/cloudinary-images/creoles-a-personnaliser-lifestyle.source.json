@@ -1,0 +1,41 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:creoles-a-personnaliser",
+  "pin_title": "Créoles à personnaliser avec charms et pierres naturelles — Youm Paris",
+  "pin_description": "Des créoles en laiton doré à l'or fin 24 carats, à composer selon vos envies avec des charms en pierres naturelles. Un bijou unique, fait main à Paris. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux à personnaliser",
+  "dest_url": "https://youm-paris.com/collections/creoles-a-personnaliser",
+  "hook": "La créole qui vous ressemble",
+  "label": "Composez votre bijou, pierre par pierre.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucle-doreille-creole-aigue-marine-julia",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucled_oreillecreoleaiguemarineyoumbijoux.jpg?v=1622103875",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774014233/Youm-Paris/cgslgzoyt66j1btklqei.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-0-creative-67212a0fbf"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucle-doreille-creole-aventurine-nina",
+      "img1": "https://youm-paris.com/cdn/shop/products/creoledoreepierreaventurineyoum.jpg?v=1622103882",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1772725899/Youm-Paris/xklpxpvwqptzneud8o48.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-1-creative-92da5146df"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042762/Youm-Paris/rrsd0bmquid51wzdpgmm.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-2-creative-b3da5abde4"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-creoles-catherine-petit-modele",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-creoles-catherine-mm-dore-charms-packshot.jpg?v=1773658901",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774042808/Youm-Paris/vnyhutkpwlak1zhlmvtx.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/creoles-a-personnaliser-3-creative-f8d74e3d26"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-0-creative-67212a0fbf,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-1-creative-92da5146df,w_473,h_357,c_thumb,g_center/g_north,x_239,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-2-creative-b3da5abde4,w_946,h_535,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:creoles-a-personnaliser-3-creative-f8d74e3d26,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_1112,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%C3%80%20PERSONNALISER,co_rgb:f54e00,g_center,y_-136/l_text:Arial_34_bold:La%20cr%C3%A9ole%20qui%20vous%20ressemble,co_rgb:1c1814,g_center,y_-90,w_820,c_fit/l_text:Arial_19_bold:Composez%20votre%20bijou%252C%20pierre%20par%20pierre.,co_rgb:5a4a3a,g_center,y_-40,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

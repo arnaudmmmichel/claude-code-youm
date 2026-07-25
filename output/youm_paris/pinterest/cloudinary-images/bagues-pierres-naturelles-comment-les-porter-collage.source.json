@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/15-bagues-pierres-naturelles-comment-les-porter.html",
+  "pin_title": "Bagues en pierres naturelles : quartz rose, malachite, agate — comment les choisir et les associer",
+  "pin_description": "Quartz rose, malachite, agate noire, aventurine, nacre… Chaque pierre a un caractère. Guide complet pour choisir et empiler vos bagues en pierres naturelles avec style. Laiton doré à l'or fin 24 carats, assemblage à la main. À découvrir sur youm-paris.com",
+  "board": "Bagues & Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/blogs/articles/bagues-pierres-naturelles-comment-les-porter",
+  "hook": "5 pierres, un style",
+  "label": "Le guide pour choisir et associer vos bagues",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/bague_doree_cornaline_face_youm_bijoux.jpg?v=1770391482",
+      "alt": "Bague Pierre Sia Cornaline",
+      "public_id": "youm/pinterest-collage-products/bagues-pierres-naturelles-comment-les-porter-0-c91e16f2ea"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/bague_doree_malachite_sia_packshot_youm_bijoux.jpg?v=1770391681",
+      "alt": "Bague Sia Malachite",
+      "public_id": "youm/pinterest-collage-products/bagues-pierres-naturelles-comment-les-porter-1-3c1a81f849"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/bague_doree_quartz_rose_nacre_face_youm_bijoux.jpg?v=1770390468",
+      "alt": "Bague Dita Agate Noire Te Malachite",
+      "public_id": "youm/pinterest-collage-products/bagues-pierres-naturelles-comment-les-porter-2-dfadf95794"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/onc-theo-dore-aventurine-packshot-youm.jpg?v=1770395227",
+      "alt": "Bracelet jonc doré aventurine Théo",
+      "public_id": "youm/pinterest-collage-products/bagues-pierres-naturelles-comment-les-porter-3-3eeba000a9"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-jonc-ana-dore-graphique-packshot.jpg?v=1771856507",
+      "alt": "Bracelet jonc doré Ana",
+      "public_id": "youm/pinterest-collage-products/bagues-pierres-naturelles-comment-les-porter-4-807819612e"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-manchette-iris-doree-pierres-naturelles-packshot.jpg?v=1771847065",
+      "alt": "Bracelet manchette dorée pierres",
+      "public_id": "youm/pinterest-collage-products/bagues-pierres-naturelles-comment-les-porter-5-8ef598360e"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bagues-pierres-naturelles-comment-les-porter-0-c91e16f2ea,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bagues-pierres-naturelles-comment-les-porter-1-3c1a81f849,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bagues-pierres-naturelles-comment-les-porter-2-dfadf95794,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bagues-pierres-naturelles-comment-les-porter-3-3eeba000a9,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bagues-pierres-naturelles-comment-les-porter-4-807819612e,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bagues-pierres-naturelles-comment-les-porter-5-8ef598360e,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BAGUES%20%26%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:5%20pierres%252C%20un%20style,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Le%20guide%20pour%20choisir%20et%20associer%20vos%20bagues,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

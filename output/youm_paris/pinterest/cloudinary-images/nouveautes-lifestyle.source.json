@@ -1,0 +1,20 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:nouveautes",
+  "pin_title": "Nouvelles boucles dorées à l'or fin 24 carats — Nouveautés Youm Paris",
+  "pin_description": "Des pendantes délicates, dorées à l'or fin 24 carats par un artisan parisien. La nouvelle pièce à glisser dans votre look, du bureau à la soirée. Découvrez les nouveautés sur youm-paris.com",
+  "board": "Bijoux Nouveautés Paris",
+  "dest_url": "https://youm-paris.com/collections/nouveautes",
+  "hook": "La nouvelle pièce qui change tout.",
+  "label": "Dorées à l'or fin 24 carats — Nouveautés Youm Paris.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778763967/Youm-Paris/afs5csc8v9k2nhkfxfm9.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/nouveautes-0-creative-a563c531f3"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:nouveautes-0-creative-a563c531f3,w_946,h_1261,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20NOUVEAUT%C3%89S%20PARIS,co_rgb:f54e00,g_center,y_590/l_text:Arial_34_bold:La%20nouvelle%20pi%C3%A8ce%20qui%20change%20tout.,co_rgb:1c1814,g_center,y_636,w_820,c_fit/l_text:Arial_19_bold:Dor%C3%A9es%20%C3%A0%20l%27or%20fin%2024%20carats%20%E2%80%94%20Nouveaut%C3%A9s%20Youm%20Paris.,co_rgb:5a4a3a,g_center,y_686,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

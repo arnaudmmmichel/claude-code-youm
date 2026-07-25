@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+
+    /* ── HERO ── */
+    .article-hero {
+      background: #f8f1ee;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .article-category {
+      display: inline-block; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2a2622;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.01em;
+      color: #1c1814; max-width: 760px; margin: 0 auto 24px;
+    }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta {
+      font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .meta-dot { color: #c0b0a0; }
+
+    /* ── LAYOUT ── */
+    .article-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── TOC ── */
+    .article-toc {
+      background: #f8f1ee;
+      border-left: 3px solid #f54e00;
+      padding: 24px 28px; margin-bottom: 48px;
+    }
+    .article-toc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #1c1814; margin-bottom: 14px;
+    }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+
+    /* ── LEAD ── */
+    .article-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.7; color: #3a3028;
+      margin-bottom: 48px; font-style: italic;
+    }
+
+    /* ── BODY ── */
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #1c1814;
+      margin: 52px 0 20px; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 600; color: #2a2622;
+      margin: 36px 0 14px;
+    }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+
+    /* ── BLOCKQUOTE ── */
+    .article-body blockquote {
+      border-left: 3px solid #f54e00;
+      background: #f8f1ee;
+      margin: 36px 0; padding: 22px 28px;
+    }
+    .article-body blockquote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-style: italic; color: #3a3028;
+      margin-bottom: 0;
+    }
+
+    /* ── TABLE ── */
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th {
+      background: #f8f1ee; color: #2a2622;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8;
+    }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── PRODUCT IMAGE ROWS ── */
+    /* Unified grid for both individual product refs and collection galleries.
+       .product-row.cols-1 → single centered image (300px)
+       .product-row.cols-2 → centered pair
+       .product-row.cols-3/4 → full-width equal grid */
+    .product-row {
+      display: grid;
+      gap: 16px;
+      margin: 32px auto 44px;
+    }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure {
+      margin: 0;
+    }
+    /* Image wrapper — clips scale transform */
+    .product-row figure a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .product-row figure img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; background: #f8f1ee;
+      transition: transform 0.42s ease;
+    }
+    .product-row figure:hover img { transform: scale(1.06); }
+    /* "Voir le produit" overlay on hover */
+    .product-row figure a::after {
+      content: 'Voir le produit';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(28, 24, 20, 0.65);
+      color: #fff;
+      font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 11px 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .product-row figure:hover a::after { opacity: 1; }
+    /* Caption */
+    .product-row figure figcaption {
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #5a4a3a;
+      margin-top: 10px; line-height: 1.4;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: #f8f1ee;
+      padding: 52px 44px;
+      text-align: center; margin-top: 64px;
+    }
+    .cta-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1c1814;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block; background: #f54e00; color: #fff;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 36px; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <!-- Table of contents -->
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+              <li><a href="#pourquoi-le-bijou-revele-le-style">Pourquoi le bijou révèle votre style</a></li>
+      <li><a href="#style-minimaliste">Le style minimaliste : sobriété et impact</a></li>
+      <li><a href="#style-classique-elegant">Le style classique élégant : le bijou comme signature</a></li>
+      <li><a href="#style-boheme-naturel">Le style bohème naturel : pierres et authenticité</a></li>
+      <li><a href="#style-graphique-audacieux">Le style graphique et audacieux : affirmer sa singularité</a></li>
+      <li><a href="#style-casual-quotidien">Le style casual au quotidien : polyvalence sans effort</a></li>
+      <li><a href="#conseils-pratiques">6 conseils pour choisir le bon bijou</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- Lead paragraph -->
+    <p class="article-lead">Choisir son bijou selon son style vestimentaire, c'est bien plus qu'une question d'assortiment : c'est l'art de prolonger une personnalité à travers un détail qui change tout. Une même tenue peut se lire différemment selon que vous y ajoutez une créole graphique en laiton doré à l'or fin 24 carats ou une paire de puces discrètes ornée de quartz rose. Chez Youm, nous pensons que le bijou femme élégant n'est pas un accessoire parmi d'autres — il est la ponctuation de votre silhouette. Ce guide vous aide à identifier votre style et à choisir les pièces qui vous ressemblent vraiment.</p>
+
+    <!-- Article body -->
+    <div class="article-body">
+      <h2 id="pourquoi-le-bijou-revele-le-style">Pourquoi le bijou révèle votre style autant que vos vêtements</h2>
+
+<p>Il y a une cohérence silencieuse dans une tenue réussie. Les vêtements en posent le cadre, mais ce sont souvent les bijoux qui en révèlent l'intention profonde. Une femme qui porte un blazer épuré avec des créoles oversize en laiton doré envoie un message très différent de celle qui choisit, sur la même veste, une paire de puces en nacre délicates. Le bijou n'habille pas la tenue : il la signe.</p>
+
+<p>Choisir son bijou selon son style vestimentaire demande un regard honnête sur sa propre façon de s'habiller — non pas la tenue idéale que l'on garde pour les grandes occasions, mais celle du mardi matin, du déjeuner en terrasse ou de la réunion importante. C'est dans ce quotidien que se construit un style cohérent, et c'est là que le bijou joue tout son rôle. Chez Youm, chaque pièce est conçue pour s'intégrer à une vie réelle, du bureau à la soirée, sans jamais sembler déplacée.</p>
+
+<p>Avant de parcourir les profils de style qui suivent, une précision utile : ces catégories ne sont pas des cases fermées. La plupart d'entre nous oscillent entre deux univers selon les jours, les saisons ou les envies. L'objectif n'est pas de vous enfermer dans un label, mais de vous donner des repères concrets pour choisir avec justesse.</p>
+
+<h2 id="style-minimaliste">Le style minimaliste : la sobriété comme déclaration</h2>
+
+<p>Le style minimaliste repose sur un principe simple : chaque pièce compte parce qu'il n'y en a que peu. Les tenues sont épurées — palette neutre, coupes nettes, matières soignées — et les bijoux doivent respecter cette logique. Ici, l'excès est l'ennemi. Mais sobre ne signifie pas invisible : le bijou minimaliste doit avoir une présence précise, une forme affirmée, une qualité perceptible au premier regard.</p>
+
+<p>Pour ce profil, nous recommandons des pièces à la géométrie claire et à la finition impeccable. Une boucle d'oreille pendante en laiton doré à l'or fin 24 carats, aux lignes graphiques et sans ornement superflu, suffit à transformer un ensemble sobre en silhouette mémorable. Les <a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a> illustrent parfaitement cette approche : un format structuré, une pierre naturelle à l'élégance discrète, rien de trop.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-packshot-youm.jpg?v=1771526309" alt="boucles Zelda en agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-clips-portee-youm.jpg?v=1771526359" alt="boucles Zelda en agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-zelda-agate-perles-onyx-vert-detail-porte-perc_es-clips-youm.jpg?v=1771526429" alt="boucles Zelda en agate noire" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-zelda-agate-noire">boucles Zelda en agate noire</a></figcaption></figure></div>
+
+<p>Le minimalisme aime aussi les matières qui parlent d'elles-mêmes. La nacre, avec son éclat feutré, ou l'agate noire, dans sa profondeur mate, s'accordent naturellement à une garde-robe en tons neutres. L'idée n'est pas d'ajouter de la couleur, mais d'ajouter de la matière — et avec elle, du caractère.</p>
+
+<blockquote><p>Un seul bijou bien choisi vaut dix pièces portées sans intention. C'est la philosophie du minimalisme appliquée à la parure.</p></blockquote>
+
+<h2 id="style-classique-elegant">Le style classique élégant : le bijou comme signature</h2>
+
+<p>La femme au style classique élégant construit sa garde-robe sur des intemporels : le blazer bien coupé, la robe sobre à la longueur parfaite, le manteau en drap léger. Elle ne suit pas les modes, elle les traverse. Son bijou doit être à son image — reconnaissable, raffiné, porteur d'une identité propre. Il peut se permettre un supplément d'âme : une pierre naturelle, une perle, un galuchat.</p>
+
+<p>Pour ce profil, les créoles sont une valeur sûre. Elles structurent le visage, donnent de la présence sans en faire trop, et traversent les années sans vieillir. Nos <a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane ornées d'une perle blanche</a> conjuguent la sobriété de la forme et la noblesse de la matière — une association qui s'adapte aussi bien à un rendez-vous professionnel qu'à un dîner en ville. Pour celles qui souhaitent affirmer leur style avec davantage de présence, les <a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele">créoles Catherine grand modèle</a> offrent une silhouette élégante et structurée, immédiatement identifiable.</p>
+<div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594" alt="créoles Jane ornées d'une perle blanche" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-jane-perle-ronde">créoles Jane ornées d'une perle blanche</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-catherine-gm-dore-packshot.jpg?v=1773659632" alt="créoles Catherine grand modèle" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-creoles-catherine-grand-modele">créoles Catherine grand modèle</a></figcaption></figure></div>
+
+<p>Le style classique apprécie également la cohérence entre les pièces portées ensemble. Un collier sobre associé à des boucles délicates crée un ensemble harmonieux sans effet de surcharge. Chez Youm, nos <a href="https://youm-paris.com/collections/colliers">colliers</a> sont pensés pour s'intégrer naturellement à ce type de parure — jamais trop, toujours juste.</p>
+<div class="product-row cols-4"><figure><a href="https://youm-paris.com/products/collier-leo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793" alt="Collier Leo" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-leo">Collier Leo</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774" alt="Collier Sautoir Perles Blanches Audrey" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-sautoir-perles-blanches-audrey">Collier Sautoir Perles Blanches Audrey</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-pierres-nora-packshot-zoom.jpg?v=1776273907" alt="Collier Pierres Et Perle Nora" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-nora">Collier Pierres Et Perle Nora</a></figcaption></figure><figure><a href="https://youm-paris.com/products/collier-pierres-et-perle-cara"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-collier-cara-pierres-naturelles-packshot.jpg?v=1776262476" alt="Collier Pierres Et Perle Cara" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/collier-pierres-et-perle-cara">Collier Pierres Et Perle Cara</a></figcaption></figure></div>
+
+<h2 id="style-boheme-naturel">Le style bohème naturel : pierres, authenticité et liberté de ton</h2>
+
+<p>Le style bohème ne se réduit pas à un vestiaire. C'est une façon d'aborder la mode avec légèreté, de mélanger les textures, de laisser une place à l'imprévu. Les pièces s'y accumulent volontiers — plusieurs bracelets, des boucles d'oreilles dépareillées, un collier de longueur inattendue — et c'est précisément dans cette liberté que réside le charme de ce profil.</p>
+
+<p>Les pierres naturelles sont l'élément clé du bijou bohème. Leur irrégularité naturelle, leurs nuances uniques et leur ancrage dans le réel en font des alliées parfaites d'un style qui refuse la standardisation. L'amazonite, avec ses verts-bleus apaisants, l'aventurine, la cornaline et le quartz rose sont des pierres qui incarnent naturellement cet univers. Les <a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a> permettent de jouer sur la couleur tout en gardant une forme épurée — un équilibre parfait pour ne pas tomber dans l'accumulation désordonnée.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-cornaline-aventurine-portee.jpg?v=1770739948" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-aure-pierres-detail-pose.jpg?v=1770739990" alt="boucles Aure en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-aure">boucles Aure en pierres naturelles</a></figcaption></figure></div>
+
+<p>Le style bohème est aussi celui qui accepte le mieux les bijoux dépareillés — cette tendance qui consiste à porter deux boucles d'oreilles différentes, en écho ou en contraste. Les <a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">boucles asymétriques Isabelle en aventurine et agate rouge</a> sont pensées exactement pour cela : deux pièces distinctes, conçues pour dialoguer. C'est une manière singulière d'affirmer sa personnalité sans forcer l'effet.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745" alt="boucles asymétriques Isabelle en aventurine et agate rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">boucles asymétriques Isabelle en aventurine et agate rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles_d_oreilles_asymetriques_agate_youm.jpg?v=1724081675" alt="boucles asymétriques Isabelle en aventurine et agate rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">boucles asymétriques Isabelle en aventurine et agate rouge</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles_d_oreilles_asymetriques_agate_clip_youm.jpg?v=1724081675" alt="boucles asymétriques Isabelle en aventurine et agate rouge" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge">boucles asymétriques Isabelle en aventurine et agate rouge</a></figcaption></figure></div>
+
+<h2 id="style-graphique-audacieux">Le style graphique et audacieux : affirmer sa singularité</h2>
+
+<p>Certaines femmes choisissent leurs vêtements comme d'autres choisissent leur prise de parole — avec conviction et une certaine volonté de marquer les esprits. Le style graphique et audacieux assume les volumes, les couleurs franches, les contrastes tranchés. Il ne cherche pas à se fondre dans le décor. Le bijou doit suivre cette logique : être visible, avoir du caractère, et ne pas s'excuser d'exister.</p>
+
+<p>Pour ce profil, le galuchat s'impose comme une matière de choix. Sa texture distinctive, sa densité visuelle et ses coloris saturés en font un matériau qui retient le regard. Nos <a href="https://youm-paris.com/products/boucles-doreilles-trefle-galuchat-noir">boucles Trèfle en galuchat noir</a> sont une pièce signature de la collection Youm : une forme graphique, une matière rare, une présence immédiate. Pour celles qui préfèrent jouer la couleur à fond, les <a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles en galuchat turquoise Acqua</a> apportent une touche chromatique affirmée, idéale sur un ensemble monochrome.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-packshot.jpg?v=1773507671" alt="boucles en galuchat turquoise Acqua" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles en galuchat turquoise Acqua</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-portees..jpg?v=1773507704" alt="boucles en galuchat turquoise Acqua" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles en galuchat turquoise Acqua</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-acqua-galuchat-turquoise-cornaline-zoom.jpg?v=1773507740" alt="boucles en galuchat turquoise Acqua" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-galuchat-turquoise-acqua">boucles en galuchat turquoise Acqua</a></figcaption></figure></div>
+
+<p>Le style audacieux apprécie également la malachite, avec ses verts profonds et ses veines naturelles qui font de chaque pièce un exemplaire unique. Les <a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a> illustrent parfaitement cette alliance entre forme architecturée et matière vivante — un bijou qui se remarque et dont on se souvient.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-packshot.-youm.jpg?v=1771518595" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-youm.jpg?v=1771518630" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-profil-youm.jpg?v=1771518680" alt="boucles Scarlett en malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-scarlett-malachite">boucles Scarlett en malachite</a></figcaption></figure></div>
+
+<h2 id="style-casual-quotidien">Le style casual au quotidien : polyvalence sans effort</h2>
+
+<p>Le style casual est sans doute le plus répandu et, paradoxalement, celui pour lequel le choix du bijou est le plus délicat. Quand la tenue est simple — jean, blouse en coton, blazer décontracté — le bijou doit accomplir quelque chose sans en avoir l'air. Il doit élever sans alourdir, ajouter de la personnalité sans dominer. C'est un exercice d'équilibre subtil.</p>
+
+<p>Ici, la polyvalence est la qualité première. Un bijou qui accompagne une réunion du matin aussi naturellement qu'un déjeuner entre amis ou une soirée improvisée vaut bien plus qu'une pièce réservée aux grandes occasions. Nos <a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">boucles Ninon en pierres naturelles</a> répondent exactement à ce besoin : une forme accessible, une couleur qui apporte de la vie, une finition en laiton doré à l'or fin 24 carats qui les élève au-dessus du quotidien ordinaire.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/pboucles-oreilles-ninon-depareillees-pierres-packshot-youm.jpg?v=1771515928" alt="boucles Ninon en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">boucles Ninon en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-ninon-depareillees-pierres-portee-youm.jpg?v=1771515965" alt="boucles Ninon en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">boucles Ninon en pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-ninon-depareillees-pierres-porte-profil-youm.jpg?v=1771516090" alt="boucles Ninon en pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-ninon-1">boucles Ninon en pierres naturelles</a></figcaption></figure></div>
+
+<p>Pour le style casual, les bracelets jouent aussi un rôle important. Portés seuls ou superposés, ils complètent une silhouette sans demander de réflexion particulière. Le <a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a> est une pièce que l'on enfile le matin et que l'on oublie d'avoir mise — le meilleur compliment que l'on puisse faire à un bijou du quotidien. Assemblé à la main à Bruxelles et doré à l'or fin 24 carats à Paris, il conjugue simplicité apparente et soin artisanal réel.</p>
+<div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-jonc-ana-dore-graphique-packshot.jpg?v=1771856507" alt="bracelet jonc doré Ana" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-jonc-ana-dore-graphique-porte.jpg?v=1771856537" alt="bracelet jonc doré Ana" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-jonc-ana-dore-graphique-detail-pose.jpg?v=1771856566" alt="bracelet jonc doré Ana" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-ana">bracelet jonc doré Ana</a></figcaption></figure></div>
+
+<h2 id="conseils-pratiques">6 conseils pour choisir le bon bijou selon votre style</h2>
+
+<ul>
+  <li>Observez votre garde-robe avant de choisir un bijou : si vos tenues sont majoritairement dans une palette neutre, optez pour des pierres naturelles colorées qui apporteront le contraste nécessaire.</li>
+  <li>Adaptez la taille du bijou à la densité visuelle de votre tenue — une tenue chargée appelle une pièce épurée ; un ensemble sobre peut accueillir un bijou plus affirmé.</li>
+  <li>Misez sur la cohérence des matières : si vous portez des pièces en laiton doré à l'or fin 24 carats, évitez de les mélanger avec d'autres teintes métalliques lors de la même occasion.</li>
+  <li>Jouez sur les contrastes de texture : une matière mate comme l'agate noire ou le galuchat se sublime au contact d'un tissu brillant comme la soie ou le satin.</li>
+  <li>Superposez avec méthode — deux ou trois pièces de longueurs différentes créent de la profondeur ; au-delà, l'effet se brouille.</li>
+  <li>Associez le niveau de formalité du bijou à celui de la tenue : une soirée habillée appelle des pièces à la finition irréprochable, tandis que le quotidien se satisfait de formes plus légères.</li>
+</ul>
+
+<h2 id="faq">Questions fréquentes</h2>
+
+<h3>Comment choisir son bijou quand on n'a pas de style défini ?</h3>
+<p>Le style se construit dans le temps, et il n'est pas nécessaire d'avoir une identité vestimentaire figée pour bien choisir ses bijoux. Commencez par observer les pièces que vous portez le plus souvent — elles révèlent vos préférences réelles mieux que toute catégorie théorique. Si vous revenez toujours aux mêmes boucles d'oreilles, c'est qu'elles correspondent à quelque chose d'essentiel dans votre manière de vous habiller. Partez de là.</p>
+
+<h3>Peut-on mélanger les styles de bijoux dans une même tenue ?</h3>
+<p>Oui, à condition de respecter une cohérence de matière ou de couleur. Mélanger une créole dorée et un bracelet en pierres naturelles fonctionne très bien si les deux pièces partagent la même base en laiton doré à l'or fin 24 carats. Ce qui crée la discordance, c'est rarement le mélange de styles — c'est l'absence de fil conducteur entre les pièces.</p>
+
+<h3>Faut-il changer ses bijoux selon les saisons ?</h3>
+<p>Pas nécessairement, mais certaines pièces s'adaptent mieux à des contextes saisonniers. Les pierres aux teintes vives comme l'amazonite ou le quartz rose accompagnent naturellement les tenues légères du printemps et de l'été, tandis que la malachite profonde ou l'agate noire s'accordent avec les palettes plus sombres de l'automne. Ce n'est pas une règle absolue — c'est une façon d'affiner l'harmonie globale de votre silhouette.</p>
+
+<h3>Comment savoir si un bijou me correspond vraiment ?</h3>
+<p>Un bijou qui vous correspond est celui que vous portez sans y penser — celui qui ne vous semble jamais déplacé quelle que soit la tenue. Chez Youm, avec 4,8/5 de satisfaction sur 343 avis clients et une politique de retour sous 14 jours, vous pouvez explorer sans risque et trouver la pièce qui s'impose naturellement dans votre quotidien.</p>
+
+<h3>Les boucles d'oreilles clips conviennent-elles à tous les styles ?</h3>
+<p>Absolument. Nos <a href="https://youm-paris.com/collections/boucles-doreilles-clip">boucles d'oreilles clips</a> sont disponibles sur la majorité de nos modèles — des plus épurés aux plus affirmés — avec un système de maintien discret et confortable pour une journée entière. Que vous ayez les oreilles non percées ou que vous préfériez ne plus porter de percings, vous avez accès aux mêmes pièces, sans compromis sur l'esthétique.
+    </div>
+
+    <!-- CTA block -->
+    <div class="article-cta">
+      <h2 class="cta-heading">Trouvez le bijou à votre image parmi nos collections</h2>
+      <p class="cta-subtext">Chaque style mérite une pièce qui lui correspond vraiment. Explorez nos bijoux en laiton doré à l'or fin 24 carats, assemblés à la main, pour trouver celle qui deviendra votre signature.</p>
+      <a href="https://youm-paris.com/collections/boucles-doreilles" class="cta-button">Découvrir nos bijoux</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/08-bijoux-a-personnaliser-charms-creoles-pierres-naturelles.html",
+  "pin_title": "Bijoux personnalisés : charms et pierres naturelles pour composer votre style",
+  "pin_description": "Créoles à composer, charms en laiton doré à l'or fin 24 carats, pierres naturelles (malachite, amazonite, quartz rose)… Découvrez comment assembler un bijou vraiment à votre image. Guide complet sur youm-paris.com",
+  "board": "Bijoux à personnaliser",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-a-personnaliser-charms-creoles-pierres-naturelles",
+  "hook": "Composez votre bijou",
+  "label": "Charms, pierres et créoles à assembler selon vos envies",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-packshot.jpg?v=1773660043",
+      "alt": "créole Catherine mini à composer",
+      "public_id": "youm/pinterest-collage-products/bijoux-a-personnaliser-charms-creoles-pierres-naturelles-0-1abb5f3591"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-portees.heic?v=1773660070",
+      "alt": "créole Catherine mini à composer",
+      "public_id": "youm/pinterest-collage-products/bijoux-a-personnaliser-charms-creoles-pierres-naturelles-1-65ef30e72c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-creoles-catherine-mini-dore-detail-pose.jpg?v=1773660128",
+      "alt": "créole Catherine mini à composer",
+      "public_id": "youm/pinterest-collage-products/bijoux-a-personnaliser-charms-creoles-pierres-naturelles-2-47b7f70669"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "alt": "Boucles Doreilles Creoles Jane Perle Ronde",
+      "public_id": "youm/pinterest-collage-products/bijoux-a-personnaliser-charms-creoles-pierres-naturelles-3-0b2e460cad"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-julia-doree-charms-pierres-packshot-421.jpg?v=1775649259",
+      "alt": "Boucle Doreille Creole Aigue Marine Julia",
+      "public_id": "youm/pinterest-collage-products/bijoux-a-personnaliser-charms-creoles-pierres-naturelles-4-955aa46a58"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/creoles-lucky-trefle-malachite-packshoy.jpg?v=1770393637",
+      "alt": "Boucles Doreilles Creoles Malachite Lucky",
+      "public_id": "youm/pinterest-collage-products/bijoux-a-personnaliser-charms-creoles-pierres-naturelles-5-ea2cac56f0"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-a-personnaliser-charms-creoles-pierres-naturelles-0-1abb5f3591,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-a-personnaliser-charms-creoles-pierres-naturelles-1-65ef30e72c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-a-personnaliser-charms-creoles-pierres-naturelles-2-47b7f70669,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-a-personnaliser-charms-creoles-pierres-naturelles-3-0b2e460cad,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-a-personnaliser-charms-creoles-pierres-naturelles-4-955aa46a58,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-a-personnaliser-charms-creoles-pierres-naturelles-5-ea2cac56f0,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%C3%80%20PERSONNALISER,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Composez%20votre%20bijou,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Charms%252C%20pierres%20et%20cr%C3%A9oles%20%C3%A0%20assembler%20selon%20vos%20envies,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

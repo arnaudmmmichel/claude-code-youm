@@ -1,0 +1,20 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "collection:colliers",
+  "pin_title": "Collier doré à l'or fin 24 carats – Collier Léo par Youm Paris",
+  "pin_description": "Un collier élégant, assemblé à la main et doré à l'or fin 24 carats par un artisan parisien. Le détail qui transforme une tenue sobre en un vrai regard. Découvrez la collection sur youm-paris.com",
+  "board": "Colliers Dorés Femme",
+  "dest_url": "https://youm-paris.com/collections/colliers",
+  "hook": "Le collier qui change tout.",
+  "label": "Doré à l'or fin 24 carats, assemblé à la main à Paris.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/collier-leo",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780667825/Youm-Paris/ta5hsvlwxami30urxoum.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/colliers-0-creative-6576ecb455"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:colliers-0-creative-6576ecb455,w_946,h_1261,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_text:Arial_18_bold:COLLIERS%20DOR%C3%89S%20FEMME,co_rgb:f54e00,g_center,y_590/l_text:Arial_34_bold:Le%20collier%20qui%20change%20tout.,co_rgb:1c1814,g_center,y_636,w_820,c_fit/l_text:Arial_19_bold:Dor%C3%A9%20%C3%A0%20l%27or%20fin%2024%20carats%252C%20assembl%C3%A9%20%C3%A0%20la%20main%20%C3%A0%20Paris.,co_rgb:5a4a3a,g_center,y_686,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

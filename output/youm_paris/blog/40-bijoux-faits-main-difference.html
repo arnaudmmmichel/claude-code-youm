@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Helvetica Neue', sans-serif; background: #fff; color: #2a2622; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+    .article-hero { background: #f8f1ee; padding: 64px 32px 56px; text-align: center; }
+    .article-category { display: inline-block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2622; margin-bottom: 24px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: #1c1814; max-width: 760px; margin: 0 auto 24px; }
+    .article-title em { font-style: italic; color: #f54e00; }
+    .article-meta { font-size: 12px; color: #7a6a5a; letter-spacing: 0.05em; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .meta-dot { color: #c0b0a0; }
+    .article-wrap { max-width: 820px; margin: 0 auto; padding: 56px 32px 80px; }
+    .article-toc { background: #f8f1ee; border-left: 3px solid #f54e00; padding: 24px 28px; margin-bottom: 48px; }
+    .article-toc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1814; margin-bottom: 14px; }
+    .article-toc ol { padding-left: 18px; }
+    .article-toc li { margin-bottom: 6px; }
+    .article-toc a { color: #2a2622; text-decoration: none; font-size: 14px; }
+    .article-toc a:hover { color: #f54e00; }
+    .article-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.7; color: #3a3028; margin-bottom: 48px; font-style: italic; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #1c1814; margin: 52px 0 20px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 600; color: #2a2622; margin: 36px 0 14px; }
+    .article-body p { margin-bottom: 22px; color: #3a3028; }
+    .article-body ul, .article-body ol { margin: 20px 0 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 10px; color: #3a3028; }
+    .article-body ul li::marker { color: #f54e00; }
+    .article-body strong { color: #1c1814; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body hr { border: none; border-top: 1px solid #e8e0d8; margin: 44px 0; }
+    .article-body a { color: #f54e00; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body blockquote { border-left: 3px solid #f54e00; background: #f8f1ee; margin: 36px 0; padding: 22px 28px; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; color: #3a3028; margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-size: 14px; }
+    .article-body th { background: #f8f1ee; color: #2a2622; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 2px solid #e8e0d8; }
+    .article-body td { padding: 12px 16px; border-bottom: 1px solid #e8e0d8; vertical-align: top; }
+    .article-body tr:last-child td { border-bottom: none; }
+    .product-row { display: grid; gap: 16px; margin: 32px auto 44px; }
+    .product-row.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+    .product-row.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+    .product-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .product-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .product-row figure { margin: 0; }
+    .product-row figure a { display: block; position: relative; overflow: hidden; text-decoration: none; }
+    .product-row figure img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f8f1ee; transition: transform 0.42s ease; }
+    .product-row figure:hover img { transform: scale(1.06); }
+    .product-row figure a::after { content: 'Voir le produit'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,24,20,0.65); color: #fff; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; padding: 11px 8px; text-align: center; opacity: 0; transition: opacity 0.28s ease; }
+    .product-row figure:hover a::after { opacity: 1; }
+    .product-row figure figcaption { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #5a4a3a; margin-top: 10px; line-height: 1.4; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .product-row figure figcaption a { color: #5a4a3a; text-decoration: none; }
+    .product-row figure figcaption a:hover { color: #f54e00; }
+    @media (max-width: 600px) {
+      .product-row.cols-1 { max-width: 220px; }
+      .product-row.cols-2 { max-width: 100%; }
+      .product-row.cols-3, .product-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .article-cta { background: #f8f1ee; padding: 52px 44px; text-align: center; margin-top: 64px; }
+    .cta-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1c1814; line-height: 1.25; margin-bottom: 16px; }
+    .cta-subtext { font-size: 15px; color: #5a4a3a; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-button { display: inline-block; background: #f54e00; color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; }
+    @media (max-width: 600px) {
+      .article-wrap { padding: 36px 20px 60px; }
+      .article-hero { padding: 44px 20px 40px; }
+      .article-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-wrap">
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE START
+    ════════════════════════════════ -->
+
+    <nav class="article-toc" aria-label="Sommaire">
+      <div class="article-toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#ce-que-fait-main-veut-dire">Ce que « fait main » veut réellement dire</a></li>
+        <li><a href="#les-etapes-dun-bijou-fait-main">Les étapes de fabrication d'un bijou fait main</a></li>
+        <li><a href="#pourquoi-la-matiere-compte">Pourquoi la matière compte autant que le geste</a></li>
+        <li><a href="#les-differences-sensibles">Les différences sensibles : ce que vous ressentez au porter</a></li>
+        <li><a href="#comment-reconnaitre">Comment reconnaître un bijou vraiment fait main</a></li>
+        <li><a href="#chez-youm">Ce que « fait main » signifie chez Youm</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <p class="article-lead">Le terme « fait main » circule partout — sur les étiquettes, dans les descriptions de boutique, dans les discours de marque. Il est devenu un argument de vente tellement répandu qu'il en a presque perdu son sens. Pourtant, entre un bijou réellement assemblé à la main et une pièce fabriquée en série avec un tampon « artisanal », il existe une différence qui se voit, se sent, et se touche. Voici ce que ce mot recouvre vraiment — et pourquoi ça change tout pour vous.</p>
+
+    <div class="article-body">
+
+      <h2 id="ce-que-fait-main-veut-dire">Ce que « fait main » veut réellement dire</h2>
+      <p>Dans l'industrie de la bijouterie, « fait main » peut recouvrir des réalités très différentes. Dans son sens le plus strict, cela signifie que chaque étape de fabrication — de la découpe du métal à la pose de la pierre, en passant par le montage et la finition — est réalisée manuellement par un artisan. Dans son sens le plus dilué, cela peut signifier qu'un ouvrier a posé la dernière pièce avant l'emballage, le reste ayant été produit en usine.</p>
+      <p>Ce qui distingue les bijoux véritablement artisanaux, c'est la <strong>présence continue de la main humaine à chaque étape critique</strong> : le choix de la pierre (pas de pierre identique à une autre), l'assemblage des composants, le contrôle de la tension d'un clip ou d'un fermoir, la vérification de l'équilibre visuel de la pièce finale. Ces gestes ne se délèguent pas à une machine.</p>
+
+      <blockquote><p>Un bijou fait main, c'est un bijou où une personne a pris une décision à chaque étape — pas un algorithme, pas un gabarit standard.</p></blockquote>
+
+      <hr>
+
+      <h2 id="les-etapes-dun-bijou-fait-main">Les étapes de fabrication d'un bijou fait main</h2>
+      <p>Comprendre le processus aide à mesurer ce que représente réellement une pièce fabriquée à la main. Pour un <a href="https://youm-paris.com/collections/bracelets">bracelet jonc en laiton doré</a> ou une <a href="https://youm-paris.com/collections/boucles-doreilles">boucle d'oreilles aux pierres naturelles</a>, les étapes sont les suivantes :</p>
+      <ul>
+        <li><strong>Sélection des matières premières</strong> : choix du laiton, de la qualité d'or fin 24 carats pour le dorage, et tri individuel des pierres naturelles (une amazonite n'a pas la même nuance qu'une autre)</li>
+        <li><strong>Découpe et formage</strong> : mise en forme des composants métalliques à la main, parfois avec des outils spécifiques à chaque modèle</li>
+        <li><strong>Traitement de surface</strong> : le laiton est doré à l'or fin 24 carats par un processus électrolytique, qui requiert une surveillance et des réglages manuels</li>
+        <li><strong>Montage des pierres</strong> : chaque pierre est positionnée, orientée, puis fixée à la main — la tension du montage est vérifiée une à une</li>
+        <li><strong>Assemblage final</strong> : les composants sont reliés, les fermoirs posés, les clips réglés selon le poids de la pièce</li>
+        <li><strong>Contrôle qualité</strong> : inspection visuelle et tactile de chaque pièce — un travail qui ne peut se faire qu'humainement</li>
+      </ul>
+      <p>Chacune de ces étapes représente une décision. C'est ce cumul de décisions humaines qui constitue le bijou fait main.</p>
+
+      <hr>
+
+      <h2 id="pourquoi-la-matiere-compte">Pourquoi la matière compte autant que le geste</h2>
+      <p>La fabrication artisanale n'a de sens que si elle est appliquée à des matières qui le méritent. C'est pourquoi chez Youm, le choix du <strong>laiton doré à l'or fin 24 carats</strong> est fondamental. Le laiton est un alliage noble, travaillé depuis des siècles dans la bijouterie traditionnelle, qui offre une chaleur et une densité que l'alliage zinc ou l'acier ne peuvent pas reproduire. La dorure à l'or fin 24 carats lui confère un éclat profond, proche de l'or massif — sensiblement différent d'une dorure flash ou d'un placage doré standard.</p>
+      <p>Les <strong>pierres naturelles</strong> participent de la même logique. Chaque <a href="https://youm-paris.com/collections/bijoux-pierre">pierre naturelle</a> est unique dans sa couleur, ses inclusions, ses nuances. L'artisan les sélectionne une à une — certaines sont écartées parce qu'elles présentent une fêlure invisible ou une couleur trop éloignée du standard de la collection. Ce tri est impossible à automatiser.</p>
+
+      <div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-marine-malachite-perles-packshot-youm.jpg?v=1770741286" alt="Boucles Marine malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">Marine — Malachite</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-marine-malachite-perles-portees.jpg?v=1770741337" alt="Boucles Marine malachite portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">Marine — portées</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-felix-malachite"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725" alt="Boucles Félix malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-felix-malachite">Félix — Malachite</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="les-differences-sensibles">Les différences sensibles : ce que vous ressentez au porter</h2>
+      <p>La différence entre un bijou fait main et une pièce industrielle ne se mesure pas seulement à l'œil — elle se ressent au porter. Plusieurs signes ne trompent pas :</p>
+      <ul>
+        <li><strong>La tombée</strong> : une boucle pendante assemblée à la main tombe avec le bon équilibre, sans pencher d'un côté. Les contrepoids et tensions ont été réglés pièce par pièce.</li>
+        <li><strong>Le toucher</strong> : le laiton doré à l'or fin 24 carats a une densité et une chaleur que l'on reconnaît immédiatement — rien à voir avec la légèreté plastique des alliages bas de gamme.</li>
+        <li><strong>L'accroche</strong> : les fermoirs et clips ont été réglés selon le poids de la pièce, pas selon un standard unique. Résultat : le mécanisme tient naturellement, sans sur-serrage.</li>
+        <li><strong>La couleur</strong> : les pierres naturelles ont des variations subtiles qui donnent vie à chaque pièce. Deux boucles du même modèle ne sont jamais tout à fait identiques — c'est une qualité, pas un défaut.</li>
+      </ul>
+
+      <div class="product-row cols-3"><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624" alt="Boucles Lila pierres naturelles" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Lila — pierres naturelles</a></figcaption></figure><figure><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-lila-pierres-naturelles-portees.jpg?v=1770733681" alt="Boucles Lila portées" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/boucles-doreilles-pierres-lila">Lila — portées</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/jonc-theo-dore-malachite-packshot.jpg?v=1770394559" alt="Jonc Théo malachite" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo">Théo — Malachite</a></figcaption></figure></div>
+
+      <hr>
+
+      <h2 id="comment-reconnaitre">Comment reconnaître un bijou vraiment fait main</h2>
+      <p>Face à la multiplication des labels et des discours marketing, quelques repères concrets aident à distinguer le vrai du faux :</p>
+      <ul>
+        <li><strong>La transparence sur la matière</strong> : une marque qui spécifie "laiton doré à l'or fin 24 carats" (et non "doré" ou "ton or") assume ses choix. Les marques industrielles restent vagues.</li>
+        <li><strong>La cohérence entre le prix et la fabrication</strong> : un bijou artisanal avec pierres naturelles coûte un certain prix. En-dessous d'un certain seuil, quelque chose ne colle pas.</li>
+        <li><strong>Les légères variations entre pièces</strong> : dans une collection industrielle, tous les exemplaires d'un même modèle sont parfaitement identiques. Dans une collection artisanale, les pierres varient légèrement — c'est la signature du travail humain.</li>
+        <li><strong>La disponibilité du design</strong> : si vous retrouvez la même boucle vendue par vingt boutiques différentes sous des noms différents, c'est un catalogue grossiste — pas une création artisanale.</li>
+        <li><strong>Les photos de fabrication</strong> : une marque artisanale peut montrer l'atelier, les mains qui travaillent, les pierres en cours de sélection. Demandez-vous si vous avez vu ça.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="chez-youm">Ce que « fait main » signifie chez Youm</h2>
+      <p>Chez Youm, chaque pièce est assemblée à la main. Le laiton que nous utilisons est doré à l'or fin 24 carats selon un processus qui demande surveillance et ajustement. Les pierres naturelles — malachite, aventurine, cornaline, quartz rose, lapis-lazuli, agate — sont sélectionnées et montées une à une. Les clips, mécanisme que nous avons particulièrement travaillé pour assurer un confort de port optimal, sont réglés manuellement selon le poids de chaque pièce.</p>
+      <p>Ce n'est pas de l'artisanat au sens romantique du terme — c'est de la <strong>rigueur appliquée à chaque étape</strong>, au service d'un bijou qui se porte bien et qui dure. Le <a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo">jonc Théo aventurine</a> ou les <a href="https://youm-paris.com/products/boucles-doreilles-marine-malachite">boucles Marine malachite</a> ne ressemblent à aucune autre pièce parce qu'elles n'ont pas été fabriquées comme les autres.</p>
+
+      <div class="product-row cols-2"><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/onc-theo-dore-aventurine-packshot-youm.jpg?v=1770395227" alt="Jonc Théo aventurine" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo">Théo — Aventurine</a></figcaption></figure><figure><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo"><img src="https://cdn.shopify.com/s/files/1/0529/7189/7018/files/jonc-theo-dore-aventurine-portee-youm.jpg?v=1770395302" alt="Jonc Théo aventurine porté" loading="lazy"></a><figcaption><a href="https://youm-paris.com/products/bracelet-jonc-dore-aventurine-theo">Théo — porté</a></figcaption></figure></div>
+
+      <p>Notre collection de <a href="https://youm-paris.com/collections/boucles-doreilles">boucles d'oreilles</a> et de <a href="https://youm-paris.com/collections/bracelets">bracelets joncs</a> est conçue pour accompagner votre vie au quotidien — pas seulement pour des occasions. C'est une autre façon de comprendre l'artisanat : non pas comme un objet à protéger, mais comme une pièce faite pour être portée.</p>
+
+      <hr>
+
+      <h2 id="faq">Questions fréquentes</h2>
+
+      <h3>Quelle est la différence entre laiton et or ?</h3>
+      <p>Le laiton est un alliage de cuivre et de zinc, travaillé en bijouterie depuis des siècles. Il n'est pas de l'or, mais lorsqu'il est doré à l'or fin 24 carats, il acquiert un éclat et une chaleur très proches de l'or massif — à une fraction du prix. Chez Youm, nous utilisons uniquement le laiton doré à l'or fin 24 carats, jamais l'acier.</p>
+
+      <h3>Les bijoux faits main sont-ils plus fragiles que les bijoux industriels ?</h3>
+      <p>Non. La robustesse d'un bijou dépend de la qualité des matières et des techniques d'assemblage, pas de la présence ou non de machines. Un bijou artisanal bien conçu, avec des matières de qualité et un contrôle rigoureux, peut être plus solide qu'une pièce industrielle produite rapidement avec des matières bas de gamme.</p>
+
+      <h3>Comment entretenir un bijou en laiton doré à l'or fin ?</h3>
+      <p>Rangez vos bijoux séparément pour éviter les rayures, à l'abri de l'humidité. Évitez le contact avec les produits cosmétiques, parfums et produits ménagers. Pour nettoyer, un chiffon doux suffit — pas de produits abrasifs. Ces gestes simples suffisent pour conserver l'éclat de la dorure.</p>
+
+      <h3>Où sont fabriqués les bijoux Youm ?</h3>
+      <p>Les bijoux Youm sont assemblés à la main par nos artisans. Consultez notre page <a href="https://youm-paris.com/pages/notre-histoire">notre histoire</a> pour en savoir plus sur notre processus de fabrication et nos engagements.</p>
+
+      <h3>Peut-on offrir un bijou fait main comme cadeau ?</h3>
+      <p>C'est même l'un de ses atouts. Un bijou fait main est une pièce singulière — pas un objet de série. Il porte une intention que le destinataire peut percevoir au toucher, à la façon dont il tombe, à la qualité de ses détails. Retrouvez notre <a href="https://youm-paris.com/collections/all">collection complète</a> pour trouver la pièce juste.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h2 class="cta-heading">Découvrir les bijoux faits main Youm</h2>
+      <p class="cta-subtext">Laiton doré à l'or fin 24 carats, pierres naturelles sélectionnées, assemblage artisanal — des bijoux conçus pour durer et pour être portés.</p>
+      <a href="https://youm-paris.com/collections/all" class="cta-button">Voir la collection</a>
+    </div>
+
+    <!-- ════════════════════════════════
+         SHOPIFY PASTE END
+    ════════════════════════════════ -->
+
+  </main>
+
+</body>
+</html>

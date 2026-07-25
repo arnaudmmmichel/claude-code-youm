@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:bijoux-pierre",
+  "pin_title": "Bijoux pierres naturelles – Amazonite, Malachite, Agate | Youm Paris",
+  "pin_description": "Boucles d'oreilles, bracelets et colliers ornés de pierres naturelles, dorés à l'or fin 24 carats par des artisans parisiens. Des créations en séries limitées pour affirmer votre style au quotidien. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/collections/bijoux-pierre",
+  "hook": "Pierres naturelles, or 24 carats",
+  "label": "La collection bijoux pierres — séries limitées, dorure Paris",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles d’oreilles dépareillées Isabelle aventurine",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierre-0-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles d'oreilles Doris jaspe",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierre-1-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779",
+      "alt": "Boucles d'oreilles papillon Chiara",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierre-2-defcc1caf1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "alt": "Jonc Théo doré malachite",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierre-3-a27ee7eaa8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "Boucles d'oreilles Jacinthe",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierre-4-fdecf96094"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "Boucles d'oreilles Lila - Cornaline & quartz rose",
+      "public_id": "youm/pinterest-collage-products/bijoux-pierre-5-348486b13c"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-pierre-0-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierre-1-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierre-2-defcc1caf1,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierre-3-a27ee7eaa8,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierre-4-fdecf96094,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-pierre-5-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Pierres%20naturelles%252C%20or%2024%20carats,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:La%20collection%20bijoux%20pierres%20%E2%80%94%20s%C3%A9ries%20limit%C3%A9es%252C%20dorure%20Paris,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

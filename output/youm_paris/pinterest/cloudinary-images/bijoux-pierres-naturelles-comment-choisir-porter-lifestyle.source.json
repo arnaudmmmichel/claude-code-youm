@@ -1,0 +1,48 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "output/youm_paris/blog/73-bijoux-pierres-naturelles-comment-choisir-porter.html",
+  "pin_title": "Bijoux en pierres naturelles : comment les choisir et les porter au quotidien",
+  "pin_description": "Malachite, quartz rose, amazonite… Comment choisir sa pierre selon sa garde-robe et l'associer sans erreur ? Guide stylistique complet pour porter vos bijoux en pierres naturelles tous les jours. youm-paris.com",
+  "board": "Bijoux & Style",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-pierres-naturelles-comment-choisir-porter",
+  "hook": "La pierre qui change tout",
+  "label": "Choisir et porter ses pierres naturelles, sans effort.",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-felix-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774043169/Youm-Paris/u1i2qitgnk8cesebssau.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierres-naturelles-comment-choisir-porter-0-creative-7147b70066"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-quartz-rose-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-quartz-rose-packshot.jpg?v=1770397037",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780585814/Youm-Paris/v2mtfdeg3wtuaranb83g.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierres-naturelles-comment-choisir-porter-1-creative-911a449420"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pierres-aure",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774349743/Youm-Paris/j44avzq4uzmfej0uebcy.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierres-naturelles-comment-choisir-porter-2-creative-8fbe946b17"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pierres-lila",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776864543/Youm-Paris/zbunuwvwmnaptmtraqiy.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierres-naturelles-comment-choisir-porter-3-creative-cef7f245bb"
+    },
+    {
+      "url": "https://youm-paris.com/products/bague-dita-agate-noire-te-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/files/bague_doree_quartz_rose_nacre_face_youm_bijoux.jpg?v=1770390468",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780585910/Youm-Paris/lq0htczidpjvy99imhza.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/bijoux-pierres-naturelles-comment-choisir-porter-4-creative-d7d033fcc1"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:bijoux-pierres-naturelles-comment-choisir-porter-0-creative-7147b70066,w_946,h_535,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierres-naturelles-comment-choisir-porter-1-creative-911a449420,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierres-naturelles-comment-choisir-porter-2-creative-8fbe946b17,w_473,h_357,c_thumb,g_center/g_north,x_239,y_749,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierres-naturelles-comment-choisir-porter-3-creative-cef7f245bb,w_473,h_357,c_thumb,g_center/g_north,x_-240,y_1112,fl_layer_apply/l_youm:pinterest-lifestyle-collage:bijoux-pierres-naturelles-comment-choisir-porter-4-creative-d7d033fcc1,w_473,h_357,c_thumb,g_center/g_north,x_239,y_1112,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%26%20STYLE,co_rgb:f54e00,g_center,y_-136/l_text:Arial_34_bold:La%20pierre%20qui%20change%20tout,co_rgb:1c1814,g_center,y_-90,w_820,c_fit/l_text:Arial_19_bold:Choisir%20et%20porter%20ses%20pierres%20naturelles%252C%20sans%20effort.,co_rgb:5a4a3a,g_center,y_-40,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

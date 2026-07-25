@@ -1,0 +1,14 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "output/youm_paris/ai-model-images/creole-eloise-a-lunite.jpg",
+  "slug": "creole-eloise-a-lunite",
+  "prompt": "A real smartphone video of a woman smirking and walking dynamically with natural movements, in natural light, with her 2 earings, in silence (no talking). Shot on iPhone, 4k, shaky camera movement, natural lighting, unedited look, candid and spontaneous, vertical video style, no professional lighting, realistic skin textures, realistic movement. No bikini or swimsuit.",
+  "prompt_source": "--product-type earrings",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1784808172/youm/ai-model-videos/creole-eloise-a-lunite.mp4",
+  "caption_instagram": "La créole qui se personnalise à l'infini 🧡\n\nÉloïse, dorée à l'or fin 24 carats, vendue à l'unité pour composer votre bijou avec les charms Youm.\n\n#shinewithyoum #bijouxparis #creoles #bijouxapersonnaliser",
+  "caption_tiktok": "La créole qu'on personnalise comme on veut ✨ Éloïse, dorée à l'or fin 24 carats, vendue à l'unité pour composer votre bijou avec les charms Youm. #shinewithyoum #bijouxparis #creoles #bijouxfrance",
+  "caption_youtube_title": "Créole Éloïse à personnaliser — Youm Paris",
+  "caption_youtube_description": "Éloïse est une créole légère, dorée à l'or fin 24 carats, vendue à l'unité et pensée pour se combiner avec les charms Youm. Découvrez la collection sur youm-paris.com\n\n#shinewithyoum #bijouxparis #creoles"
+}

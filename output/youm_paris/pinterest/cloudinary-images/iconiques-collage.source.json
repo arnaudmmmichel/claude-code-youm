@@ -1,0 +1,43 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "collection:iconiques",
+  "pin_title": "Les Iconiques Youm Paris — bijoux en laiton doré 24 carats à porter chaque jour",
+  "pin_description": "Des pièces signature qui traversent les saisons : laiton doré à l'or fin 24 carats, pierres naturelles, assemblage artisanal à Paris. Les créations Youm que l'on garde. À découvrir sur youm-paris.com",
+  "board": "Bijoux élégants Paris",
+  "dest_url": "https://youm-paris.com/collections/iconiques",
+  "hook": "Les pièces qu'on garde",
+  "label": "Dorure 24 carats · Séries limitées · Paris",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles d’oreilles dépareillées Isabelle aventurine",
+      "public_id": "youm/pinterest-collage-products/iconiques-0-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "alt": "Jonc Théo doré malachite",
+      "public_id": "youm/pinterest-collage-products/iconiques-1-a27ee7eaa8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "Boucles d'oreilles Jacinthe",
+      "public_id": "youm/pinterest-collage-products/iconiques-2-fdecf96094"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "alt": "Boucles d’oreilles Pernille - Perle blanche",
+      "public_id": "youm/pinterest-collage-products/iconiques-3-590e868d8b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "Boucles d'oreilles Lila - Cornaline & quartz rose",
+      "public_id": "youm/pinterest-collage-products/iconiques-4-348486b13c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "alt": "Jonc Théo doré nacre",
+      "public_id": "youm/pinterest-collage-products/iconiques-5-8c029ca620"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:iconiques-0-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:iconiques-1-a27ee7eaa8,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:iconiques-2-fdecf96094,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:iconiques-3-590e868d8b,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:iconiques-4-348486b13c,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:iconiques-5-8c029ca620,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%C3%89L%C3%89GANTS%20PARIS,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Les%20pi%C3%A8ces%20qu%27on%20garde,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Dorure%2024%20carats%20%C2%B7%20S%C3%A9ries%20limit%C3%A9es%20%C2%B7%20Paris,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}
