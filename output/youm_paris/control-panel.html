@@ -457,6 +457,17 @@
   </div>
 </div>
 
+<div class="modal-backdrop" id="refaireModal">
+  <div class="modal-box">
+    <h3>Marquer « à refaire » ?</h3>
+    <div class="modal-subtitle" id="refaireModalSubtitle"></div>
+    <div class="modal-actions">
+      <button class="modal-cancel-btn" onclick="closeRefaireModal()">Annuler</button>
+      <button class="modal-confirm-btn" id="refaireModalConfirmBtn" onclick="confirmRefaire()">Marquer à refaire</button>
+    </div>
+  </div>
+</div>
+
 <div class="stats-bar" id="statsBar"></div>
 
 <main>
@@ -822,16 +833,77 @@
     if (checked) syncStatusToSheet(filename, 'valide');
   }
 
+  // AI Image/AI Vidéo "À refaire" is a real, immediate action (archives the
+  // media file + hard-deletes its .html/.source.json via delete-asset.ts,
+  // writes the sheet, triggers a rebuild) — routed through a confirmation
+  // modal rather than queueDelete()'s old local-hide-only path, since a
+  // native confirm() plus a copy-pasteable `rm` command was the exact
+  // manual-step pattern that needed removing. Instagram/Pinterest
+  // "Supprimer" is unrelated (no sheet, no regenerate workflow) and keeps
+  // its original local-hide behavior unchanged.
+  let refaireTarget = null;
+
+  function openRefaireModal(filename) {
+    const entry = findAiManifestEntry(filename);
+    refaireTarget = { filename, entry };
+    document.getElementById('refaireModalSubtitle').textContent =
+      `« ${filename} » sera archivé (l'image/vidéo reste sauvegardée) et retiré du tableau de bord.`;
+    document.getElementById('refaireModalConfirmBtn').disabled = false;
+    document.getElementById('refaireModalConfirmBtn').textContent = 'Marquer à refaire';
+    document.getElementById('refaireModal').classList.add('visible');
+  }
+  function closeRefaireModal() {
+    document.getElementById('refaireModal').classList.remove('visible');
+    refaireTarget = null;
+  }
+  function confirmRefaire() {
+    if (!refaireTarget) return;
+    const { filename, entry } = refaireTarget;
+    const btn = document.getElementById('refaireModalConfirmBtn');
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner"></span> Envoi…`;
+    showStatusToast('Mise à jour en cours…', 'pending');
+
+    // .source.json always sits alongside the media file with the same
+    // base name — same convention load_source_sidecar() in
+    // generate_manifest.py already relies on. detail_page (the .html) is
+    // already computed by that same scanner and may be null if none exists.
+    const base = filename.replace(/\.[^./]+$/, '');
+    const sidecarPaths = [`${base}.source.json`];
+    if (entry && entry.detail_page) sidecarPaths.push(entry.detail_page);
+
+    fetch(`${YOUM_SERVER_BASE}/api/delete-asset`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        media_path: filename,
+        sidecar_paths: sidecarPaths,
+        product_url: entry ? entry.product_url : null,
+      }),
+    })
+      .then(r => r.json())
+      .then(data => {
+        if (!data.ok) throw new Error(data.error || 'Unknown error');
+        closeRefaireModal();
+        waitForRebuildThenNotify('manifest.js', () => {
+          state.deleted[filename] = true;
+          saveState();
+          render();
+        });
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Marquer à refaire (réessayer)';
+        showStatusToast('Échec de la mise à jour — réessayez.', 'timeout');
+        hideStatusToast(4000);
+      });
+  }
+
   function queueDelete(filename) {
-    const isAiTab = currentPlatform === 'ai_image' || currentPlatform === 'ai_video';
-    const confirmMsg = isAiTab
-      ? `Marquer "${filename}" à refaire et le supprimer du disque ?`
-      : `Masquer "${filename}" du tableau et le marquer pour suppression du disque ?`;
-    if (!confirm(confirmMsg)) return;
+    if (!confirm(`Masquer "${filename}" du tableau et le marquer pour suppression du disque ?`)) return;
     state.deleted[filename] = true;
     saveState();
     render();
-    if (isAiTab) syncStatusToSheet(filename, 'a_refaire');
   }
   function clearDeleteQueue() {
     if (!confirm('Vider la file de suppression ? (Les fichiers déjà masqués le restent — ceci efface seulement la commande.)')) return;
@@ -998,7 +1070,9 @@
     gridEl.style.display = currentView === 'grid' ? 'grid' : 'none';
     listEl.style.display = currentView === 'list' ? 'flex' : 'none';
 
-    const deleteLabel = (tabKey === 'ai_image' || tabKey === 'ai_video') ? 'À refaire' : 'Supprimer';
+    const isAiTab = tabKey === 'ai_image' || tabKey === 'ai_video';
+    const deleteLabel = isAiTab ? 'À refaire' : 'Supprimer';
+    const deleteHandler = isAiTab ? 'openRefaireModal' : 'queueDelete';
 
     gridEl.innerHTML = posts.map(p => {
       const isPosted = !!state.posted[p.filename];
@@ -1027,7 +1101,7 @@
                 <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
                 Validé
               </label>
-              <button class="delete-btn" onclick="queueDelete('${p.filename}')">${deleteLabel}</button>
+              <button class="delete-btn" onclick="${deleteHandler}('${p.filename}')">${deleteLabel}</button>
             </div>
           </div>
         </div>`;
@@ -1048,12 +1122,18 @@
               <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
               Validé
             </label>
-            <button class="delete-btn" onclick="queueDelete('${p.filename}')">${deleteLabel}</button>
+            <button class="delete-btn" onclick="${deleteHandler}('${p.filename}')">${deleteLabel}</button>
           </div>
         </div>`;
     }).join('');
 
-    const queuedFiles = Object.keys(state.deleted);
+    // AI Image/Vidéo entries in state.deleted are already fully handled
+    // server-side (archived/hard-deleted via delete-asset.ts by the time
+    // this flag gets set) — the rm-command queue is only ever meaningful
+    // for Instagram/Pinterest's still-local-only "Supprimer", so AI tab
+    // filenames are excluded here rather than re-surfaced as "needs a
+    // manual command", which would be stale/wrong information.
+    const queuedFiles = isAiTab ? [] : Object.keys(state.deleted);
     const queueEl = document.getElementById('deleteQueue');
     if (queuedFiles.length > 0) {
       queueEl.classList.add('visible');

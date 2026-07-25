@@ -20,18 +20,41 @@
 import type { Handler } from "@netlify/functions";
 import { getAllValues, updateCell, triggerRebuild } from "./_lib/sheets-client";
 
-const SHEET_ID = "1r7co4OkM0Di5PJWVnVhETOikx0VhW8e-VZwI96OQ-H0";
-const SHEET_TAB = "images IA";
+export const IMAGES_IA_SHEET_ID = "1r7co4OkM0Di5PJWVnVhETOikx0VhW8e-VZwI96OQ-H0";
+export const IMAGES_IA_SHEET_TAB = "images IA";
 const COL_URL = 2; // 1-indexed column B
 const COL_STATUS = 3; // 1-indexed column C
 
-const STATUS_MAP: Record<string, string> = {
+export const STATUS_MAP: Record<string, string> = {
   valide: "validé",
   a_refaire: "à refaire",
 };
 
-function normalizeUrl(url: string): string {
+export function normalizeUrl(url: string): string {
   return url.trim().split("?")[0].replace(/\/+$/, "");
+}
+
+/** Shared with delete-asset.ts, which also needs to write "à refaire" to
+ * this same sheet as part of its combined archive+sheet-write action --
+ * exported so that logic lives in exactly one place. Returns the matched
+ * row number, or null if no row's product_url matched. */
+export async function writeImagesIaStatus(productUrl: string, statusKey: string): Promise<number | null> {
+  if (!(statusKey in STATUS_MAP)) {
+    throw new Error(`Unknown status: ${statusKey} -- expected one of ${Object.keys(STATUS_MAP).join(", ")}`);
+  }
+  const sheetValue = STATUS_MAP[statusKey];
+  const target = normalizeUrl(productUrl);
+
+  const rows = await getAllValues(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB);
+  for (let i = 1; i < rows.length; i++) {
+    const row = rows[i];
+    if (row && row.length > COL_URL - 1 && normalizeUrl(row[COL_URL - 1] || "") === target) {
+      const rowNumber = i + 1;
+      await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_STATUS, sheetValue);
+      return rowNumber;
+    }
+  }
+  return null;
 }
 
 export const handler: Handler = async (event) => {
@@ -58,20 +81,11 @@ export const handler: Handler = async (event) => {
   }
 
   try {
-    const sheetValue = STATUS_MAP[status];
-    const target = normalizeUrl(product_url);
-
-    const rows = await getAllValues(SHEET_ID, SHEET_TAB);
-    for (let i = 1; i < rows.length; i++) {
-      const row = rows[i];
-      if (row && row.length > COL_URL - 1 && normalizeUrl(row[COL_URL - 1] || "") === target) {
-        const rowNumber = i + 1;
-        await updateCell(SHEET_ID, SHEET_TAB, rowNumber, COL_STATUS, sheetValue);
-        await triggerRebuild();
-        return { statusCode: 200, body: JSON.stringify({ ok: true, matched: true, row_number: rowNumber }) };
-      }
+    const rowNumber = await writeImagesIaStatus(product_url, status);
+    if (rowNumber !== null) {
+      await triggerRebuild();
+      return { statusCode: 200, body: JSON.stringify({ ok: true, matched: true, row_number: rowNumber }) };
     }
-
     return { statusCode: 200, body: JSON.stringify({ ok: true, matched: false }) };
   } catch (e) {
     console.error("update-status.ts error:", e);

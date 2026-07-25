@@ -112,6 +112,90 @@ export function nowIso(): string {
   return new Date().toISOString();
 }
 
+// ── GITHUB CONTENTS API ──
+// Used by delete-asset.ts to archive/delete files in the deploy repo --
+// Netlify's published output isn't a writable filesystem, so the only way
+// to make a file disappear from (or reappear in) the site is to change it
+// in the GitHub repo and let the existing build-hook-triggered rebuild
+// pick that up. Uses a fine-grained PAT (GITHUB_PAT env var) scoped to
+// ONLY this repo with Contents: Read and write -- see NETLIFY_DEPLOYMENT.md
+// for the one-time token setup. Plain REST, no npm dependency needed.
+
+const GITHUB_API_BASE = "https://api.github.com";
+const GITHUB_REPO = "arnaudmmmichel/claude-code-youm";
+
+function requireGithubToken(): string {
+  const token = process.env.GITHUB_PAT;
+  if (!token) throw new Error("GITHUB_PAT is not set -- see NETLIFY_DEPLOYMENT.md for setup.");
+  return token;
+}
+
+async function githubFetch(path: string, init: RequestInit = {}): Promise<Response> {
+  const token = requireGithubToken();
+  return fetch(`${GITHUB_API_BASE}${path}`, {
+    ...init,
+    headers: {
+      ...(init.headers || {}),
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+}
+
+export interface GithubFile {
+  sha: string;
+  contentBase64: string;
+}
+
+/** Fetches a file's current content + blob sha, both required to update or
+ * delete it via the Contents API. Returns null (not an error) if the file
+ * doesn't exist -- callers should treat a missing file as "nothing to do"
+ * rather than fail the whole operation over an already-absent sidecar. */
+export async function getRepoFile(path: string): Promise<GithubFile | null> {
+  const resp = await githubFetch(`/repos/${GITHUB_REPO}/contents/${path}`);
+  if (resp.status === 404) return null;
+  if (!resp.ok) throw new Error(`GitHub GET contents ${resp.status}: ${await resp.text()}`);
+  const data = (await resp.json()) as { sha: string; content: string };
+  // GitHub returns content base64-encoded with embedded newlines -- strip
+  // them so callers get a clean base64 string usable directly in a PUT body.
+  return { sha: data.sha, contentBase64: data.content.replace(/\n/g, "") };
+}
+
+/** Creates or updates a file at `path` with the given base64 content.
+ * Pass the sha from getRepoFile() when overwriting an existing file (the
+ * Contents API requires it as a conflict guard); omit it when creating a
+ * new file (e.g. the archive copy, which shouldn't already exist). */
+export async function putRepoFile(path: string, contentBase64: string, message: string, sha?: string): Promise<void> {
+  const resp = await githubFetch(`/repos/${GITHUB_REPO}/contents/${path}`, {
+    method: "PUT",
+    body: JSON.stringify({ message, content: contentBase64, ...(sha ? { sha } : {}) }),
+  });
+  if (!resp.ok) throw new Error(`GitHub PUT contents ${resp.status}: ${await resp.text()}`);
+}
+
+/** Deletes a file at `path`. Requires its current sha (from getRepoFile()). */
+export async function deleteRepoFile(path: string, sha: string, message: string): Promise<void> {
+  const resp = await githubFetch(`/repos/${GITHUB_REPO}/contents/${path}`, {
+    method: "DELETE",
+    body: JSON.stringify({ message, sha }),
+  });
+  if (!resp.ok) throw new Error(`GitHub DELETE contents ${resp.status}: ${await resp.text()}`);
+}
+
+/** Moves a file by copying its content to `destPath` (create, no sha) then
+ * deleting the original -- GitHub's Contents API has no native "move".
+ * Two sequential commits; acceptable for a low-frequency, single-user
+ * action like this. No-ops (returns false) if the source file doesn't
+ * exist. Returns true if the move completed. */
+export async function moveRepoFile(sourcePath: string, destPath: string, message: string): Promise<boolean> {
+  const file = await getRepoFile(sourcePath);
+  if (!file) return false;
+  await putRepoFile(destPath, file.contentBase64, message);
+  await deleteRepoFile(sourcePath, file.sha, message);
+  return true;
+}
+
 /** Fire-and-forget trigger of the Netlify Build Hook so the site rebuilds
  * (re-scanning blog HTML + re-reading all sheet tabs) after a write --
  * this is what makes a validate/status click propagate to every dashboard
