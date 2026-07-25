@@ -266,6 +266,28 @@ def read_findings_tab_validation() -> dict:
     return validated
 
 
+def fetch_gsc_findings(tracked_keywords: list) -> list:
+    """Queries Google Search Console for the last 28 days and runs the
+    three recommendation rules in gsc_insights.py. Returns [] (not an
+    error) if GSC access isn't set up yet (Arnaud hasn't added the
+    service account as a property user) or any call fails -- same
+    "never crash the whole manifest build over an optional data source"
+    pattern as fetch_keywords_from_sheet()."""
+    try:
+        import gsc_client
+        from gsc_insights import build_gsc_findings
+
+        if not gsc_client.verify_site_access():
+            print("Warning: GSC service account does not yet have access to the property -- search_console_findings[] will be empty.", file=sys.stderr)
+            return []
+
+        rows = gsc_client.query_search_analytics(days=28)
+        return build_gsc_findings(rows, tracked_keywords)
+    except Exception as e:
+        print(f"Warning: could not fetch Search Console data ({e}) -- search_console_findings[] will be empty.", file=sys.stderr)
+        return []
+
+
 def sync_findings_tab(items: list, category: str, ws=None):
     """Ensure every current item (site finding or optimized article) has a
     row in the "seo findings" tab, so a "Valider" click always has
@@ -311,11 +333,14 @@ def main():
     articles = apply_validation_by_title(articles, validated_by_title)
     site_findings = apply_validation_by_title(site_findings, validated_by_title)
 
+    keywords = fetch_keywords_from_sheet()
+    search_console_findings = fetch_gsc_findings(keywords)
+    search_console_findings = apply_validation_by_title(search_console_findings, validated_by_title)
+
     if not args.skip_sheet_sync:
         ws = sync_findings_tab(site_findings, "Site")
-        sync_findings_tab(articles, "Article", ws=ws)
-
-    keywords = fetch_keywords_from_sheet()
+        ws = sync_findings_tab(articles, "Article", ws=ws)
+        sync_findings_tab(search_console_findings, "GSC", ws=ws)
 
     payload = {
         "generated": datetime.now().isoformat(),
@@ -323,6 +348,7 @@ def main():
         "articles": articles,
         "articles_in_progress_count": articles_in_progress,
         "site_findings": site_findings,
+        "search_console_findings": search_console_findings,
     }
 
     os.makedirs(YOUM_FOLDER, exist_ok=True)
@@ -332,7 +358,8 @@ def main():
         f.write(";\n")
 
     print(f"Wrote {len(keywords)} keyword row(s), {len(articles)} optimized article(s) "
-          f"(+{articles_in_progress} in progress), {len(site_findings)} site finding(s) to {MANIFEST_PATH}")
+          f"(+{articles_in_progress} in progress), {len(site_findings)} site finding(s), "
+          f"{len(search_console_findings)} Search Console finding(s) to {MANIFEST_PATH}")
 
     if args.open:
         webbrowser.open(f"file:///{CONTROL_PANEL_PATH.replace(os.sep, '/')}?tab=seo")

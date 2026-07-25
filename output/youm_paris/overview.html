@@ -210,7 +210,7 @@
       </select>
       <select class="filter-select" id="statusFilter">
         <option value="all">Tous les statuts</option>
-        <option value="published">Publié</option>
+        <option value="published">Validé</option>
         <option value="pending">En attente</option>
       </select>
     </div>
@@ -221,7 +221,7 @@
           <th>Type</th>
           <th>Nom du post</th>
           <th>Date de création</th>
-          <th>Date de publication</th>
+          <th>Date de validation</th>
           <th>Statut</th>
           <th>Coût estimé</th>
         </tr>
@@ -512,8 +512,13 @@
       const nameHtml = r.link
         ? `<a class="post-name-link" href="${escapeHtml(r.link)}" target="_blank">${escapeHtml(r.title)}</a>`
         : `<span class="post-name-plain">${escapeHtml(r.title)}</span>`;
+      // AI image/vidéo rows use "Validé"/"À refaire" everywhere else in
+      // the panel (the action is a review step, not a real publish to a
+      // platform) -- Instagram cards and Pinterest pins keep "Publié"
+      // since those genuinely get posted to a real platform.
+      const isAiRow = r.type === 'Instagram — image AI' || r.type === 'Instagram — vidéo AI';
       const statusHtml = r.postedAt
-        ? `<span class="status-pill published">Publié</span>`
+        ? `<span class="status-pill published">${isAiRow ? 'Validé' : 'Publié'}</span>`
         : `<span class="status-pill pending">En attente</span>`;
       const postedDateHtml = r.postedAt ? `<span class="date-cell">${formatDate(r.postedAt)}</span>` : `<span class="empty-cell">—</span>`;
       return `
@@ -521,7 +526,7 @@
           <td data-label="Type"><span class="type-pill">${escapeHtml(r.type)}</span></td>
           <td data-label="Nom">${nameHtml}</td>
           <td data-label="Créé le"><span class="date-cell">${formatDate(r.created)}</span></td>
-          <td data-label="Publié le">${postedDateHtml}</td>
+          <td data-label="Validé le">${postedDateHtml}</td>
           <td data-label="Statut">${statusHtml}</td>
           <td data-label="Coût"><span class="cost-cell">${formatCost(r.costEur)}</span></td>
         </tr>`;

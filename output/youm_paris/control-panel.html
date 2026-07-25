@@ -383,7 +383,7 @@
     <select class="filter-select" id="filterSelect">
       <option value="all">Tous les posts</option>
       <option value="pending">En attente</option>
-      <option value="posted">Publiés</option>
+      <option value="posted">Validés</option>
     </select>
     <button class="regenerate-btn" onclick="toggleRegenPopover()">⟳ Régénérer le manifeste</button>
     <button class="refresh-btn" onclick="location.reload()">↻ Recharger</button>
@@ -397,7 +397,7 @@
     <select class="filter-select" id="aiImageFilterSelect">
       <option value="all">Toutes les images</option>
       <option value="pending">En attente</option>
-      <option value="posted">Publiées</option>
+      <option value="posted">Validées</option>
     </select>
     <select class="filter-select" id="aiImageSeasonFilterSelect">
       <option value="all">Toutes les saisons</option>
@@ -418,7 +418,7 @@
     <select class="filter-select" id="aiVideoFilterSelect">
       <option value="all">Toutes les vidéos</option>
       <option value="pending">En attente</option>
-      <option value="posted">Publiées</option>
+      <option value="posted">Validées</option>
     </select>
     <button class="regenerate-btn" onclick="toggleRegenPopover()">⟳ Régénérer le manifeste</button>
     <button class="refresh-btn" onclick="location.reload()">↻ Recharger</button>
@@ -499,9 +499,10 @@
 <div class="stats-bar" id="statsBar"></div>
 
 <div class="seo-subnav" id="seoSubnav" style="display:none;">
-  <button onclick="scrollToSeoSection('seoSectionFindings')">Recommandations</button>
   <button onclick="scrollToSeoSection('seoSectionKeywords')">Mots-clés</button>
   <button onclick="scrollToSeoSection('seoSectionArticles')">Articles</button>
+  <button onclick="scrollToSeoSection('seoSectionOpportunities')">Opportunités</button>
+  <button onclick="scrollToSeoSection('seoSectionFindings')">Recommandations</button>
 </div>
 
 <main>
@@ -1088,15 +1089,17 @@
 
   function renderMediaTab(tabKey) {
     const tabConfig = MEDIA_TABS[tabKey];
+    const isAiTab = tabKey === 'ai_image' || tabKey === 'ai_video';
     const posts = visibleMediaPosts(tabKey);
     const fullList = manifest[tabConfig.manifestKey] || [];
     const total = fullList.filter(p => !state.deleted[p.filename]).length;
     const postedCount = fullList.filter(p => !state.deleted[p.filename] && state.posted[p.filename]).length;
     const deletedCount = Object.keys(state.deleted).filter(f => fullList.some(p => p.filename === f)).length;
+    const postedLabel = isAiTab ? 'Validés' : 'Publiés';
 
     document.getElementById('statsBar').innerHTML = `
       <span>Total : <strong>${total}</strong></span>
-      <span class="stat-posted">Publiés : <strong>${postedCount}</strong></span>
+      <span class="stat-posted">${postedLabel} : <strong>${postedCount}</strong></span>
       <span>En attente : <strong>${total - postedCount}</strong></span>
       <span class="stat-deleted">À supprimer : <strong>${deletedCount}</strong></span>
     `;
@@ -1110,7 +1113,6 @@
     gridEl.style.display = currentView === 'grid' ? 'grid' : 'none';
     listEl.style.display = currentView === 'list' ? 'flex' : 'none';
 
-    const isAiTab = tabKey === 'ai_image' || tabKey === 'ai_video';
     const deleteLabel = isAiTab ? 'À refaire' : 'Supprimer';
     const deleteHandler = isAiTab ? 'openRefaireModal' : 'queueDelete';
 
@@ -1283,6 +1285,15 @@
   }
 
   function render() {
+    // renderSeo() is the only render function that shows #seoView — every
+    // other tab must explicitly hide it here, otherwise it stays visible
+    // (and, being appended after gridView/listView, sits on top of them)
+    // after a single visit to the SEO tab, silently blocking clicks on
+    // every other tab button for the rest of the session. Confirmed bug
+    // 2026-07-25: switching tabs away from SEO appeared to do nothing.
+    if (currentPlatform !== 'seo') {
+      document.getElementById('seoView').style.display = 'none';
+    }
     if (MEDIA_TABS[currentPlatform]) {
       renderMediaTab(currentPlatform);
     } else if (currentPlatform === 'seo') {
@@ -1400,14 +1411,24 @@
       </div>
     `).join('') : `<div class="empty-state">Aucune recommandation pour le moment.</div>`;
 
+    const gscFindings = seoManifest.search_console_findings || [];
+    const gscRows = gscFindings.length ? gscFindings.map(g => `
+      <div class="seo-row ${g.validation_status === 'validated' ? 'validated' : ''}">
+        <div class="seo-row-main">
+          <div class="seo-row-title">${escapeHtml(g.title)}</div>
+          <div class="seo-row-desc">${escapeHtml(g.description || '')}</div>
+          <div class="seo-row-meta">
+            <span class="seo-badge impact-${(g.impact || '').toLowerCase()}">${escapeHtml(g.metric_label || '')}</span>
+            ${g.page_url ? `<span><a class="open-link" style="flex:none;padding:2px 8px;" href="${escapeHtml(g.page_url)}" target="_blank" rel="noopener">Voir la page ↗</a></span>` : ''}
+          </div>
+        </div>
+        ${seoValidateButton('site_finding', g.id, g.title, g.validation_status === 'validated')}
+      </div>
+    `).join('') : `<div class="empty-state">Aucune opportunité détectée pour le moment.<br><br>Les données de Google Search Console seront analysées automatiquement une fois disponibles.</div>`;
+
     const seoEl = document.getElementById('seoView');
     seoEl.style.display = 'block';
     seoEl.innerHTML = `
-      <div class="seo-section" id="seoSectionFindings">
-        <div class="seo-section-title">Recommandations pour le site</div>
-        <div class="seo-section-sub">Les axes d'amélioration identifiés lors du dernier audit du site.</div>
-        <div class="seo-list">${findingRows}</div>
-      </div>
       <div class="seo-section" id="seoSectionKeywords">
         <div class="seo-section-title">Mots-clés ciblés</div>
         <div class="seo-section-sub">Les mots-clés recherchés pour attirer les bonnes visiteuses vers le site.</div>
@@ -1418,6 +1439,16 @@
         <div class="seo-section-sub">Les articles de blog déjà travaillés pour le référencement (titre, description, structure).</div>
         <div class="seo-list">${articleRows}</div>
         ${articleFooter}
+      </div>
+      <div class="seo-section" id="seoSectionOpportunities">
+        <div class="seo-section-title">Opportunités de recherche</div>
+        <div class="seo-section-sub">Analysées automatiquement à partir des données réelles de Google Search Console (clics, impressions, position).</div>
+        <div class="seo-list">${gscRows}</div>
+      </div>
+      <div class="seo-section" id="seoSectionFindings">
+        <div class="seo-section-title">Recommandations pour le site</div>
+        <div class="seo-section-sub">Les axes d'amélioration identifiés lors du dernier audit du site.</div>
+        <div class="seo-list">${findingRows}</div>
       </div>
     `;
   }
