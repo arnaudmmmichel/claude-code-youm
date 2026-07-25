@@ -151,15 +151,32 @@ export interface GithubFile {
 /** Fetches a file's current content + blob sha, both required to update or
  * delete it via the Contents API. Returns null (not an error) if the file
  * doesn't exist -- callers should treat a missing file as "nothing to do"
- * rather than fail the whole operation over an already-absent sidecar. */
+ * rather than fail the whole operation over an already-absent sidecar.
+ *
+ * CRITICAL: the Contents API's GET /contents/{path} endpoint only returns
+ * file content inline for files <=1MB -- for larger files `content` is
+ * absent/empty (GitHub's docs call this out, and it was confirmed the hard
+ * way 2026-07-25: every video and most images in this repo are >1MB, and
+ * an earlier version of this function silently wrote an empty string as
+ * "content", corrupting the archived file to 0 bytes with no error at any
+ * step). The Git Data API's GET /git/blobs/{sha} endpoint has no such
+ * limit, so this always fetches the sha via Contents API (cheap, metadata
+ * only) then the actual bytes via the Blobs API. */
 export async function getRepoFile(path: string): Promise<GithubFile | null> {
-  const resp = await githubFetch(`/repos/${GITHUB_REPO}/contents/${path}`);
-  if (resp.status === 404) return null;
-  if (!resp.ok) throw new Error(`GitHub GET contents ${resp.status}: ${await resp.text()}`);
-  const data = (await resp.json()) as { sha: string; content: string };
+  const metaResp = await githubFetch(`/repos/${GITHUB_REPO}/contents/${path}`);
+  if (metaResp.status === 404) return null;
+  if (!metaResp.ok) throw new Error(`GitHub GET contents ${metaResp.status}: ${await metaResp.text()}`);
+  const meta = (await metaResp.json()) as { sha: string };
+
+  const blobResp = await githubFetch(`/repos/${GITHUB_REPO}/git/blobs/${meta.sha}`);
+  if (!blobResp.ok) throw new Error(`GitHub GET blob ${blobResp.status}: ${await blobResp.text()}`);
+  const blob = (await blobResp.json()) as { sha: string; content: string; encoding: string };
+  if (blob.encoding !== "base64") {
+    throw new Error(`Unexpected blob encoding for ${path}: ${blob.encoding}`);
+  }
   // GitHub returns content base64-encoded with embedded newlines -- strip
   // them so callers get a clean base64 string usable directly in a PUT body.
-  return { sha: data.sha, contentBase64: data.content.replace(/\n/g, "") };
+  return { sha: blob.sha, contentBase64: blob.content.replace(/\n/g, "") };
 }
 
 /** Creates or updates a file at `path` with the given base64 content.
