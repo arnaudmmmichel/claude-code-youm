@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Youm AI Image — boucle doreille creole perle mathis a lunite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #241f1a; --dark: #f8f1ee; --dark2: #ece3dc; --accent: #f54e00; --muted: #b8a999;
+    --border: #3a332c; --surface: #161311; --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', Arial, sans-serif;
+  }
+  body {
+    background: var(--surface); display: flex; flex-direction: column; align-items: center;
+    padding: 40px; font-family: var(--sans); -webkit-font-smoothing: antialiased;
+  }
+  .back-link {
+    align-self: flex-start; display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none;
+    margin-bottom: 20px; padding: 8px 14px; border: 1px solid var(--border);
+    border-radius: 6px; background: var(--cream);
+  }
+  .back-link:hover { border-color: var(--accent); color: var(--accent); }
+  .card { width: 360px; max-width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid var(--border); cursor: zoom-in; }
+  .card img { display: block; width: 100%; height: auto; }
+  .lightbox {
+    display: none; position: fixed; inset: 0; background: rgba(15, 12, 10, 0.92);
+    z-index: 100; cursor: zoom-out; overflow: auto; text-align: center;
+  }
+  .lightbox.open { display: block; }
+  .lightbox img { width: auto; height: auto; max-width: none; margin: 32px; border-radius: 4px; }
+  .lightbox-close {
+    position: fixed; top: 20px; right: 24px; color: #fff; font-size: 28px;
+    line-height: 1; background: none; border: none; cursor: pointer; opacity: 0.8;
+  }
+  .lightbox-close:hover { opacity: 1; }
+  .review-actions { display: flex; gap: 10px; margin-top: 16px; }
+  .review-btn {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.02em; border-radius: 6px;
+    padding: 9px 18px; cursor: pointer; border: 1px solid var(--border); background: var(--cream);
+    color: var(--dark2); transition: opacity 0.15s;
+  }
+  .review-btn:hover { opacity: 0.85; }
+  .review-btn.valide { border-color: rgba(46,139,87,0.4); color: #6fcf97; }
+  .review-btn.valide.active { background: #2ea043; color: #fff; border-color: #2ea043; }
+  .review-btn.refaire { border-color: rgba(245,78,0,0.3); color: var(--accent); }
+  .workflow { width: 700px; max-width: 100%; margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+  .screenshot-hint { font-size: 13px; color: var(--muted); line-height: 1.7; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
+  .block { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; }
+  .block-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
+  .copy-btn { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; background: var(--accent); border: none; border-radius: 5px; padding: 8px 15px; cursor: pointer; }
+  .copy-btn:hover { opacity: 0.88; }
+  .copy-btn.copied { background: #2ea043; }
+  .block-text { font-size: 17px; line-height: 1.7; color: var(--dark2); white-space: pre-wrap; }
+  .block-text.empty { font-size: 14px; color: var(--muted); font-style: italic; }
+  .steps { font-size: 14px; color: var(--muted); line-height: 2; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; }
+  .steps h3 { color: var(--dark2); margin-bottom: 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--serif); }
+  .steps ol { padding-left: 20px; }
+  .meta-strip { font-size: 13px; color: var(--muted); margin-top: 14px; }
+  @media (max-width: 600px) {
+    body { padding: 20px 16px; }
+    .workflow { width: 100%; }
+    .block { padding: 16px 18px; }
+    .block-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <a class="back-link" href="../control-panel.html">&larr; Retour au panneau de contr&ocirc;le</a>
+
+  <div class="card" onclick="document.getElementById('lightbox').classList.add('open')">
+    <img src="boucle-doreille-creole-perle-mathis-a-lunite.jpg" alt="boucle doreille creole perle mathis a lunite">
+  </div>
+  <div class="meta-strip">3072&times;5504 (9:16) &middot; IMAGE AI-MODEL</div>
+
+  <div class="review-actions">
+    <button class="review-btn valide" id="valideBtn" onclick="toggleValide()">Valid&eacute;</button>
+    <button class="review-btn refaire" onclick="markARefaire()">&Agrave; refaire</button>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+    <button class="lightbox-close" onclick="event.stopPropagation(); document.getElementById('lightbox').classList.remove('open')">&times;</button>
+    <img src="boucle-doreille-creole-perle-mathis-a-lunite.jpg" alt="boucle doreille creole perle mathis a lunite">
+  </div>
+
+  <div class="workflow">
+    <p class="screenshot-hint">// Image deja au bon format (9:16) — enregistrer l'image ci-dessus ou ouvrir <code>boucle-doreille-creole-perle-mathis-a-lunite.jpg</code> directement, puis l'uploader sur Instagram.</p>
+
+    <div class="block">
+      <div class="block-label">
+        Legende Instagram
+        <button class="copy-btn" onclick="copyBlock('caption-ig', this)">Copier</button>
+      </div>
+      <div class="block-text" id="caption-ig">Les feuilles rousses tombent, et l&#x27;or reste.
+
+La créole Mathis à l&#x27;unité — une perle blanche sur un anneau en laiton doré à l&#x27;or fin 24 carats, dorure réalisée par nos artisans à Paris. Simple dans sa forme, singulière dans ce qu&#x27;elle dit de vous.
+
+Portez-la seule pour un effet épuré, ou composez votre propre combinaison avec vos charms. Cet automne, c&#x27;est vous qui décidez du rythme.
+
+Découvrez la créole Mathis et la collection charms sur youm-paris.com
+
+#youmparis #shinewithyoum #creoleperle #bijouxparis #automne</div>
+    </div>
+
+    <div class="block">
+      <div class="block-label">
+        Legende Pinterest
+        <button class="copy-btn" onclick="copyBlock('caption-pin', this)">Copier</button>
+      </div>
+      <div class="block-text" id="caption-pin">Créole perle blanche en laiton doré à l&#x27;or fin 24 carats — boucle d&#x27;oreille à porter seule ou en duo avec charms, idéale pour sublimer un look automne au quotidien. youm-paris.com</div>
+    </div>
+
+    <div class="steps">
+      <h3>// Etapes de publication</h3>
+      <ol>
+        <li>Enregistrer l'image ci-dessus (ou utiliser <code>boucle-doreille-creole-perle-mathis-a-lunite.jpg</code> directement).</li>
+        <li>Nouveau post Instagram &rarr; uploader l'image.</li>
+        <li>Cliquer "Copier" sur la legende souhaitee &rarr; coller comme texte du post.</li>
+        <li>Publier.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function copyBlock(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copie';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+    });
+
+    // Review state (Validé / À refaire) — writes into the SAME localStorage
+    // key the control panel reads (youm_social_control_state_v1), keyed by
+    // this card's manifest filename, so a click here reflects immediately
+    // in the dashboard without needing the manifest regenerated.
+    const STATE_KEY = 'youm_social_control_state_v1';
+    const CARD_ID = 'ai-model-images/boucle-doreille-creole-perle-mathis-a-lunite.jpg';
+    const PRODUCT_URL = "https://youm-paris.com/products/boucle-doreille-creole-perle-mathis-a-lunite";
+    const YOUM_SERVER_BASE = 'http://127.0.0.1:8430';
+
+    function loadReviewState() {
+      try { return JSON.parse(localStorage.getItem(STATE_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function saveReviewState(s) { localStorage.setItem(STATE_KEY, JSON.stringify(s)); }
+
+    function syncStatusToSheet(statusKey) {
+      if (!PRODUCT_URL) return;
+      fetch(`${YOUM_SERVER_BASE}/api/update-status`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product_url: PRODUCT_URL, status: statusKey }),
+      }).catch(() => {});
+    }
+
+    function refreshValideBtn() {
+      const s = loadReviewState();
+      document.getElementById('valideBtn').classList.toggle('active', !!(s.posted && s.posted[CARD_ID]));
+    }
+    function toggleValide() {
+      const s = loadReviewState();
+      s.posted = s.posted || {};
+      if (s.posted[CARD_ID]) delete s.posted[CARD_ID];
+      else { s.posted[CARD_ID] = new Date().toISOString(); syncStatusToSheet('valide'); }
+      saveReviewState(s);
+      refreshValideBtn();
+    }
+    function markARefaire() {
+      if (!confirm('Marquer cette image "à refaire" ? (Le fichier reste sur le disque — ceci la masque seulement dans le panneau de contrôle.)')) return;
+      const s = loadReviewState();
+      s.deleted = s.deleted || {};
+      s.deleted[CARD_ID] = true;
+      saveReviewState(s);
+      syncStatusToSheet('a_refaire');
+      alert('Marqué "à refaire" — masqué du panneau de contrôle.');
+    }
+    refreshValideBtn();
+  </script>
+
+</body>
+</html>
