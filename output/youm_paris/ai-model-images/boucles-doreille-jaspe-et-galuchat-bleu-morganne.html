@@ -47,6 +47,11 @@
   .review-btn.valide { border-color: rgba(46,139,87,0.4); color: #6fcf97; }
   .review-btn.valide.active { background: #2ea043; color: #fff; border-color: #2ea043; }
   .review-btn.refaire { border-color: rgba(245,78,0,0.3); color: var(--accent); }
+  .review-btn.refaire.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .review-pending-bar { display: none; align-items: center; gap: 10px; margin-top: 12px; font-size: 12.5px; color: var(--muted); }
+  .review-pending-bar.visible { display: flex; }
+  .review-save-btn { font-size: 12px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; }
+  .review-discard-btn { font-size: 12px; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 14px; cursor: pointer; }
   .workflow { width: 700px; max-width: 100%; margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
   .screenshot-hint { font-size: 13px; color: var(--muted); line-height: 1.7; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
   .block { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; }
@@ -79,7 +84,12 @@
 
   <div class="review-actions">
     <button class="review-btn valide" id="valideBtn" onclick="toggleValide()">Valid&eacute;</button>
-    <button class="review-btn refaire" onclick="markARefaire()">&Agrave; refaire</button>
+    <button class="review-btn refaire" id="refaireBtn" onclick="markARefaire()">&Agrave; refaire</button>
+  </div>
+  <div class="review-pending-bar" id="reviewPendingBar">
+    <span>Modification non enregistr&eacute;e</span>
+    <button class="review-discard-btn" onclick="discardReview()">Annuler</button>
+    <button class="review-save-btn" id="reviewSaveBtn" onclick="saveReview()">Enregistrer</button>
   </div>
 
   <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
@@ -143,43 +153,13 @@ Découvrez les Boucles d&#x27;oreilles Morganne sur youm-paris.com
     const CARD_ID = 'ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.jpg';
     const PRODUCT_URL = "https://youm-paris.com/products/boucles-doreille-jaspe-et-galuchat-bleu-morganne";
     const YOUM_SERVER_BASE = 'http://127.0.0.1:8430';
-
-    function loadReviewState() {
-      try { return JSON.parse(localStorage.getItem(STATE_KEY)) || {}; } catch (e) { return {}; }
-    }
-    function saveReviewState(s) { localStorage.setItem(STATE_KEY, JSON.stringify(s)); }
-
-    function syncStatusToSheet(statusKey) {
-      if (!PRODUCT_URL) return;
-      fetch(`${YOUM_SERVER_BASE}/api/update-status`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product_url: PRODUCT_URL, status: statusKey }),
-      }).catch(() => {});
-    }
-
-    function refreshValideBtn() {
-      const s = loadReviewState();
-      document.getElementById('valideBtn').classList.toggle('active', !!(s.posted && s.posted[CARD_ID]));
-    }
-    function toggleValide() {
-      const s = loadReviewState();
-      s.posted = s.posted || {};
-      if (s.posted[CARD_ID]) delete s.posted[CARD_ID];
-      else { s.posted[CARD_ID] = new Date().toISOString(); syncStatusToSheet('valide'); }
-      saveReviewState(s);
-      refreshValideBtn();
-    }
-    function markARefaire() {
-      if (!confirm('Marquer cette image "à refaire" ? (Le fichier reste sur le disque — ceci la masque seulement dans le panneau de contrôle.)')) return;
-      const s = loadReviewState();
-      s.deleted = s.deleted || {};
-      s.deleted[CARD_ID] = true;
-      saveReviewState(s);
-      syncStatusToSheet('a_refaire');
-      alert('Marqué "à refaire" — masqué du panneau de contrôle.');
-    }
-    refreshValideBtn();
+    const ASSET_TYPE = 'image';
+    const DETAIL_PAGE_PATH = 'ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.html';
+    const SOURCE_JSON_PATH = 'ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.source.json';
   </script>
 
+  <script src="../manifest.js"></script>
+  <script src="../detail-nav.js"></script>
+  <script src="../detail-review.js"></script>
 </body>
 </html>

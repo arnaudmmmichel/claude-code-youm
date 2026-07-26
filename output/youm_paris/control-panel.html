@@ -147,6 +147,24 @@
     font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
     color: #fff; z-index: 5;
   }
+  /* À refaire overlay — same treatment as Validé (opacity + centered
+     label) but in red, so both states read at a glance in "Toutes les
+     images" without needing to filter. A card can carry both classes at
+     once (re-marking a validated card à refaire before saving) — the
+     à refaire overlay wins visually since it's the more actionable state. */
+  .card.refaire { opacity: 0.55; }
+  .card.refaire .preview-wrap::after {
+    content: '✕ À REFAIRE';
+    position: absolute; inset: 0;
+    background: rgba(28,24,20,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+    color: #ff8a7a; z-index: 5;
+  }
+  /* Pending (clicked but not yet saved) — a thin accent ring on the card
+     itself, distinct from the overlay, so it's obvious which validé/à
+     refaire marks are still local-only vs already synced to the sheet. */
+  .card.pending-change { box-shadow: 0 0 0 2px var(--accent); }
 
   .preview-wrap {
     position: relative;
@@ -201,6 +219,8 @@
   .list-view { display: flex; flex-direction: column; gap: 10px; }
   .list-row { display: flex; align-items: center; gap: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
   .list-row.posted { opacity: 0.55; }
+  .list-row.refaire { opacity: 0.55; border-color: rgba(224,101,90,0.4); }
+  .list-row.pending-change { box-shadow: 0 0 0 2px var(--accent); }
   .list-thumb { position: relative; width: 76px; height: 95px; flex-shrink: 0; overflow: hidden; border-radius: 4px; background: var(--cream-deep); border: 1px solid var(--border); }
   .list-thumb img, .list-thumb video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .list-info { flex: 1; min-width: 0; }
@@ -217,6 +237,20 @@
   .copy-cmd-btn { font-size: 11px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: 5px; padding: 7px 14px; cursor: pointer; }
   .copy-cmd-btn.copied { background: var(--green); }
   .clear-queue-btn { font-size: 11px; color: #cbb; background: none; border: 1px solid #332a22; border-radius: 5px; padding: 7px 14px; cursor: pointer; }
+
+  /* ── PENDING CHANGES BAR (AI Image/Vidéo Validé/À refaire batching) ──
+     Appears only while state.pendingValide/pendingRefaire has entries for
+     the current tab — lets Arnaud click through several cards and commit
+     them (sheet write + archive) in one Enregistrer, instead of one
+     network round-trip + rebuild per click. */
+  .pending-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--accent); padding: 14px 32px; z-index: 30; display: none; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .pending-bar.visible { display: flex; }
+  .pending-bar-summary { font-size: 12.5px; color: var(--dark2); }
+  .pending-bar-summary strong { color: var(--dark); }
+  .pending-bar-actions { display: flex; gap: 10px; }
+  .pending-discard-btn { font-size: 12px; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 6px; padding: 9px 16px; cursor: pointer; }
+  .pending-save-btn { font-size: 12px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: 6px; padding: 9px 18px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .pending-save-btn:disabled { opacity: 0.6; cursor: wait; }
 
   .regenerate-btn { font-size: 12px; background: var(--cream); border: 1px solid var(--border); color: var(--dark2); padding: 8px 12px; border-radius: 6px; cursor: pointer; }
   .regenerate-btn:hover { border-color: var(--accent); }
@@ -488,13 +522,13 @@
   </div>
 </div>
 
-<div class="modal-backdrop" id="refaireModal">
+<div class="modal-backdrop" id="discardPendingModal">
   <div class="modal-box">
-    <h3>Marquer « à refaire » ?</h3>
-    <div class="modal-subtitle" id="refaireModalSubtitle"></div>
+    <h3>Annuler les modifications en attente ?</h3>
+    <div class="modal-subtitle">Rien n'a encore été enregistré — ceci efface uniquement les marques Validé/À refaire non sauvegardées.</div>
     <div class="modal-actions">
-      <button class="modal-cancel-btn" onclick="closeRefaireModal()">Annuler</button>
-      <button class="modal-confirm-btn" id="refaireModalConfirmBtn" onclick="confirmRefaire()">Marquer à refaire</button>
+      <button class="modal-cancel-btn" onclick="closeDiscardPendingModal()">Retour</button>
+      <button class="modal-confirm-btn" onclick="confirmDiscardPendingChanges()">Annuler les modifications</button>
     </div>
   </div>
 </div>
@@ -531,6 +565,14 @@
   <div class="delete-queue-cmd" id="deleteQueueCmd"></div>
   <div style="margin-top:10px; display:flex; justify-content:flex-end;">
     <button class="copy-cmd-btn" id="copyCmdBtn" onclick="copyDeleteCmd()">Copier la commande</button>
+  </div>
+</div>
+
+<div class="pending-bar" id="pendingBar">
+  <div class="pending-bar-summary" id="pendingBarSummary"></div>
+  <div class="pending-bar-actions">
+    <button class="pending-discard-btn" onclick="discardPendingChanges()">Annuler</button>
+    <button class="pending-save-btn" id="pendingSaveBtn" onclick="savePendingChanges()">Enregistrer les modifications</button>
   </div>
 </div>
 
@@ -607,9 +649,20 @@
       return {
         posted: s.posted || {}, deleted: s.deleted || {}, scheduled: s.scheduled || {},
         pinPosted: s.pinPosted || {}, pinScheduled: s.pinScheduled || {}, pinDeleted: s.pinDeleted || {},
+        // AI Image/Vidéo Validé/À refaire clicks are staged here first (not
+        // written to the sheet / archived on disk yet) — only
+        // savePendingChanges() commits them, so several cards can be
+        // marked in one sitting and synced together. Not persisted across
+        // tab regeneration cleanly (see note in savePendingChanges), but
+        // kept in localStorage like everything else so a reload mid-review
+        // doesn't lose the queue.
+        pendingValide: s.pendingValide || {}, pendingRefaire: s.pendingRefaire || {},
       };
     } catch (e) {
-      return { posted: {}, deleted: {}, scheduled: {}, pinPosted: {}, pinScheduled: {}, pinDeleted: {} };
+      return {
+        posted: {}, deleted: {}, scheduled: {}, pinPosted: {}, pinScheduled: {}, pinDeleted: {},
+        pendingValide: {}, pendingRefaire: {},
+      };
     }
   }
   function saveState() { localStorage.setItem(STATE_KEY, JSON.stringify(state)); }
@@ -846,105 +899,197 @@
     });
   }
 
-  // POST to youm-control-panel-server (or the Netlify Function at the same
-  // relative path) — never surfaces an error if the server's unreachable
-  // or the product_url has no matching sheet row; that's the documented
-  // fallback behavior, not a failure to report. Shows the loading toast
-  // while waiting, since this now also triggers a rebuild on Netlify.
-  function syncStatusToSheet(filename, statusKey) {
-    if (!serverAvailable) return;
-    const entry = findAiManifestEntry(filename);
-    if (!entry || !entry.product_url) return;
-    // Determines which of the "images IA" sheet's two dedicated timestamp
-    // columns (Image validé date / Video validé date) gets stamped —
-    // same extension-based rule as delete-asset.ts's assetTypeFromPath().
-    const assetType = filename.toLowerCase().endsWith('.mp4') ? 'video' : 'image';
-    showStatusToast('Mise à jour en cours…', 'pending');
-    fetch(`${YOUM_SERVER_BASE}/api/update-status`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ product_url: entry.product_url, status: statusKey, asset_type: assetType }),
-    })
-      .then(() => waitForRebuildThenNotify('manifest.js'))
-      .catch(() => hideStatusToast(0));
-  }
-
+  // AI Image/AI Vidéo Validé/À refaire clicks no longer fire a network
+  // request each time — they only stage the change in
+  // state.pendingValide/pendingRefaire (instant overlay + pending-change
+  // ring, card stays visible in "Toutes les images" so it's obvious what's
+  // queued) and reveal the bottom pending-bar. The actual sheet write
+  // (Validé) / archive+sheet-write (À refaire) only happens in
+  // savePendingChanges(), batched, so reviewing a dozen cards costs one
+  // rebuild instead of a dozen. Toggling a checkbox/button again before
+  // saving just un-stages it — nothing has touched the server yet.
   function togglePosted(filename, checked) {
-    if (checked) state.posted[filename] = new Date().toISOString();
-    else delete state.posted[filename];
+    if (checked) {
+      state.pendingValide[filename] = true;
+      delete state.pendingRefaire[filename];
+    } else {
+      delete state.pendingValide[filename];
+    }
     saveState();
     render();
-    if (checked) syncStatusToSheet(filename, 'valide');
   }
 
-  // AI Image/AI Vidéo "À refaire" is a real, immediate action (archives the
-  // media file + hard-deletes its .html/.source.json via delete-asset.ts,
-  // writes the sheet, triggers a rebuild) — routed through a confirmation
-  // modal rather than queueDelete()'s old local-hide-only path, since a
-  // native confirm() plus a copy-pasteable `rm` command was the exact
-  // manual-step pattern that needed removing. Instagram/Pinterest
-  // "Supprimer" is unrelated (no sheet, no regenerate workflow) and keeps
-  // its original local-hide behavior unchanged.
-  let refaireTarget = null;
+  function toggleRefairePending(filename, checked) {
+    if (checked) {
+      state.pendingRefaire[filename] = true;
+      delete state.pendingValide[filename];
+    } else {
+      delete state.pendingRefaire[filename];
+    }
+    saveState();
+    render();
+  }
 
-  function openRefaireModal(filename) {
-    const entry = findAiManifestEntry(filename);
-    refaireTarget = { filename, entry };
-    document.getElementById('refaireModalSubtitle').textContent =
-      `« ${filename} » sera archivé (l'image/vidéo reste sauvegardée) et retiré du tableau de bord.`;
-    document.getElementById('refaireModalConfirmBtn').disabled = false;
-    document.getElementById('refaireModalConfirmBtn').textContent = 'Marquer à refaire';
-    document.getElementById('refaireModal').classList.add('visible');
+  function pendingChangeCount() {
+    return Object.keys(state.pendingValide).length + Object.keys(state.pendingRefaire).length;
   }
-  function closeRefaireModal() {
-    document.getElementById('refaireModal').classList.remove('visible');
-    refaireTarget = null;
+
+  function renderPendingBar() {
+    const count = pendingChangeCount();
+    const bar = document.getElementById('pendingBar');
+    bar.classList.toggle('visible', count > 0);
+    if (count === 0) return;
+    const validCount = Object.keys(state.pendingValide).length;
+    const refaireCount = Object.keys(state.pendingRefaire).length;
+    const parts = [];
+    if (validCount) parts.push(`${validCount} à valider`);
+    if (refaireCount) parts.push(`${refaireCount} à refaire`);
+    document.getElementById('pendingBarSummary').innerHTML =
+      `<strong>${count}</strong> modification${count > 1 ? 's' : ''} en attente (${parts.join(', ')})`;
   }
-  function confirmRefaire() {
-    if (!refaireTarget) return;
-    const { filename, entry } = refaireTarget;
-    const btn = document.getElementById('refaireModalConfirmBtn');
+
+  // Uses the same .modal-backdrop/.modal-box pattern as addPinModal (and
+  // the old refaireModal, before it was replaced by the pending-bar flow)
+  // instead of a blocking confirm() — consistent with every other
+  // confirmation in this dashboard.
+  function discardPendingChanges() {
+    document.getElementById('discardPendingModal').classList.add('visible');
+  }
+  function closeDiscardPendingModal() {
+    document.getElementById('discardPendingModal').classList.remove('visible');
+  }
+  function confirmDiscardPendingChanges() {
+    state.pendingValide = {};
+    state.pendingRefaire = {};
+    saveState();
+    closeDiscardPendingModal();
+    render();
+  }
+
+  // Looks a pending filename up across BOTH AI manifest arrays (same as
+  // findAiManifestEntry) — used to drop a staged card from the batch if it
+  // no longer exists in the current manifest (e.g. already archived by a
+  // regeneration, or committed through some other path since it was
+  // staged) instead of sending a request for a card that isn't there
+  // anymore.
+  function isStillInManifest(filename) {
+    return !!findAiManifestEntry(filename);
+  }
+
+  // Commits every staged Validé/À refaire in one pass: Validé -> one
+  // /api/update-status call per card; À refaire -> one /api/delete-asset
+  // call per card (archives the media + sidecar, hard-deletes the detail
+  // page, writes the sheet) — same two endpoints as before, just called in
+  // a batch instead of on each click. Only ONE rebuild-wait/reload happens
+  // at the end, not one per card.
+  //
+  // Each request's outcome is tracked individually (not swallowed by a
+  // blanket .catch(() => {})) so a partial failure only commits the cards
+  // that actually succeeded — the failed ones stay in
+  // pendingValide/pendingRefaire so a retry only resends those, instead of
+  // silently marking everything "done" or resending already-succeeded
+  // cards on the next click.
+  function savePendingChanges() {
+    const validFilenames = Object.keys(state.pendingValide);
+    const refaireFilenames = Object.keys(state.pendingRefaire);
+    if (validFilenames.length + refaireFilenames.length === 0) return;
+
+    // Cards whose file no longer appears in the current manifest (already
+    // archived/removed some other way since being staged) are dropped from
+    // the batch right away rather than sent to the server.
+    const staleValid = validFilenames.filter((f) => !isStillInManifest(f));
+    const staleRefaire = refaireFilenames.filter((f) => !isStillInManifest(f));
+    staleValid.forEach((f) => delete state.pendingValide[f]);
+    staleRefaire.forEach((f) => delete state.pendingRefaire[f]);
+    const sendValid = validFilenames.filter((f) => isStillInManifest(f));
+    const sendRefaire = refaireFilenames.filter((f) => isStillInManifest(f));
+
+    if (sendValid.length + sendRefaire.length === 0) {
+      saveState();
+      render();
+      return;
+    }
+
+    const btn = document.getElementById('pendingSaveBtn');
     btn.disabled = true;
-    btn.innerHTML = `<span class="spinner"></span> Envoi…`;
-    showStatusToast('Mise à jour en cours…', 'pending');
+    btn.innerHTML = `<span class="spinner"></span> Enregistrement…`;
+    showStatusToast('Enregistrement des modifications…', 'pending');
 
-    // .source.json always sits alongside the media file with the same
-    // base name — same convention load_source_sidecar() in
-    // generate_manifest.py already relies on. detail_page (the .html) is
-    // already computed by that same scanner and may be null if none exists.
-    const base = filename.replace(/\.[^./]+$/, '');
-    const sourceJsonPath = `${base}.source.json`;
-    const htmlPath = entry && entry.detail_page ? entry.detail_page : null;
+    const succeededValid = [];
+    const succeededRefaire = [];
+    const requests = [];
 
-    fetch(`${YOUM_SERVER_BASE}/api/delete-asset`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        media_path: filename,
-        source_json_path: sourceJsonPath,
-        html_path: htmlPath,
-        product_url: entry ? entry.product_url : null,
-      }),
-    })
-      .then(r => r.json())
-      .then(data => {
-        if (!data.ok) throw new Error(data.error || 'Unknown error');
-        closeRefaireModal();
-        waitForRebuildThenNotify('manifest.js', () => {
-          state.deleted[filename] = true;
-          saveState();
-          render();
-        });
-      })
-      .catch(() => {
-        btn.disabled = false;
-        btn.textContent = 'Marquer à refaire (réessayer)';
-        showStatusToast('Échec de la mise à jour — réessayez.', 'timeout');
-        hideStatusToast(4000);
+    sendValid.forEach((filename) => {
+      const entry = findAiManifestEntry(filename);
+      const assetType = filename.toLowerCase().endsWith('.mp4') ? 'video' : 'image';
+      if (!serverAvailable || !entry || !entry.product_url) {
+        // No server / no sheet row to write to — nothing can fail, so this
+        // still counts as "succeeded" (same fallback behavior as before).
+        succeededValid.push(filename);
+        requests.push(Promise.resolve());
+        return;
+      }
+      requests.push(
+        fetch(`${YOUM_SERVER_BASE}/api/update-status`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ product_url: entry.product_url, status: 'valide', asset_type: assetType }),
+        })
+          .then((r) => { if (r.ok) succeededValid.push(filename); })
+          .catch(() => {})
+      );
+    });
+
+    sendRefaire.forEach((filename) => {
+      const entry = findAiManifestEntry(filename);
+      // .source.json always sits alongside the media file with the same
+      // base name — same convention load_source_sidecar() in
+      // generate_manifest.py relies on. detail_page may be null if none
+      // exists.
+      const base = filename.replace(/\.[^./]+$/, '');
+      const sourceJsonPath = `${base}.source.json`;
+      const htmlPath = entry && entry.detail_page ? entry.detail_page : null;
+      requests.push(
+        fetch(`${YOUM_SERVER_BASE}/api/delete-asset`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            media_path: filename,
+            source_json_path: sourceJsonPath,
+            html_path: htmlPath,
+            product_url: entry ? entry.product_url : null,
+          }),
+        })
+          .then((r) => { if (r.ok) succeededRefaire.push(filename); })
+          .catch(() => {})
+      );
+    });
+
+    Promise.all(requests).then(() => {
+      succeededValid.forEach((filename) => {
+        state.posted[filename] = new Date().toISOString();
+        delete state.pendingValide[filename];
       });
+      succeededRefaire.forEach((filename) => {
+        state.deleted[filename] = true;
+        delete state.pendingRefaire[filename];
+      });
+      saveState();
+
+      const failedCount = (sendValid.length - succeededValid.length) + (sendRefaire.length - succeededRefaire.length);
+      if (failedCount > 0) {
+        btn.disabled = false;
+        btn.textContent = `Enregistrer les modifications (${failedCount} en échec — réessayer)`;
+        showStatusToast(`${failedCount} modification(s) non enregistrée(s) — réessayez.`, 'timeout');
+        hideStatusToast(5000);
+        render();
+        return;
+      }
+      waitForRebuildThenNotify('manifest.js', () => render());
+    });
   }
 
-  // Reverses confirmRefaire()'s archive action — moves the media file +
+  // Reverses savePendingChanges()'s archive action — moves the media file +
   // .source.json sidecar back to their original location via
   // restore-asset.ts, clears the sheet status to "en attente". No
   // confirmation modal (undoing an archive isn't destructive the way
@@ -1148,11 +1293,15 @@
       const total = fullList.filter(p => !state.deleted[p.filename]).length;
       const postedCount = fullList.filter(p => !state.deleted[p.filename] && state.posted[p.filename]).length;
       const deletedCount = Object.keys(state.deleted).filter(f => fullList.some(p => p.filename === f)).length;
+      const pendingCount = isAiTab
+        ? fullList.filter(p => state.pendingValide[p.filename] || state.pendingRefaire[p.filename]).length
+        : 0;
       document.getElementById('statsBar').innerHTML = `
         <span>Total : <strong>${total}</strong></span>
         <span class="stat-posted">${postedLabel} : <strong>${postedCount}</strong></span>
         <span>En attente : <strong>${total - postedCount}</strong></span>
         <span class="stat-deleted">À supprimer : <strong>${deletedCount}</strong></span>
+        ${pendingCount ? `<span style="color:var(--accent); font-weight:600;">Modifications non enregistrées : <strong>${pendingCount}</strong></span>` : ''}
       `;
     }
 
@@ -1168,7 +1317,6 @@
     listEl.style.display = currentView === 'list' ? 'flex' : 'none';
 
     const deleteLabel = isAiTab ? 'À refaire' : 'Supprimer';
-    const deleteHandler = isAiTab ? 'openRefaireModal' : 'queueDelete';
 
     // Archived cards get a single "Restaurer" action instead of the
     // normal Validé checkbox + À refaire button — there's nothing left to
@@ -1178,17 +1326,46 @@
       if (p.archived) {
         return `<button class="delete-btn" onclick="restoreAsset('${p.filename}', '${p.original_filename}', '${p.original_source_json}', ${p.product_url ? `'${p.product_url}'` : 'null'})">Restaurer</button>`;
       }
+      if (isAiTab) {
+        // Validé/À refaire are two states of the SAME toggle now (checking
+        // one clears the other's pending flag) rather than a checkbox +
+        // separate destructive button — neither touches the server until
+        // savePendingChanges() runs.
+        const isRefaire = !!state.pendingRefaire[p.filename];
+        // A pending À refaire overrides a previously-committed Validé for
+        // display purposes — checking À refaire on an already-valid card
+        // (re-marking it for redo) should visually uncheck Validé even
+        // though state.posted itself isn't cleared until Save commits it.
+        const isValide = !isRefaire && !!(state.posted[p.filename] || state.pendingValide[p.filename]);
+        return `
+          <label class="checkbox-label">
+            <input type="checkbox" ${isValide ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
+            Validé
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" ${isRefaire ? 'checked' : ''} onchange="toggleRefairePending('${p.filename}', this.checked)">
+            À refaire
+          </label>`;
+      }
       const isPosted = !!state.posted[p.filename];
       return `
         <label class="checkbox-label">
           <input type="checkbox" ${isPosted ? 'checked' : ''} onchange="togglePosted('${p.filename}', this.checked)">
           Validé
         </label>
-        <button class="delete-btn" onclick="${deleteHandler}('${p.filename}')">${deleteLabel}</button>`;
+        <button class="delete-btn" onclick="queueDelete('${p.filename}')">${deleteLabel}</button>`;
     }
 
     gridEl.innerHTML = posts.map(p => {
       const isPosted = !p.archived && !!state.posted[p.filename];
+      const isPendingValide = !p.archived && !!state.pendingValide[p.filename];
+      const isPendingRefaire = !p.archived && !!state.pendingRefaire[p.filename];
+      const cardClasses = [
+        'card',
+        (isPosted || isPendingValide) && !isPendingRefaire ? 'posted' : '',
+        isPendingRefaire ? 'refaire' : '',
+        isPendingValide || isPendingRefaire ? 'pending-change' : '',
+      ].filter(Boolean).join(' ');
       // Image previews are wrapped in a plain <a> (whole thumbnail
       // clickable). Video previews keep their native <video controls>
       // interactive — wrapping the whole area in <a> would fight with
@@ -1200,7 +1377,7 @@
       const previewHref = p.type === 'video' ? '' : `href="${openFullTarget(p)}"`;
       const previewOnclick = p.type === 'video' ? `onclick="if(event.target.tagName!=='VIDEO') window.location.href='${openFullTarget(p)}'" style="cursor:pointer;"` : '';
       return `
-        <div class="card ${isPosted ? 'posted' : ''}">
+        <div class="${cardClasses}">
           <${previewTag} class="preview-wrap" ${previewHref} ${previewOnclick}>
             <span class="type-badge">${sourceTypeBadge(p)}</span>
             ${seasonBadge(p)}
@@ -1218,8 +1395,16 @@
 
     listEl.innerHTML = posts.map(p => {
       const isPosted = !p.archived && !!state.posted[p.filename];
+      const isPendingValide = !p.archived && !!state.pendingValide[p.filename];
+      const isPendingRefaire = !p.archived && !!state.pendingRefaire[p.filename];
+      const rowClasses = [
+        'list-row',
+        (isPosted || isPendingValide) && !isPendingRefaire ? 'posted' : '',
+        isPendingRefaire ? 'refaire' : '',
+        isPendingValide || isPendingRefaire ? 'pending-change' : '',
+      ].filter(Boolean).join(' ');
       return `
-        <div class="list-row ${isPosted ? 'posted' : ''}">
+        <div class="${rowClasses}">
           <div class="list-thumb">${makePreviewMedia(p, 'list-thumb')}</div>
           <div class="list-info">
             <div class="list-title">${escapeHtml(p.title)}</div>
@@ -1363,6 +1548,16 @@
       renderSeo();
     } else {
       renderPinterest();
+    }
+    // Pending Validé/À refaire changes only exist for AI Image/Vidéo tabs
+    // (the ones with a sheet to sync) — the bar stays hidden everywhere
+    // else even if a queue exists, so switching tabs doesn't show a
+    // "Enregistrer" bar with no visible affected cards.
+    const showPendingBar = currentPlatform === 'ai_image' || currentPlatform === 'ai_video';
+    if (showPendingBar) {
+      renderPendingBar();
+    } else {
+      document.getElementById('pendingBar').classList.remove('visible');
     }
   }
 
