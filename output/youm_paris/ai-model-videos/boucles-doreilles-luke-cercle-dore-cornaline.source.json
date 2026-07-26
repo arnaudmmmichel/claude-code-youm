@@ -1,0 +1,15 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784879136/youm/ai-model-images/boucles-doreilles-luke-cercle-dore-cornaline.jpg",
+  "slug": "boucles-doreilles-luke-cercle-dore-cornaline",
+  "source_position": "",
+  "prompt": "A real smartphone video of a woman smirking and walking dynamically with natural movements, in natural light, with her 2 earings, in silence (no talking). Shot on iPhone, 4k, shaky camera movement, natural lighting, unedited look, candid and spontaneous, vertical video style, no professional lighting, realistic skin textures, realistic movement. No bikini or swimsuit.",
+  "prompt_source": "auto-detected 'earrings' from slug (standing)",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1785073865/youm/ai-model-videos/boucles-doreilles-luke-cercle-dore-cornaline.mp4",
+  "caption_instagram": "La cornaline, dans sa chaleur terracotta, rencontre un cercle doré à l'or fin 24 carats. Les boucles Luke — pour illuminer une tenue sobre, sans effort. Découvrez les boucles d'oreilles Luke sur youm-paris.com\n\n#shinewithyoum #youmparis #bijouparis #cornaline #bouclesoreilles",
+  "caption_tiktok": "Un cercle doré, une pierre naturelle, et le look change. Les boucles Luke signées Youm Paris. ✨\n\n#shinewithyoum #youmparis #cornaline #bijougore",
+  "caption_youtube_title": "Boucles d'oreilles Luke — cercle doré & cornaline | Youm Paris",
+  "caption_youtube_description": "Les boucles d'oreilles Luke associent un cercle en laiton doré à l'or fin 24 carats à une pierre naturelle de cornaline, pour une touche de couleur chaude et caractère au quotidien. Dorure réalisée par un artisan parisien, assemblage soigné, série limitée. Découvrez les boucles Luke et toute la collection sur youm-paris.com."
+}

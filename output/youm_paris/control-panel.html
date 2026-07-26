@@ -198,6 +198,7 @@
   .card-title { font-size: 13px; font-weight: 600; color: var(--dark); line-height: 1.4; }
 
   .card-actions { display: flex; gap: 8px; align-items: center; margin-top: 4px; flex-wrap: wrap; }
+  .card-date { font-size: 11px; color: var(--muted-dim); margin-top: 2px; }
 
   .open-link {
     font-size: 11px; color: var(--accent); text-decoration: none;
@@ -1389,6 +1390,7 @@
               <a class="open-link" href="${openFullTarget(p)}">Ouvrir</a>
               ${cardActionsHtml(p)}
             </div>
+            <div class="card-date">${formatDate(p.created)}</div>
           </div>
         </div>`;
     }).join('');

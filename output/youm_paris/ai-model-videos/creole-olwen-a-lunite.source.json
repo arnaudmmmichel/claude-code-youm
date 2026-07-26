@@ -1,0 +1,15 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1783493052/Youm-Paris/uypn41nxabfhruacompg.jpg",
+  "slug": "creole-olwen-a-lunite",
+  "source_position": "",
+  "prompt": "A real smartphone video of a woman smirking and walking dynamically with natural movements, in natural light, with her 2 earings, in silence (no talking). Shot on iPhone, 4k, shaky camera movement, natural lighting, unedited look, candid and spontaneous, vertical video style, no professional lighting, realistic skin textures, realistic movement. No bikini or swimsuit.",
+  "prompt_source": "auto-detected 'earrings' from slug (standing)",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1785073724/youm/ai-model-videos/creole-olwen-a-lunite.mp4",
+  "caption_instagram": "Une créole, portée à l'unité — c'est tout un geste. La Créole Olwen en laiton doré à l'or fin 24 carats par nos artisans parisiens, pour celles qui n'ont pas besoin de faire la paire pour faire l'effet. Découvrez la Créole Olwen sur youm-paris.com\n\n#shinewithyoum #youmparis #creoledoreeparis #bijouxparis #bijouquotidien",
+  "caption_tiktok": "Une créole. Portée seule. Ça suffit. ✨ La Olwen, dorée à l'or fin 24 carats, signée Youm Paris.\n\n#shinewithyoum #youmparis #creolegold #bijouxhandmade #parisianstyle",
+  "caption_youtube_title": "Créole Olwen à l'unité — Youm Paris",
+  "caption_youtube_description": "La Créole Olwen se porte à l'unité, pour un effet affirmé et singulier. Réalisée en laiton doré à l'or fin 24 carats par un artisan parisien, elle s'assemble à la main avec soin. Un seul bijou, porté avec intention — c'est la signature Youm. Retrouvez la Créole Olwen sur youm-paris.com"
+}
