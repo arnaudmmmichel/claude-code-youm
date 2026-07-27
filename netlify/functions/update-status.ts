@@ -23,6 +23,21 @@
  * youm-ai-model-video --from-sheet, Make.com) hardcode column positions
  * that would otherwise shift.
  *
+ * Video logo-branding queue (added 2026-07-27): when asset_type === "video"
+ * and status === "valide", this ALSO flips "Video IA" (col X) to "à
+ * brander" -- a queue marker, NOT the final state. Netlify Functions have
+ * no ffmpeg and no persistent filesystem, and every attempt at doing the
+ * timed logo overlay purely via Cloudinary URL transformations produced
+ * inconsistent/broken results across repeated testing (documented in
+ * youm-ai-model-video/SKILL.md and .claude/skills/youm-ai-model-video/
+ * scripts/add_logo_overlay.py's own docstring) -- so the actual branding
+ * still runs locally, via `add_logo_overlay.py --from-sheet`, on whichever
+ * machine Arnaud has ffmpeg available (his own PC). That script polls for
+ * "à brander" rows, brands them, writes "video+logo", and flips "Video IA"
+ * to "Done" -- same self-consuming-queue pattern as youm-product-info-
+ * scraper's "nouveau" -> "priorité" flip. This function's job stops at
+ * queuing the row; it does NOT attempt any video processing itself.
+ *
  * After a successful write, fires the Netlify Build Hook so the whole site
  * rebuilds and every dashboard view reflects the change automatically.
  */
@@ -34,8 +49,10 @@ export const IMAGES_IA_SHEET_ID = "1r7co4OkM0Di5PJWVnVhETOikx0VhW8e-VZwI96OQ-H0"
 export const IMAGES_IA_SHEET_TAB = "images IA";
 const COL_URL = 2; // 1-indexed column B
 const COL_STATUS = 3; // 1-indexed column C
+const COL_VIDEO_IA = 24; // 1-indexed column X
 const COL_IMAGE_VALIDATED_DATE = 26; // 1-indexed column Z
 const COL_VIDEO_VALIDATED_DATE = 27; // 1-indexed column AA
+const VIDEO_BRAND_QUEUE_STATUS = "à brander";
 
 export const STATUS_MAP: Record<string, string> = {
   valide: "validé",
@@ -76,6 +93,9 @@ export async function writeImagesIaStatus(productUrl: string, statusKey: string,
         } else if (assetType === "video") {
           await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_VIDEO_VALIDATED_DATE, nowIso());
         }
+      }
+      if (assetType === "video" && statusKey === "valide") {
+        await updateCell(IMAGES_IA_SHEET_ID, IMAGES_IA_SHEET_TAB, rowNumber, COL_VIDEO_IA, VIDEO_BRAND_QUEUE_STATUS);
       }
       return rowNumber;
     }
