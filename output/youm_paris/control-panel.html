@@ -401,9 +401,6 @@
 <header>
   <div class="title-block">
     <a href="overview.html"><img class="header-logo" src="youm-logo.png" alt="Youm"></a>
-    <div>
-      <h1>Content Control Panel</h1>
-    </div>
   </div>
 
   <div class="platform-tabs">
@@ -471,6 +468,9 @@
       <option value="all">Tous les pins</option>
       <option value="pending">En attente</option>
       <option value="posted">Publiés</option>
+    </select>
+    <select class="filter-select" id="pinDestFilterSelect">
+      <option value="all">Toutes les pages de destination</option>
     </select>
     <button class="add-pin-btn" onclick="openAddPinModal()">+ Ajouter un pin</button>
   </div>
@@ -643,6 +643,7 @@
   let currentFilter = 'all';
   let currentSeasonFilter = 'all';
   let pinFilter = 'all';
+  let pinDestFilter = 'all';
 
   function loadState() {
     try {
@@ -1203,14 +1204,40 @@
     const manual = pins;
     const all = [...scanned, ...manual];
     return all.filter(p => {
-      if (pinFilter === 'pending') return !p.posted;
-      if (pinFilter === 'posted') return !!p.posted;
+      if (pinFilter === 'pending' && p.posted) return false;
+      if (pinFilter === 'posted' && !p.posted) return false;
+      if (pinDestFilter !== 'all' && destPath(p.dest_url) !== pinDestFilter) return false;
       return true;
     });
   }
 
+  // Rebuilds the destination-page filter's <option> list from whatever
+  // pins currently exist, so pages with no pin yet don't show as empty
+  // options (per Arnaud's ask: only pages that COULD be covered are
+  // useful to see, and that's driven by what's already been generated).
+  function populatePinDestFilter() {
+    const sel = document.getElementById('pinDestFilterSelect');
+    if (!sel) return;
+    const scanned = scannedPinsAsCards().filter(p => !state.pinDeleted[p.id]);
+    const all = [...scanned, ...pins];
+    const paths = [...new Set(all.map(p => destPath(p.dest_url)).filter(Boolean))].sort();
+    const prevValue = pinDestFilter;
+    sel.innerHTML = '<option value="all">Toutes les pages de destination</option>'
+      + paths.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join('');
+    sel.value = paths.includes(prevValue) ? prevValue : 'all';
+    pinDestFilter = sel.value;
+  }
+
   function captionPreview(text) {
     return text.length > 220 ? text.slice(0, 220) + '…' : text;
+  }
+
+  // Strips the domain from a dest_url for readability ("/blogs/articles/x"
+  // instead of "https://youm-paris.com/blogs/articles/x") — used both for
+  // the destination-page filter options and the card's displayed URL.
+  function destPath(url) {
+    if (!url) return '';
+    return url.replace(/^https?:\/\/[^/]+/i, '') || '/';
   }
 
   // Instagram cloudinary-cards and AI images carry one "caption" (+ AI
@@ -1437,6 +1464,7 @@
 
   function renderPinterest() {
     document.getElementById('deleteQueue').classList.remove('visible');
+    populatePinDestFilter();
     const visible = visiblePins();
     const allPins = [
       ...scannedPinsAsCards().filter(p => !state.pinDeleted[p.id]).map(p => ({ posted: state.pinPosted[p.id] || null })),
@@ -1496,7 +1524,7 @@
           <div class="card-body">
             <div class="card-title">${escapeHtml(p.title)}</div>
             ${p.board ? `<div class="pin-card-board">${escapeHtml(p.board)}</div>` : ''}
-            ${p.dest_url ? `<div class="pin-card-url">${escapeHtml(p.dest_url)}</div>` : ''}
+            ${p.dest_url ? `<div class="pin-card-url">${escapeHtml(destPath(p.dest_url))}</div>` : ''}
             <div class="card-actions">
               ${p.detail_page ? `<a class="open-link" href="${escapeHtml(p.detail_page)}">${pinOpenLabel}</a>` : (p.dest_url ? `<a class="open-link" href="${escapeHtml(p.dest_url)}">Ouvrir le lien</a>` : '')}
               <label class="checkbox-label">
@@ -1758,6 +1786,7 @@
   document.getElementById('aiImageSeasonFilterSelect').addEventListener('change', (e) => { currentSeasonFilter = e.target.value; render(); });
   document.getElementById('aiVideoFilterSelect').addEventListener('change', (e) => { currentFilter = e.target.value; render(); });
   document.getElementById('pinFilterSelect').addEventListener('change', (e) => { pinFilter = e.target.value; render(); });
+  document.getElementById('pinDestFilterSelect').addEventListener('change', (e) => { pinDestFilter = e.target.value; renderPinterest(); });
 
   setPlatform(currentPlatform);
   setView(currentView);

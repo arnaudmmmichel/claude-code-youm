@@ -1,5 +1,5 @@
 window.__SEO_MANIFEST__ = {
-  "generated": "2026-07-25T10:18:05.305710",
+  "generated": "2026-07-25T22:12:54.525677",
   "keywords": [
     {
       "id": "keyword-bijou-de-paris",
@@ -9,7 +9,7 @@ window.__SEO_MANIFEST__ = {
       "already_targeted": "Non",
       "target_url": "",
       "validation_status": "validated",
-      "validated_at": "2026-07-25T06:45:44+00:00"
+      "validated_at": "2026-07-25T10:06:27.639Z"
     },
     {
       "id": "keyword-bijou-en-quartz-rose",
@@ -898,5 +898,6 @@ window.__SEO_MANIFEST__ = {
       "validation_status": "pending",
       "validated_at": null
     }
-  ]
+  ],
+  "search_console_findings": []
 };
