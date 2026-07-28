@@ -1,0 +1,14 @@
+{
+  "pipeline": "youm-ai-model-video",
+  "source_image": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784924472/youm/ai-model-images/collier-lion-louis.jpg",
+  "slug": "collier-lion-louis",
+  "prompt": "A real smartphone video of an elegant woman with her new necklace, in silence (no talking). Shot on iPhone, 4k, shaky camera movement, natural lighting, unedited look, candid and spontaneous, vertical video style, no professional lighting, realistic skin textures, realistic movement.",
+  "prompt_source": "auto-detected 'necklace' from slug",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "cloudinary_url": "https://res.cloudinary.com/dk9cfmueg/video/upload/v1784924572/youm/ai-model-videos/collier-lion-louis.mp4",
+  "caption_instagram": "Un lion en or, porté avec caractère. Le Collier Lion Louis, en laiton doré à l'or fin 24 carats par nos artisans parisiens, s'impose avec une présence rare — sans jamais forcer l'effet. Pour celles qui savent que le bon bijou change tout. Découvrez le Collier Lion Louis sur youm-paris.com\n\n#shinewithyoum #youmparis #collierlion #bijouxparis #bijouxdores",
+  "caption_tiktok": "Ce collier lion, c'est le détail qui transforme une tenue sobre en quelque chose d'inoubliable. ✨ Laiton doré à l'or fin 24 carats, fait à Paris.\n\n#shinewithyoum #youmparis #collierlion #bijouxparis #bijouxhandmade",
+  "caption_youtube_title": "Collier Lion Louis — Bijou doré 24 carats | Youm Paris",
+  "caption_youtube_description": "Le Collier Lion Louis de Youm Paris : une pièce en laiton doré à l'or fin 24 carats, travaillée par des artisans parisiens, qui affirme votre personnalité au quotidien. Ce collier allie présence et élégance — le genre de bijou que l'on remarque sans qu'on sache exactement pourquoi. Découvrez-le sur youm-paris.com."
+}

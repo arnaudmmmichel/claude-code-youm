@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/52-pourquoi-offrir-bijou-bonne-idee.html",
+  "pin_title": "Pourquoi offrir un bijou est toujours une bonne idée — guide cadeaux Youm Paris",
+  "pin_description": "Boucles d'oreilles, collier, bracelet doré : le bijou s'adapte à toutes les occasions et tous les styles. Nos repères pour choisir la pièce juste, sans se tromper. Découvrez le guide cadeaux sur youm-paris.com",
+  "board": "Idées Cadeaux Bijoux",
+  "dest_url": "https://youm-paris.com/blogs/articles/pourquoi-offrir-bijou-bonne-idee",
+  "hook": "Le cadeau qui ne rate jamais",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "alt": "Boucles Aure cornaline et aventurine",
+      "public_id": "youm/pinterest-collage-products/pourquoi-offrir-bijou-bonne-idee-0-cc0e2df655"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "alt": "Créoles Jane perle ronde",
+      "public_id": "youm/pinterest-collage-products/pourquoi-offrir-bijou-bonne-idee-1-0b2e460cad"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-leon-chaine-doree-large-packsho.jpg?v=1773595793",
+      "alt": "Collier Léo chaîne dorée",
+      "public_id": "youm/pinterest-collage-products/pourquoi-offrir-bijou-bonne-idee-2-18312aecc0"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "alt": "Jonc Théo nacre",
+      "public_id": "youm/pinterest-collage-products/pourquoi-offrir-bijou-bonne-idee-3-8c029ca620"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "Boucles Jacinthe pendantes",
+      "public_id": "youm/pinterest-collage-products/pourquoi-offrir-bijou-bonne-idee-4-fdecf96094"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:pourquoi-offrir-bijou-bonne-idee-0-cc0e2df655,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pourquoi-offrir-bijou-bonne-idee-1-0b2e460cad,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pourquoi-offrir-bijou-bonne-idee-2-18312aecc0,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:pourquoi-offrir-bijou-bonne-idee-3-8c029ca620,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:pourquoi-offrir-bijou-bonne-idee-4-fdecf96094,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Le%20cadeau%20qui%20ne%20rate%20jamais,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

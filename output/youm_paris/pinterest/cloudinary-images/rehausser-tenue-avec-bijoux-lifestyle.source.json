@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "output/youm_paris/blog/19-rehausser-tenue-avec-bijoux.html",
+  "pin_title": "Comment rehausser une tenue sobre avec un bijou en pierre naturelle",
+  "pin_description": "Une tenue beige, blanche ou en lin ivoire prend vie avec une seule pièce bien choisie. Boucles d'oreilles en agate bleue, malachite ou jaspe : le bon bijou change tout. Découvrez la collection sur youm-paris.com",
+  "board": "Bijoux & Style Quotidien",
+  "dest_url": "https://youm-paris.com/blogs/articles/rehausser-tenue-avec-bijoux",
+  "hook": "Un bijou, tout change.",
+  "label": "",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-marine-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784920900/youm/ai-model-images/boucles-doreilles-marine-malachite.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/rehausser-tenue-avec-bijoux-0-creative-e952375992"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202328/Youm-Paris/pwxbg0n7fqx2aadddu5i.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/rehausser-tenue-avec-bijoux-1-creative-bed388c81e"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-doris-jaspe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202536/Youm-Paris/nvvpygstranwndy2fir9.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/rehausser-tenue-avec-bijoux-2-creative-6864dfa836"
+    },
+    {
+      "url": "https://youm-paris.com/products/bracelet-jonc-dore-malachite-theo",
+      "img1": "https://youm-paris.com/cdn/shop/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780584886/Youm-Paris/kpmbypfzh2l01g8jk0tc.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/rehausser-tenue-avec-bijoux-3-creative-13e3599b83"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pierres-lila",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776864543/Youm-Paris/zbunuwvwmnaptmtraqiy.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/rehausser-tenue-avec-bijoux-4-creative-cef7f245bb"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pendantes-jacinthe",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1778763967/Youm-Paris/afs5csc8v9k2nhkfxfm9.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/rehausser-tenue-avec-bijoux-5-creative-a563c531f3"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:rehausser-tenue-avec-bijoux-0-creative-e952375992,w_946,h_477,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:rehausser-tenue-avec-bijoux-1-creative-bed388c81e,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_507,fl_layer_apply/l_youm:pinterest-lifestyle-collage:rehausser-tenue-avec-bijoux-2-creative-6864dfa836,w_473,h_318,c_thumb,g_center/g_north,x_239,y_507,fl_layer_apply/l_youm:pinterest-lifestyle-collage:rehausser-tenue-avec-bijoux-3-creative-13e3599b83,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_831,fl_layer_apply/l_youm:pinterest-lifestyle-collage:rehausser-tenue-avec-bijoux-4-creative-cef7f245bb,w_473,h_318,c_thumb,g_center/g_north,x_239,y_831,fl_layer_apply/l_youm:pinterest-lifestyle-collage:rehausser-tenue-avec-bijoux-5-creative-a563c531f3,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_1155,fl_layer_apply/l_text:Arial_28_bold:Un%20bijou%252C%20tout%20change.,co_rgb:1c1814,g_north,x_239,y_1296,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -1,0 +1,55 @@
+{
+  "pipeline": "cloudinary-pinterest-lifestyle-collage-youm",
+  "source": "output/youm_paris/blog/20-pierres-naturelles-bijoux-uniques-artisanaux.html",
+  "pin_title": "Malachite, quartz rose, amazonite : pourquoi chaque pierre naturelle est unique",
+  "pin_description": "Veines, nuances, inclusions… chaque pierre naturelle raconte une histoire minérale que personne d'autre ne possède. Boucles d'oreilles artisanales serties à la main, dorées à l'or fin 24 carats. À découvrir sur youm-paris.com",
+  "board": "Bijoux Pierres Naturelles",
+  "dest_url": "https://youm-paris.com/blogs/articles/pierres-naturelles-bijoux-uniques-artisanaux",
+  "hook": "Aucune pierre identique",
+  "label": "",
+  "products": [
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-marine-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784920900/youm/ai-model-images/boucles-doreilles-marine-malachite.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/pierres-naturelles-bijoux-uniques-artisanaux-0-creative-e952375992"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-felix-malachite",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774043169/Youm-Paris/u1i2qitgnk8cesebssau.jpg",
+      "featured": true,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/pierres-naturelles-bijoux-uniques-artisanaux-1-creative-7147b70066"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-cleo-quartz-rose",
+      "img1": "https://youm-paris.com/cdn/shop/products/youm-boucles-oreilles-cleo-quartz-rose-perles-packshot.jpg?v=1771687676",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784912796/youm/ai-model-images/boucles-doreilles-cleo-quartz-rose.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/pierres-naturelles-bijoux-uniques-artisanaux-2-creative-b8f3565066"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pierres-lila",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1776864543/Youm-Paris/zbunuwvwmnaptmtraqiy.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/pierres-naturelles-bijoux-uniques-artisanaux-3-creative-cef7f245bb"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-doreilles-pierres-aure",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1774349743/Youm-Paris/j44avzq4uzmfej0uebcy.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/pierres-naturelles-bijoux-uniques-artisanaux-4-creative-8fbe946b17"
+    },
+    {
+      "url": "https://youm-paris.com/products/boucles-d-oreilles-asymetriques-isabelle-aventurine-et-agate-rouge",
+      "img1": "https://youm-paris.com/cdn/shop/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "creative1": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1775202328/Youm-Paris/pwxbg0n7fqx2aadddu5i.jpg",
+      "featured": false,
+      "creative1_public_id": "youm/pinterest-lifestyle-collage/pierres-naturelles-bijoux-uniques-artisanaux-5-creative-bed388c81e"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-lifestyle-collage:pierres-naturelles-bijoux-uniques-artisanaux-0-creative-e952375992,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_507,fl_layer_apply/l_youm:pinterest-lifestyle-collage:pierres-naturelles-bijoux-uniques-artisanaux-1-creative-7147b70066,w_946,h_477,c_thumb,g_center/g_north,x_-3,y_24,fl_layer_apply/l_youm:pinterest-lifestyle-collage:pierres-naturelles-bijoux-uniques-artisanaux-2-creative-b8f3565066,w_473,h_318,c_thumb,g_center/g_north,x_239,y_507,fl_layer_apply/l_youm:pinterest-lifestyle-collage:pierres-naturelles-bijoux-uniques-artisanaux-3-creative-cef7f245bb,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_831,fl_layer_apply/l_youm:pinterest-lifestyle-collage:pierres-naturelles-bijoux-uniques-artisanaux-4-creative-8fbe946b17,w_473,h_318,c_thumb,g_center/g_north,x_239,y_831,fl_layer_apply/l_youm:pinterest-lifestyle-collage:pierres-naturelles-bijoux-uniques-artisanaux-5-creative-bed388c81e,w_473,h_318,c_thumb,g_center/g_north,x_-240,y_1155,fl_layer_apply/l_text:Arial_28_bold:Aucune%20pierre%20identique,co_rgb:1c1814,g_north,x_239,y_1296,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

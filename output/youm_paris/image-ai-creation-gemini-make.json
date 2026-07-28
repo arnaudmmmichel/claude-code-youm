@@ -1,0 +1,2547 @@
+{
+    "name": "YOUM - create ad creative IMAGES (Step1/2) (Flow step 2)",
+    "flow": [
+        {
+            "id": 102,
+            "module": "google-sheets:filterRows",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 9119204
+            },
+            "mapper": {
+                "from": "drive",
+                "limit": "10",
+                "filter": [
+                    [
+                        {
+                            "a": "C",
+                            "b": "priorité",
+                            "o": "text:equal"
+                        }
+                    ]
+                ],
+                "sheetId": "images IA",
+                "sortOrder": "asc",
+                "spreadsheetId": "1r7co4OkM0Di5PJWVnVhETOikx0VhW8e-VZwI96OQ-H0",
+                "tableFirstRow": "A1:Z1",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "from": {
+                            "label": "Select from My Drive"
+                        },
+                        "orderBy": {
+                            "mode": "chose"
+                        },
+                        "sheetId": {
+                            "mode": "chose",
+                            "label": "images IA"
+                        },
+                        "sortOrder": {
+                            "mode": "chose",
+                            "label": "Ascending"
+                        },
+                        "spreadsheetId": {
+                            "mode": "chose",
+                            "label": "Youm - contenus videos et blog"
+                        },
+                        "tableFirstRow": {
+                            "label": "A-Z"
+                        },
+                        "includesHeaders": {
+                            "mode": "chose",
+                            "label": "Yes"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection (arnaud.mm.michel@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "select",
+                        "label": "Spreadsheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "select",
+                        "label": "Column range",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "A1:Z1",
+                                "A1:BZ1",
+                                "A1:CZ1",
+                                "A1:DZ1",
+                                "A1:MZ1",
+                                "A1:ZZ1",
+                                "A1:AZZ1",
+                                "A1:BZZ1",
+                                "A1:CZZ1",
+                                "A1:DZZ1",
+                                "A1:MZZ1",
+                                "A1:ZZZ1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "type": "filter",
+                        "label": "Filter",
+                        "options": "rpc://google-sheets/2/rpcGetFilterKeys?includesHeaders=true"
+                    },
+                    {
+                        "name": "orderBy",
+                        "type": "select",
+                        "label": "Order by"
+                    },
+                    {
+                        "name": "sortOrder",
+                        "type": "select",
+                        "label": "Sort order",
+                        "validate": {
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "type": "uinteger",
+                        "label": "Bundle order position"
+                    },
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "type": "number",
+                        "label": "Row number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "type": "text",
+                        "label": "Spreadsheet ID"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "type": "text",
+                        "label": "Sheet"
+                    },
+                    {
+                        "name": "0",
+                        "type": "text",
+                        "label": "# (A)"
+                    },
+                    {
+                        "name": "1",
+                        "type": "text",
+                        "label": "url produit (B)"
+                    },
+                    {
+                        "name": "2",
+                        "type": "text",
+                        "label": "status (C)"
+                    },
+                    {
+                        "name": "3",
+                        "type": "text",
+                        "label": "categorie (D)"
+                    },
+                    {
+                        "name": "4",
+                        "type": "text",
+                        "label": "img1 (E)"
+                    },
+                    {
+                        "name": "5",
+                        "type": "text",
+                        "label": "img2 (F)"
+                    },
+                    {
+                        "name": "6",
+                        "type": "text",
+                        "label": "img3 (G)"
+                    },
+                    {
+                        "name": "7",
+                        "type": "text",
+                        "label": "img4 (H)"
+                    },
+                    {
+                        "name": "8",
+                        "type": "text",
+                        "label": "img5 (I)"
+                    },
+                    {
+                        "name": "9",
+                        "type": "text",
+                        "label": "dimension (J)"
+                    },
+                    {
+                        "name": "10",
+                        "type": "text",
+                        "label": "description (K)"
+                    },
+                    {
+                        "name": "11",
+                        "type": "text",
+                        "label": "img shopify 1 (L)"
+                    },
+                    {
+                        "name": "12",
+                        "type": "text",
+                        "label": "img shopify 2 (M)"
+                    },
+                    {
+                        "name": "13",
+                        "type": "text",
+                        "label": "img shopify 3 (N)"
+                    },
+                    {
+                        "name": "14",
+                        "type": "text",
+                        "label": "img shopify 4 (O)"
+                    },
+                    {
+                        "name": "15",
+                        "type": "text",
+                        "label": "img shopify 5 (P)"
+                    },
+                    {
+                        "name": "16",
+                        "type": "text",
+                        "label": "creative1 (Q)"
+                    },
+                    {
+                        "name": "17",
+                        "type": "text",
+                        "label": "date (R)"
+                    },
+                    {
+                        "name": "18",
+                        "type": "text",
+                        "label": "image IA 1 (S)"
+                    },
+                    {
+                        "name": "19",
+                        "type": "text",
+                        "label": "image IA 2 (T)"
+                    },
+                    {
+                        "name": "20",
+                        "type": "text",
+                        "label": "commentaire (U)"
+                    },
+                    {
+                        "name": "21",
+                        "type": "text",
+                        "label": "Video IA (V)"
+                    },
+                    {
+                        "name": "22",
+                        "type": "text",
+                        "label": "Pub facebook (W)"
+                    },
+                    {
+                        "name": "23",
+                        "type": "text",
+                        "label": "(X)"
+                    },
+                    {
+                        "name": "24",
+                        "type": "text",
+                        "label": "(Y)"
+                    },
+                    {
+                        "name": "25",
+                        "type": "text",
+                        "label": "(Z)"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 105,
+            "module": "cloudinary:UploadResource",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 11596117
+            },
+            "mapper": {
+                "file": "{{102.`4`}}",
+                "type": "upload",
+                "folder": "Youm-Paris",
+                "file_type": "url",
+                "resourceType": "image"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "type": {
+                            "mode": "chose",
+                            "label": "Upload"
+                        },
+                        "folder": {
+                            "mode": "chose",
+                            "label": "Youm-Paris"
+                        },
+                        "file_type": {
+                            "label": "URL Where The File Stored"
+                        },
+                        "resourceType": {
+                            "mode": "chose",
+                            "label": "image"
+                        },
+                        "use_filename": {
+                            "mode": "chose"
+                        },
+                        "upload_preset": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "cloudinary"
+                            },
+                            "label": "My Cloudinary connection (dk9cfmueg)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:cloudinary",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "file_type",
+                        "type": "select",
+                        "label": "File Type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "data",
+                                "url"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "resourceType",
+                        "type": "select",
+                        "label": "Resource Type",
+                        "required": true
+                    },
+                    {
+                        "name": "upload_preset",
+                        "type": "select",
+                        "label": "Upload Preset"
+                    },
+                    {
+                        "name": "public_id",
+                        "type": "text",
+                        "label": "Public ID"
+                    },
+                    {
+                        "name": "folder",
+                        "type": "select",
+                        "label": "Folder"
+                    },
+                    {
+                        "name": "use_filename",
+                        "type": "boolean",
+                        "label": "Use Filename"
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Type",
+                        "validate": {
+                            "enum": [
+                                "private",
+                                "upload",
+                                "authenticated"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "file",
+                        "type": "url",
+                        "label": "File",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 107,
+            "module": "http:DownloadFile",
+            "version": 4,
+            "parameters": {
+                "authenticationType": "noAuth"
+            },
+            "mapper": {
+                "url": "{{105.secure_url}}",
+                "shareCookies": false,
+                "stopOnHttpError": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "img1"
+                },
+                "restore": {
+                    "expect": {
+                        "headers": {
+                            "mode": "chose"
+                        },
+                        "shareCookies": {
+                            "mode": "chose"
+                        },
+                        "queryParameters": {
+                            "mode": "chose"
+                        },
+                        "stopOnHttpError": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "authenticationType": {
+                            "label": "No authenticationUse when no credentials are required for the request."
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "authenticationType",
+                        "type": "select",
+                        "label": "Authentication type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "noAuth",
+                                "apiKey",
+                                "basicAuth",
+                                "oAuth"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "stopOnHttpError",
+                        "type": "boolean",
+                        "label": "Return error if HTTP request fails",
+                        "required": true
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "headers",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true,
+                                    "validate": {
+                                        "pattern": "^[-!#$%&'*+.^_`|~0-9A-Za-z]+$"
+                                    }
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Header"
+                        },
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "queryParameters",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Parameter"
+                        },
+                        "type": "array",
+                        "label": "Query parameters"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 131,
+            "module": "cloudinary:UploadResource",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 11596117
+            },
+            "mapper": {
+                "file": "{{102.`5`}}",
+                "type": "upload",
+                "folder": "Youm-Paris",
+                "file_type": "url",
+                "resourceType": "image"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "type": {
+                            "mode": "chose",
+                            "label": "Upload"
+                        },
+                        "folder": {
+                            "mode": "chose",
+                            "label": "Youm-Paris"
+                        },
+                        "file_type": {
+                            "label": "URL Where The File Stored"
+                        },
+                        "resourceType": {
+                            "mode": "chose",
+                            "label": "image"
+                        },
+                        "use_filename": {
+                            "mode": "chose"
+                        },
+                        "upload_preset": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "cloudinary"
+                            },
+                            "label": "My Cloudinary connection (dk9cfmueg)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:cloudinary",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "file_type",
+                        "type": "select",
+                        "label": "File Type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "data",
+                                "url"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "resourceType",
+                        "type": "select",
+                        "label": "Resource Type",
+                        "required": true
+                    },
+                    {
+                        "name": "upload_preset",
+                        "type": "select",
+                        "label": "Upload Preset"
+                    },
+                    {
+                        "name": "public_id",
+                        "type": "text",
+                        "label": "Public ID"
+                    },
+                    {
+                        "name": "folder",
+                        "type": "select",
+                        "label": "Folder"
+                    },
+                    {
+                        "name": "use_filename",
+                        "type": "boolean",
+                        "label": "Use Filename"
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Type",
+                        "validate": {
+                            "enum": [
+                                "private",
+                                "upload",
+                                "authenticated"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "file",
+                        "type": "url",
+                        "label": "File",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 132,
+            "module": "http:DownloadFile",
+            "version": 4,
+            "parameters": {
+                "authenticationType": "noAuth"
+            },
+            "mapper": {
+                "url": "{{131.secure_url}}",
+                "shareCookies": false,
+                "stopOnHttpError": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0,
+                    "name": "img2"
+                },
+                "restore": {
+                    "expect": {
+                        "headers": {
+                            "mode": "chose"
+                        },
+                        "shareCookies": {
+                            "mode": "chose"
+                        },
+                        "queryParameters": {
+                            "mode": "chose"
+                        },
+                        "stopOnHttpError": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "authenticationType": {
+                            "label": "No authenticationUse when no credentials are required for the request."
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "authenticationType",
+                        "type": "select",
+                        "label": "Authentication type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "noAuth",
+                                "apiKey",
+                                "basicAuth",
+                                "oAuth"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "stopOnHttpError",
+                        "type": "boolean",
+                        "label": "Return error if HTTP request fails",
+                        "required": true
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "headers",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true,
+                                    "validate": {
+                                        "pattern": "^[-!#$%&'*+.^_`|~0-9A-Za-z]+$"
+                                    }
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Header"
+                        },
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "queryParameters",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Parameter"
+                        },
+                        "type": "array",
+                        "label": "Query parameters"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 141,
+            "module": "cloudinary:UploadResource",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 11596117
+            },
+            "mapper": {
+                "file": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1780667490/Youm-Paris/tzzmpvwn3hmlxuhkt7jn.jpg",
+                "type": "upload",
+                "folder": "Youm-Paris",
+                "file_type": "url",
+                "resourceType": "image"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "type": {
+                            "mode": "chose",
+                            "label": "Upload"
+                        },
+                        "folder": {
+                            "mode": "chose",
+                            "label": "Youm-Paris"
+                        },
+                        "file_type": {
+                            "label": "URL Where The File Stored"
+                        },
+                        "resourceType": {
+                            "mode": "chose",
+                            "label": "image"
+                        },
+                        "use_filename": {
+                            "mode": "chose"
+                        },
+                        "upload_preset": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "cloudinary"
+                            },
+                            "label": "My Cloudinary connection (dk9cfmueg)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:cloudinary",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "file_type",
+                        "type": "select",
+                        "label": "File Type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "data",
+                                "url"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "resourceType",
+                        "type": "select",
+                        "label": "Resource Type",
+                        "required": true
+                    },
+                    {
+                        "name": "upload_preset",
+                        "type": "select",
+                        "label": "Upload Preset"
+                    },
+                    {
+                        "name": "public_id",
+                        "type": "text",
+                        "label": "Public ID"
+                    },
+                    {
+                        "name": "folder",
+                        "type": "select",
+                        "label": "Folder"
+                    },
+                    {
+                        "name": "use_filename",
+                        "type": "boolean",
+                        "label": "Use Filename"
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Type",
+                        "validate": {
+                            "enum": [
+                                "private",
+                                "upload",
+                                "authenticated"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "file",
+                        "type": "url",
+                        "label": "File",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 142,
+            "module": "http:DownloadFile",
+            "version": 4,
+            "parameters": {
+                "authenticationType": "noAuth"
+            },
+            "mapper": {
+                "url": "{{141.secure_url}}",
+                "shareCookies": false,
+                "stopOnHttpError": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1800,
+                    "y": 0,
+                    "name": "img3"
+                },
+                "restore": {
+                    "expect": {
+                        "headers": {
+                            "mode": "chose"
+                        },
+                        "shareCookies": {
+                            "mode": "chose"
+                        },
+                        "queryParameters": {
+                            "mode": "chose"
+                        },
+                        "stopOnHttpError": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "authenticationType": {
+                            "label": "No authenticationUse when no credentials are required for the request."
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "authenticationType",
+                        "type": "select",
+                        "label": "Authentication type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "noAuth",
+                                "apiKey",
+                                "basicAuth",
+                                "oAuth"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "stopOnHttpError",
+                        "type": "boolean",
+                        "label": "Return error if HTTP request fails",
+                        "required": true
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "headers",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true,
+                                    "validate": {
+                                        "pattern": "^[-!#$%&'*+.^_`|~0-9A-Za-z]+$"
+                                    }
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Header"
+                        },
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "queryParameters",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Parameter"
+                        },
+                        "type": "array",
+                        "label": "Query parameters"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 109,
+            "module": "gemini-ai:uploadAFile",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 13384090
+            },
+            "mapper": {
+                "file_data": "{{107.data}}",
+                "file_name": "{{107.fileName}}",
+                "useFileSearchStore": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2100,
+                    "y": 0,
+                    "name": "img1"
+                },
+                "restore": {
+                    "expect": {
+                        "useFileSearchStore": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai-q9zyjp"
+                            },
+                            "label": "My Gemini AI KeysForTomorrow"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:gemini-ai-q9zyjp",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "file_name",
+                        "type": "text",
+                        "label": "Name",
+                        "required": true
+                    },
+                    {
+                        "name": "file_data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "useFileSearchStore",
+                        "type": "boolean",
+                        "label": "Use File Search Store"
+                    },
+                    {
+                        "name": "file_name",
+                        "type": "text",
+                        "label": "Name",
+                        "required": true
+                    },
+                    {
+                        "name": "file_data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "useFileSearchStore",
+                        "type": "boolean",
+                        "label": "Use File Search Store"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 133,
+            "module": "gemini-ai:uploadAFile",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 13384090
+            },
+            "mapper": {
+                "file_data": "{{132.data}}",
+                "file_name": "{{132.fileName}}",
+                "useFileSearchStore": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2400,
+                    "y": 0,
+                    "name": "img2"
+                },
+                "restore": {
+                    "expect": {
+                        "useFileSearchStore": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai-q9zyjp"
+                            },
+                            "label": "My Gemini AI KeysForTomorrow"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:gemini-ai-q9zyjp",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "file_name",
+                        "type": "text",
+                        "label": "Name",
+                        "required": true
+                    },
+                    {
+                        "name": "file_data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "useFileSearchStore",
+                        "type": "boolean",
+                        "label": "Use File Search Store"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 144,
+            "module": "gemini-ai:uploadAFile",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 13384090
+            },
+            "mapper": {
+                "file_data": "{{142.data}}",
+                "file_name": "{{142.fileName}}",
+                "useFileSearchStore": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2700,
+                    "y": 0,
+                    "name": "img3"
+                },
+                "restore": {
+                    "expect": {
+                        "useFileSearchStore": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai-q9zyjp"
+                            },
+                            "label": "My Gemini AI KeysForTomorrow"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:gemini-ai-q9zyjp",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "file_name",
+                        "type": "text",
+                        "label": "Name",
+                        "required": true
+                    },
+                    {
+                        "name": "file_data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "useFileSearchStore",
+                        "type": "boolean",
+                        "label": "Use File Search Store"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 122,
+            "module": "gemini-ai:createACompletionGeminiPro",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 13384090
+            },
+            "mapper": {
+                "model": "gemini-3-pro-image-preview",
+                "contents": [
+                    {
+                        "role": "user",
+                        "parts": [
+                            {
+                                "type": "file",
+                                "file_data": {
+                                    "file_uri": "{{109.uri}}",
+                                    "mime_type": "{{109.mimeType}}"
+                                }
+                            },
+                            {
+                                "type": "file",
+                                "file_data": {
+                                    "file_uri": "{{133.uri}}",
+                                    "mime_type": "{{133.mimeType}}"
+                                }
+                            },
+                            {
+                                "text": "9:16 portrait image.\n\nChange the model to model in picture of item 4 but in a different position and recreate the jewelry product with absolute fidelity (almost similar size between green pearl and gold circle), preserving exact proportions, materials, and fine details. Present the piece worn on a refined woman with hair worn down (loose, natural, unattached), adapted naturally to the jewelry type (earrings, ring, necklace, bracelet, or pendant), with the product as the clear focal point, ensuring the jewelry remains fully visible and unobstructed.\n\nStrictly respect the real-world dimensions of the product :{{102.`9`}}, to maintain accurate scale with a real size human and realistic presence.\n\nStyle the model in a real-world environment.\n\nBrand Identity Key Elements\nThe brand focuses on jewelry as a source of light and confidence. The aesthetic is \"effortless chic\" with an invitation to travel (evasion).\n\nThe Materials: Heavy use of 24k gold plating, natural semi-precious stones (malachite, agate, jasper, nacre/mother of pearl), and pearls.\n\nThe Photography Style: Soft, warm, and sun-drenched (Solar). It avoids sterile studio lighting in favor of a \"lifestyle\" look that feels like a summer afternoon.\n\nThe woman: A relaxed, naturalistic side profile. The hair is never over-styled; it’s usually loosely waved and tucked behind the ear to show off the piece.\n\nPhotograph the scene as if shot on a high-end full-frame camera (e.g. medium-format or 45–60MP equivalent) using a premium portrait lens (85mm or 100mm macro), aperture around f/4–f/5.6 for realistic shallow depth of field, ISO 100 for maximum clarity, and precise focus on the jewelry. Maintain accurate color reproduction, natural contrast, soft shadow transitions, and true-to-life textures.\n\nCompose with refined balance and negative space, ensuring the jewelry remains razor-sharp while the model subtly falls out of focus, achieving a photorealistic, high-end editorial image suitable for luxury jewelry advertising.\n\nMost important task is to maintain similar product size and scale.",
+                                "type": "text"
+                            },
+                            {
+                                "type": "file",
+                                "file_data": {
+                                    "file_uri": "{{144.uri}}",
+                                    "mime_type": "{{144.mimeType}}"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "generationConfig": {
+                    "imageConfig": {
+                        "imageSize": "4K"
+                    },
+                    "thinkingConfig": {},
+                    "responseModalities": [
+                        "image"
+                    ]
+                },
+                "system_instruction": {
+                    "parts": [
+                        {
+                            "text": "9:16 portrait image.\nChange the model to the model of item 4 and recreate the jewelry product with absolute fidelity, preserving exact proportions, materials, and fine details. Present the piece worn on a refined woman with hair worn down (loose, natural, unattached), adapted naturally to the jewelry type (earrings, ring, necklace, bracelet, or pendant), with the product as the clear focal point. The hairstyle must be loose only: no ponytail, no bun, no braids, no updo, ensuring the jewelry remains fully visible and unobstructed.\n\nStrictly respect the real-world dimensions of the product :{{102.`9`}}, to maintain accurate scale with a real size human and realistic presence.\n\nStyle the model in a real-world environment.\n\nCreate an original scenery from real life; and use the following product description to adapt the scenery: {{102.`10`}}\n\nPhotograph the scene as if shot on a high-end full-frame camera (e.g. medium-format or 45–60MP equivalent) using a premium portrait lens (85mm or 100mm macro), aperture around f/4–f/5.6 for realistic shallow depth of field, ISO 100 for maximum clarity, and precise focus on the jewelry. Maintain accurate color reproduction, natural contrast, soft shadow transitions, and true-to-life textures.\n\nCompose with refined balance and negative space, ensuring the jewelry remains razor-sharp while the model subtly falls out of focus, achieving a photorealistic, high-end editorial image suitable for luxury jewelry advertising.\n\nMost important task is to maintain similar product size and scale."
+                        }
+                    ]
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 3000,
+                    "y": 0,
+                    "name": "AI image 1"
+                },
+                "restore": {
+                    "expect": {
+                        "model": {
+                            "mode": "chose",
+                            "label": "Nano Banana Pro (Gemini 3 Pro Image Preview)"
+                        },
+                        "contents": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "parts": {
+                                        "mode": "chose",
+                                        "items": [
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "File"
+                                                }
+                                            },
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "File"
+                                                }
+                                            },
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            },
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "File"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "serviceTier": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "url_context": {
+                            "mode": "chose"
+                        },
+                        "code_execution": {
+                            "mode": "chose"
+                        },
+                        "safetySettings": {
+                            "mode": "chose"
+                        },
+                        "generationConfig": {
+                            "nested": {
+                                "imageConfig": {
+                                    "nested": {
+                                        "imageSize": {
+                                            "mode": "chose",
+                                            "label": "4K"
+                                        }
+                                    }
+                                },
+                                "stopSequences": {
+                                    "mode": "chose"
+                                },
+                                "thinkingConfig": {
+                                    "nested": {
+                                        "thinking_level": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "include_thoughts": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "collapsed": true
+                                },
+                                "mediaResolution": {
+                                    "mode": "chose",
+                                    "label": "Empty"
+                                },
+                                "responseMimeType": {
+                                    "mode": "chose",
+                                    "label": "Empty"
+                                },
+                                "responseModalities": {
+                                    "mode": "chose"
+                                }
+                            }
+                        },
+                        "system_instruction": {
+                            "nested": {
+                                "parts": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
+                                }
+                            }
+                        },
+                        "google_maps_context": {
+                            "mode": "chose"
+                        },
+                        "google_search_context": {
+                            "mode": "chose"
+                        },
+                        "file_search_store_context": {
+                            "mode": "chose"
+                        },
+                        "function_declarations_context": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai-q9zyjp"
+                            },
+                            "label": "My Gemini AI KeysForTomorrow"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:gemini-ai-q9zyjp",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "AI Model",
+                        "required": true
+                    },
+                    {
+                        "name": "contents",
+                        "spec": [
+                            {
+                                "name": "role",
+                                "type": "select",
+                                "label": "Role",
+                                "options": [
+                                    {
+                                        "label": "User",
+                                        "value": "user"
+                                    },
+                                    {
+                                        "label": "Model",
+                                        "value": "model"
+                                    }
+                                ],
+                                "required": true
+                            },
+                            {
+                                "name": "parts",
+                                "spec": [
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Message Type",
+                                        "options": [
+                                            {
+                                                "label": "Text",
+                                                "value": "text",
+                                                "nested": [
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "required": true
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "File",
+                                                "value": "file",
+                                                "nested": [
+                                                    {
+                                                        "name": "file_data",
+                                                        "spec": [
+                                                            {
+                                                                "name": "mime_type",
+                                                                "type": "text",
+                                                                "label": "Mime Type",
+                                                                "required": true
+                                                            },
+                                                            {
+                                                                "help": "You can use public or signed URLs as input by using the URLs.",
+                                                                "name": "file_uri",
+                                                                "type": "text",
+                                                                "label": "File URI",
+                                                                "required": true
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "File Data",
+                                                        "required": true
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "Function Call",
+                                                "value": "functionCall",
+                                                "nested": [
+                                                    {
+                                                        "name": "functionCall",
+                                                        "spec": [
+                                                            {
+                                                                "help": "The name of the function to call.",
+                                                                "name": "name",
+                                                                "type": "text",
+                                                                "label": "Name",
+                                                                "required": true,
+                                                                "validate": {
+                                                                    "max": 64
+                                                                }
+                                                            },
+                                                            {
+                                                                "help": "The function parameters and values in JSON object format.",
+                                                                "name": "args",
+                                                                "type": "json",
+                                                                "label": "Arguments"
+                                                            },
+                                                            {
+                                                                "help": "The unique ID of the function call.",
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "Function Call ID"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Function Call"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "Function Response",
+                                                "value": "functionResponse",
+                                                "nested": [
+                                                    {
+                                                        "name": "functionResponse",
+                                                        "spec": [
+                                                            {
+                                                                "help": "The name of the function to call.",
+                                                                "name": "name",
+                                                                "type": "text",
+                                                                "label": "Name",
+                                                                "required": true,
+                                                                "validate": {
+                                                                    "max": 64
+                                                                }
+                                                            },
+                                                            {
+                                                                "help": "The function response in JSON object format.",
+                                                                "name": "response",
+                                                                "type": "json",
+                                                                "label": "Response",
+                                                                "required": true
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Function Response"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "thoughtSignature",
+                                        "type": "text",
+                                        "label": "Thought Signature"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Parts",
+                                "required": true
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Messages",
+                        "required": true
+                    },
+                    {
+                        "name": "system_instruction",
+                        "spec": [
+                            {
+                                "name": "parts",
+                                "spec": {
+                                    "name": "value",
+                                    "spec": [
+                                        {
+                                            "name": "text",
+                                            "type": "text",
+                                            "label": "Value"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Prompt"
+                                },
+                                "type": "array",
+                                "label": "Prompts"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "System Instructions"
+                    },
+                    {
+                        "name": "safetySettings",
+                        "spec": [
+                            {
+                                "name": "category",
+                                "type": "select",
+                                "label": "Category",
+                                "options": [
+                                    {
+                                        "label": "Harassment content",
+                                        "value": "HARM_CATEGORY_HARASSMENT"
+                                    },
+                                    {
+                                        "label": "Hate speech and content",
+                                        "value": "HARM_CATEGORY_HATE_SPEECH"
+                                    },
+                                    {
+                                        "label": "Sexually explicit content.",
+                                        "value": "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+                                    },
+                                    {
+                                        "label": "Dangerous content:",
+                                        "value": "HARM_CATEGORY_DANGEROUS_CONTENT"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "threshold",
+                                "type": "select",
+                                "label": "Threshold",
+                                "options": [
+                                    {
+                                        "label": "Block low and above.",
+                                        "value": "BLOCK_LOW_AND_ABOVE"
+                                    },
+                                    {
+                                        "label": "Block medium and above.",
+                                        "value": "BLOCK_MEDIUM_AND_ABOVE"
+                                    },
+                                    {
+                                        "label": "Block only high.",
+                                        "value": "BLOCK_ONLY_HIGH"
+                                    },
+                                    {
+                                        "label": "Block none.",
+                                        "value": "BLOCK_NONE"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Safety Settings"
+                    },
+                    {
+                        "name": "generationConfig",
+                        "spec": [
+                            {
+                                "name": "stopSequences",
+                                "spec": {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Stop Sequence"
+                                },
+                                "type": "array",
+                                "label": "Stop Sequences"
+                            },
+                            {
+                                "name": "responseModalities",
+                                "type": "select",
+                                "label": "Response Modalities",
+                                "multiple": true,
+                                "validate": {
+                                    "enum": [
+                                        "text",
+                                        "image"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "maxOutputTokens",
+                                "type": "number",
+                                "label": "Max Output Tokens"
+                            },
+                            {
+                                "name": "temperature",
+                                "type": "number",
+                                "label": "Temperature",
+                                "validate": {
+                                    "max": 1,
+                                    "min": 0
+                                }
+                            },
+                            {
+                                "name": "topP",
+                                "type": "number",
+                                "label": "Top P",
+                                "validate": {
+                                    "max": 1,
+                                    "min": 0
+                                }
+                            },
+                            {
+                                "name": "topK",
+                                "type": "number",
+                                "label": "Top K"
+                            },
+                            {
+                                "name": "thinkingConfig",
+                                "spec": [
+                                    {
+                                        "name": "thinkingBudget",
+                                        "type": "number",
+                                        "label": "Thinking Budget"
+                                    },
+                                    {
+                                        "name": "include_thoughts",
+                                        "type": "boolean",
+                                        "label": "Include Thoughts"
+                                    },
+                                    {
+                                        "name": "thinking_level",
+                                        "type": "select",
+                                        "label": "Thinking Level",
+                                        "validate": {
+                                            "enum": [
+                                                "low",
+                                                "high"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thinking Config"
+                            },
+                            {
+                                "name": "mediaResolution",
+                                "type": "select",
+                                "label": "Media Resolution",
+                                "validate": {
+                                    "enum": [
+                                        "media_resolution_low",
+                                        "media_resolution_medium",
+                                        "media_resolution_high"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "imageConfig",
+                                "spec": [
+                                    {
+                                        "name": "imageSize",
+                                        "type": "select",
+                                        "label": "Image Size",
+                                        "validate": {
+                                            "enum": [
+                                                "1K",
+                                                "2K",
+                                                "4K"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Image Configuration"
+                            },
+                            {
+                                "name": "responseMimeType",
+                                "type": "select",
+                                "label": "Response Format"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Generation configurations"
+                    },
+                    {
+                        "name": "tools",
+                        "type": "any",
+                        "label": "Tools"
+                    },
+                    {
+                        "name": "tool_config",
+                        "type": "any",
+                        "label": "Tool Config"
+                    },
+                    {
+                        "name": "function_declarations_context",
+                        "type": "boolean",
+                        "label": "Function Declarations Grounding"
+                    },
+                    {
+                        "name": "url_context",
+                        "type": "boolean",
+                        "label": "URL Context"
+                    },
+                    {
+                        "name": "google_search_context",
+                        "type": "boolean",
+                        "label": "Google Search Grounding"
+                    },
+                    {
+                        "name": "code_execution",
+                        "type": "boolean",
+                        "label": "Code Execution"
+                    },
+                    {
+                        "name": "google_maps_context",
+                        "type": "boolean",
+                        "label": "Google Maps Grounding"
+                    },
+                    {
+                        "name": "file_search_store_context",
+                        "type": "boolean",
+                        "label": "File Search Store Context"
+                    },
+                    {
+                        "name": "serviceTier",
+                        "type": "select",
+                        "label": "Inference Service Tier"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 123,
+            "module": "cloudinary:UploadResource",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 11596117
+            },
+            "mapper": {
+                "file": "{{toBinary(122.candidates[].content.parts[].inlineData.data; \"base64\")}}",
+                "type": "upload",
+                "folder": "Youm-Paris",
+                "file_type": "data",
+                "mime_type": "image/png",
+                "resourceType": "image"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 3300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "type": {
+                            "mode": "chose",
+                            "label": "Upload"
+                        },
+                        "folder": {
+                            "mode": "chose",
+                            "label": "Youm-Paris"
+                        },
+                        "file_type": {
+                            "label": "Base64 Encoded Data URI (~60MB)"
+                        },
+                        "resourceType": {
+                            "mode": "chose",
+                            "label": "image"
+                        },
+                        "use_filename": {
+                            "mode": "chose"
+                        },
+                        "upload_preset": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "cloudinary"
+                            },
+                            "label": "My Cloudinary connection (dk9cfmueg)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:cloudinary",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "file_type",
+                        "type": "select",
+                        "label": "File Type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "data",
+                                "url"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "resourceType",
+                        "type": "select",
+                        "label": "Resource Type",
+                        "required": true
+                    },
+                    {
+                        "name": "upload_preset",
+                        "type": "select",
+                        "label": "Upload Preset"
+                    },
+                    {
+                        "name": "public_id",
+                        "type": "text",
+                        "label": "Public ID"
+                    },
+                    {
+                        "name": "folder",
+                        "type": "select",
+                        "label": "Folder"
+                    },
+                    {
+                        "name": "use_filename",
+                        "type": "boolean",
+                        "label": "Use Filename"
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Type",
+                        "validate": {
+                            "enum": [
+                                "private",
+                                "upload",
+                                "authenticated"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "file",
+                        "type": "buffer",
+                        "label": "File",
+                        "required": true
+                    },
+                    {
+                        "name": "mime_type",
+                        "type": "text",
+                        "label": "MIME Type",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 113,
+            "module": "google-sheets:updateRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 9119204
+            },
+            "mapper": {
+                "from": "drive",
+                "mode": "select",
+                "values": {
+                    "2": "à valider (new)",
+                    "16": "{{123.secure_url}}",
+                    "17": "{{formatDate(now; \"DD/MM/YYYY\")}}"
+                },
+                "sheetId": "images IA",
+                "rowNumber": "{{102.`__ROW_NUMBER__`}}",
+                "spreadsheetId": "/1r7co4OkM0Di5PJWVnVhETOikx0VhW8e-VZwI96OQ-H0",
+                "includesHeaders": true,
+                "useColumnHeaders": false,
+                "valueInputOption": "USER_ENTERED"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 3600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "sheetId": {
+                            "label": "images IA"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Youm - contenus videos et blog"
+                            ]
+                        },
+                        "includesHeaders": {
+                            "label": "Yes"
+                        },
+                        "useColumnHeaders": {
+                            "label": "No",
+                            "nested": [
+                                {
+                                    "name": "values",
+                                    "spec": [
+                                        {
+                                            "name": "0",
+                                            "type": "text",
+                                            "label": "# (A)"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "type": "text",
+                                            "label": "url (B)"
+                                        },
+                                        {
+                                            "name": "2",
+                                            "type": "text",
+                                            "label": "status (C)"
+                                        },
+                                        {
+                                            "name": "3",
+                                            "type": "text",
+                                            "label": "categorie (D)"
+                                        },
+                                        {
+                                            "name": "4",
+                                            "type": "text",
+                                            "label": "img1 (E)"
+                                        },
+                                        {
+                                            "name": "5",
+                                            "type": "text",
+                                            "label": "img2 (F)"
+                                        },
+                                        {
+                                            "name": "6",
+                                            "type": "text",
+                                            "label": "img3 (G)"
+                                        },
+                                        {
+                                            "name": "7",
+                                            "type": "text",
+                                            "label": "img4 (H)"
+                                        },
+                                        {
+                                            "name": "8",
+                                            "type": "text",
+                                            "label": "img5 (I)"
+                                        },
+                                        {
+                                            "name": "9",
+                                            "type": "text",
+                                            "label": "dimension (J)"
+                                        },
+                                        {
+                                            "name": "10",
+                                            "type": "text",
+                                            "label": "description (K)"
+                                        },
+                                        {
+                                            "name": "11",
+                                            "type": "text",
+                                            "label": "img shopify 1 (L)"
+                                        },
+                                        {
+                                            "name": "12",
+                                            "type": "text",
+                                            "label": "img shopify 2 (M)"
+                                        },
+                                        {
+                                            "name": "13",
+                                            "type": "text",
+                                            "label": "creative1 (N)"
+                                        },
+                                        {
+                                            "name": "14",
+                                            "type": "text",
+                                            "label": "creative2 (O)"
+                                        },
+                                        {
+                                            "name": "15",
+                                            "type": "text",
+                                            "label": "img IA 1 (P)"
+                                        },
+                                        {
+                                            "name": "16",
+                                            "type": "text",
+                                            "label": "img IA 2 (Q)"
+                                        },
+                                        {
+                                            "name": "17",
+                                            "type": "text",
+                                            "label": "(R)"
+                                        },
+                                        {
+                                            "name": "18",
+                                            "type": "text",
+                                            "label": "(S)"
+                                        },
+                                        {
+                                            "name": "19",
+                                            "type": "text",
+                                            "label": "(T)"
+                                        },
+                                        {
+                                            "name": "20",
+                                            "type": "text",
+                                            "label": "(U)"
+                                        },
+                                        {
+                                            "name": "21",
+                                            "type": "text",
+                                            "label": "(V)"
+                                        },
+                                        {
+                                            "name": "22",
+                                            "type": "text",
+                                            "label": "(W)"
+                                        },
+                                        {
+                                            "name": "23",
+                                            "type": "text",
+                                            "label": "(X)"
+                                        },
+                                        {
+                                            "name": "24",
+                                            "type": "text",
+                                            "label": "(Y)"
+                                        },
+                                        {
+                                            "name": "25",
+                                            "type": "text",
+                                            "label": "(Z)"
+                                        },
+                                        {
+                                            "name": "26",
+                                            "type": "text",
+                                            "label": "(AA)"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Values in columns",
+                                    "metadata": [
+                                        [
+                                            [
+                                                "#",
+                                                "url",
+                                                "status",
+                                                "categorie",
+                                                "img1",
+                                                "img2",
+                                                "img3",
+                                                "img4",
+                                                "img5",
+                                                "dimension",
+                                                "description",
+                                                "img shopify 1",
+                                                "img shopify 2",
+                                                "creative1",
+                                                "creative2",
+                                                "img IA 1",
+                                                "img IA 2"
+                                            ]
+                                        ]
+                                    ]
+                                }
+                            ]
+                        },
+                        "valueInputOption": {
+                            "mode": "chose",
+                            "label": "User entered"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection (arnaud.mm.michel@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "rowNumber",
+                        "type": "uinteger",
+                        "label": "Row number",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "useColumnHeaders",
+                        "type": "select",
+                        "label": "Use column headers as IDs of the columns",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "spec": [
+                            {
+                                "name": "0",
+                                "type": "text",
+                                "label": "# (A)"
+                            },
+                            {
+                                "name": "1",
+                                "type": "text",
+                                "label": "url (B)"
+                            },
+                            {
+                                "name": "2",
+                                "type": "text",
+                                "label": "status (C)"
+                            },
+                            {
+                                "name": "3",
+                                "type": "text",
+                                "label": "categorie (D)"
+                            },
+                            {
+                                "name": "4",
+                                "type": "text",
+                                "label": "img1 (E)"
+                            },
+                            {
+                                "name": "5",
+                                "type": "text",
+                                "label": "img2 (F)"
+                            },
+                            {
+                                "name": "6",
+                                "type": "text",
+                                "label": "img3 (G)"
+                            },
+                            {
+                                "name": "7",
+                                "type": "text",
+                                "label": "img4 (H)"
+                            },
+                            {
+                                "name": "8",
+                                "type": "text",
+                                "label": "img5 (I)"
+                            },
+                            {
+                                "name": "9",
+                                "type": "text",
+                                "label": "dimension (J)"
+                            },
+                            {
+                                "name": "10",
+                                "type": "text",
+                                "label": "description (K)"
+                            },
+                            {
+                                "name": "11",
+                                "type": "text",
+                                "label": "img shopify 1 (L)"
+                            },
+                            {
+                                "name": "12",
+                                "type": "text",
+                                "label": "img shopify 2 (M)"
+                            },
+                            {
+                                "name": "13",
+                                "type": "text",
+                                "label": "creative1 (N)"
+                            },
+                            {
+                                "name": "14",
+                                "type": "text",
+                                "label": "creative2 (O)"
+                            },
+                            {
+                                "name": "15",
+                                "type": "text",
+                                "label": "img IA 1 (P)"
+                            },
+                            {
+                                "name": "16",
+                                "type": "text",
+                                "label": "img IA 2 (Q)"
+                            },
+                            {
+                                "name": "17",
+                                "type": "text",
+                                "label": "(R)"
+                            },
+                            {
+                                "name": "18",
+                                "type": "text",
+                                "label": "(S)"
+                            },
+                            {
+                                "name": "19",
+                                "type": "text",
+                                "label": "(T)"
+                            },
+                            {
+                                "name": "20",
+                                "type": "text",
+                                "label": "(U)"
+                            },
+                            {
+                                "name": "21",
+                                "type": "text",
+                                "label": "(V)"
+                            },
+                            {
+                                "name": "22",
+                                "type": "text",
+                                "label": "(W)"
+                            },
+                            {
+                                "name": "23",
+                                "type": "text",
+                                "label": "(X)"
+                            },
+                            {
+                                "name": "24",
+                                "type": "text",
+                                "label": "(Y)"
+                            },
+                            {
+                                "name": "25",
+                                "type": "text",
+                                "label": "(Z)"
+                            },
+                            {
+                                "name": "26",
+                                "type": "text",
+                                "label": "(AA)"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Values in columns",
+                        "metadata": [
+                            [
+                                [
+                                    "#",
+                                    "url",
+                                    "status",
+                                    "categorie",
+                                    "img1",
+                                    "img2",
+                                    "img3",
+                                    "img4",
+                                    "img5",
+                                    "dimension",
+                                    "description",
+                                    "img shopify 1",
+                                    "img shopify 2",
+                                    "creative1",
+                                    "creative2",
+                                    "img IA 1",
+                                    "img IA 2"
+                                ]
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": true,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}

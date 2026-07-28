@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/22-quel-bijou-original-porter-pour-sortir.html",
+  "pin_title": "Quel bijou original porter selon l'occasion ? Le guide Youm Paris",
+  "pin_description": "Dîner, cocktail ou soirée entre amies : choisir le bon bijou change tout. Boucles pendantes en malachite, créoles asymétriques en aventurine, pièces en laiton doré à l'or fin 24 carats. Découvrez le guide sur youm-paris.com",
+  "board": "Bijoux & Tenues Soirée",
+  "dest_url": "https://youm-paris.com/blogs/articles/quel-bijou-original-porter-pour-sortir",
+  "hook": "Le bijou qui change tout",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-packshot.-youm.jpg?v=1771518595",
+      "alt": "boucles Scarlett en malachite",
+      "public_id": "youm/pinterest-collage-products/quel-bijou-original-porter-pour-sortir-0-7bd6ad6e70"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-youm.jpg?v=1771518630",
+      "alt": "boucles Scarlett en malachite",
+      "public_id": "youm/pinterest-collage-products/quel-bijou-original-porter-pour-sortir-1-27f2624a73"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-scarlett-malachite-perles-portee-profil-youm.jpg?v=1771518680",
+      "alt": "boucles Scarlett en malachite",
+      "public_id": "youm/pinterest-collage-products/quel-bijou-original-porter-pour-sortir-2-54547ef1d1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "boucles Isabelle en aventurine et agate rouge",
+      "public_id": "youm/pinterest-collage-products/quel-bijou-original-porter-pour-sortir-3-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles_d_oreilles_asymetriques_agate_youm.jpg?v=1724081675",
+      "alt": "boucles Isabelle en aventurine et agate rouge",
+      "public_id": "youm/pinterest-collage-products/quel-bijou-original-porter-pour-sortir-4-c4aece0dcd"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:quel-bijou-original-porter-pour-sortir-0-7bd6ad6e70,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:quel-bijou-original-porter-pour-sortir-1-27f2624a73,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:quel-bijou-original-porter-pour-sortir-2-54547ef1d1,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:quel-bijou-original-porter-pour-sortir-3-5b7600a7eb,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:quel-bijou-original-porter-pour-sortir-4-c4aece0dcd,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Le%20bijou%20qui%20change%20tout,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

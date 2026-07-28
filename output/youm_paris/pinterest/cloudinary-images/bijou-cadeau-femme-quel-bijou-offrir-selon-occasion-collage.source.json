@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/71-bijou-cadeau-femme-quel-bijou-offrir-selon-occasion.html",
+  "pin_title": "Quel bijou offrir ? Boucles, colliers et bracelets pour chaque occasion — Youm Paris",
+  "pin_description": "Anniversaire, Noël, fête des mères : trouver le bijou cadeau idéal entre 40 et 99€. Perles naturelles, galuchat, dorure à l'or fin 24 carats — des pièces artisanales pensées pour toucher juste. youm-paris.com",
+  "board": "Idées Cadeaux Bijoux",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion",
+  "hook": "Le bijou qui touche juste",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "boucles Lila en cornaline et quartz rose",
+      "public_id": "youm/pinterest-collage-products/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-0-348486b13c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-vert-orange-packshot-youm.jpg?v=1770739873",
+      "alt": "boucles Aure en pierres naturelles",
+      "public_id": "youm/pinterest-collage-products/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-1-cc0e2df655"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "boucles Jacinthe",
+      "public_id": "youm/pinterest-collage-products/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-2-fdecf96094"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "alt": "créoles Jane en perle ronde blanche",
+      "public_id": "youm/pinterest-collage-products/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-3-0b2e460cad"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-collier-audrey-perles-blanches-packshot.jpg?v=1776274774",
+      "alt": "collier sautoir Audrey en perles blanches",
+      "public_id": "youm/pinterest-collage-products/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-4-15dc123b6a"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-0-348486b13c,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-1-cc0e2df655,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-2-fdecf96094,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-3-0b2e460cad,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-4-15dc123b6a,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Le%20bijou%20qui%20touche%20juste,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

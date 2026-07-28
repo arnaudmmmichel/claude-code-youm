@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/12-bijoux-mariage-perles-blanches-laiton-dore.html",
+  "pin_title": "Bijoux mariage : perles blanches et laiton doré à l'or fin 24 carats — guide complet",
+  "pin_description": "Invitée, témoin ou mariée : comment choisir ses bijoux pour un mariage ? Perles naturelles et laiton doré à l'or fin 24 carats, assemblés à la main à Bruxelles, dorure réalisée à Paris. Élégance sobre et lumineuse pour toutes les silhouettes. Découvrez le guide sur youm-paris.com",
+  "board": "Bijoux Mariage Élégants",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-mariage-perles-blanches-laiton-dore",
+  "hook": "Bijoux mariage : le bon choix",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-pernille-perle-blanche-packshot-youm.jpg?v=1772535255",
+      "alt": "Boucles D Oreilles Perle Pernille",
+      "public_id": "youm/pinterest-collage-products/bijoux-mariage-perles-blanches-laiton-dore-0-590e868d8b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-nacre-blanche-packshot.jpg?v=1770395986",
+      "alt": "Jonc Nacre Theo",
+      "public_id": "youm/pinterest-collage-products/bijoux-mariage-perles-blanches-laiton-dore-1-8c029ca620"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-diego-petit-cercle-dore-perle-blanche-packshot.jpg?v=1774707890",
+      "alt": "Boucles Doreilles Diego Cercle Dore Perle",
+      "public_id": "youm/pinterest-collage-products/bijoux-mariage-perles-blanches-laiton-dore-2-9d8e851991"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/youm-boucles-nils-petit-rectangle-dore-perle-blanche-packshot.jpg?v=1774708636",
+      "alt": "Boucles Doreilles Nils Rectangle Dore Perle",
+      "public_id": "youm/pinterest-collage-products/bijoux-mariage-perles-blanches-laiton-dore-3-d4921d58b9"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creoles-jane-dore-perle-blanche-packshot.jpg?v=1773508594",
+      "alt": "créoles Jane",
+      "public_id": "youm/pinterest-collage-products/bijoux-mariage-perles-blanches-laiton-dore-4-0b2e460cad"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-mariage-perles-blanches-laiton-dore-0-590e868d8b,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-mariage-perles-blanches-laiton-dore-1-8c029ca620,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-mariage-perles-blanches-laiton-dore-2-9d8e851991,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-mariage-perles-blanches-laiton-dore-3-d4921d58b9,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-mariage-perles-blanches-laiton-dore-4-0b2e460cad,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Bijoux%20mariage%20%3A%20le%20bon%20choix,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

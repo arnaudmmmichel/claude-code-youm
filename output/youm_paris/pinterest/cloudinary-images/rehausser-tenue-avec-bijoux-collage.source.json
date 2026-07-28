@@ -1,12 +1,12 @@
 {
   "pipeline": "cloudinary-pinterest-collage-youm",
   "source": "output/youm_paris/blog/19-rehausser-tenue-avec-bijoux.html",
-  "pin_title": "Rehausser une tenue avec des bijoux : le guide couleur par Youm Paris",
-  "pin_description": "Tenue neutre, sombre ou colorée — chaque bijou joue un rôle précis. Pierres naturelles, laiton doré, galuchat : des pièces choisies pour transformer une tenue simple en look affirmé. Guide complet sur youm-paris.com",
-  "board": "Bijoux & Style au Quotidien",
+  "pin_title": "Comment rehausser une tenue avec des bijoux — guide couleur & silhouette",
+  "pin_description": "Tenue sobre qui manque d'éclat ? Malachite sur fond crème, doré sur noir, agate bleue sur lin ivoire — le bon bijou change tout. Guide complet sur youm-paris.com",
+  "board": "Style & Bijoux",
   "dest_url": "https://youm-paris.com/blogs/articles/rehausser-tenue-avec-bijoux",
   "hook": "Le bijou qui change tout",
-  "label": "Choisir selon la couleur de sa tenue",
+  "label": "",
   "product_images": [
     {
       "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912",
@@ -32,12 +32,7 @@
       "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
       "alt": "Boucles Doreilles Doris Jaspe",
       "public_id": "youm/pinterest-collage-products/rehausser-tenue-avec-bijoux-4-fdf9e81e5b"
-    },
-    {
-      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
-      "alt": "Bracelet Jonc Dore Malachite Theo",
-      "public_id": "youm/pinterest-collage-products/rehausser-tenue-avec-bijoux-5-a27ee7eaa8"
     }
   ],
-  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-0-0dd13b782b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-1-42e7dfde1c,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-2-8c94742802,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-3-5b7600a7eb,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-4-fdf9e81e5b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-5-a27ee7eaa8,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20%26%20STYLE%20AU%20QUOTIDIEN,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:Le%20bijou%20qui%20change%20tout,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Choisir%20selon%20la%20couleur%20de%20sa%20tenue,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-0-0dd13b782b,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-1-42e7dfde1c,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-2-8c94742802,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-3-5b7600a7eb,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:rehausser-tenue-avec-bijoux-4-fdf9e81e5b,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Le%20bijou%20qui%20change%20tout,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
 }

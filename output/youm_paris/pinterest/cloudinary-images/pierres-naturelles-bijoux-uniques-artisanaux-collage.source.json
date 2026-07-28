@@ -1,12 +1,12 @@
 {
   "pipeline": "cloudinary-pinterest-collage-youm",
   "source": "output/youm_paris/blog/20-pierres-naturelles-bijoux-uniques-artisanaux.html",
-  "pin_title": "Malachite, amazonite, quartz rose : les pierres naturelles Youm Paris en bijoux artisanaux",
-  "pin_description": "Chaque pierre naturelle est unique — veines, teintes, inclusions. Malachite, amazonite, quartz rose, cornaline : découvrez les pierres qui composent les bijoux artisanaux Youm, serties sur laiton doré à l'or fin 24 carats. youm-paris.com",
+  "pin_title": "Malachite, amazonite, quartz rose : les pierres naturelles de la collection Youm Paris",
+  "pin_description": "Chaque pierre naturelle est unique — ses veines, ses nuances, ses inclusions n'appartiennent qu'à elle. Boucles d'oreilles en malachite, amazonite ou cornaline, serties dans du laiton doré à l'or fin 24 carats. Découvrez la collection sur youm-paris.com",
   "board": "Bijoux Pierres Naturelles",
   "dest_url": "https://youm-paris.com/blogs/articles/pierres-naturelles-bijoux-uniques-artisanaux",
-  "hook": "5 pierres, 5 caractères",
-  "label": "Choisissez celle qui vous ressemble.",
+  "hook": "5 pierres, 0 identiques",
+  "label": "",
   "product_images": [
     {
       "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-pierre-malachite-percees-clips.jpg?v=1770399912",
@@ -32,12 +32,7 @@
       "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-zelda-amazonite-perles-onyx-vert-portee-profil-youm.jpg?v=1771527260",
       "alt": "boucles Zelda Amazonite",
       "public_id": "youm/pinterest-collage-products/pierres-naturelles-bijoux-uniques-artisanaux-4-1b6eb66195"
-    },
-    {
-      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-marine-dorees-quartz-rose-percees-clips-face.jpg?v=1770399059",
-      "alt": "boucles Marine Quartz rose",
-      "public_id": "youm/pinterest-collage-products/pierres-naturelles-bijoux-uniques-artisanaux-5-ddc49cbe40"
     }
   ],
-  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-0-0dd13b782b,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-1-6e56c5203a,w_473,h_416,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-2-537e958a0d,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_630,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-3-32fb81b697,w_473,h_416,c_thumb,g_center/g_north,x_239,y_630,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-4-1b6eb66195,w_473,h_416,c_thumb,g_center/g_north,x_-240,y_1052,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-5-ddc49cbe40,w_473,h_416,c_thumb,g_center/g_north,x_239,y_1052,fl_layer_apply/l_text:Arial_18_bold:BIJOUX%20PIERRES%20NATURELLES,co_rgb:f54e00,g_center,y_-285/l_text:Arial_36_bold:5%20pierres%252C%205%20caract%C3%A8res,co_rgb:1c1814,g_center,y_-235,w_820,c_fit/l_text:Arial_20_bold:Choisissez%20celle%20qui%20vous%20ressemble.,co_rgb:5a4a3a,g_center,y_-181,w_820,c_fit/l_youm:logo-wordmark,w_170,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-0-0dd13b782b,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-1-6e56c5203a,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-2-537e958a0d,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-3-32fb81b697,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:pierres-naturelles-bijoux-uniques-artisanaux-4-1b6eb66195,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:5%20pierres%252C%200%20identiques,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
 }

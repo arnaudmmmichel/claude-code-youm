@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/bijoux-dores-or-fin-guide-complet.html",
+  "pin_title": "Bijoux dorés à l'or fin 24 carats : tout ce qu'il faut savoir avant d'acheter",
+  "pin_description": "Laiton doré 24 carats, dorure artisanale à Paris, pierres naturelles : comment reconnaître un bijou doré de qualité et bien choisir ses pièces du quotidien. Guide complet sur youm-paris.com",
+  "board": "Bijoux Dorés Artisanaux",
+  "dest_url": "https://youm-paris.com/blogs/articles/bijoux-dores-or-fin-guide",
+  "hook": "Or fin 24 carats : le guide",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-grace-galuchat-bleu-agate-bleue-packshot.jpg?v=1773085517",
+      "alt": "Boucles Doreilles Galuchat Grace",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-or-fin-guide-complet-0-200f09fff3"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-or-fin-guide-complet-1-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doreilles Doris Jaspe",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-or-fin-guide-complet-2-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/boucles-oreilles-dorees-chiara-papillon-nacre-packshot-youm.jpg?v=1771525779",
+      "alt": "Boucles Doreilles Papillon Chiara",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-or-fin-guide-complet-3-defcc1caf1"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-boucles-oreilles-pendantes-zelda-agate-perles-onyx-vert-packshot-youm.jpg?v=1771526309",
+      "alt": "boucles Zelda en agate noire",
+      "public_id": "youm/pinterest-collage-products/bijoux-dores-or-fin-guide-complet-4-7da67d5cc2"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:bijoux-dores-or-fin-guide-complet-0-200f09fff3,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-or-fin-guide-complet-1-5b7600a7eb,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-or-fin-guide-complet-2-fdf9e81e5b,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-or-fin-guide-complet-3-defcc1caf1,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:bijoux-dores-or-fin-guide-complet-4-7da67d5cc2,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Or%20fin%2024%20carats%20%3A%20le%20guide,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

@@ -65,29 +65,6 @@
   .scorecard.accent .figure { color: var(--accent); }
   .scorecard.posted .figure { color: var(--green); }
 
-  /* ── CHART ── */
-  .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px 16px; }
-  .chart-legend { display: flex; gap: 20px; margin-bottom: 10px; font-size: 12px; color: var(--muted); }
-  .chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
-  .chart-legend .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
-  .chart-svg-wrap { position: relative; width: 100%; overflow-x: auto; }
-  .chart-svg-wrap svg { display: block; }
-  .chart-axis-label { font-size: 10px; fill: var(--muted-dim); }
-  .chart-gridline { stroke: var(--border); stroke-width: 1; }
-  .chart-line-posts { fill: none; stroke: var(--accent); stroke-width: 2; }
-  .chart-line-cost { fill: none; stroke: #3987e5; stroke-width: 2; }
-  .chart-dot-posts { fill: var(--accent); }
-  .chart-dot-cost { fill: #3987e5; }
-  .chart-hover-line { stroke: var(--muted-dim); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; pointer-events: none; }
-  .chart-tooltip {
-    position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.1s;
-    background: var(--cream-deep); border: 1px solid var(--border); border-radius: 6px;
-    padding: 8px 11px; font-size: 11.5px; color: var(--dark2); white-space: nowrap; z-index: 10;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-  }
-  .chart-tooltip .tt-date { font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-  .chart-tooltip .tt-row { display: flex; align-items: center; gap: 6px; }
-  .chart-tooltip .tt-row .swatch { width: 8px; height: 8px; border-radius: 2px; }
   .cost-cell { color: var(--dark2); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
   section { margin-bottom: 36px; }
@@ -183,17 +160,6 @@
 
   <section>
     <div class="scorecards" id="scorecards"></div>
-  </section>
-
-  <section>
-    <h2>Posts &amp; coûts par jour</h2>
-    <div class="chart-card">
-      <div class="chart-legend">
-        <span><span class="swatch" style="background:var(--accent);"></span>Posts créés (axe gauche)</span>
-        <span><span class="swatch" style="background:#3987e5;"></span>Coût estimé (axe droit)</span>
-      </div>
-      <div class="chart-svg-wrap" id="chartWrap"></div>
-    </div>
   </section>
 
   <section>
@@ -534,158 +500,8 @@
   document.getElementById('typeFilter').addEventListener('change', renderTable);
   document.getElementById('statusFilter').addEventListener('change', renderTable);
 
-  // Dual-axis line chart (posts count / cost) by day — an explicit,
-  // deliberate exception to the usual "never dual-axis" rule (the two
-  // scales are arbitrary relative to each other), kept per Arnaud's
-  // explicit call 2026-07-23. Built as plain SVG, no charting library,
-  // to stay self-contained (this file has no external script deps).
-  const CHART_WINDOW_DAYS = 30;
-
-  function buildDailySeries() {
-    const byDate = {};
-    allRows.forEach(r => {
-      if (!r.created) return;
-      const day = r.created.slice(0, 10); // YYYY-MM-DD
-      if (!byDate[day]) byDate[day] = { date: day, posts: 0, cost: 0 };
-      byDate[day].posts += 1;
-      byDate[day].cost += (r.costEur || 0);
-    });
-
-    // Always plot the last 30 calendar days including today, zero-filled —
-    // so gaps in posting activity are visible as flat/zero stretches
-    // rather than the x-axis silently compressing to skip them.
-    // Uses local date parts (not toISOString, which converts to UTC and
-    // can silently drop "today" in timezones ahead of UTC in the evening)
-    // so "today" always means the browser's local today.
-    const toLocalKey = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const days = [];
-    for (let i = CHART_WINDOW_DAYS - 1; i >= 0; i--) {
-      const d = new Date(today);
-      d.setDate(d.getDate() - i);
-      const key = toLocalKey(d);
-      days.push(byDate[key] || { date: key, posts: 0, cost: 0 });
-    }
-    return days;
-  }
-
-  function renderChart() {
-    const series = buildDailySeries();
-    const wrap = document.getElementById('chartWrap');
-    if (series.length === 0) {
-      wrap.innerHTML = `<div class="empty-state">Aucune donnée pour le graphique.</div>`;
-      return;
-    }
-
-    const W = Math.max(600, wrap.clientWidth || 900);
-    const H = 260;
-    const padL = 44, padR = 44, padT = 16, padB = 30;
-    const plotW = W - padL - padR;
-    const plotH = H - padT - padB;
-
-    const maxPosts = Math.max(1, ...series.map(d => d.posts));
-    const maxCost = Math.max(0.01, ...series.map(d => d.cost));
-
-    const n = series.length;
-    const xFor = i => n === 1 ? padL + plotW / 2 : padL + (plotW * i) / (n - 1);
-    const yForPosts = v => padT + plotH - (v / maxPosts) * plotH;
-    const yForCost = v => padT + plotH - (v / maxCost) * plotH;
-
-    const postsPath = series.map((d, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i).toFixed(1)} ${yForPosts(d.posts).toFixed(1)}`).join(' ');
-    const costPath = series.map((d, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i).toFixed(1)} ${yForCost(d.cost).toFixed(1)}`).join(' ');
-
-    // 4 horizontal gridlines + left(posts)/right(cost) axis tick labels.
-    const gridSteps = 4;
-    let gridlines = '', leftLabels = '', rightLabels = '';
-    for (let s = 0; s <= gridSteps; s++) {
-      const y = padT + (plotH * s) / gridSteps;
-      gridlines += `<line class="chart-gridline" x1="${padL}" y1="${y.toFixed(1)}" x2="${W - padR}" y2="${y.toFixed(1)}" />`;
-      const postsVal = Math.round(maxPosts * (1 - s / gridSteps));
-      const costVal = maxCost * (1 - s / gridSteps);
-      leftLabels += `<text class="chart-axis-label" x="${padL - 8}" y="${(y + 3).toFixed(1)}" text-anchor="end">${postsVal}</text>`;
-      rightLabels += `<text class="chart-axis-label" x="${W - padR + 8}" y="${(y + 3).toFixed(1)}" text-anchor="start">${formatCost(costVal)}</text>`;
-    }
-
-    // X-axis date labels — thin out to avoid overlap on long ranges (show
-    // at most ~8 labels across the width).
-    const labelStride = Math.max(1, Math.ceil(n / 8));
-    let xLabels = '';
-    series.forEach((d, i) => {
-      if (i % labelStride !== 0 && i !== n - 1) return;
-      const dt = new Date(d.date + 'T00:00:00');
-      const label = dt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
-      xLabels += `<text class="chart-axis-label" x="${xFor(i).toFixed(1)}" y="${H - padB + 16}" text-anchor="middle">${label}</text>`;
-    });
-
-    const dots = series.map((d, i) => `
-      <circle class="chart-dot-posts" cx="${xFor(i).toFixed(1)}" cy="${yForPosts(d.posts).toFixed(1)}" r="3" data-idx="${i}" />
-      <circle class="chart-dot-cost" cx="${xFor(i).toFixed(1)}" cy="${yForCost(d.cost).toFixed(1)}" r="3" data-idx="${i}" />
-    `).join('');
-
-    // Wide invisible hit-columns (one per data point) so hovering anywhere
-    // near a point — not just exactly on the tiny dot — triggers its
-    // tooltip, per the interaction pattern of a hover-friendly hit target
-    // being larger than the visible mark.
-    const hitW = n > 1 ? plotW / (n - 1) : plotW;
-    const hitCols = series.map((d, i) => `
-      <rect class="chart-hit" x="${(xFor(i) - hitW / 2).toFixed(1)}" y="${padT}" width="${hitW.toFixed(1)}" height="${plotH}" fill="transparent" data-idx="${i}" style="cursor:crosshair;" />
-    `).join('');
-
-    wrap.innerHTML = `
-      <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-        ${gridlines}
-        ${leftLabels}
-        ${rightLabels}
-        ${xLabels}
-        <path class="chart-line-posts" d="${postsPath}" />
-        <path class="chart-line-cost" d="${costPath}" />
-        ${dots}
-        <line class="chart-hover-line" id="chartHoverLine" x1="0" y1="${padT}" x2="0" y2="${padT + plotH}" />
-        ${hitCols}
-      </svg>
-      <div class="chart-tooltip" id="chartTooltip"></div>
-    `;
-
-    const svgEl = wrap.querySelector('svg');
-    const hoverLine = document.getElementById('chartHoverLine');
-    const tooltip = document.getElementById('chartTooltip');
-
-    svgEl.querySelectorAll('.chart-hit').forEach(hit => {
-      const idx = parseInt(hit.getAttribute('data-idx'), 10);
-      const d = series[idx];
-      hit.addEventListener('mouseenter', () => {
-        const x = xFor(idx);
-        hoverLine.setAttribute('x1', x.toFixed(1));
-        hoverLine.setAttribute('x2', x.toFixed(1));
-        hoverLine.style.opacity = '1';
-        const dt = new Date(d.date + 'T00:00:00');
-        tooltip.innerHTML = `
-          <div class="tt-date">${dt.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' })}</div>
-          <div class="tt-row"><span class="swatch" style="background:var(--accent);"></span>${d.posts} post${d.posts > 1 ? 's' : ''} créé${d.posts > 1 ? 's' : ''}</div>
-          <div class="tt-row"><span class="swatch" style="background:#3987e5;"></span>${formatCost(d.cost)} estimé</div>
-        `;
-        tooltip.style.opacity = '1';
-        const wrapRect = wrap.getBoundingClientRect();
-        const svgRect = svgEl.getBoundingClientRect();
-        const scaleX = svgRect.width / W;
-        let left = (svgRect.left - wrapRect.left) + x * scaleX + 10;
-        const top = padT + 4;
-        if (left + 150 > wrap.clientWidth) left = (svgRect.left - wrapRect.left) + x * scaleX - 150;
-        tooltip.style.left = left + 'px';
-        tooltip.style.top = top + 'px';
-      });
-      hit.addEventListener('mouseleave', () => {
-        hoverLine.style.opacity = '0';
-        tooltip.style.opacity = '0';
-      });
-    });
-  }
-
   renderScorecards();
   renderTable();
-  renderChart();
-  window.addEventListener('resize', () => { renderChart(); });
 </script>
 
 </body>

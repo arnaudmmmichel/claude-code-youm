@@ -633,6 +633,35 @@
   let seoKeywordsExpanded = false;
   let pins = loadPins();
   let state = loadState();
+  // Re-sync from localStorage whenever ANOTHER tab/window writes to it.
+  // Without this, a stale tab left open from an earlier session holds an
+  // outdated in-memory `state`, and the next saveState() it fires (e.g.
+  // toggling a filter, marking a different card) overwrites localStorage
+  // with that stale copy — silently reverting "à refaire"/"Validé" marks
+  // made in the meantime by other tabs. The `storage` event only fires in
+  // tabs OTHER than the one that made the change, which is exactly the
+  // reconciliation needed here.
+  window.addEventListener('storage', (e) => {
+    if (e.key === STATE_KEY) {
+      state = loadState();
+      render();
+    } else if (e.key === PIN_KEY) {
+      pins = loadPins();
+      render();
+    }
+  });
+  // Also re-sync on tab focus/visibility — the `storage` event above only
+  // fires while this tab is open and listening at the moment another tab
+  // writes. A tab left in the background (or asleep) for a while and then
+  // switched back to is the more common real case: without this, the
+  // FIRST click in that reawakened tab (any card, any button) fires
+  // saveState() with its old in-memory `state` and clobbers whatever other
+  // tabs saved since. Re-loading on focus/visibility means a reawakened
+  // tab always starts from the latest saved state before the user acts on it.
+  window.addEventListener('focus', () => { state = loadState(); pins = loadPins(); render(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') { state = loadState(); pins = loadPins(); render(); }
+  });
   // A ?tab= query param (used by overview.html's nav links) takes priority
   // over the last-used platform in localStorage, so linking here from
   // another page actually lands on the requested tab.

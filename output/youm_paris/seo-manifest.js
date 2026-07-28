@@ -1,5 +1,5 @@
 window.__SEO_MANIFEST__ = {
-  "generated": "2026-07-25T22:12:54.525677",
+  "generated": "2026-07-28T09:00:17.161289",
   "keywords": [
     {
       "id": "keyword-bijou-de-paris",

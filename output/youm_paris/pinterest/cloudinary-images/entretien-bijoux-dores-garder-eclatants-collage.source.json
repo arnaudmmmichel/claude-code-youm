@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/27-entretien-bijoux-dores-garder-eclatants.html",
+  "pin_title": "Comment entretenir ses bijoux dorés à l'or fin 24 carats — guide complet",
+  "pin_description": "Nettoyer, conserver et prolonger l'éclat de vos bijoux en laiton doré à l'or fin 24 carats : les bons gestes au quotidien, les erreurs à éviter, les pierres naturelles à traiter avec soin. Retrouvez le guide complet sur youm-paris.com",
+  "board": "Entretien Bijoux Dorés",
+  "dest_url": "https://youm-paris.com/blogs/articles/entretien-bijoux-dores-garder-eclatants",
+  "hook": "Vos bijoux méritent mieux",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-dorees-depareillees-pierres-youm.jpg?v=1770319745",
+      "alt": "Boucles D Oreilles Asymetriques Isabelle Aventurine Et Agate Rouge",
+      "public_id": "youm/pinterest-collage-products/entretien-bijoux-dores-garder-eclatants-0-5b7600a7eb"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doreilles Doris Jaspe",
+      "public_id": "youm/pinterest-collage-products/entretien-bijoux-dores-garder-eclatants-1-fdf9e81e5b"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "alt": "Bracelet Jonc Dore Malachite Theo",
+      "public_id": "youm/pinterest-collage-products/entretien-bijoux-dores-garder-eclatants-2-a27ee7eaa8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pierres-naturelles-lila-packshot.jpg?v=1770733624",
+      "alt": "Boucles Doreilles Pierres Lila",
+      "public_id": "youm/pinterest-collage-products/entretien-bijoux-dores-garder-eclatants-3-348486b13c"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-doreilles-pendantes-pierres-perles-percees-clips-packshot-youm.jpg?v=1770662101",
+      "alt": "Boucles Doreilles Pendantes Jacinthe",
+      "public_id": "youm/pinterest-collage-products/entretien-bijoux-dores-garder-eclatants-4-fdecf96094"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:entretien-bijoux-dores-garder-eclatants-0-5b7600a7eb,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:entretien-bijoux-dores-garder-eclatants-1-fdf9e81e5b,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:entretien-bijoux-dores-garder-eclatants-2-a27ee7eaa8,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:entretien-bijoux-dores-garder-eclatants-3-348486b13c,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:entretien-bijoux-dores-garder-eclatants-4-fdecf96094,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Vos%20bijoux%20m%C3%A9ritent%20mieux,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}

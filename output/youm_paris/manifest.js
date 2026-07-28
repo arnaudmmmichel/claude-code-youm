@@ -1,5 +1,5 @@
 window.__MANIFEST__ = {
-  "generated": "2026-07-26T15:51:20.114643",
+  "generated": "2026-07-28T09:00:01.893525",
   "posts": [
     {
       "platform": "instagram",
@@ -103,25 +103,6 @@ window.__MANIFEST__ = {
     },
     {
       "platform": "instagram",
-      "filename": "ai-model-images/boucle-doreille-creole-perle-mathis-a-lunite.jpg",
-      "detail_page": "ai-model-images/boucle-doreille-creole-perle-mathis-a-lunite.html",
-      "title": "boucle doreille creole perle mathis a lunite",
-      "type": "image",
-      "source_type": "ai-model",
-      "caption": "Les feuilles rousses tombent, et l'or reste.\n\nLa créole Mathis à l'unité — une perle blanche sur un anneau en laiton doré à l'or fin 24 carats, dorure réalisée par nos artisans à Paris. Simple dans sa forme, singulière dans ce qu'elle dit de vous.\n\nPortez-la seule pour un effet épuré, ou composez votre propre combinaison avec vos charms. Cet automne, c'est vous qui décidez du rythme.\n\nDécouvrez la créole Mathis et la collection charms sur youm-paris.com\n\n#youmparis #shinewithyoum #creoleperle #bijouxparis #automne",
-      "caption_pinterest": "Créole perle blanche en laiton doré à l'or fin 24 carats — boucle d'oreille à porter seule ou en duo avec charms, idéale pour sublimer un look automne au quotidien. youm-paris.com",
-      "source": "https://youm-paris.com/products/boucle-doreille-creole-perle-mathis-a-lunite",
-      "product_url": "https://youm-paris.com/products/boucle-doreille-creole-perle-mathis-a-lunite",
-      "model": "#1",
-      "season": "automne",
-      "size_kb": 2758.7,
-      "width": 1536,
-      "height": 2752,
-      "created": "2026-07-23T22:51:47.884854",
-      "modified": "2026-07-23T22:56:22.714592"
-    },
-    {
-      "platform": "instagram",
       "filename": "ai-model-images/boucles-doreilles-luke-cercle-dore-cornaline.jpg",
       "detail_page": "ai-model-images/boucles-doreilles-luke-cercle-dore-cornaline.html",
       "title": "boucles doreilles luke cercle dore cornaline",
@@ -176,25 +157,6 @@ window.__MANIFEST__ = {
       "height": 2752,
       "created": "2026-07-24T16:14:44.954079",
       "modified": "2026-07-24T16:14:44.955576"
-    },
-    {
-      "platform": "instagram",
-      "filename": "ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.jpg",
-      "detail_page": "ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.html",
-      "title": "Boucles d'oreille Morganne - Galuchat bleu & jaspe rouge",
-      "type": "image",
-      "source_type": "ai-model",
-      "caption": "L'été appelle les contrastes. Les Boucles d'oreilles Morganne réunissent le galuchat bleu — matière rare au grain subtilement texturé — et le jaspe rouge, pierre naturelle aux tonalités chaleureuses de terre cuite. Ensemble, ils forment une petite sculpture mobile que l'on porte à l'oreille : légère, expressive, inattendue. Une pièce forte pour celles qui aiment que leurs bijoux racontent quelque chose. Portées avec une robe blanche ou une tenue de lin sobre, elles transforment le regard en un instant. Laiton doré à l'or fin 24 carats, dorure réalisée à Paris.\n\nDécouvrez les Boucles d'oreilles Morganne sur youm-paris.com\n\n#youmparis #shinewithyoum #galuchat #jaspe #bijouartisanal",
-      "caption_pinterest": "Boucles d'oreilles galuchat bleu & jaspe rouge — une pièce sculptée, artisanale, pour sublimer un look d'été avec caractère. Youm Paris, laiton doré à l'or fin 24 carats. youm-paris.com",
-      "source": "https://youm-paris.com/products/boucles-doreille-jaspe-et-galuchat-bleu-morganne",
-      "product_url": "https://youm-paris.com/products/boucles-doreille-jaspe-et-galuchat-bleu-morganne",
-      "model": "#4",
-      "season": "ete",
-      "size_kb": 2381.0,
-      "width": 1536,
-      "height": 2752,
-      "created": "2026-07-24T16:47:44.128817",
-      "modified": "2026-07-24T19:04:06.410909"
     },
     {
       "platform": "instagram",
@@ -271,25 +233,6 @@ window.__MANIFEST__ = {
       "height": 2752,
       "created": "2026-07-24T16:50:15.449070",
       "modified": "2026-07-24T19:07:22.361894"
-    },
-    {
-      "platform": "instagram",
-      "filename": "ai-model-images/boucles-doreilles-colette.jpg",
-      "detail_page": "ai-model-images/boucles-doreilles-colette.html",
-      "title": "Boucles d'oreilles Colette malachite & perle blanche",
-      "type": "image",
-      "source_type": "ai-model",
-      "caption": "Les journées d'été appellent des bijoux qui captent la lumière et retiennent le regard. Les boucles d'oreilles Colette réunissent la douceur nacrée d'une perle blanche et la profondeur vibrante de la malachite — un contraste qui illumine le port de tête sans effort. En laiton doré à l'or fin 24 carats, fabriquées à Paris et Bruxelles, elles s'glissent aussi naturellement sur une robe légère que sur un ensemble plus structuré. Une alliance classique et moderne à la fois, pensée pour celles qui choisissent leurs bijoux avec intention.\n\nDécouvrez les boucles d'oreilles Colette sur youm-paris.com\n\n#shinewithyoum #youmparis #bouclesdreillesete #malachite #bijouparis",
-      "caption_pinterest": "Boucles d'oreilles malachite et perle blanche — élégance estivale en laiton doré à l'or fin 24 carats, fabriquées à Paris. À découvrir sur youm-paris.com",
-      "source": "https://youm-paris.com/products/boucles-doreilles-colette",
-      "product_url": "https://youm-paris.com/products/boucles-doreilles-colette",
-      "model": "#4",
-      "season": "ete",
-      "size_kb": 2400.4,
-      "width": 1536,
-      "height": 2752,
-      "created": "2026-07-24T19:44:58.085077",
-      "modified": "2026-07-24T21:19:48.902541"
     },
     {
       "platform": "instagram",
@@ -461,25 +404,6 @@ window.__MANIFEST__ = {
       "height": 2752,
       "created": "2026-07-24T21:21:39.933433",
       "modified": "2026-07-24T21:21:39.935436"
-    },
-    {
-      "platform": "instagram",
-      "filename": "ai-model-images/boucles-doreilles-pierres-anis.jpg",
-      "detail_page": "ai-model-images/boucles-doreilles-pierres-anis.html",
-      "title": "Boucles d'oreilles Anis - pierres naturelles",
-      "type": "image",
-      "source_type": "ai-model",
-      "caption": "L'été a sa propre lumière — et les Boucles d'oreilles Anis savent la capter. Pendantes, fines, dorées à l'or fin 24 carats, elles mettent en valeur la beauté singulière du quartz rose et du cranberry quartz : deux pierres naturelles, deux nuances douces et lumineuses qui illuminent le teint sans effort. Une silhouette épurée, une couleur qui dit quelque chose. Anis, c'est le bijou que l'on glisse à l'oreille un matin d'été et qui suffit à transformer le reste. Disponibles en version percées ou clips.\n\nDécouvrez les Boucles d'oreilles Anis sur youm-paris.com\n\n#shinewithyoum #youmparis #bouclesoreillespierrenaturelle #bijouxdore #bijouxete",
-      "caption_pinterest": "Boucles d'oreilles pendantes en laiton doré à l'or fin 24 carats, quartz rose et cranberry quartz — élégance naturelle et lumineuse pour l'été. Pierces ou clips. youm-paris.com",
-      "source": "https://youm-paris.com/products/boucles-doreilles-pierres-anis",
-      "product_url": "https://youm-paris.com/products/boucles-doreilles-pierres-anis",
-      "model": "#1",
-      "season": "ete",
-      "size_kb": 2547.6,
-      "width": 1536,
-      "height": 2752,
-      "created": "2026-07-24T21:22:15.431016",
-      "modified": "2026-07-24T21:22:15.433029"
     },
     {
       "platform": "instagram",
@@ -661,26 +585,6 @@ window.__MANIFEST__ = {
     },
     {
       "platform": "instagram",
-      "filename": "ai-model-videos/collier-lion-louis.mp4",
-      "detail_page": "ai-model-videos/collier-lion-louis.html",
-      "title": "Collier Lion Louis",
-      "type": "video",
-      "source_type": "ai-model-video",
-      "caption": "Un lion en or, porté avec caractère. Le Collier Lion Louis, en laiton doré à l'or fin 24 carats par nos artisans parisiens, s'impose avec une présence rare — sans jamais forcer l'effet. Pour celles qui savent que le bon bijou change tout. Découvrez le Collier Lion Louis sur youm-paris.com\n\n#shinewithyoum #youmparis #collierlion #bijouxparis #bijouxdores",
-      "caption_tiktok": "Ce collier lion, c'est le détail qui transforme une tenue sobre en quelque chose d'inoubliable. ✨ Laiton doré à l'or fin 24 carats, fait à Paris.\n\n#shinewithyoum #youmparis #collierlion #bijouxparis #bijouxhandmade",
-      "caption_youtube_title": "Collier Lion Louis — Bijou doré 24 carats | Youm Paris",
-      "caption_youtube_description": "Le Collier Lion Louis de Youm Paris : une pièce en laiton doré à l'or fin 24 carats, travaillée par des artisans parisiens, qui affirme votre personnalité au quotidien. Ce collier allie présence et élégance — le genre de bijou que l'on remarque sans qu'on sache exactement pourquoi. Découvrez-le sur youm-paris.com.",
-      "source": "https://res.cloudinary.com/dk9cfmueg/image/upload/v1784924472/youm/ai-model-images/collier-lion-louis.jpg",
-      "product_url": "",
-      "duration": 8,
-      "size_kb": 5191.7,
-      "width": null,
-      "height": null,
-      "created": "2026-07-24T22:22:50.676032",
-      "modified": "2026-07-24T22:22:50.691797"
-    },
-    {
-      "platform": "instagram",
       "filename": "ai-model-videos/creole-olwen-a-lunite.mp4",
       "detail_page": "ai-model-videos/creole-olwen-a-lunite.html",
       "title": "Creole Olwen A Lunite",
@@ -718,10 +622,162 @@ window.__MANIFEST__ = {
       "height": null,
       "created": "2026-07-26T15:51:04.803600",
       "modified": "2026-07-26T15:51:04.806653"
+    },
+    {
+      "platform": "instagram",
+      "filename": "ai-model-videos/creole-charms-marceau-lunit-logo.mp4",
+      "detail_page": null,
+      "title": "Creole Charms Marceau Lunit Logo",
+      "type": "video",
+      "source_type": "ai-model-video",
+      "caption": null,
+      "caption_tiktok": null,
+      "caption_youtube_title": null,
+      "caption_youtube_description": null,
+      "source": null,
+      "product_url": null,
+      "duration": null,
+      "size_kb": 8578.6,
+      "width": null,
+      "height": null,
+      "created": "2026-07-27T15:26:11.369694",
+      "modified": "2026-07-27T15:26:17.183308"
+    },
+    {
+      "platform": "instagram",
+      "filename": "ai-model-videos/creole-fougere-a-lunite-copie-logo.mp4",
+      "detail_page": null,
+      "title": "Creole Fougere A Lunite Copie Logo",
+      "type": "video",
+      "source_type": "ai-model-video",
+      "caption": null,
+      "caption_tiktok": null,
+      "caption_youtube_title": null,
+      "caption_youtube_description": null,
+      "source": null,
+      "product_url": null,
+      "duration": null,
+      "size_kb": 6059.5,
+      "width": null,
+      "height": null,
+      "created": "2026-07-27T16:35:30.994744",
+      "modified": "2026-07-27T18:47:15.457217"
+    },
+    {
+      "platform": "instagram",
+      "filename": "ai-model-videos/collier-lion-louis-logo.mp4",
+      "detail_page": null,
+      "title": "Collier Lion Louis Logo",
+      "type": "video",
+      "source_type": "ai-model-video",
+      "caption": null,
+      "caption_tiktok": null,
+      "caption_youtube_title": null,
+      "caption_youtube_description": null,
+      "source": null,
+      "product_url": null,
+      "duration": null,
+      "size_kb": 6414.7,
+      "width": null,
+      "height": null,
+      "created": "2026-07-27T16:36:45.067477",
+      "modified": "2026-07-27T16:44:38.676409"
+    },
+    {
+      "platform": "instagram",
+      "filename": "ai-model-videos/creole-ambre-a-lunite-logo.mp4",
+      "detail_page": null,
+      "title": "Creole Ambre A Lunite Logo",
+      "type": "video",
+      "source_type": "ai-model-video",
+      "caption": null,
+      "caption_tiktok": null,
+      "caption_youtube_title": null,
+      "caption_youtube_description": null,
+      "source": null,
+      "product_url": null,
+      "duration": null,
+      "size_kb": 4642.6,
+      "width": null,
+      "height": null,
+      "created": "2026-07-27T16:45:19.820362",
+      "modified": "2026-07-27T16:45:23.526011"
     }
   ],
-  "ai_images_archived": [],
-  "ai_videos_archived": [],
+  "ai_images_archived": [
+    {
+      "filename": "_archive/ai-model-images/boucles-doreilles-pierres-anis.jpg",
+      "original_filename": "ai-model-images/boucles-doreilles-pierres-anis.jpg",
+      "original_source_json": "ai-model-images/boucles-doreilles-pierres-anis.source.json",
+      "detail_page": null,
+      "title": "Boucles d'oreilles Anis - pierres naturelles",
+      "type": "image",
+      "source_type": "ai-model",
+      "product_url": "https://youm-paris.com/products/boucles-doreilles-pierres-anis",
+      "archived": true,
+      "size_kb": 2547.6,
+      "created": "2026-07-24T21:22:15.431016",
+      "modified": "2026-07-24T21:22:15.433029"
+    },
+    {
+      "filename": "_archive/ai-model-images/boucles-doreilles-colette.jpg",
+      "original_filename": "ai-model-images/boucles-doreilles-colette.jpg",
+      "original_source_json": "ai-model-images/boucles-doreilles-colette.source.json",
+      "detail_page": null,
+      "title": "Boucles d'oreilles Colette malachite & perle blanche",
+      "type": "image",
+      "source_type": "ai-model",
+      "product_url": "https://youm-paris.com/products/boucles-doreilles-colette",
+      "archived": true,
+      "size_kb": 2400.4,
+      "created": "2026-07-24T19:44:58.085077",
+      "modified": "2026-07-24T21:19:48.902541"
+    },
+    {
+      "filename": "_archive/ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.jpg",
+      "original_filename": "ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.jpg",
+      "original_source_json": "ai-model-images/boucles-doreille-jaspe-et-galuchat-bleu-morganne.source.json",
+      "detail_page": null,
+      "title": "Boucles d'oreille Morganne - Galuchat bleu & jaspe rouge",
+      "type": "image",
+      "source_type": "ai-model",
+      "product_url": "https://youm-paris.com/products/boucles-doreille-jaspe-et-galuchat-bleu-morganne",
+      "archived": true,
+      "size_kb": 2381.0,
+      "created": "2026-07-24T16:47:44.128817",
+      "modified": "2026-07-24T19:04:06.410909"
+    },
+    {
+      "filename": "_archive/ai-model-images/boucle-doreille-creole-perle-mathis-a-lunite.jpg",
+      "original_filename": "ai-model-images/boucle-doreille-creole-perle-mathis-a-lunite.jpg",
+      "original_source_json": "ai-model-images/boucle-doreille-creole-perle-mathis-a-lunite.source.json",
+      "detail_page": null,
+      "title": "boucle doreille creole perle mathis a lunite",
+      "type": "image",
+      "source_type": "ai-model",
+      "product_url": "https://youm-paris.com/products/boucle-doreille-creole-perle-mathis-a-lunite",
+      "archived": true,
+      "size_kb": 2758.7,
+      "created": "2026-07-23T22:51:47.884854",
+      "modified": "2026-07-23T22:56:22.714592"
+    }
+  ],
+  "ai_videos_archived": [
+    {
+      "filename": "_archive/ai-model-videos/collier-lion-louis.mp4",
+      "original_filename": "ai-model-videos/collier-lion-louis.mp4",
+      "original_source_json": "ai-model-videos/collier-lion-louis.source.json",
+      "detail_page": null,
+      "title": "Collier Lion Louis",
+      "type": "video",
+      "source_type": "ai-model-video",
+      "product_url": null,
+      "archived": true,
+      "size_kb": 5191.7,
+      "created": "2026-07-24T22:22:50.676032",
+      "modified": "2026-07-24T22:22:50.691797"
+    }
+  ],
   "pinterest_pins": [
     {
       "id": "pinterest-article-quel-bijou-original-porter-pour-sortir",
@@ -2153,9 +2209,9 @@ window.__MANIFEST__ = {
     {
       "id": "pinterest-collage-pierres-naturelles-bijoux-uniques-artisanaux",
       "source_type": "pinterest-collage",
-      "title": "Malachite, amazonite, quartz rose : les pierres naturelles Youm Paris en bijoux artisanaux",
-      "pin_title": "Malachite, amazonite, quartz rose : les pierres naturelles Youm Paris en bijoux artisanaux",
-      "pin_description": "Chaque pierre naturelle est unique — veines, teintes, inclusions. Malachite, amazonite, quartz rose, cornaline : découvrez les pierres qui composent les bijoux artisanaux Youm, serties sur laiton doré à l'or fin 24 carats. youm-paris.com",
+      "title": "Malachite, amazonite, quartz rose : les pierres naturelles de la collection Youm Paris",
+      "pin_title": "Malachite, amazonite, quartz rose : les pierres naturelles de la collection Youm Paris",
+      "pin_description": "Chaque pierre naturelle est unique — ses veines, ses nuances, ses inclusions n'appartiennent qu'à elle. Boucles d'oreilles en malachite, amazonite ou cornaline, serties dans du laiton doré à l'or fin 24 carats. Découvrez la collection sur youm-paris.com",
       "board": "Bijoux Pierres Naturelles",
       "dest_url": "https://youm-paris.com/blogs/articles/pierres-naturelles-bijoux-uniques-artisanaux",
       "source": "output/youm_paris/blog/20-pierres-naturelles-bijoux-uniques-artisanaux.html",
@@ -2164,23 +2220,23 @@ window.__MANIFEST__ = {
       "variants": [
         {
           "filename": "pinterest/cloudinary-images/pierres-naturelles-bijoux-uniques-artisanaux-collage.png",
-          "headline": "5 pierres, 5 caractères",
+          "headline": "5 pierres, 0 identiques",
           "width": 1000,
           "height": 1500
         }
       ],
       "filename": "pinterest/cloudinary-images/pierres-naturelles-bijoux-uniques-artisanaux-collage.png",
-      "size_kb": 804.5,
+      "size_kb": 827.8,
       "created": "2026-07-23T00:40:02.688525",
-      "modified": "2026-07-23T00:40:02.689547"
+      "modified": "2026-07-27T21:08:29.632611"
     },
     {
       "id": "pinterest-collage-rehausser-tenue-avec-bijoux",
       "source_type": "pinterest-collage",
-      "title": "Rehausser une tenue avec des bijoux : le guide couleur par Youm Paris",
-      "pin_title": "Rehausser une tenue avec des bijoux : le guide couleur par Youm Paris",
-      "pin_description": "Tenue neutre, sombre ou colorée — chaque bijou joue un rôle précis. Pierres naturelles, laiton doré, galuchat : des pièces choisies pour transformer une tenue simple en look affirmé. Guide complet sur youm-paris.com",
-      "board": "Bijoux & Style au Quotidien",
+      "title": "Comment rehausser une tenue avec des bijoux — guide couleur & silhouette",
+      "pin_title": "Comment rehausser une tenue avec des bijoux — guide couleur & silhouette",
+      "pin_description": "Tenue sobre qui manque d'éclat ? Malachite sur fond crème, doré sur noir, agate bleue sur lin ivoire — le bon bijou change tout. Guide complet sur youm-paris.com",
+      "board": "Style & Bijoux",
       "dest_url": "https://youm-paris.com/blogs/articles/rehausser-tenue-avec-bijoux",
       "source": "output/youm_paris/blog/19-rehausser-tenue-avec-bijoux.html",
       "detail_page": "pinterest/cloudinary-images/rehausser-tenue-avec-bijoux-collage.html",
@@ -2194,9 +2250,9 @@ window.__MANIFEST__ = {
         }
       ],
       "filename": "pinterest/cloudinary-images/rehausser-tenue-avec-bijoux-collage.png",
-      "size_kb": 853.0,
+      "size_kb": 886.5,
       "created": "2026-07-23T00:40:19.135937",
-      "modified": "2026-07-23T00:40:19.136941"
+      "modified": "2026-07-27T21:07:47.266443"
     },
     {
       "id": "pinterest-lifestyle-bijoux-personnaliser-charms-pierres-naturelles",
@@ -2293,6 +2349,222 @@ window.__MANIFEST__ = {
       "size_kb": 1851.6,
       "created": "2026-07-24T16:07:06.501321",
       "modified": "2026-07-24T16:07:06.502325"
+    },
+    {
+      "id": "pinterest-collage-quel-bijou-original-porter-pour-sortir",
+      "source_type": "pinterest-collage",
+      "title": "Quel bijou original porter selon l'occasion ? Le guide Youm Paris",
+      "pin_title": "Quel bijou original porter selon l'occasion ? Le guide Youm Paris",
+      "pin_description": "Dîner, cocktail ou soirée entre amies : choisir le bon bijou change tout. Boucles pendantes en malachite, créoles asymétriques en aventurine, pièces en laiton doré à l'or fin 24 carats. Découvrez le guide sur youm-paris.com",
+      "board": "Bijoux & Tenues Soirée",
+      "dest_url": "https://youm-paris.com/blogs/articles/quel-bijou-original-porter-pour-sortir",
+      "source": "output/youm_paris/blog/22-quel-bijou-original-porter-pour-sortir.html",
+      "detail_page": "pinterest/cloudinary-images/quel-bijou-original-porter-pour-sortir-collage.html",
+      "count_label": "collage produits",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/quel-bijou-original-porter-pour-sortir-collage.png",
+          "headline": "Le bijou qui change tout",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/quel-bijou-original-porter-pour-sortir-collage.png",
+      "size_kb": 1259.5,
+      "created": "2026-07-27T21:09:13.681822",
+      "modified": "2026-07-27T21:09:13.682829"
+    },
+    {
+      "id": "pinterest-collage-entretien-bijoux-dores-garder-eclatants",
+      "source_type": "pinterest-collage",
+      "title": "Comment entretenir ses bijoux dorés à l'or fin 24 carats — guide complet",
+      "pin_title": "Comment entretenir ses bijoux dorés à l'or fin 24 carats — guide complet",
+      "pin_description": "Nettoyer, conserver et prolonger l'éclat de vos bijoux en laiton doré à l'or fin 24 carats : les bons gestes au quotidien, les erreurs à éviter, les pierres naturelles à traiter avec soin. Retrouvez le guide complet sur youm-paris.com",
+      "board": "Entretien Bijoux Dorés",
+      "dest_url": "https://youm-paris.com/blogs/articles/entretien-bijoux-dores-garder-eclatants",
+      "source": "output/youm_paris/blog/27-entretien-bijoux-dores-garder-eclatants.html",
+      "detail_page": "pinterest/cloudinary-images/entretien-bijoux-dores-garder-eclatants-collage.html",
+      "count_label": "collage produits",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/entretien-bijoux-dores-garder-eclatants-collage.png",
+          "headline": "Vos bijoux méritent mieux",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/entretien-bijoux-dores-garder-eclatants-collage.png",
+      "size_kb": 293.8,
+      "created": "2026-07-27T21:09:36.826508",
+      "modified": "2026-07-27T21:09:36.826508"
+    },
+    {
+      "id": "pinterest-collage-pourquoi-offrir-bijou-bonne-idee",
+      "source_type": "pinterest-collage",
+      "title": "Pourquoi offrir un bijou est toujours une bonne idée — guide cadeaux Youm Paris",
+      "pin_title": "Pourquoi offrir un bijou est toujours une bonne idée — guide cadeaux Youm Paris",
+      "pin_description": "Boucles d'oreilles, collier, bracelet doré : le bijou s'adapte à toutes les occasions et tous les styles. Nos repères pour choisir la pièce juste, sans se tromper. Découvrez le guide cadeaux sur youm-paris.com",
+      "board": "Idées Cadeaux Bijoux",
+      "dest_url": "https://youm-paris.com/blogs/articles/pourquoi-offrir-bijou-bonne-idee",
+      "source": "output/youm_paris/blog/52-pourquoi-offrir-bijou-bonne-idee.html",
+      "detail_page": "pinterest/cloudinary-images/pourquoi-offrir-bijou-bonne-idee-collage.html",
+      "count_label": "collage produits",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/pourquoi-offrir-bijou-bonne-idee-collage.png",
+          "headline": "Le cadeau qui ne rate jamais",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/pourquoi-offrir-bijou-bonne-idee-collage.png",
+      "size_kb": 233.7,
+      "created": "2026-07-27T21:10:16.483032",
+      "modified": "2026-07-27T21:10:16.483551"
+    },
+    {
+      "id": "pinterest-collage-pierres-vertes-bijouterie-symbolique-style",
+      "source_type": "pinterest-collage",
+      "title": "Malachite, aventurine, jaspe : quelle pierre verte choisir pour vos bijoux ?",
+      "pin_title": "Malachite, aventurine, jaspe : quelle pierre verte choisir pour vos bijoux ?",
+      "pin_description": "Trois pierres vertes, trois caractères différents. La malachite affirme, l'aventurine adoucit, le jaspe structure. Guide complet pour porter les pierres naturelles au quotidien. Boucles et bracelets sur youm-paris.com",
+      "board": "Pierres naturelles & bijoux",
+      "dest_url": "https://youm-paris.com/blogs/articles/pierres-vertes-bijouterie-symbolique-style",
+      "source": "output/youm_paris/blog/55-pierres-vertes-bijouterie-symbolique-style.html",
+      "detail_page": "pinterest/cloudinary-images/pierres-vertes-bijouterie-symbolique-style-collage.html",
+      "count_label": "collage produits",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/pierres-vertes-bijouterie-symbolique-style-collage.png",
+          "headline": "Quelle pierre verte vous ressemble ?",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/pierres-vertes-bijouterie-symbolique-style-collage.png",
+      "size_kb": 489.9,
+      "created": "2026-07-27T21:10:37.527759",
+      "modified": "2026-07-27T21:10:37.529283"
+    },
+    {
+      "id": "pinterest-collage-bijou-cadeau-femme-quel-bijou-offrir-selon-occasion",
+      "source_type": "pinterest-collage",
+      "title": "Quel bijou offrir ? Boucles, colliers et bracelets pour chaque occasion — Youm Paris",
+      "pin_title": "Quel bijou offrir ? Boucles, colliers et bracelets pour chaque occasion — Youm Paris",
+      "pin_description": "Anniversaire, Noël, fête des mères : trouver le bijou cadeau idéal entre 40 et 99€. Perles naturelles, galuchat, dorure à l'or fin 24 carats — des pièces artisanales pensées pour toucher juste. youm-paris.com",
+      "board": "Idées Cadeaux Bijoux",
+      "dest_url": "https://youm-paris.com/blogs/articles/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion",
+      "source": "output/youm_paris/blog/71-bijou-cadeau-femme-quel-bijou-offrir-selon-occasion.html",
+      "detail_page": "pinterest/cloudinary-images/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-collage.html",
+      "count_label": "collage produits",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-collage.png",
+          "headline": "Le bijou qui touche juste",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/bijou-cadeau-femme-quel-bijou-offrir-selon-occasion-collage.png",
+      "size_kb": 218.6,
+      "created": "2026-07-27T21:11:09.584849",
+      "modified": "2026-07-27T21:11:09.585353"
+    },
+    {
+      "id": "pinterest-collage-bijoux-dores-or-fin-guide-complet",
+      "source_type": "pinterest-collage",
+      "title": "Bijoux dorés à l'or fin 24 carats : tout ce qu'il faut savoir avant d'acheter",
+      "pin_title": "Bijoux dorés à l'or fin 24 carats : tout ce qu'il faut savoir avant d'acheter",
+      "pin_description": "Laiton doré 24 carats, dorure artisanale à Paris, pierres naturelles : comment reconnaître un bijou doré de qualité et bien choisir ses pièces du quotidien. Guide complet sur youm-paris.com",
+      "board": "Bijoux Dorés Artisanaux",
+      "dest_url": "https://youm-paris.com/blogs/articles/bijoux-dores-or-fin-guide",
+      "source": "output/youm_paris/blog/bijoux-dores-or-fin-guide-complet.html",
+      "detail_page": "pinterest/cloudinary-images/bijoux-dores-or-fin-guide-complet-collage.html",
+      "count_label": "collage produits",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/bijoux-dores-or-fin-guide-complet-collage.png",
+          "headline": "Or fin 24 carats : le guide",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/bijoux-dores-or-fin-guide-complet-collage.png",
+      "size_kb": 315.7,
+      "created": "2026-07-27T21:11:31.360446",
+      "modified": "2026-07-27T21:11:31.361448"
+    },
+    {
+      "id": "pinterest-collage-bijoux-mariage-perles-blanches-laiton-dore",
+      "source_type": "pinterest-collage",
+      "title": "Bijoux mariage : perles blanches et laiton doré à l'or fin 24 carats — guide complet",
+      "pin_title": "Bijoux mariage : perles blanches et laiton doré à l'or fin 24 carats — guide complet",
+      "pin_description": "Invitée, témoin ou mariée : comment choisir ses bijoux pour un mariage ? Perles naturelles et laiton doré à l'or fin 24 carats, assemblés à la main à Bruxelles, dorure réalisée à Paris. Élégance sobre et lumineuse pour toutes les silhouettes. Découvrez le guide sur youm-paris.com",
+      "board": "Bijoux Mariage Élégants",
+      "dest_url": "https://youm-paris.com/blogs/articles/bijoux-mariage-perles-blanches-laiton-dore",
+      "source": "output/youm_paris/blog/12-bijoux-mariage-perles-blanches-laiton-dore.html",
+      "detail_page": "pinterest/cloudinary-images/bijoux-mariage-perles-blanches-laiton-dore-collage.html",
+      "count_label": "collage produits",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/bijoux-mariage-perles-blanches-laiton-dore-collage.png",
+          "headline": "Bijoux mariage : le bon choix",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/bijoux-mariage-perles-blanches-laiton-dore-collage.png",
+      "size_kb": 198.9,
+      "created": "2026-07-27T21:11:59.442877",
+      "modified": "2026-07-27T21:11:59.442877"
+    },
+    {
+      "id": "pinterest-lifestyle-rehausser-tenue-avec-bijoux",
+      "source_type": "pinterest-lifestyle",
+      "title": "Comment rehausser une tenue sobre avec un bijou en pierre naturelle",
+      "pin_title": "Comment rehausser une tenue sobre avec un bijou en pierre naturelle",
+      "pin_description": "Une tenue beige, blanche ou en lin ivoire prend vie avec une seule pièce bien choisie. Boucles d'oreilles en agate bleue, malachite ou jaspe : le bon bijou change tout. Découvrez la collection sur youm-paris.com",
+      "board": "Bijoux & Style Quotidien",
+      "dest_url": "https://youm-paris.com/blogs/articles/rehausser-tenue-avec-bijoux",
+      "source": "output/youm_paris/blog/19-rehausser-tenue-avec-bijoux.html",
+      "detail_page": "pinterest/cloudinary-images/rehausser-tenue-avec-bijoux-lifestyle.html",
+      "count_label": "collage lifestyle",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/rehausser-tenue-avec-bijoux-lifestyle.png",
+          "headline": "Un bijou, tout change.",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/rehausser-tenue-avec-bijoux-lifestyle.png",
+      "size_kb": 1839.5,
+      "created": "2026-07-27T21:15:08.915170",
+      "modified": "2026-07-27T21:15:08.916177"
+    },
+    {
+      "id": "pinterest-lifestyle-pierres-naturelles-bijoux-uniques-artisanaux",
+      "source_type": "pinterest-lifestyle",
+      "title": "Malachite, quartz rose, amazonite : pourquoi chaque pierre naturelle est unique",
+      "pin_title": "Malachite, quartz rose, amazonite : pourquoi chaque pierre naturelle est unique",
+      "pin_description": "Veines, nuances, inclusions… chaque pierre naturelle raconte une histoire minérale que personne d'autre ne possède. Boucles d'oreilles artisanales serties à la main, dorées à l'or fin 24 carats. À découvrir sur youm-paris.com",
+      "board": "Bijoux Pierres Naturelles",
+      "dest_url": "https://youm-paris.com/blogs/articles/pierres-naturelles-bijoux-uniques-artisanaux",
+      "source": "output/youm_paris/blog/20-pierres-naturelles-bijoux-uniques-artisanaux.html",
+      "detail_page": "pinterest/cloudinary-images/pierres-naturelles-bijoux-uniques-artisanaux-lifestyle.html",
+      "count_label": "collage lifestyle",
+      "variants": [
+        {
+          "filename": "pinterest/cloudinary-images/pierres-naturelles-bijoux-uniques-artisanaux-lifestyle.png",
+          "headline": "Aucune pierre identique",
+          "width": 1000,
+          "height": 1500
+        }
+      ],
+      "filename": "pinterest/cloudinary-images/pierres-naturelles-bijoux-uniques-artisanaux-lifestyle.png",
+      "size_kb": 1743.3,
+      "created": "2026-07-27T21:15:45.396266",
+      "modified": "2026-07-27T21:15:45.397533"
     }
   ]
 };

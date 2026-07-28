@@ -1,0 +1,38 @@
+{
+  "pipeline": "cloudinary-pinterest-collage-youm",
+  "source": "output/youm_paris/blog/55-pierres-vertes-bijouterie-symbolique-style.html",
+  "pin_title": "Malachite, aventurine, jaspe : quelle pierre verte choisir pour vos bijoux ?",
+  "pin_description": "Trois pierres vertes, trois caractères différents. La malachite affirme, l'aventurine adoucit, le jaspe structure. Guide complet pour porter les pierres naturelles au quotidien. Boucles et bracelets sur youm-paris.com",
+  "board": "Pierres naturelles & bijoux",
+  "dest_url": "https://youm-paris.com/blogs/articles/pierres-vertes-bijouterie-symbolique-style",
+  "hook": "Quelle pierre verte vous ressemble ?",
+  "label": "",
+  "product_images": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-felix-pierre-perle-packshot-youm.jpg?v=1771523725",
+      "alt": "Boucles Félix malachite",
+      "public_id": "youm/pinterest-collage-products/pierres-vertes-bijouterie-symbolique-style-0-6e56c5203a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/jonc-theo-dore-malachite-packshot.jpg?v=1770394559",
+      "alt": "Jonc Théo malachite",
+      "public_id": "youm/pinterest-collage-products/pierres-vertes-bijouterie-symbolique-style-1-a27ee7eaa8"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-nina-doree-charms-packshot-411.jpg?v=1775648556",
+      "alt": "Créole Nina aventurine",
+      "public_id": "youm/pinterest-collage-products/pierres-vertes-bijouterie-symbolique-style-2-8676628d54"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/products/youm-creole-nina-doree-charm-pierre-portee-412..jpg?v=1775648590",
+      "alt": "Créole Nina aventurine portée",
+      "public_id": "youm/pinterest-collage-products/pierres-vertes-bijouterie-symbolique-style-3-04cebcb37a"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0529/7189/7018/files/boucles-oreilles-doris-jaspe-packshot-youm.jpg?v=1771518983",
+      "alt": "Boucles Doris jaspe",
+      "public_id": "youm/pinterest-collage-products/pierres-vertes-bijouterie-symbolique-style-4-fdf9e81e5b"
+    }
+  ],
+  "hosted_url": "https://res.cloudinary.com/dk9cfmueg/image/upload/w_1000,h_1500,c_fill/l_youm:pinterest-collage-products:pierres-vertes-bijouterie-symbolique-style-0-6e56c5203a,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pierres-vertes-bijouterie-symbolique-style-1-a27ee7eaa8,w_473,h_480,c_thumb,g_center/g_north,x_239,y_24,fl_layer_apply/l_youm:pinterest-collage-products:pierres-vertes-bijouterie-symbolique-style-2-8676628d54,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_510,fl_layer_apply/l_youm:pinterest-collage-products:pierres-vertes-bijouterie-symbolique-style-3-04cebcb37a,w_473,h_480,c_thumb,g_center/g_north,x_239,y_510,fl_layer_apply/l_youm:pinterest-collage-products:pierres-vertes-bijouterie-symbolique-style-4-fdf9e81e5b,w_473,h_480,c_thumb,g_center/g_north,x_-240,y_996,fl_layer_apply/l_text:Arial_32_bold:Quelle%20pierre%20verte%20vous%20ressemble%20%3F,co_rgb:1c1814,g_north,x_239,y_1216,w_433,c_fit/l_youm:logo-wordmark,w_150,c_scale,g_south_east,x_30,y_30/youm/instagram-bg.png"
+}
